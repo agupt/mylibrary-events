@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-07-12T07:00:26.976Z",
+  "generatedAt": "2026-07-12T16:02:17.256Z",
   "libraries": {
     "total": 16883,
-    "active": 141,
-    "detected": 1335,
+    "active": 447,
+    "detected": 1029,
     "none": 15407
   },
   "systems": {
     "total": 9234,
-    "active": 12,
-    "detected": 137,
+    "active": 41,
+    "detected": 108,
     "none": 9085
   },
   "byVendor": {
@@ -66,18 +66,18 @@
     {
       "state": "CA",
       "libraries": 1175,
-      "active": 87,
-      "detected": 246,
+      "active": 145,
+      "detected": 188,
       "zips": 2593,
-      "zipsNearActive": 148
+      "zipsNearActive": 275
     },
     {
       "state": "CO",
       "libraries": 269,
-      "active": 7,
-      "detected": 52,
+      "active": 34,
+      "detected": 25,
       "zips": 645,
-      "zipsNearActive": 12
+      "zipsNearActive": 66
     },
     {
       "state": "CT",
@@ -106,18 +106,18 @@
     {
       "state": "FL",
       "libraries": 539,
-      "active": 0,
-      "detected": 104,
+      "active": 6,
+      "detected": 98,
       "zips": 1473,
-      "zipsNearActive": 0
+      "zipsNearActive": 19
     },
     {
       "state": "GA",
       "libraries": 398,
-      "active": 0,
-      "detected": 32,
+      "active": 6,
+      "detected": 26,
       "zips": 952,
-      "zipsNearActive": 0
+      "zipsNearActive": 11
     },
     {
       "state": "GU",
@@ -138,18 +138,18 @@
     {
       "state": "IA",
       "libraries": 568,
-      "active": 0,
-      "detected": 3,
+      "active": 3,
+      "detected": 0,
       "zips": 1055,
-      "zipsNearActive": 0
+      "zipsNearActive": 6
     },
     {
       "state": "ID",
       "libraries": 149,
-      "active": 0,
-      "detected": 7,
+      "active": 7,
+      "detected": 0,
       "zips": 320,
-      "zipsNearActive": 0
+      "zipsNearActive": 16
     },
     {
       "state": "IL",
@@ -157,7 +157,7 @@
       "active": 0,
       "detected": 4,
       "zips": 1575,
-      "zipsNearActive": 0
+      "zipsNearActive": 2
     },
     {
       "state": "IN",
@@ -186,18 +186,18 @@
     {
       "state": "LA",
       "libraries": 337,
-      "active": 12,
-      "detected": 33,
+      "active": 19,
+      "detected": 26,
       "zips": 719,
-      "zipsNearActive": 20
+      "zipsNearActive": 30
     },
     {
       "state": "MA",
       "libraries": 458,
-      "active": 0,
-      "detected": 35,
+      "active": 3,
+      "detected": 32,
       "zips": 685,
-      "zipsNearActive": 0
+      "zipsNearActive": 5
     },
     {
       "state": "MD",
@@ -226,18 +226,18 @@
     {
       "state": "MI",
       "libraries": 647,
-      "active": 0,
-      "detected": 65,
+      "active": 13,
+      "detected": 52,
       "zips": 1159,
-      "zipsNearActive": 0
+      "zipsNearActive": 33
     },
     {
       "state": "MN",
       "libraries": 357,
-      "active": 0,
-      "detected": 54,
+      "active": 32,
+      "detected": 22,
       "zips": 992,
-      "zipsNearActive": 0
+      "zipsNearActive": 92
     },
     {
       "state": "MO",
@@ -274,10 +274,10 @@
     {
       "state": "NC",
       "libraries": 391,
-      "active": 0,
-      "detected": 80,
+      "active": 10,
+      "detected": 70,
       "zips": 1081,
-      "zipsNearActive": 0
+      "zipsNearActive": 21
     },
     {
       "state": "ND",
@@ -293,7 +293,7 @@
       "active": 0,
       "detected": 0,
       "zips": 620,
-      "zipsNearActive": 0
+      "zipsNearActive": 1
     },
     {
       "state": "NH",
@@ -325,7 +325,7 @@
       "active": 0,
       "detected": 4,
       "zips": 254,
-      "zipsNearActive": 0
+      "zipsNearActive": 1
     },
     {
       "state": "NY",
@@ -338,10 +338,10 @@
     {
       "state": "OH",
       "libraries": 721,
-      "active": 0,
-      "detected": 143,
+      "active": 42,
+      "detected": 101,
       "zips": 1416,
-      "zipsNearActive": 0
+      "zipsNearActive": 48
     },
     {
       "state": "OK",
@@ -378,10 +378,10 @@
     {
       "state": "RI",
       "libraries": 71,
-      "active": 0,
-      "detected": 13,
+      "active": 6,
+      "detected": 7,
       "zips": 90,
-      "zipsNearActive": 0
+      "zipsNearActive": 4
     },
     {
       "state": "SC",
@@ -410,10 +410,10 @@
     {
       "state": "TX",
       "libraries": 868,
-      "active": 0,
-      "detected": 74,
+      "active": 37,
+      "detected": 37,
       "zips": 2600,
-      "zipsNearActive": 0
+      "zipsNearActive": 148
     },
     {
       "state": "UT",
@@ -426,10 +426,10 @@
     {
       "state": "VA",
       "libraries": 364,
-      "active": 0,
-      "detected": 65,
+      "active": 16,
+      "detected": 49,
       "zips": 1214,
-      "zipsNearActive": 0
+      "zipsNearActive": 38
     },
     {
       "state": "VI",
@@ -450,10 +450,10 @@
     {
       "state": "WA",
       "libraries": 348,
-      "active": 0,
-      "detected": 132,
+      "active": 30,
+      "detected": 102,
       "zips": 716,
-      "zipsNearActive": 0
+      "zipsNearActive": 55
     },
     {
       "state": "WI",
@@ -474,10 +474,10 @@
     {
       "state": "WY",
       "libraries": 74,
-      "active": 0,
-      "detected": 3,
+      "active": 3,
+      "detected": 0,
       "zips": 195,
-      "zipsNearActive": 0
+      "zipsNearActive": 16
     }
   ],
   "topUncoveredSystems": [
@@ -645,14 +645,14 @@
   "zipAnalysis": {
     "total": 40979,
     "failures": 0,
-    "nearestIsActive": 257,
-    "nearestIsDetected": 3149,
+    "nearestIsActive": 964,
+    "nearestIsDetected": 2442,
     "nearestDistanceMiles": {
       "median": 2.0860216177145445,
       "p90": 9.968131461671662,
       "p99": 25.364223263245464,
       "max": 1815.9511109284065
     },
-    "elapsedMs": 235
+    "elapsedMs": 234
   }
 }

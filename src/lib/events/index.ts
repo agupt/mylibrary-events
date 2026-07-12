@@ -4,6 +4,7 @@ import { createBiblioCommonsProvider } from "./bibliocommons/provider";
 import { activeFeedsByVendor, getFeedEntry } from "./calendarFeeds";
 import type { DateRange, EventProvider } from "./eventProvider";
 import { createIcsProvider } from "./libcal/provider";
+import { createLibcalRssProvider } from "./libcal/rssProvider";
 
 const FETCH_TIMEOUT_MS = 10_000;
 
@@ -47,16 +48,22 @@ function createCompositeProvider(): EventProvider {
       systemKeys: new Set(Object.keys(activeFeedsByVendor("bibliocommons"))),
     },
     {
-      provider: createIcsProvider({
-        // LibCal and generic iCal feeds share the ICS adapter
-        feeds: { ...activeFeedsByVendor("libcal"), ...activeFeedsByVendor("ical") },
+      // LibCal RSS month feeds: structured audiences + branch campus
+      provider: createLibcalRssProvider({
+        feeds: activeFeedsByVendor("libcal"),
         fetchText,
         findLibraryById,
       }),
-      systemKeys: new Set([
-        ...Object.keys(activeFeedsByVendor("libcal")),
-        ...Object.keys(activeFeedsByVendor("ical")),
-      ]),
+      systemKeys: new Set(Object.keys(activeFeedsByVendor("libcal"))),
+    },
+    {
+      // Generic iCalendar exports from any other source
+      provider: createIcsProvider({
+        feeds: activeFeedsByVendor("ical"),
+        fetchText,
+        findLibraryById,
+      }),
+      systemKeys: new Set(Object.keys(activeFeedsByVendor("ical"))),
     },
   ];
 

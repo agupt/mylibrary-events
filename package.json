@@ -15,7 +15,9 @@
     "data:zips": "node scripts/importZipCodes.mjs",
     "data:import": "npm run data:libraries && npm run data:zips",
     "data:discover": "node scripts/discoverFeeds.mjs",
-    "coverage": "node scripts/coverageHarness.mjs"
+    "coverage": "node scripts/coverageHarness.mjs",
+    "data:activate": "node scripts/activateLibcalFeeds.mjs",
+    "data:verify": "node scripts/verifyDiscoveredFeeds.mjs"
   },
   "dependencies": {
     "fast-xml-parser": "^5.10.0",

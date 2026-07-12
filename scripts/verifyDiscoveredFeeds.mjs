@@ -48,9 +48,13 @@ function titleOk(title, systemName) {
 }
 
 function probeUrl(entry) {
-  if (entry.url) return entry.url;
-  const slug = entry.note?.match(/([a-z0-9-]+)\.libcal\.com/)?.[1];
-  return slug ? `https://${slug}.libcal.com/` : null;
+  // LibCal identity lives on the instance homepage — the ical_subscribe
+  // URL returns ICS with no <title>, so always probe the homepage.
+  if (entry.vendor === "libcal") {
+    const slug = (entry.url ?? entry.note ?? "").match(/([a-z0-9-]+)\.libcal\.com/)?.[1];
+    return slug ? `https://${slug}.libcal.com/` : null;
+  }
+  return entry.url ?? null;
 }
 
 const entries = Object.entries(feeds);

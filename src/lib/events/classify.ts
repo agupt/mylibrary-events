@@ -16,6 +16,13 @@ export function mapAudiencesToAgeGroups(audiences: string[]): AgeGroup[] | null 
   const groups = new Set<AgeGroup>();
   for (const raw of audiences) {
     const audience = raw.toLowerCase();
+    // Numeric ranges are the most precise signal — "Children Ages 0-5"
+    // means baby–preschool, not school-age.
+    const fromRange = ageGroupsFromRange(audience);
+    if (fromRange) {
+      for (const group of fromRange) groups.add(group);
+      continue;
+    }
     if (/\bbab(y|ies)\b|\binfant/.test(audience)) {
       groups.add("baby");
     } else if (/toddler/.test(audience)) {
@@ -37,14 +44,42 @@ export function mapAudiencesToAgeGroups(audiences: string[]): AgeGroup[] | null 
   return groups.size > 0 ? [...groups].sort() : null;
 }
 
+const AGE_GROUP_BOUNDS: Array<{ group: AgeGroup; minYears: number; maxYears: number }> = [
+  { group: "baby", minYears: 0, maxYears: 1.5 },
+  { group: "toddler", minYears: 1.5, maxYears: 3 },
+  { group: "preschool", minYears: 3, maxYears: 5 },
+  { group: "school-age", minYears: 5, maxYears: 12 },
+];
+
+/**
+ * Maps a numeric age range ("Ages 0-5", "Children 3 to 8") onto the age
+ * groups it overlaps. Returns null when no range is present.
+ */
+export function ageGroupsFromRange(text: string): AgeGroup[] | null {
+  const match = text.match(/(\d{1,2})\s*(?:-|–|to)\s*(\d{1,2})/);
+  if (!match) return null;
+  const min = Number(match[1]);
+  const max = Number(match[2]);
+  if (min > max || max > 25) return null;
+  const groups = AGE_GROUP_BOUNDS.filter(
+    (bound) => min < bound.maxYears && max > bound.minYears,
+  ).map((bound) => bound.group);
+  return groups.length > 0 ? groups : null;
+}
+
 /**
  * Infers age groups from free text (title + categories) for feeds that
- * carry no structured audience data (e.g. LibCal iCal). Returns null for
- * clearly teen/adult-only events; defaults to all-ages when nothing
- * matches.
+ * carry no structured audience data (e.g. generic iCal). Numeric age
+ * ranges win over keywords ("Children Ages 0-5" means baby–preschool,
+ * not school-age). Returns null for clearly teen/adult-only events;
+ * defaults to all-ages when nothing matches.
  */
 export function inferAgeGroupsFromText(text: string): AgeGroup[] | null {
   const haystack = text.toLowerCase();
+  const fromRange = ageGroupsFromRange(haystack);
+  if (fromRange) {
+    return [...fromRange].sort();
+  }
   const groups = new Set<AgeGroup>();
   if (/\bbab(y|ies)\b|\binfant|lapsit/.test(haystack)) groups.add("baby");
   if (/toddler/.test(haystack)) groups.add("toddler");

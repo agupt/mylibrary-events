@@ -8,22 +8,24 @@
  "AZ0031": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: chandlerlibrary.libcal.com — needs calendar id"
+  "note": "discovered: chandlerlibrary.libcal.com \u2014 needs calendar id"
  },
  "CA0011": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: berkeley.libcal.com — needs calendar id"
+  "note": "discovered: berkeley.libcal.com \u2014 needs calendar id"
  },
  "CA0009": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: placer.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://placer.libcal.com/rss.php?m=month&cid=22320",
+  "note": "auto-activated: placer.libcal.com cal 22320 \"Auburn Library\" (5 events at activation) | migrated to RSS month feed (1 upcoming items)"
  },
  "CA0007": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: anaheim.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://anaheim.libcal.com/rss.php?m=month&cid=22413",
+  "note": "auto-activated: anaheim.libcal.com cal 22413 \"Haskett Branch\" (96 events at activation) | migrated to RSS month feed (33 upcoming items)"
  },
  "AZ0082": {
   "vendor": "bibliocommons",
@@ -33,633 +35,660 @@
  },
  "CA0046": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: hbpl.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://hbpl.libcal.com/rss.php?m=month&cid=5188",
+  "note": "auto-activated: hbpl.libcal.com cal 5188 \"Events Calendar\" (500 events at activation) | migrated to RSS month feed (90 upcoming items)"
  },
  "CA0085": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: orangepubliclibrary.libcal.com — needs calendar id"
+  "note": "discovered: orangepubliclibrary.libcal.com \u2014 needs calendar id"
  },
  "CA0084": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: ocpl.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://ocpl.libcal.com/rss.php?m=month&cid=19125",
+  "note": "auto-activated: ocpl.libcal.com cal 19125 \"Aliso Viejo\" (164 events at activation) | migrated to RSS month feed (44 upcoming items)"
  },
  "CA0117": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: sanleandro.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://sanleandro.libcal.com/rss.php?m=month&cid=14130",
+  "note": "auto-activated: sanleandro.libcal.com cal 14130 \"Library Events\" (43 events at activation) | migrated to RSS month feed (17 upcoming items)"
  },
  "CA0102": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: richmondpubliclibrary.libcal.com — needs calendar id"
+  "note": "demoted, collision: richmondpubliclibrary.libcal.com identity ambiguous (CA vs VA) \u2014 needs manual confirmation (richmondpubliclibrary.libcal.com)"
  },
  "CA0082": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: oceansidelibrary.libcal.com — needs calendar id"
+  "note": "discovered: oceansidelibrary.libcal.com \u2014 needs calendar id"
  },
  "CA0112": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: sdcl.libcal.com — needs calendar id"
+  "note": "discovered: sdcl.libcal.com \u2014 needs calendar id"
  },
  "CA0135": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: siskiyou.libcal.com — needs calendar id"
+  "note": "discovered: siskiyou.libcal.com \u2014 needs calendar id"
  },
  "CA0103": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: riversidelibrary.libcal.com — needs calendar id"
+  "note": "discovered: riversidelibrary.libcal.com \u2014 needs calendar id"
  },
  "CA0125": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: sccl.libcal.com — needs calendar id"
+  "note": "discovered: sccl.libcal.com \u2014 needs calendar id"
  },
  "CA0106": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: salinaslibrary.libcal.com — needs calendar id"
+  "note": "discovered: salinaslibrary.libcal.com \u2014 needs calendar id"
  },
  "CA0199": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: riversidelibrary.libcal.com — needs calendar id"
+  "note": "discovered: riversidelibrary.libcal.com \u2014 needs calendar id"
  },
  "CA0244": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: riversidelibrary.libcal.com — needs calendar id"
+  "note": "discovered: riversidelibrary.libcal.com \u2014 needs calendar id"
  },
  "CO0049": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: gcpld.libcal.com — needs calendar id"
+  "note": "discovered: gcpld.libcal.com \u2014 needs calendar id"
  },
  "CO0145": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: highplains.libcal.com — needs calendar id"
+  "note": "discovered: highplains.libcal.com \u2014 needs calendar id"
  },
  "CO0034": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: denverlibrary.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://denverlibrary.libcal.com/rss.php?m=month&cid=20634",
+  "note": "auto-activated: denverlibrary.libcal.com cal 20634 \"Programming, Events, & Workshops\" (500 events at activation) | migrated to RSS month feed (300 upcoming items)"
  },
  "CT0063": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: greenwichlibrary.libcal.com — needs calendar id"
+  "note": "discovered: greenwichlibrary.libcal.com \u2014 needs calendar id"
  },
  "CO0115": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: summitlibrary.libcal.com — needs calendar id"
+  "note": "discovered: summitlibrary.libcal.com \u2014 needs calendar id"
  },
  "FL0001": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: mcpls.libcal.com — needs calendar id"
+  "note": "discovered: mcpls.libcal.com \u2014 needs calendar id"
  },
  "FL0003": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: jpl.libcal.com — needs calendar id"
+  "note": "discovered: jpl.libcal.com \u2014 needs calendar id"
  },
  "CT0072": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: hamdenlibrary.libcal.com — needs calendar id"
+  "note": "discovered: hamdenlibrary.libcal.com \u2014 needs calendar id"
  },
  "FL0035": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: hcplc.libcal.com — needs calendar id"
+  "note": "discovered: hcplc.libcal.com \u2014 needs calendar id"
  },
  "FL0046": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: manateelibrary.libcal.com — needs calendar id"
+  "note": "discovered: manateelibrary.libcal.com \u2014 needs calendar id"
  },
  "FL0136": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: pplcs.libcal.com — needs calendar id"
+  "note": "discovered: pplcs.libcal.com \u2014 needs calendar id"
  },
  "FL0099": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: volusialibrary.libcal.com — needs calendar id"
+  "note": "discovered: volusialibrary.libcal.com \u2014 needs calendar id"
  },
  "FL0109": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: osceolalibrary.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://osceolalibrary.libcal.com/rss.php?m=month&cid=18086",
+  "note": "auto-activated: osceolalibrary.libcal.com cal 18086 \"Buenaventura Lakes Library\" (500 events at activation) | migrated to RSS month feed (52 upcoming items)"
  },
  "FL0146": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: sumterlibrary.libcal.com — needs calendar id"
+  "note": "discovered: sumterlibrary.libcal.com \u2014 needs calendar id"
  },
  "GA0012": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: clayton.libcal.com — needs calendar id"
+  "note": "discovered: clayton.libcal.com \u2014 needs calendar id"
  },
  "FL8005": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: nassaulibrary.libcal.com — needs calendar id"
+  "note": "discovered: nassaulibrary.libcal.com \u2014 needs calendar id"
  },
  "GA0029": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: houstonlibrary.libcal.com — needs calendar id"
+  "note": "demoted, collision: houstonlibrary.libcal.com is Houston TX (houstonlibrary.org) \u2014 needs manual confirmation (houstonlibrary.libcal.com)"
  },
  "GA0045": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: tcpls.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://tcpls.libcal.com/rss.php?m=month&cid=21385",
+  "note": "auto-activated: tcpls.libcal.com cal 21385 \"Thomas County Public Library System\" (104 events at activation) | migrated to RSS month feed (31 upcoming items)"
  },
  "IA0355": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: davenportlibrary.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://davenportlibrary.libcal.com/rss.php?m=month&cid=11101",
+  "note": "auto-activated: davenportlibrary.libcal.com cal 11101 \"Community Outreach & Off-Site Events\" (52 events at activation) | migrated to RSS month feed (16 upcoming items)"
  },
  "ID0120": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: communitylibrary.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://communitylibrary.libcal.com/rss.php?m=month&cid=17809",
+  "note": "auto-activated: communitylibrary.libcal.com cal 17809 \"Community Library Network\" (14 events at activation) | migrated to RSS month feed (1 upcoming items)"
  },
  "IL0555": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: warrenlibrary.libcal.com — needs calendar id"
+  "note": "discovered: warrenlibrary.libcal.com \u2014 needs calendar id"
  },
  "IN0069": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: mphpl.libcal.com — needs calendar id"
+  "note": "discovered: mphpl.libcal.com \u2014 needs calendar id"
  },
  "KY0056": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: kentonlibrary.libcal.com — needs calendar id"
+  "note": "discovered: kentonlibrary.libcal.com \u2014 needs calendar id"
  },
  "KY0109": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: warrenlibrary.libcal.com — needs calendar id"
+  "note": "discovered: warrenlibrary.libcal.com \u2014 needs calendar id"
  },
  "LA0043": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: stmaryparishlibrary.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://stmaryparishlibrary.libcal.com/rss.php?m=month&cid=21998",
+  "note": "auto-activated: stmaryparishlibrary.libcal.com cal 21998 \"Amelia Branch\" (24 events at activation) | migrated to RSS month feed (5 upcoming items)"
  },
  "MA0035": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: bpl.libcal.com — needs calendar id"
+  "note": "discovered: bpl.libcal.com \u2014 needs calendar id"
  },
  "MA0044": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: brocktonpubliclibrary.libcal.com — needs calendar id"
+  "note": "discovered: brocktonpubliclibrary.libcal.com \u2014 needs calendar id"
  },
  "LA0055": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: ebrpl.libcal.com — needs calendar id"
+  "note": "discovered: ebrpl.libcal.com \u2014 needs calendar id"
  },
  "LA0053": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: calcasieulibrary.libcal.com — needs calendar id"
+  "note": "discovered: calcasieulibrary.libcal.com \u2014 needs calendar id"
  },
  "MA0046": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: brooklinelibrary.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://brooklinelibrary.libcal.com/rss.php?m=month&cid=20102",
+  "note": "auto-activated: brooklinelibrary.libcal.com cal 20102 \"Public Library of Brookline Events\" (461 events at activation) | migrated to RSS month feed (100 upcoming items)"
  },
  "MA0008": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: joneslibrary.libcal.com — needs calendar id"
+  "note": "discovered: joneslibrary.libcal.com \u2014 needs calendar id"
  },
  "MI0200": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: livonia.libcal.com — needs calendar id"
+  "note": "discovered: livonia.libcal.com \u2014 needs calendar id"
  },
  "MI0131": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: grpl.libcal.com — needs calendar id"
+  "note": "discovered: grpl.libcal.com \u2014 needs calendar id"
  },
  "MI0182": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: kdl.libcal.com — needs calendar id"
+  "note": "discovered: kdl.libcal.com \u2014 needs calendar id"
  },
  "MI0240": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: madl.libcal.com — needs calendar id"
+  "note": "discovered: madl.libcal.com \u2014 needs calendar id"
  },
  "MI0424": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: cadl.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://cadl.libcal.com/rss.php?m=month&cid=19174",
+  "note": "auto-activated: cadl.libcal.com cal 19174 \"CADL Events and Programs\" (500 events at activation) | migrated to RSS month feed (300 upcoming items)"
  },
  "MI0310": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: communitylibrary.libcal.com — needs calendar id"
+  "note": "demoted, collision: communitylibrary.libcal.com is Community Library Network, ID \u2014 needs manual confirmation (communitylibrary.libcal.com)"
  },
  "MN0039": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: dakotacountylibrary.libcal.com — needs calendar id"
+  "note": "discovered: dakotacountylibrary.libcal.com \u2014 needs calendar id"
  },
  "MI0356": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: warrenlibrary.libcal.com — needs calendar id"
+  "note": "discovered: warrenlibrary.libcal.com \u2014 needs calendar id"
  },
  "MN0032": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: grrl.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://grrl.libcal.com/rss.php?m=month&cid=18245",
+  "note": "auto-activated: grrl.libcal.com cal 18245 \"Albany Public Library Events\" (8 events at activation) | migrated to RSS month feed (4 upcoming items)"
  },
  "MN0044": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: sppl.libcal.com — needs calendar id"
+  "note": "discovered: sppl.libcal.com \u2014 needs calendar id"
  },
  "MO0110": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: christiancountylibrary.libcal.com — needs calendar id"
+  "note": "discovered: christiancountylibrary.libcal.com \u2014 needs calendar id"
  },
  "MO0137": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: reynolds.libcal.com — needs calendar id"
+  "note": "discovered: reynolds.libcal.com \u2014 needs calendar id"
  },
  "MO0128": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: riversidelibrary.libcal.com — needs calendar id"
+  "note": "discovered: riversidelibrary.libcal.com \u2014 needs calendar id"
  },
  "NC0006": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: cprl.libcal.com — needs calendar id"
+  "note": "discovered: cprl.libcal.com \u2014 needs calendar id"
  },
  "NC0015": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: srls.libcal.com — needs calendar id"
+  "note": "discovered: srls.libcal.com \u2014 needs calendar id"
  },
  "NC0011": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: nantahalalibrary.libcal.com — needs calendar id"
+  "note": "discovered: nantahalalibrary.libcal.com \u2014 needs calendar id"
  },
  "NC0012": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: neuselibrary.libcal.com — needs calendar id"
+  "note": "discovered: neuselibrary.libcal.com \u2014 needs calendar id"
  },
  "NC0037": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: harnett.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://harnett.libcal.com/rss.php?m=month&cid=5354",
+  "note": "auto-activated: harnett.libcal.com cal 5354 \"Upcoming Events\" (500 events at activation) | migrated to RSS month feed (179 upcoming items)"
  },
  "NC0022": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: ccpl.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://ccpl.libcal.com/rss.php?m=month&cid=1362",
+  "note": "auto-activated: ccpl.libcal.com cal 1362 \"Library Programs\" (472 events at activation) | migrated to RSS month feed (141 upcoming items)"
  },
  "NC0030": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: durhamcountylibrary.libcal.com — needs calendar id"
+  "note": "discovered: durhamcountylibrary.libcal.com \u2014 needs calendar id"
  },
  "NC0039": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: henderson.libcal.com — needs calendar id"
+  "note": "discovered: henderson.libcal.com \u2014 needs calendar id"
  },
  "NC0047": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: nhcpl.libcal.com — needs calendar id"
+  "note": "discovered: nhcpl.libcal.com \u2014 needs calendar id"
  },
  "NC0035": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: greensborolibrary.libcal.com — needs calendar id"
+  "note": "discovered: greensborolibrary.libcal.com \u2014 needs calendar id"
  },
  "NC0057": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: sampsonclintonpubliclibrary.libcal.com — needs calendar id"
+  "note": "discovered: sampsonclintonpubliclibrary.libcal.com \u2014 needs calendar id"
  },
  "NC0038": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: haywoodlibrary.libcal.com — needs calendar id"
+  "note": "discovered: haywoodlibrary.libcal.com \u2014 needs calendar id"
  },
  "NC0050": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: sheppardlibrary.libcal.com — needs calendar id"
+  "note": "discovered: sheppardlibrary.libcal.com \u2014 needs calendar id"
  },
  "NJ0122": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: npl.libcal.com — needs calendar id"
+  "note": "discovered: npl.libcal.com \u2014 needs calendar id"
  },
  "NV0012": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: henderson.libcal.com — needs calendar id"
+  "note": "discovered: henderson.libcal.com \u2014 needs calendar id"
  },
  "NY0348": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: greatnecklibrary.libcal.com — needs calendar id"
+  "note": "discovered: greatnecklibrary.libcal.com \u2014 needs calendar id"
  },
  "NJ0306": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: warrenlibrary.libcal.com — needs calendar id"
+  "note": "discovered: warrenlibrary.libcal.com \u2014 needs calendar id"
  },
  "OH0051": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: cpl.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://cpl.libcal.com/rss.php?m=month&cid=8758",
+  "note": "auto-activated: cpl.libcal.com cal 8758 \"Public calendar\" (500 events at activation) | migrated to RSS month feed (300 upcoming items)"
  },
  "OH0063": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: daytonmetrolibrary.libcal.com — needs calendar id"
+  "note": "discovered: daytonmetrolibrary.libcal.com \u2014 needs calendar id"
  },
  "OH0046": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: geaugalibrary.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://geaugalibrary.libcal.com/rss.php?m=month&cid=9901",
+  "note": "auto-activated: geaugalibrary.libcal.com cal 9901 \"Public Events\" (500 events at activation) | migrated to RSS month feed (190 upcoming items)"
  },
  "OH0039": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: starklibrary.libcal.com — needs calendar id"
+  "note": "discovered: starklibrary.libcal.com \u2014 needs calendar id"
  },
  "OH0049": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: cincinnatilibrary.libcal.com — needs calendar id"
+  "note": "discovered: cincinnatilibrary.libcal.com \u2014 needs calendar id"
  },
  "OH0125": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: lorainpubliclibrary.libcal.com — needs calendar id"
+  "note": "discovered: lorainpubliclibrary.libcal.com \u2014 needs calendar id"
  },
  "OH0141": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: mcdl.libcal.com — needs calendar id"
+  "note": "discovered: mcdl.libcal.com \u2014 needs calendar id"
  },
  "OH0077": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: elyrialibrary.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://elyrialibrary.libcal.com/rss.php?m=month&cid=11384",
+  "note": "auto-activated: elyrialibrary.libcal.com cal 11384 \"Public Calendar\" (269 events at activation) | migrated to RSS month feed (111 upcoming items)"
  },
  "OH0101": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: highlandlibrary.libcal.com — needs calendar id"
+  "note": "discovered: highlandlibrary.libcal.com \u2014 needs calendar id"
  },
  "OH0158": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: perrylibrary.libcal.com — needs calendar id"
+  "note": "discovered: perrylibrary.libcal.com \u2014 needs calendar id"
  },
  "OH0216": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: tmcpl.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://tmcpl.libcal.com/rss.php?m=month&cid=17649",
+  "note": "auto-activated: tmcpl.libcal.com cal 17649 \"Troy-Miami County Public Library Events\" (317 events at activation) | migrated to RSS month feed (83 upcoming items)"
  },
  "OR0005": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: eugene.libcal.com — needs calendar id"
+  "note": "discovered: eugene.libcal.com \u2014 needs calendar id"
  },
  "OH0247": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: greenelibrary.libcal.com — needs calendar id"
+  "note": "discovered: greenelibrary.libcal.com \u2014 needs calendar id"
  },
  "OR0041": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: jcls.libcal.com — needs calendar id"
+  "note": "discovered: jcls.libcal.com \u2014 needs calendar id"
  },
  "OK0093": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: tulsalibrary.libcal.com — needs calendar id"
+  "note": "discovered: tulsalibrary.libcal.com \u2014 needs calendar id"
  },
  "PA0222": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: dcls.libcal.com — needs calendar id"
+  "note": "discovered: dcls.libcal.com \u2014 needs calendar id"
  },
  "PA0042": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: carnegielibrary.libcal.com — needs calendar id"
+  "note": "discovered: carnegielibrary.libcal.com \u2014 needs calendar id"
  },
  "PA0448": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: lmls.libcal.com — needs calendar id"
+  "note": "discovered: lmls.libcal.com \u2014 needs calendar id"
  },
  "SC0006": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: berkeley.libcal.com — needs calendar id"
+  "note": "discovered: berkeley.libcal.com \u2014 needs calendar id"
  },
  "SC0012": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: chesterfield.libcal.com — needs calendar id"
+  "note": "discovered: chesterfield.libcal.com \u2014 needs calendar id"
  },
  "RI0043": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: skpl.libcal.com — needs calendar id"
+  "note": "discovered: skpl.libcal.com \u2014 needs calendar id"
  },
  "RI0010": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: cranstonlibrary.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://cranstonlibrary.libcal.com/rss.php?m=month&cid=15394",
+  "note": "auto-activated: cranstonlibrary.libcal.com cal 15394 \"CPL Events and Programs\" (404 events at activation) | migrated to RSS month feed (132 upcoming items)"
  },
  "SC0023": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: kershawcountylibrary.libcal.com — needs calendar id"
+  "note": "discovered: kershawcountylibrary.libcal.com \u2014 needs calendar id"
  },
  "RI0046": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: warwicklibrary.libcal.com — needs calendar id"
+  "note": "discovered: warwicklibrary.libcal.com \u2014 needs calendar id"
  },
  "SC0004": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: andersonlibrary.libcal.com — needs calendar id"
+  "note": "discovered: andersonlibrary.libcal.com \u2014 needs calendar id"
  },
  "SC0037": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: sumterlibrary.libcal.com — needs calendar id"
+  "note": "discovered: sumterlibrary.libcal.com \u2014 needs calendar id"
  },
  "TX0101": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: hcpl.libcal.com — needs calendar id"
+  "note": "discovered: hcpl.libcal.com \u2014 needs calendar id"
  },
  "TX0099": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: houstonlibrary.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://houstonlibrary.libcal.com/rss.php?m=month&cid=15272",
+  "note": "auto-activated: houstonlibrary.libcal.com cal 15272 \"Events\" (500 events at activation) | migrated to RSS month feed (300 upcoming items)"
  },
  "TX0109": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: irvinglibrary.libcal.com — needs calendar id"
+  "note": "discovered: irvinglibrary.libcal.com \u2014 needs calendar id"
  },
  "TX0216": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: beaumontlibrary.libcal.com — needs calendar id"
+  "note": "discovered: beaumontlibrary.libcal.com \u2014 needs calendar id"
  },
  "VA0018": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: chesterfield.libcal.com — needs calendar id"
+  "note": "discovered: chesterfield.libcal.com \u2014 needs calendar id"
  },
  "UT0051": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: summitlibrary.libcal.com — needs calendar id"
+  "note": "discovered: summitlibrary.libcal.com \u2014 needs calendar id"
  },
  "VA0054": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: norfolk.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://norfolk.libcal.com/rss.php?m=month&cid=18713",
+  "note": "auto-activated: norfolk.libcal.com cal 18713 \"Youth Services Programs\" (500 events at activation) | migrated to RSS month feed (300 upcoming items)"
  },
  "VA0007": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: bedfordlibrary.libcal.com — needs calendar id"
+  "note": "discovered: bedfordlibrary.libcal.com \u2014 needs calendar id"
  },
  "VA0040": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: jmrl.libcal.com — needs calendar id"
+  "note": "discovered: jmrl.libcal.com \u2014 needs calendar id"
  },
  "VA0051": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: mfrl.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://mfrl.libcal.com/rss.php?m=month&cid=14968",
+  "note": "auto-activated: mfrl.libcal.com cal 14968 \"Montgomery-Floyd Regional Library Events\" (500 events at activation) | migrated to RSS month feed (168 upcoming items)"
  },
  "VA0056": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: ocpl.libcal.com — needs calendar id"
+  "note": "demoted, collision: ocpl.libcal.com is Orange County CA (calendars named Aliso Viejo) \u2014 needs manual confirmation (ocpl.libcal.com)"
  },
  "VA0053": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: nnpls.libcal.com — needs calendar id"
+  "note": "discovered: nnpls.libcal.com \u2014 needs calendar id"
  },
  "VA0068": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: richmondpubliclibrary.libcal.com — needs calendar id"
+  "note": "demoted, collision: richmondpubliclibrary.libcal.com identity ambiguous (CA vs VA) \u2014 needs manual confirmation (richmondpubliclibrary.libcal.com)"
  },
  "VA0057": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: pamunkeylibrary.libcal.com — needs calendar id"
+  "note": "discovered: pamunkeylibrary.libcal.com \u2014 needs calendar id"
  },
  "WA0050": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: bellinghampubliclibrary.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://bellinghampubliclibrary.libcal.com/rss.php?m=month&cid=20512",
+  "note": "auto-activated: bellinghampubliclibrary.libcal.com cal 20512 \"BPL Events Calendar\" (222 events at activation) | migrated to RSS month feed (82 upcoming items)"
  },
  "WA0041": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: pocld.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://pocld.libcal.com/rss.php?m=month&cid=21837",
+  "note": "auto-activated: pocld.libcal.com cal 21837 \"Calispel Valley\" (307 events at activation) | migrated to RSS month feed (50 upcoming items)"
  },
  "WA0065": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: snoisle.libcal.com — needs calendar id"
+  "note": "discovered: snoisle.libcal.com \u2014 needs calendar id"
  },
  "WA0057": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: wcls.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://wcls.libcal.com/rss.php?m=month&cid=5625",
+  "note": "auto-activated: wcls.libcal.com cal 5625 \"WCLS Event Calendar\" (500 events at activation) | migrated to RSS month feed (300 upcoming items)"
  },
  "WA0064": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: spl.libcal.com — needs calendar id"
+  "note": "discovered: spl.libcal.com \u2014 needs calendar id"
  },
  "WA0060": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: krl.libcal.com — needs calendar id"
+  "note": "discovered: krl.libcal.com \u2014 needs calendar id"
  },
  "WA0066": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: scld.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://scld.libcal.com/rss.php?m=month&cid=19016",
+  "note": "auto-activated: scld.libcal.com cal 19016 \"Events\" (500 events at activation) | migrated to RSS month feed (285 upcoming items)"
  },
  "WA0068": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: tacomapubliclibrary.libcal.com — needs calendar id"
+  "note": "discovered: tacomapubliclibrary.libcal.com \u2014 needs calendar id"
  },
  "WA0069": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: trl.libcal.com — needs calendar id"
+  "note": "discovered: trl.libcal.com \u2014 needs calendar id"
  },
  "WA0067": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: spokanelibrary.libcal.com — needs calendar id"
+  "note": "discovered: spokanelibrary.libcal.com \u2014 needs calendar id"
  },
  "WV0071": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: mcdowellpubliclibrary.libcal.com — needs calendar id"
+  "note": "discovered: mcdowellpubliclibrary.libcal.com \u2014 needs calendar id"
  },
  "WY0004": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: lcls.libcal.com — needs calendar id"
+  "status": "active",
+  "url": "https://lcls.libcal.com/rss.php?m=month&cid=22399",
+  "note": "auto-activated: lcls.libcal.com cal 22399 \"Early Literacy Classes\" (336 events at activation) | migrated to RSS month feed (35 upcoming items)"
  },
  "CA0130": {
   "vendor": "bibliocommons",

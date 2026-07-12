@@ -5,7 +5,7 @@
   "CA0091": { "vendor": "bibliocommons", "status": "active", "url": "https://paloalto.bibliocommons.com/events/rss/all" },
   "CA0120": { "vendor": "bibliocommons", "status": "active", "url": "https://smcl.bibliocommons.com/events/rss/all" },
   "CA0126": { "vendor": "bibliocommons", "status": "active", "url": "https://sccl.bibliocommons.com/events/rss/all" },
-  "CA0076": { "vendor": "libcal", "status": "active", "url": "https://mountainview.libcal.com/ical_subscribe.php?src=p&cid=8800", "note": "Library Events Calendar (cal 8800)" },
+  "CA0076": { "vendor": "libcal", "status": "active", "url": "https://mountainview.libcal.com/rss.php?m=month&cid=8800", "note": "Library Events Calendar (cal 8800)" },
   "CA0114": { "vendor": "libcal", "status": "detected", "note": "sfpl.libcal.com — needs calendar id" },
   "CA0143": { "vendor": "libcal", "status": "detected", "note": "sunnyvale.libcal.com — needs calendar id" }
 }
