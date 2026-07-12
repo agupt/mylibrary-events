@@ -1,9 +1,8 @@
 import type { Library, StorytimeEvent } from "../../types";
 import type { DateRange, EventProvider } from "../eventProvider";
-import { classifyEventType, mapAudiencesToAgeGroups } from "./classify";
+import { classifyEventType, mapAudiencesToAgeGroups } from "../classify";
+import { createFeedCache } from "../feedCache";
 import { parseBcFeed, type BcFeedEvent } from "./parseFeed";
-
-const DEFAULT_CACHE_TTL_MS = 15 * 60 * 1000;
 
 export interface BcProviderDeps {
   /** feedUrl by system key (the FSCSKEY portion of a library id). */
@@ -73,30 +72,11 @@ function toStorytimeEvent(
  * outlet record. Feeds are cached in-memory per URL.
  */
 export function createBiblioCommonsProvider(deps: BcProviderDeps): EventProvider {
-  const cacheTtlMs = deps.cacheTtlMs ?? DEFAULT_CACHE_TTL_MS;
-  const now = deps.now ?? Date.now;
-  // Caches the in-flight promise (not the resolved value) so concurrent
-  // requests for branches of the same system share one fetch.
-  const cache = new Map<
-    string,
-    { fetchedAt: number; events: Promise<BcFeedEvent[]> }
-  >();
-
-  function getFeedEvents(url: string): Promise<BcFeedEvent[]> {
-    const cached = cache.get(url);
-    if (cached && now() - cached.fetchedAt < cacheTtlMs) {
-      return cached.events;
-    }
-    const events = deps
-      .fetchText(url)
-      .then(parseBcFeed)
-      .catch((error: unknown) => {
-        cache.delete(url); // don't cache failures
-        throw error;
-      });
-    cache.set(url, { fetchedAt: now(), events });
-    return events;
-  }
+  const getFeedEvents = createFeedCache({
+    load: (url) => deps.fetchText(url).then(parseBcFeed),
+    ttlMs: deps.cacheTtlMs,
+    now: deps.now,
+  });
 
   return {
     async getEvents(libraryIds: string[], range: DateRange) {

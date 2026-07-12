@@ -1,8 +1,9 @@
 import { describe, expect, test } from "vitest";
 import {
   classifyEventType,
+  inferAgeGroupsFromText,
   mapAudiencesToAgeGroups,
-} from "../events/bibliocommons/classify";
+} from "../events/classify";
 
 describe("mapAudiencesToAgeGroups", () => {
   test("maps standard BiblioCommons audiences", () => {
@@ -33,6 +34,32 @@ describe("mapAudiencesToAgeGroups", () => {
 
   test("treats events with no audience data as all-ages", () => {
     expect(mapAudiencesToAgeGroups([])).toEqual(["all-ages"]);
+  });
+});
+
+describe("inferAgeGroupsFromText", () => {
+  test("infers groups from title keywords", () => {
+    expect(inferAgeGroupsFromText("Baby Lapsit Storytime")).toEqual(["baby"]);
+    expect(inferAgeGroupsFromText("Toddler & Preschool Dance")).toEqual([
+      "preschool",
+      "toddler",
+    ]);
+    expect(inferAgeGroupsFromText("LEGO Club for Kids")).toEqual(["school-age"]);
+  });
+
+  test("returns null for clearly adult/teen-only titles", () => {
+    expect(inferAgeGroupsFromText("Adults Only Trivia Night")).toBeNull();
+    expect(inferAgeGroupsFromText("Teen Advisory Board")).toBeNull();
+  });
+
+  test("defaults to all-ages when nothing matches", () => {
+    expect(inferAgeGroupsFromText("Gardening Workshop")).toEqual(["all-ages"]);
+  });
+
+  test("kid keywords win over adult keywords when both appear", () => {
+    expect(inferAgeGroupsFromText("Kids & Adults Chess Night")).toEqual([
+      "school-age",
+    ]);
   });
 });
 

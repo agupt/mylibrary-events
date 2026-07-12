@@ -1,6 +1,9 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import { describe, expect, test } from "vitest";
 import { getAllLibraries } from "../data/directory";
 import { lookupCity, lookupZip } from "../data/zipLookup";
+import { findLocation } from "../locate";
 
 /**
  * Integration checks over the generated IMLS/GeoNames datasets — these
@@ -48,5 +51,51 @@ describe("generated zip database", () => {
     const oregonOnly = lookupCity("Portland", "OR");
     expect(oregonOnly).toHaveLength(1);
     expect(oregonOnly[0].state).toBe("OR");
+  });
+});
+
+describe("all zip codes (exhaustive)", () => {
+  type ZipRow = [number, number, string, string];
+  const zips: Record<string, ZipRow> = JSON.parse(
+    readFileSync(
+      path.join(process.cwd(), "src/lib/data/generated/zips.json"),
+      "utf8",
+    ),
+  );
+
+  test("every zip has a valid shape: 5 digits, coords in range, city and state", () => {
+    const entries = Object.entries(zips);
+    expect(entries.length).toBeGreaterThan(40000);
+    for (const [zip, [latitude, longitude, city, state]] of entries) {
+      if (!/^\d{5}$/.test(zip)) throw new Error(`Bad zip key: ${zip}`);
+      if (Math.abs(latitude) > 90 || Math.abs(longitude) > 180) {
+        throw new Error(`Bad coords for ${zip}`);
+      }
+      if (!city || !/^[A-Z]{2}$/.test(state)) {
+        throw new Error(`Bad city/state for ${zip}: ${city}, ${state}`);
+      }
+    }
+  });
+
+  test("every zip resolves through lookupZip", () => {
+    for (const zip of Object.keys(zips)) {
+      if (lookupZip(zip) === null) throw new Error(`lookupZip failed for ${zip}`);
+    }
+  });
+
+  test("one zip per state produces a full location match with a home library", () => {
+    const onePerState = new Map<string, string>();
+    for (const [zip, row] of Object.entries(zips)) {
+      if (!onePerState.has(row[3])) onePerState.set(row[3], zip);
+    }
+    expect(onePerState.size).toBeGreaterThanOrEqual(50);
+
+    for (const [state, zip] of onePerState) {
+      const result = findLocation(zip);
+      if (result.status !== "ok") {
+        throw new Error(`findLocation failed for ${zip} (${state})`);
+      }
+      expect(result.match.homeLibrary.id).toMatch(/^[A-Z0-9]+-[0-9]+$/);
+    }
   });
 });

@@ -11,6 +11,14 @@ export default function Home() {
           Find storytimes and kids&apos; events at your local library. Enter
           your city or zip code to get started.
         </p>
+        <p className="mt-1 text-sm">
+          <a
+            href="/status"
+            className="text-indigo-600 hover:underline dark:text-indigo-400"
+          >
+            Coverage status →
+          </a>
+        </p>
       </header>
       <StorytimeFinder />
     </main>

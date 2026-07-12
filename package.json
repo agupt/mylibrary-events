@@ -13,7 +13,9 @@
     "typecheck": "tsc --noEmit",
     "data:libraries": "node scripts/importImlsLibraries.mjs",
     "data:zips": "node scripts/importZipCodes.mjs",
-    "data:import": "npm run data:libraries && npm run data:zips"
+    "data:import": "npm run data:libraries && npm run data:zips",
+    "data:discover": "node scripts/discoverFeeds.mjs",
+    "coverage": "node scripts/coverageHarness.mjs"
   },
   "dependencies": {
     "fast-xml-parser": "^5.10.0",

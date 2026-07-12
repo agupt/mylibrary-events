@@ -51,3 +51,13 @@ There is **no universal API for library event calendars** (vendors: BiblioCommon
 - `src/components/StorytimeFinder.tsx` — client orchestrator holding all page state; `SearchForm`, `LibraryResults` (renders `websiteUrl` links), `EventFilterBar`, `EventList` are presentational.
 
 Tests live in `src/lib/__tests__/` (fixtures under `fixtures/`); `dataIntegrity.test.ts` intentionally reads the real generated datasets to validate the import pipeline's output. `vitest.config.ts` maps the `@/` alias and enforces coverage thresholds; network wiring modules (`events/index.ts`, `calendarFeeds.ts`) are excluded from coverage and verified by exercising the live app instead.
+
+## Coverage tooling
+
+- `npm run data:discover` — probes library systems for BiblioCommons/LibCal feeds (slug guessing + title verification with an academic-instance filter; throttled — an unthrottled run got the IP 403-blocked by BiblioCommons' WAF). Writes `generated/discoveredFeeds.json`.
+- `node scripts/verifyDiscoveredFeeds.mjs` — re-verifies every discovered entry against the live page title and purges false positives; run after tightening guards.
+- `npm run coverage` — the coverage harness: classifies all ~17k libraries against the feed registry AND computes the nearest library for **every** zip (grid spatial index, ~250 ms). Writes `generated/coverageStats.json` + `reports/coverage-report-<date>.md`.
+- `GET /api/libraries/<id>/analysis` — per-library coverage + live feed probe (event counts, type/age distribution, feed reachability — a blocked feed reports `feedReachable: false`, never "0 events").
+- `/status` — dashboard: stat tiles, Albers-projected US dot map (`albersProjection.ts`, dots colored by coverage status; AK/HI noted, not mapped), vendor/state tables. Server-rendered, `force-dynamic`.
+
+Feed registry semantics: `active` = URL verified and serving events; `detected` = vendor platform identified but needs manual config (usually a LibCal calendar id). LibCal discovery caveat: LibCal is dominated by universities — any slug match must pass the academic-marker title check or it's a false positive (Trinity County vs Trinity University).

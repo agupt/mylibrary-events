@@ -1,4 +1,4 @@
-import type { AgeGroup, EventType } from "../../types";
+import type { AgeGroup, EventType } from "../types";
 
 /**
  * Maps BiblioCommons audience labels (e.g. "Toddlers", "Grade Schoolers",
@@ -35,6 +35,32 @@ export function mapAudiencesToAgeGroups(audiences: string[]): AgeGroup[] | null 
   }
 
   return groups.size > 0 ? [...groups].sort() : null;
+}
+
+/**
+ * Infers age groups from free text (title + categories) for feeds that
+ * carry no structured audience data (e.g. LibCal iCal). Returns null for
+ * clearly teen/adult-only events; defaults to all-ages when nothing
+ * matches.
+ */
+export function inferAgeGroupsFromText(text: string): AgeGroup[] | null {
+  const haystack = text.toLowerCase();
+  const groups = new Set<AgeGroup>();
+  if (/\bbab(y|ies)\b|\binfant|lapsit/.test(haystack)) groups.add("baby");
+  if (/toddler/.test(haystack)) groups.add("toddler");
+  if (/preschool|pre-school|pre-k\b/.test(haystack)) groups.add("preschool");
+  if (/grade school|school.?age|\bkids?\b|\bchildren\b|tween/.test(haystack)) {
+    groups.add("school-age");
+  }
+  if (/famil|all ages|everyone/.test(haystack)) groups.add("all-ages");
+
+  if (groups.size > 0) {
+    return [...groups].sort();
+  }
+  if (/\b(teens?|adults?|seniors?|18\+|21\+)\b/.test(haystack)) {
+    return null;
+  }
+  return ["all-ages"];
 }
 
 const TYPE_RULES: Array<{ pattern: RegExp; eventType: EventType }> = [
