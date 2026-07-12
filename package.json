@@ -17,7 +17,10 @@
     "data:discover": "node scripts/discoverFeeds.mjs",
     "coverage": "node scripts/coverageHarness.mjs",
     "data:activate": "node scripts/activateLibcalFeeds.mjs",
-    "data:verify": "node scripts/verifyDiscoveredFeeds.mjs"
+    "data:verify": "node scripts/verifyDiscoveredFeeds.mjs",
+    "data:domains": "node scripts/findDomains.mjs",
+    "data:platforms": "node scripts/detectPlatforms.mjs",
+    "data:communico": "node scripts/activateCommunicoFeeds.mjs"
   },
   "dependencies": {
     "fast-xml-parser": "^5.10.0",

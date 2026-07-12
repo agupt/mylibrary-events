@@ -17,13 +17,18 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 const EARTH_RADIUS_MILES = 3958.8;
 const GRID_DEGREES = 1;
 
+const readJson = (path, fallback) =>
+  existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : fallback;
+
 const libraries = JSON.parse(readFileSync("src/lib/data/generated/libraries.json", "utf8"));
 const zips = JSON.parse(readFileSync("src/lib/data/generated/zips.json", "utf8"));
 const staticFeeds = JSON.parse(readFileSync("src/lib/data/staticFeeds.json", "utf8"));
-const discovered = existsSync("src/lib/data/generated/discoveredFeeds.json")
-  ? JSON.parse(readFileSync("src/lib/data/generated/discoveredFeeds.json", "utf8"))
-  : {};
+const discovered = readJson("src/lib/data/generated/discoveredFeeds.json", {});
+const domains = readJson("src/lib/data/generated/domains.json", {});
+const platformDetection = readJson("src/lib/data/generated/platformDetection.json", {});
 const registry = { ...discovered, ...staticFeeds };
+
+const SLUG_PROBE_MIN_OUTLETS = 3; // what discoverFeeds.mjs has been run with
 
 const statusOf = (library) => registry[library.id.split("-")[0]]?.status ?? "none";
 const vendorOf = (library) => registry[library.id.split("-")[0]]?.vendor ?? null;
@@ -60,6 +65,60 @@ for (const library of libraries) {
 }
 
 const systemList = [...systems.values()];
+
+// ---------- Decision-tree pipeline: one branch per system ----------
+// Every branch is a debug point with a named human/engineering action.
+const HUMAN_ACTIONS = {
+  serving: "— (events flowing)",
+  "calendar-id-needed": "Open the LibCal instance, pick the events calendar, add its id to the registry",
+  "identity-collision": "Adjudicate which system owns the instance (same-named systems in different states)",
+  "feed-empty": "Instance verified but feed has no items — check for a different public calendar",
+  "feed-unverified": "Re-verify feed (possible WAF block at probe time)",
+  "no-platform-found": "Domain read, no known vendor fingerprint — inspect site, identify platform or scope a site scraper",
+  "site-unreachable": "Confirm the domain is right / site is up",
+  "domain-unknown-probed": "Slug guessing failed and official website unknown — run findDomains for this system",
+  "never-probed": "Not yet examined (small system) — extend findDomains/detectPlatforms coverage",
+};
+
+function stageForSystem(system) {
+  const entry = registry[system.systemKey];
+  if (entry?.status === "active") return "serving";
+
+  const detected = platformDetection[system.systemKey];
+  if (detected?.resolution && !["already-active", "activated", "error"].includes(detected.resolution)) {
+    return detected.resolution; // adapter-needed:<vendor>, no-platform-found, calendar-id-needed, feed-empty, feed-unverified, site-unreachable
+  }
+  if (entry?.status === "detected") {
+    if (/collision/i.test(entry.note ?? "")) return "identity-collision";
+    return entry.vendor === "libcal" ? "calendar-id-needed" : "feed-empty";
+  }
+  if (system.systemKey in domains) return "no-platform-found";
+  if (system.outlets >= SLUG_PROBE_MIN_OUTLETS) return "domain-unknown-probed";
+  return "never-probed";
+}
+
+const pipeline = new Map();
+for (const system of systemList) {
+  const stage = stageForSystem(system);
+  system.stage = stage;
+  const bucket = pipeline.get(stage) ?? { stage, systems: 0, libraries: 0 };
+  pipeline.set(stage, {
+    ...bucket,
+    systems: bucket.systems + 1,
+    libraries: bucket.libraries + system.outlets,
+  });
+}
+const pipelineRows = [...pipeline.values()]
+  .sort((a, b) => b.libraries - a.libraries)
+  .map((row) => ({
+    ...row,
+    humanAction:
+      HUMAN_ACTIONS[row.stage] ??
+      (row.stage.startsWith("adapter-needed:")
+        ? `Build ${row.stage.split(":")[1]} adapter (unlocks every system on it; worst case a scraper)`
+        : "Investigate"),
+  }));
+
 const systemCounts = {
   total: systemList.length,
   active: systemList.filter((s) => s.status === "active").length,
@@ -181,6 +240,8 @@ const stats = {
   generatedAt: new Date().toISOString(),
   libraries: { total: libraries.length, ...libraryCounts },
   systems: systemCounts,
+  pipeline: pipelineRows,
+  domainsKnown: Object.keys(domains).length,
   byVendor,
   byState: [...byState.values()].sort((a, b) => a.state.localeCompare(b.state)),
   topUncoveredSystems: systemList
@@ -230,6 +291,22 @@ Data: IMLS PLS FY2022 (${libraries.length.toLocaleString()} library outlets, ${s
 | Detected (vendor found, needs config) | ${libraryCounts.detected.toLocaleString()} | ${pct(libraryCounts.detected, libraries.length)} | ${systemCounts.detected} |
 | No coverage | ${libraryCounts.none.toLocaleString()} | ${pct(libraryCounts.none, libraries.length)} | ${systemCounts.none} |
 
+## Pipeline decision tree — where each system is stuck and who can unblock it
+
+Every system sits on exactly one branch. "Human action" is the concrete
+next step; branches marked engineering are adapter work that amortizes
+across all systems on that vendor.
+
+| Branch | Systems | Libraries | Next action |
+|---|---|---|---|
+${pipelineRows
+  .map((row) => `| ${row.stage} | ${row.systems.toLocaleString()} | ${row.libraries.toLocaleString()} | ${row.humanAction} |`)
+  .join("\n")}
+
+Known official domains: ${Object.keys(domains).length} systems (source: web search; IMLS publishes none).
+Honest unknown: "never-probed" systems have NOT been checked at all — no
+claim is made about whether they publish calendars.
+
 ## Vendor breakdown (event-calendar platforms)
 
 | Vendor | Systems | Library outlets |
@@ -260,11 +337,45 @@ ${activeSystems.map((s) => `| ${s.system} (${s.systemKey}) | ${s.state} | ${s.ou
 ${detectedSystems.slice(0, 30).map((s) => `| ${s.system} (${s.systemKey}) | ${s.state} | ${s.outlets} | ${s.vendor} |`).join("\n")}
 ${detectedSystems.length > 30 ? `\n…and ${detectedSystems.length - 30} more.` : ""}
 
+## Human action queues (highest-leverage first)
+
+### Adapter backlog (engineering — one adapter unlocks every system on the vendor)
+${(() => {
+  const adapterRows = pipelineRows.filter((r) => r.stage.startsWith("adapter-needed:"));
+  if (adapterRows.length === 0) return "_None identified yet — run detectPlatforms after findDomains._";
+  return adapterRows
+    .map((row) => {
+      const vendor = row.stage.split(":")[1];
+      const examples = systemList
+        .filter((s) => s.stage === row.stage)
+        .sort((a, b) => b.outlets - a.outlets)
+        .slice(0, 5)
+        .map((s) => `${s.system} (${s.state}, ${s.outlets})`)
+        .join("; ");
+      return `- **${vendor}**: ${row.systems} systems / ${row.libraries} libraries. E.g. ${examples}`;
+    })
+    .join("\n");
+})()}
+
+### Calendar ids needed (5-minute manual task each)
+${systemList
+  .filter((s) => s.stage === "calendar-id-needed")
+  .sort((a, b) => b.outlets - a.outlets)
+  .slice(0, 15)
+  .map((s) => `- ${s.system} (${s.systemKey}, ${s.state}, ${s.outlets} outlets)`)
+  .join("\n") || "_None._"}
+
+### Identity collisions to adjudicate
+${systemList
+  .filter((s) => s.stage === "identity-collision")
+  .map((s) => `- ${s.system} (${s.systemKey}, ${s.state}): ${registry[s.systemKey]?.note ?? ""}`)
+  .join("\n") || "_None._"}
+
 ## Largest uncovered systems (expansion targets)
 
-| System | State | Outlets |
-|---|---|---|
-${stats.topUncoveredSystems.map((s) => `| ${s.system} (${s.systemKey}) | ${s.state} | ${s.outlets} |`).join("\n")}
+| System | State | Outlets | Branch |
+|---|---|---|---|
+${stats.topUncoveredSystems.map((s) => `| ${s.system} (${s.systemKey}) | ${s.state} | ${s.outlets} | ${systems.get(s.systemKey)?.stage ?? "?"} |`).join("\n")}
 `;
 
 mkdirSync("reports", { recursive: true });

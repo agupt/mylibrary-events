@@ -8,6 +8,13 @@ import { getFeedRegistry } from "@/lib/events/calendarFeeds";
 
 export const dynamic = "force-dynamic";
 
+interface PipelineRow {
+  stage: string;
+  systems: number;
+  libraries: number;
+  humanAction: string;
+}
+
 interface ZipStats {
   generatedAt: string;
   zipAnalysis: {
@@ -16,6 +23,8 @@ interface ZipStats {
     nearestIsDetected: number;
     nearestDistanceMiles: { median: number; p90: number };
   };
+  pipeline?: PipelineRow[];
+  domainsKnown?: number;
   byState?: Array<{ state: string; zips: number; zipsNearActive: number }>;
 }
 
@@ -154,6 +163,53 @@ export default function StatusPage() {
       <div className="mb-6">
         <CoverageMap coverage={perLibrary} />
       </div>
+
+      {zipStats?.pipeline && (
+        <section aria-label="Coverage pipeline" className="mb-6">
+          <h2 className="mb-1 text-sm font-semibold text-slate-700 dark:text-slate-300">
+            Pipeline decision tree — where each system is stuck
+          </h2>
+          <p className="mb-2 text-xs text-slate-500 dark:text-slate-400">
+            Every system sits on exactly one branch; each branch names the
+            action that unblocks it.
+            {zipStats.domainsKnown !== undefined &&
+              ` Official domains known for ${zipStats.domainsKnown.toLocaleString()} systems (IMLS publishes none).`}
+          </p>
+          <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-700">
+            <table className="w-full bg-white text-sm dark:bg-slate-800">
+              <thead>
+                <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500 dark:border-slate-700 dark:text-slate-400">
+                  <th className="px-3 py-2">Branch</th>
+                  <th className="px-3 py-2 text-right">Systems</th>
+                  <th className="px-3 py-2 text-right">Libraries</th>
+                  <th className="px-3 py-2">Next action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {zipStats.pipeline.map((row) => (
+                  <tr
+                    key={row.stage}
+                    className="border-b border-slate-100 last:border-0 dark:border-slate-700/50"
+                  >
+                    <td className="px-3 py-2 font-mono text-xs text-slate-900 dark:text-slate-100">
+                      {row.stage}
+                    </td>
+                    <td className="px-3 py-2 text-right tabular-nums text-slate-700 dark:text-slate-300">
+                      {row.systems.toLocaleString()}
+                    </td>
+                    <td className="px-3 py-2 text-right tabular-nums text-slate-700 dark:text-slate-300">
+                      {row.libraries.toLocaleString()}
+                    </td>
+                    <td className="px-3 py-2 text-xs text-slate-600 dark:text-slate-400">
+                      {row.humanAction}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
 
       <section aria-label="Vendors" className="mb-6">
         <h2 className="mb-2 text-sm font-semibold text-slate-700 dark:text-slate-300">

@@ -3,6 +3,7 @@ import type { Library } from "../types";
 import { createBiblioCommonsProvider } from "./bibliocommons/provider";
 import { activeFeedsByVendor, getFeedEntry } from "./calendarFeeds";
 import type { DateRange, EventProvider } from "./eventProvider";
+import { createCommunicoProvider } from "./communico/provider";
 import { createIcsProvider } from "./libcal/provider";
 import { createLibcalRssProvider } from "./libcal/rssProvider";
 
@@ -64,6 +65,15 @@ function createCompositeProvider(): EventProvider {
         findLibraryById,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("ical"))),
+    },
+    {
+      // Communico attend sites (unauthenticated eeventcaldata JSON)
+      provider: createCommunicoProvider({
+        feeds: activeFeedsByVendor("communico"),
+        fetchText,
+        findLibraryById,
+      }),
+      systemKeys: new Set(Object.keys(activeFeedsByVendor("communico"))),
     },
   ];
 

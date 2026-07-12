@@ -1,0 +1,902 @@
+{
+ "NY0778": {
+  "domain": "nypl.org",
+  "source": "web-search",
+  "system": "New York Public Library, The Branch Libraries",
+  "state": "NY"
+ },
+ "CA0062": {
+  "domain": "lacountylibrary.org",
+  "source": "web-search",
+  "system": "La County Library",
+  "state": "CA"
+ },
+ "IL0098": {
+  "domain": "chipublib.org",
+  "source": "web-search",
+  "system": "Chicago Public Library",
+  "state": "IL"
+ },
+ "CA0063": {
+  "domain": "lapl.org",
+  "source": "web-search",
+  "system": "Los Angeles Public Library",
+  "state": "CA"
+ },
+ "NY0562": {
+  "domain": "queenslibrary.org",
+  "source": "web-search",
+  "system": "Queens Borough Public Library",
+  "state": "NY"
+ },
+ "NY0004": {
+  "domain": "bklynlibrary.org",
+  "source": "web-search",
+  "system": "Brooklyn Public Library",
+  "state": "NY"
+ },
+ "PA0385": {
+  "domain": "freelibrary.org",
+  "source": "web-search",
+  "system": "Free Library Of Philadelphia",
+  "state": "PA"
+ },
+ "FL0025": {
+  "domain": "mdpls.org",
+  "source": "web-search",
+  "system": "Miami-Dade Public Library System",
+  "state": "FL"
+ },
+ "HI0001": {
+  "domain": "librarieshawaii.org",
+  "source": "web-search",
+  "system": "Hawaii State Public Library System",
+  "state": "HI"
+ },
+ "WA0059": {
+  "domain": "kcls.org",
+  "source": "web-search",
+  "system": "King County Library System",
+  "state": "WA"
+ },
+ "MN0041": {
+  "domain": "hclib.org",
+  "source": "web-search",
+  "system": "Hennepin County Library",
+  "state": "MN"
+ },
+ "OH0049": {
+  "domain": "chpl.org",
+  "source": "web-search",
+  "system": "Cincinnati And Hamilton County Public Library",
+  "state": "OH"
+ },
+ "FL0012": {
+  "domain": "broward.org",
+  "source": "web-search",
+  "system": "Broward County Libraries Division",
+  "state": "FL"
+ },
+ "TX0099": {
+  "domain": "houstonlibrary.org",
+  "source": "web-search",
+  "system": "Houston Public Library",
+  "state": "TX"
+ },
+ "CA0040": {
+  "domain": "fresnolibrary.org",
+  "source": "web-search",
+  "system": "Fresno County Public Library",
+  "state": "CA"
+ },
+ "CA0113": {
+  "domain": "sandiego.gov",
+  "source": "web-search",
+  "system": "San Diego Public Library",
+  "state": "CA"
+ },
+ "CA0199": {
+  "domain": "rivlib.net",
+  "source": "web-search",
+  "system": "Riverside County Library System",
+  "state": "CA"
+ },
+ "GA0022": {
+  "domain": "fulcolibrary.org",
+  "source": "web-search",
+  "system": "Fulton County Library System",
+  "state": "GA"
+ },
+ "MO0004": {
+  "domain": "mymcpl.org",
+  "source": "web-search",
+  "system": "Mid-Continent Public Library",
+  "state": "MO"
+ },
+ "CA0112": {
+  "domain": "sdcl.org",
+  "source": "web-search",
+  "system": "San Diego County Library",
+  "state": "CA"
+ },
+ "CA0084": {
+  "domain": "ocpl.org",
+  "source": "web-search",
+  "system": "Orange County Public Libraries",
+  "state": "CA"
+ },
+ "CA0109": {
+  "domain": "library.sbcounty.gov",
+  "source": "web-search",
+  "system": "San Bernardino County Library",
+  "state": "CA"
+ },
+ "MN0032": {
+  "domain": "griver.org",
+  "source": "web-search",
+  "system": "Great River Regional Library",
+  "state": "MN"
+ },
+ "MN0051": {
+  "domain": "pioneerland.lib.mn.us",
+  "source": "web-search",
+  "system": "Pioneerland Library System",
+  "state": "MN"
+ },
+ "TX0003": {
+  "domain": "dallaslibrary.org",
+  "source": "web-search",
+  "system": "Dallas Public Library",
+  "state": "TX"
+ },
+ "TX0263": {
+  "domain": "mysapl.org",
+  "source": "web-search",
+  "system": "San Antonio Public Library",
+  "state": "TX"
+ },
+ "WA0062": {
+  "domain": "ncwlibraries.org",
+  "source": "web-search",
+  "system": "North Central Regional Library",
+  "state": "WA"
+ },
+ "FL0035": {
+  "domain": "hcplc.org",
+  "source": "web-search",
+  "system": "Hillsborough County Public Library Cooperative",
+  "state": "FL"
+ },
+ "WA0069": {
+  "domain": "trl.org",
+  "source": "web-search",
+  "system": "Timberland Regional Library",
+  "state": "WA"
+ },
+ "CA0105": {
+  "domain": "saclibrary.org",
+  "source": "web-search",
+  "system": "Sacramento Public Library",
+  "state": "CA"
+ },
+ "CA0114": {
+  "domain": "sfpl.org",
+  "source": "web-search",
+  "system": "San Francisco Public Library",
+  "state": "CA"
+ },
+ "OH0051": {
+  "domain": "cpl.org",
+  "source": "web-search",
+  "system": "Cleveland Public Library",
+  "state": "OH"
+ },
+ "TX0101": {
+  "domain": "hcpl.net",
+  "source": "web-search",
+  "system": "Harris County Public Library",
+  "state": "TX"
+ },
+ "AZ0064": {
+  "domain": "library.pima.gov",
+  "source": "web-search",
+  "system": "Pima County Public Library",
+  "state": "AZ"
+ },
+ "CO0034": {
+  "domain": "denverlibrary.org",
+  "source": "web-search",
+  "system": "Denver Public Library",
+  "state": "CO"
+ },
+ "OH0052": {
+  "domain": "cuyahogalibrary.org",
+  "source": "web-search",
+  "system": "Cuyahoga County Public Library",
+  "state": "OH"
+ },
+ "WA0064": {
+  "domain": "spl.org",
+  "source": "web-search",
+  "system": "Seattle Public Library",
+  "state": "WA"
+ },
+ "CA0028": {
+  "domain": "ccclib.org",
+  "source": "web-search",
+  "system": "Contra Costa County Library",
+  "state": "CA"
+ },
+ "DC0001": {
+  "domain": "dclibrary.org",
+  "source": "web-search",
+  "system": "District Of Columbia Public Library",
+  "state": "DC"
+ },
+ "MA0035": {
+  "domain": "bpl.org",
+  "source": "web-search",
+  "system": "Boston Public Library",
+  "state": "MA"
+ },
+ "CA0115": {
+  "domain": "sjpl.org",
+  "source": "web-search",
+  "system": "San Jose Public Library",
+  "state": "CA"
+ },
+ "FL0127": {
+  "domain": "pplc.us",
+  "source": "web-search",
+  "system": "Pinellas Public Library Cooperative",
+  "state": "FL"
+ },
+ "NV0008": {
+  "domain": "thelibrarydistrict.org",
+  "source": "web-search",
+  "system": "Las Vegas-Clark County Library District",
+  "state": "NV"
+ },
+ "GA0017": {
+  "domain": "dekalblibrary.org",
+  "source": "web-search",
+  "system": "Dekalb County Public Library",
+  "state": "GA"
+ },
+ "IN0210": {
+  "domain": "indypl.org",
+  "source": "web-search",
+  "system": "Indianapolis Public Library",
+  "state": "IN"
+ },
+ "OK0093": {
+  "domain": "tulsalibrary.org",
+  "source": "web-search",
+  "system": "Tulsa City-County Library System",
+  "state": "OK"
+ },
+ "CA0051": {
+  "domain": "kerncountylibrary.org",
+  "source": "web-search",
+  "system": "Kern County Library",
+  "state": "CA"
+ },
+ "FL0259": {
+  "domain": "pal-cooperative.org",
+  "source": "web-search",
+  "system": "Pal Public Library Cooperative",
+  "state": "FL"
+ },
+ "NC0063": {
+  "domain": "wake.gov",
+  "source": "web-search",
+  "system": "Wake County Public Libraries",
+  "state": "NC"
+ },
+ "OH0057": {
+  "domain": "columbuslibrary.org",
+  "source": "web-search",
+  "system": "Columbus Metropolitan Library",
+  "state": "OH"
+ },
+ "VA0026": {
+  "domain": "fairfaxcounty.gov",
+  "source": "web-search",
+  "system": "Fairfax County Public Library",
+  "state": "VA"
+ },
+ "WA0065": {
+  "domain": "sno-isle.org",
+  "source": "web-search",
+  "system": "Sno-Isle Libraries",
+  "state": "WA"
+ },
+ "MD0003": {
+  "domain": "prattlibrary.org",
+  "source": "web-search",
+  "system": "Enoch Pratt Free Library",
+  "state": "MD"
+ },
+ "MI0083": {
+  "domain": "detroitpubliclibrary.org",
+  "source": "web-search",
+  "system": "Detroit Public Library",
+  "state": "MI"
+ },
+ "TX0111": {
+  "domain": "library.austintexas.gov",
+  "source": "web-search",
+  "system": "Austin Public Library",
+  "state": "TX"
+ },
+ "FL0003": {
+  "domain": "jaxpubliclibrary.org",
+  "source": "web-search",
+  "system": "Jacksonville Public Library",
+  "state": "FL"
+ },
+ "LA0054": {
+  "domain": "shreve-lib.org",
+  "source": "web-search",
+  "system": "Shreve Memorial Library",
+  "state": "LA"
+ },
+ "MD0016": {
+  "domain": "montgomerycountymd.gov",
+  "source": "web-search",
+  "system": "Montgomery County Public Libraries",
+  "state": "MD"
+ },
+ "NC0045": {
+  "domain": "cmlibrary.org",
+  "source": "web-search",
+  "system": "Charlotte Mecklenburg Library",
+  "state": "NC"
+ },
+ "NJ0252": {
+  "domain": "theoceancountylibrary.org",
+  "source": "web-search",
+  "system": "Ocean County Library",
+  "state": "NJ"
+ },
+ "TN0135": {
+  "domain": "library.nashville.gov",
+  "source": "web-search",
+  "system": "Nashville Public Library",
+  "state": "TN"
+ },
+ "GA0007": {
+  "domain": "wgrls.org",
+  "source": "web-search",
+  "system": "West Georgia Regional Library",
+  "state": "GA"
+ },
+ "MI0182": {
+  "domain": "kdl.org",
+  "source": "web-search",
+  "system": "Kent District Library",
+  "state": "MI"
+ },
+ "MO0036": {
+  "domain": "slcl.org",
+  "source": "web-search",
+  "system": "Saint Louis County Library",
+  "state": "MO"
+ },
+ "MS0006": {
+  "domain": "cmrls.lib.ms.us",
+  "source": "web-search",
+  "system": "Central Mississippi Regional Library",
+  "state": "MS"
+ },
+ "OH0063": {
+  "domain": "daytonmetrolibrary.org",
+  "source": "web-search",
+  "system": "Dayton Metro Library",
+  "state": "OH"
+ },
+ "OH0215": {
+  "domain": "toledolibrary.org",
+  "source": "web-search",
+  "system": "Toledo-Lucas County Public Library",
+  "state": "OH"
+ },
+ "UT0049": {
+  "domain": "slcolibrary.org",
+  "source": "web-search",
+  "system": "Salt Lake County Library",
+  "state": "UT"
+ },
+ "WA0063": {
+  "domain": "mypcls.org",
+  "source": "web-search",
+  "system": "Pierce County Library System",
+  "state": "WA"
+ },
+ "MD0004": {
+  "domain": "bcpl.info",
+  "source": "web-search",
+  "system": "Baltimore County Public Library",
+  "state": "MD"
+ },
+ "MD0017": {
+  "domain": "pgcmls.info",
+  "source": "web-search",
+  "system": "Prince George`S County Memorial Library Syste",
+  "state": "MD"
+ },
+ "MI0123": {
+  "domain": "thegdl.org",
+  "source": "web-search",
+  "system": "Genesee District Library",
+  "state": "MI"
+ },
+ "OH0002": {
+  "domain": "akronlibrary.org",
+  "source": "web-search",
+  "system": "Akron-Summit Cnty Public Library",
+  "state": "OH"
+ },
+ "OK0074": {
+  "domain": "metrolibrary.org",
+  "source": "web-search",
+  "system": "Metropolitan Library System",
+  "state": "OK"
+ },
+ "OR0063": {
+  "domain": "multcolib.org",
+  "source": "web-search",
+  "system": "Multnomah County Library",
+  "state": "OR"
+ },
+ "PA0042": {
+  "domain": "carnegielibrary.org",
+  "source": "web-search",
+  "system": "Carnegie Library Of Pittsburgh",
+  "state": "PA"
+ },
+ "TN0133": {
+  "domain": "knoxcountylibrary.org",
+  "source": "web-search",
+  "system": "Knox County Public Library System",
+  "state": "TN"
+ },
+ "AL0108": {
+  "domain": "cobpl.org",
+  "source": "web-search",
+  "system": "Birmingham Public Library",
+  "state": "AL"
+ },
+ "AZ0028": {
+  "domain": "mcldaz.org",
+  "source": "web-search",
+  "system": "Maricopa County Library District Office",
+  "state": "AZ"
+ },
+ "CA0081": {
+  "domain": "oaklandlibrary.org",
+  "source": "web-search",
+  "system": "Oakland Public Library",
+  "state": "CA"
+ },
+ "FL0246": {
+  "domain": "pbclibrary.org",
+  "source": "web-search",
+  "system": "Palm Beach County Library System",
+  "state": "FL"
+ },
+ "FL8001": {
+  "domain": "mypclc.org",
+  "source": "web-search",
+  "system": "Polk County Library Cooperative",
+  "state": "FL"
+ },
+ "NM0002": {
+  "domain": "abqlibrary.org",
+  "source": "web-search",
+  "system": "Albuquerque/Bernalillo County Library System",
+  "state": "NM"
+ },
+ "TN0134": {
+  "domain": "memphislibrary.org",
+  "source": "web-search",
+  "system": "Memphis Public Library And Information Center",
+  "state": "TN"
+ },
+ "TX0050": {
+  "domain": "fortworthtexas.gov",
+  "source": "web-search",
+  "system": "Fort Worth Public Library",
+  "state": "TX"
+ },
+ "AZ0035": {
+  "domain": "phoenixpubliclibrary.org",
+  "source": "web-search",
+  "system": "Phoenix Public Library",
+  "state": "AZ"
+ },
+ "CA0148": {
+  "domain": "tularecountylibrary.org",
+  "source": "web-search",
+  "system": "Tulare County Free Library",
+  "state": "CA"
+ },
+ "FL0011": {
+  "domain": "brevardfl.gov:81",
+  "source": "web-search",
+  "system": "Brevard County Library System",
+  "state": "FL"
+ },
+ "GA0004": {
+  "domain": "bibblib.org",
+  "source": "web-search",
+  "system": "Middle Georgia Regional Library System",
+  "state": "GA"
+ },
+ "KY0053": {
+  "domain": "lfpl.org",
+  "source": "web-search",
+  "system": "Louisville Free Public Library",
+  "state": "KY"
+ },
+ "SC0009": {
+  "domain": "ccpl.org",
+  "source": "web-search",
+  "system": "Charleston County Public Library System",
+  "state": "SC"
+ },
+ "CA0073": {
+  "domain": "countyofmonterey.gov",
+  "source": "web-search",
+  "system": "Monterey County Free Libraries",
+  "state": "CA"
+ },
+ "CA0142": {
+  "domain": "ssjcpl.org",
+  "source": "web-search",
+  "system": "Stockton-San Joaquin County Public Library",
+  "state": "CA"
+ },
+ "CO0145": {
+  "domain": "mylibrary.us",
+  "source": "web-search",
+  "system": "High Plains Library District",
+  "state": "CO"
+ },
+ "FL0039": {
+  "domain": "mylakelibrary.org",
+  "source": "web-search",
+  "system": "Lake County Library System",
+  "state": "FL"
+ },
+ "GA0008": {
+  "domain": "liveoakpl.org",
+  "source": "web-search",
+  "system": "Live Oak Public Libraries",
+  "state": "GA"
+ },
+ "GA0025": {
+  "domain": "gwinnettpl.org",
+  "source": "web-search",
+  "system": "Gwinnett County Public Library System",
+  "state": "GA"
+ },
+ "LA0057": {
+  "domain": "jplibrary.net",
+  "source": "web-search",
+  "system": "Jefferson Parish Library",
+  "state": "LA"
+ },
+ "MD0002": {
+  "domain": "aacpl.net",
+  "source": "web-search",
+  "system": "Anne Arundel County Public Library",
+  "state": "MD"
+ },
+ "MI0233": {
+  "domain": "mymcls.com",
+  "source": "web-search",
+  "system": "Monroe County Library System",
+  "state": "MI"
+ },
+ "MO0030": {
+  "domain": "slpl.org",
+  "source": "web-search",
+  "system": "City Of St. Louis Municipal Library District",
+  "state": "MO"
+ },
+ "OK0062": {
+  "domain": "seolibraries.com",
+  "source": "web-search",
+  "system": "Southeast Oklahoma Library System",
+  "state": "OK"
+ },
+ "WA0070": {
+  "domain": "yvl.org",
+  "source": "web-search",
+  "system": "Yakima Valley Regional Library",
+  "state": "WA"
+ },
+ "AR0007": {
+  "domain": "library.arkansas.gov",
+  "source": "web-search",
+  "system": "White River Regional Library",
+  "state": "AR"
+ },
+ "AZ0067": {
+  "domain": "ycfld.gov",
+  "source": "web-search",
+  "system": "Yavapai County Free Library District",
+  "state": "AZ"
+ },
+ "CA0137": {
+  "domain": "sonomalibrary.org",
+  "source": "web-search",
+  "system": "Sonoma County Library",
+  "state": "CA"
+ },
+ "CO0096": {
+  "domain": "ppld.org",
+  "source": "web-search",
+  "system": "Pikes Peak Library District",
+  "state": "CO"
+ },
+ "FL0005": {
+  "domain": "ocls.org",
+  "source": "web-search",
+  "system": "Orange County Library District",
+  "state": "FL"
+ },
+ "GA0013": {
+  "domain": "cobbcounty.gov",
+  "source": "web-search",
+  "system": "Cobb County Public Library System",
+  "state": "GA"
+ },
+ "LA0058": {
+  "domain": "nolalibrary.org",
+  "source": "web-search",
+  "system": "New Orleans Public Library",
+  "state": "LA"
+ },
+ "NC0015": {
+  "domain": "sandhill.nccardinal.org",
+  "source": "web-search",
+  "system": "Sandhill Regional Library System",
+  "state": "NC"
+ },
+ "OH0248": {
+  "domain": "libraryvisit.org",
+  "source": "web-search",
+  "system": "Youngstown And Mahoning County, Pl Of",
+  "state": "OH"
+ },
+ "OK0066": {
+  "domain": "eols.org",
+  "source": "web-search",
+  "system": "Eastern Oklahoma Library System",
+  "state": "OK"
+ },
+ "OR0041": {
+  "domain": "jcls.org",
+  "source": "web-search",
+  "system": "Jackson County Library Services",
+  "state": "OR"
+ },
+ "TX0030": {
+  "domain": "elpasolibrary.org",
+  "source": "web-search",
+  "system": "El Paso Public Library",
+  "state": "TX"
+ },
+ "WA0058": {
+  "domain": "fvrl.org",
+  "source": "web-search",
+  "system": "Fort Vancouver Regional Library District",
+  "state": "WA"
+ },
+ "AR0001": {
+  "domain": "cals.org",
+  "source": "web-search",
+  "system": "Central Arkansas Library System",
+  "state": "AR"
+ },
+ "CA0118": {
+  "domain": "slocounty.ca.gov",
+  "source": "web-search",
+  "system": "San Luis Obispo City-County Library",
+  "state": "CA"
+ },
+ "FL0042": {
+  "domain": "leegov.com",
+  "source": "web-search",
+  "system": "Lee County Library System",
+  "state": "FL"
+ },
+ "FL0099": {
+  "domain": "volusialibrary.org",
+  "source": "web-search",
+  "system": "Volusia County Public Library",
+  "state": "FL"
+ },
+ "IN0073": {
+  "domain": "acpl.lib.in.us",
+  "source": "web-search",
+  "system": "Allen County Public Library",
+  "state": "IN"
+ },
+ "KS0134": {
+  "domain": "jocolibrary.org",
+  "source": "web-search",
+  "system": "Johnson County Library",
+  "state": "KS"
+ },
+ "LA0055": {
+  "domain": "ebrpl.com",
+  "source": "web-search",
+  "system": "East Baton Rouge Parish Library",
+  "state": "LA"
+ },
+ "MN0031": {
+  "domain": "ecrlib.org",
+  "source": "web-search",
+  "system": "East Central Regional Library",
+  "state": "MN"
+ },
+ "MS0013": {
+  "domain": "firstregional.org",
+  "source": "web-search",
+  "system": "First Regional Library",
+  "state": "MS"
+ },
+ "MS0021": {
+  "domain": "jhlibrary.org",
+  "source": "web-search",
+  "system": "Jackson/Hinds Library System",
+  "state": "MS"
+ },
+ "NE0162": {
+  "domain": "omahalibrary.org",
+  "source": "web-search",
+  "system": "Omaha Public Library",
+  "state": "NE"
+ },
+ "WA0048": {
+  "domain": "whitcolib.org",
+  "source": "web-search",
+  "system": "Whitman County Library",
+  "state": "WA"
+ },
+ "AR0040": {
+  "domain": "libraryhours.org",
+  "source": "web-search",
+  "system": "Mississippi/Crittenden Regional Library",
+  "state": "AR"
+ },
+ "CA0120": {
+  "domain": "smcl.org",
+  "source": "web-search",
+  "system": "San Mateo County Libraries",
+  "state": "CA"
+ },
+ "CA0140": {
+  "domain": "stanislauslibrary.org",
+  "source": "web-search",
+  "system": "Stanislaus County Free Library",
+  "state": "CA"
+ },
+ "CA0152": {
+  "domain": "library.venturacounty.gov",
+  "source": "web-search",
+  "system": "Ventura County Library",
+  "state": "CA"
+ },
+ "MI0175": {
+  "domain": "myjdl.com",
+  "source": "web-search",
+  "system": "Jackson District Library",
+  "state": "MI"
+ },
+ "MI0424": {
+  "domain": "cadl.org",
+  "source": "web-search",
+  "system": "Capital Area District Library",
+  "state": "MI"
+ },
+ "MN0034": {
+  "domain": "larl.org",
+  "source": "web-search",
+  "system": "Lake Agassiz Regional Library",
+  "state": "MN"
+ },
+ "MN0044": {
+  "domain": "sppl.org",
+  "source": "web-search",
+  "system": "Saint Paul Public Library",
+  "state": "MN"
+ },
+ "MS0033": {
+  "domain": "midmisslib.com",
+  "source": "web-search",
+  "system": "Mid-Mississippi Regional Library",
+  "state": "MS"
+ },
+ "MS0035": {
+  "domain": "nereg.lib.ms.us",
+  "source": "web-search",
+  "system": "Northeast Regional Library",
+  "state": "MS"
+ },
+ "NC0013": {
+  "domain": "nwrl.org",
+  "source": "web-search",
+  "system": "Northwestern Regional Library",
+  "state": "NC"
+ },
+ "NJ0195": {
+  "domain": "monmouthcountylib.org",
+  "source": "web-search",
+  "system": "Monmouth County Library",
+  "state": "NJ"
+ },
+ "SC0002": {
+  "domain": "abbe-lib.org",
+  "source": "web-search",
+  "system": "Abbe Regional Library System",
+  "state": "SC"
+ },
+ "SC0035": {
+  "domain": "richlandlibrary.com",
+  "source": "web-search",
+  "system": "Richland County Public Library",
+  "state": "SC"
+ },
+ "SD0141": {
+  "domain": "siouxlandlib.org",
+  "source": "web-search",
+  "system": "Siouxland Libraries",
+  "state": "SD"
+ },
+ "SD0154": {
+  "domain": "library.olc.edu",
+  "source": "web-search",
+  "system": "Oglala Lakota College Woksape Tipi Academic & Public Library",
+  "state": "SD"
+ },
+ "TX0024": {
+  "domain": "mybcls.org",
+  "source": "web-search",
+  "system": "Brazoria County Library System",
+  "state": "TX"
+ },
+ "TX0247": {
+  "domain": "fortbendlibraries.gov",
+  "source": "web-search",
+  "system": "Fort Bend County Libraries",
+  "state": "TX"
+ },
+ "WI0199": {
+  "domain": "mpl.org",
+  "source": "web-search",
+  "system": "Milwaukee Public Library",
+  "state": "WI"
+ },
+ "AR0081": {
+  "domain": "library.arkansas.gov",
+  "source": "web-search",
+  "system": "Tri-County Regional Library System",
+  "state": "AR"
+ },
+ "CA0061": {
+  "domain": "longbeach.gov",
+  "source": "web-search",
+  "system": "Long Beach Public Library",
+  "state": "CA"
+ },
+ "CA0068": {
+  "domain": "countyofmerced.com",
+  "source": "web-search",
+  "system": "Merced County Library",
+  "state": "CA"
+ }
+}

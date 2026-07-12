@@ -65,3 +65,15 @@ Feed registry semantics: `active` = URL verified and serving events; `detected` 
 ## LibCal activation pipeline
 
 `npm run data:activate` (scripts/activateLibcalFeeds.mjs) promotes detected LibCal systems to active without a browser. The extraction pattern (learned via Chrome DevTools on denverlibrary.libcal.com): homepage → `/calendar/<name>` links → each calendar page embeds its id in an RSS autodiscovery `<link>` (`rss.php?iid=N&cid=N`) and `<body id="calendar_<cid>">`. **Use the RSS month feed (`rss.php?m=month&cid=N`), never `ical_subscribe.php`** — the ICS export is capped at 500 events from the past (a busy system's ICS is 100% stale), while RSS month is upcoming-oriented and carries structured `libcal:audience` ("Children Ages 0-5" → numeric-range age mapping in `classify.ts#ageGroupsFromRange`) and `libcal:campus` (branch attribution; "Central/Main Library" maps to the `-002` outlet per IMLS FSCS convention). LibCal RSS has no cancelled flag — staff prefix titles with "CANCELLED", which the provider filters. Slug collisions (same instance claimed by same-named systems in different states, e.g. Houston TX vs Houston County GA) are auto-demoted to detected — never trust a multi-claimant activation.
+
+## Domain-first discovery + decision-tree coverage
+
+The IMLS dataset has no web addresses — the root cause of low discovery recall. The pipeline is now domain-first:
+
+1. `npm run data:domains` (findDomains.mjs) — web search (DuckDuckGo HTML, throttled) → `generated/domains.json`. 100% hit rate on the top 150 systems.
+2. `npm run data:platforms` (detectPlatforms.mjs) — fetches each system's REAL site, fingerprints vendor links (BiblioCommons/LibCal/Communico/Evanced/Assabet/EventKeeper/Localist/LibraryMarket), and activates feeds where an adapter exists. Own-domain links make identity checks unnecessary (provenance beats title matching).
+3. `npm run data:communico` (activateCommunicoFeeds.mjs) — probes attend hosts (attend.<domain>, events.<domain>, own domain).
+
+The Communico adapter (`src/lib/events/communico/provider.ts`) uses the unauthenticated `eeventcaldata` JSON endpoint (found via Chrome DevTools network inspection on attend.cuyahogalibrary.org): structured ages, branch names, wall-clock times. Vendor age labels are authoritative even when a title suggests otherwise.
+
+Coverage is reported as a DECISION TREE (per Amool's direction): every system sits on exactly one branch (`serving`, `calendar-id-needed`, `adapter-needed:<vendor>`, `no-platform-found`, `domain-unknown-probed`, `never-probed`, …) and each branch names the human/engineering action that unblocks it — see `stageForSystem()` in coverageHarness.mjs, the report's "Pipeline decision tree" section, and the /status page table. State unknowns as unknowns: never assert what unprobed systems do.
