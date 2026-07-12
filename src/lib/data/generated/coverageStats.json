@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-07-12T17:38:41.229Z",
+  "generatedAt": "2026-07-12T23:36:45.619Z",
   "libraries": {
     "total": 16883,
-    "active": 1283,
+    "active": 1428,
     "detected": 1002,
-    "none": 14598
+    "none": 14453
   },
   "systems": {
     "total": 9234,
-    "active": 73,
+    "active": 75,
     "detected": 108,
-    "none": 9053
+    "none": 9051
   },
   "pipeline": [
     {
@@ -26,16 +26,16 @@
       "humanAction": "Slug guessing failed and official website unknown — run findDomains for this system"
     },
     {
-      "stage": "no-platform-found",
-      "systems": 67,
-      "libraries": 1473,
-      "humanAction": "Domain read, no known vendor fingerprint — inspect site, identify platform or scope a site scraper"
+      "stage": "serving",
+      "systems": 75,
+      "libraries": 1428,
+      "humanAction": "— (events flowing)"
     },
     {
-      "stage": "serving",
-      "systems": 73,
-      "libraries": 1283,
-      "humanAction": "— (events flowing)"
+      "stage": "no-platform-found",
+      "systems": 63,
+      "libraries": 1172,
+      "humanAction": "Domain read, no known vendor fingerprint — inspect site, identify platform or scope a site scraper"
     },
     {
       "stage": "calendar-id-needed",
@@ -50,10 +50,10 @@
       "humanAction": "Instance verified but feed has no items — check for a different public calendar"
     },
     {
-      "stage": "site-unreachable",
-      "systems": 9,
-      "libraries": 195,
-      "humanAction": "Confirm the domain is right / site is up"
+      "stage": "needs-scraper",
+      "systems": 3,
+      "libraries": 209,
+      "humanAction": "Investigate"
     },
     {
       "stage": "adapter-needed:communico",
@@ -66,6 +66,12 @@
       "systems": 8,
       "libraries": 177,
       "humanAction": "Re-verify feed (possible WAF block at probe time)"
+    },
+    {
+      "stage": "site-unreachable",
+      "systems": 8,
+      "libraries": 142,
+      "humanAction": "Confirm the domain is right / site is up"
     },
     {
       "stage": "identity-collision",
@@ -97,8 +103,12 @@
       "libraries": 1166
     },
     "communico": {
-      "systems": 6,
-      "libraries": 151
+      "systems": 7,
+      "libraries": 236
+    },
+    "bklyn": {
+      "systems": 1,
+      "libraries": 60
     }
   },
   "byState": [
@@ -145,10 +155,10 @@
     {
       "state": "CA",
       "libraries": 1175,
-      "active": 213,
+      "active": 298,
       "detected": 181,
       "zips": 2593,
-      "zipsNearActive": 403
+      "zipsNearActive": 540
     },
     {
       "state": "CO",
@@ -409,10 +419,10 @@
     {
       "state": "NY",
       "libraries": 1072,
-      "active": 0,
+      "active": 60,
       "detected": 4,
       "zips": 2154,
-      "zipsNearActive": 0
+      "zipsNearActive": 56
     },
     {
       "state": "OH",
@@ -567,16 +577,7 @@
       "outlets": 94,
       "status": "none",
       "vendor": null,
-      "stage": "no-platform-found"
-    },
-    {
-      "systemKey": "CA0062",
-      "system": "La County Library",
-      "state": "CA",
-      "outlets": 85,
-      "status": "none",
-      "vendor": null,
-      "stage": "no-platform-found"
+      "stage": "needs-scraper"
     },
     {
       "systemKey": "CA0063",
@@ -594,16 +595,7 @@
       "outlets": 62,
       "status": "none",
       "vendor": null,
-      "stage": "no-platform-found"
-    },
-    {
-      "systemKey": "NY0004",
-      "system": "Brooklyn Public Library",
-      "state": "NY",
-      "outlets": 60,
-      "status": "none",
-      "vendor": null,
-      "stage": "no-platform-found"
+      "stage": "needs-scraper"
     },
     {
       "systemKey": "PA0385",
@@ -612,7 +604,7 @@
       "outlets": 53,
       "status": "none",
       "vendor": null,
-      "stage": "site-unreachable"
+      "stage": "needs-scraper"
     },
     {
       "systemKey": "HI0001",
@@ -739,12 +731,30 @@
       "status": "none",
       "vendor": null,
       "stage": "no-platform-found"
+    },
+    {
+      "systemKey": "LA0054",
+      "system": "Shreve Memorial Library",
+      "state": "LA",
+      "outlets": 21,
+      "status": "none",
+      "vendor": null,
+      "stage": "no-platform-found"
+    },
+    {
+      "systemKey": "MD0016",
+      "system": "Montgomery County Public Libraries",
+      "state": "MD",
+      "outlets": 21,
+      "status": "none",
+      "vendor": null,
+      "stage": "no-platform-found"
     }
   ],
   "zipAnalysis": {
     "total": 40979,
     "failures": 0,
-    "nearestIsActive": 2787,
+    "nearestIsActive": 2980,
     "nearestIsDetected": 2489,
     "nearestDistanceMiles": {
       "median": 2.0860216177145445,
@@ -752,6 +762,6 @@
       "p99": 25.364223263245464,
       "max": 1815.9511109284065
     },
-    "elapsedMs": 227
+    "elapsedMs": 231
   }
 }

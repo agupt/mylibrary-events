@@ -6,9 +6,9 @@ Data: IMLS PLS FY2022 (16,883 library outlets, 9,234 systems), GeoNames (40,979 
 
 | Status | Libraries | Share | Systems |
 |---|---|---|---|
-| Active (live events served) | 1,283 | 7.6% | 73 |
+| Active (live events served) | 1,428 | 8.5% | 75 |
 | Detected (vendor found, needs config) | 1,002 | 5.9% | 108 |
-| No coverage | 14,598 | 86.5% | 9053 |
+| No coverage | 14,453 | 85.6% | 9051 |
 
 ## Pipeline decision tree — where each system is stuck and who can unblock it
 
@@ -20,13 +20,14 @@ across all systems on that vendor.
 |---|---|---|---|
 | never-probed | 8,179 | 8,701 | Not yet examined (small system) — extend findDomains/detectPlatforms coverage |
 | domain-unknown-probed | 791 | 4,061 | Slug guessing failed and official website unknown — run findDomains for this system |
-| no-platform-found | 67 | 1,473 | Domain read, no known vendor fingerprint — inspect site, identify platform or scope a site scraper |
-| serving | 73 | 1,283 | — (events flowing) |
+| serving | 75 | 1,428 | — (events flowing) |
+| no-platform-found | 63 | 1,172 | Domain read, no known vendor fingerprint — inspect site, identify platform or scope a site scraper |
 | calendar-id-needed | 83 | 531 | Open the LibCal instance, pick the events calendar, add its id to the registry |
 | feed-empty | 9 | 214 | Instance verified but feed has no items — check for a different public calendar |
-| site-unreachable | 9 | 195 | Confirm the domain is right / site is up |
+| needs-scraper | 3 | 209 | Investigate |
 | adapter-needed:communico | 8 | 180 | Build communico adapter (unlocks every system on it; worst case a scraper) |
 | feed-unverified | 8 | 177 | Re-verify feed (possible WAF block at probe time) |
+| site-unreachable | 8 | 142 | Confirm the domain is right / site is up |
 | identity-collision | 5 | 25 | Adjudicate which system owns the instance (same-named systems in different states) |
 | adapter-needed:localist | 1 | 22 | Build localist adapter (unlocks every system on it; worst case a scraper) |
 | adapter-needed:librarymarket | 1 | 21 | Build librarymarket adapter (unlocks every system on it; worst case a scraper) |
@@ -41,21 +42,24 @@ claim is made about whether they publish calendars.
 |---|---|---|
 | libcal | 132 | 1166 |
 | bibliocommons | 43 | 968 |
-| communico | 6 | 151 |
+| communico | 7 | 236 |
+| bklyn | 1 | 60 |
 
 ## Zip-code analysis (all 40,979 US zips)
 
-- Nearest library has an **active** feed: **2,787 zips (6.8%)**
+- Nearest library has an **active** feed: **2,980 zips (7.3%)**
 - Nearest library is on a **detected** platform: 2,489 (6.1%)
 - Distance to nearest library: median 2.1 mi, p90 10.0 mi, p99 25.4 mi, max 1816 mi
 - Every zip resolved to a nearest library: yes ✅
-- Analysis runtime: 227 ms (grid-indexed)
+- Analysis runtime: 231 ms (grid-indexed)
 
-## Active systems (73)
+## Active systems (75)
 
 | System | State | Outlets | Vendor |
 |---|---|---|---|
+| La County Library (CA0062) | CA | 85 | communico |
 | Chicago Public Library (IL0098) | IL | 81 | bibliocommons |
+| Brooklyn Public Library (NY0004) | NY | 60 | bklyn |
 | Miami-Dade Public Library System (FL0025) | FL | 50 | communico |
 | King County Library System (WA0059) | WA | 49 | bibliocommons |
 | Hennepin County Library (MN0041) | MN | 41 | bibliocommons |
@@ -201,12 +205,10 @@ claim is made about whether they publish calendars.
 
 | System | State | Outlets | Branch |
 |---|---|---|---|
-| New York Public Library, The Branch Libraries (NY0778) | NY | 94 | no-platform-found |
-| La County Library (CA0062) | CA | 85 | no-platform-found |
+| New York Public Library, The Branch Libraries (NY0778) | NY | 94 | needs-scraper |
 | Los Angeles Public Library (CA0063) | CA | 73 | no-platform-found |
-| Queens Borough Public Library (NY0562) | NY | 62 | no-platform-found |
-| Brooklyn Public Library (NY0004) | NY | 60 | no-platform-found |
-| Free Library Of Philadelphia (PA0385) | PA | 53 | site-unreachable |
+| Queens Borough Public Library (NY0562) | NY | 62 | needs-scraper |
+| Free Library Of Philadelphia (PA0385) | PA | 53 | needs-scraper |
 | Hawaii State Public Library System (HI0001) | HI | 50 | adapter-needed:communico |
 | Broward County Libraries Division (FL0012) | FL | 38 | no-platform-found |
 | San Bernardino County Library (CA0109) | CA | 32 | no-platform-found |
@@ -221,3 +223,5 @@ claim is made about whether they publish calendars.
 | Fairfax County Public Library (VA0026) | VA | 23 | adapter-needed:communico |
 | Enoch Pratt Free Library (MD0003) | MD | 22 | adapter-needed:localist |
 | Detroit Public Library (MI0083) | MI | 22 | no-platform-found |
+| Shreve Memorial Library (LA0054) | LA | 21 | no-platform-found |
+| Montgomery County Public Libraries (MD0016) | MD | 21 | no-platform-found |

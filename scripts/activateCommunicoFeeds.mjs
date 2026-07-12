@@ -37,6 +37,7 @@ async function probeAttendHost(entry, domain) {
       [
         evidenced,
         `attend.${domain}`,
+        `visit.${domain}`, // LA County pattern
         `events.${domain}`,
         domain, // some libraries mount the Communico SPA on their own domain
         `www.${domain}`,

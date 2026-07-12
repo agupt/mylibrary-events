@@ -1,7 +1,12 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 
-export type FeedVendor = "bibliocommons" | "libcal" | "ical" | "communico";
+export type FeedVendor =
+  | "bibliocommons"
+  | "libcal"
+  | "ical"
+  | "communico"
+  | "bklyn";
 
 export interface FeedEntry {
   vendor: FeedVendor;

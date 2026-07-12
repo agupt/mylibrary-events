@@ -71,7 +71,7 @@ describe("mapCommunicoEvent", () => {
 
 describe("createCommunicoProvider", () => {
   test("requests the eeventcaldata endpoint and attributes by branch", async () => {
-    const fetchText = vi.fn(async () =>
+    const fetchText = vi.fn(async (_url: string) =>
       JSON.stringify([
         RAW,
         { ...RAW, id: "2", location: "Parma Branch", library: "Parma Branch" },

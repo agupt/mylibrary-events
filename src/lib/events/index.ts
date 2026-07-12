@@ -4,15 +4,19 @@ import { createBiblioCommonsProvider } from "./bibliocommons/provider";
 import { activeFeedsByVendor, getFeedEntry } from "./calendarFeeds";
 import type { DateRange, EventProvider } from "./eventProvider";
 import { createCommunicoProvider } from "./communico/provider";
+import { createBklynProvider } from "./custom/bklynProvider";
 import { createIcsProvider } from "./libcal/provider";
 import { createLibcalRssProvider } from "./libcal/rssProvider";
 
 const FETCH_TIMEOUT_MS = 10_000;
 
-async function fetchText(url: string): Promise<string> {
+async function fetchText(
+  url: string,
+  headers?: Record<string, string>,
+): Promise<string> {
   const response = await fetch(url, {
     signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-    headers: { "user-agent": "library-storytime/1.0 (events aggregator)" },
+    headers: headers ?? { "user-agent": "library-storytime/1.0 (events aggregator)" },
   });
   if (!response.ok) {
     throw new Error(`Feed request failed: HTTP ${response.status} for ${url}`);
@@ -74,6 +78,15 @@ function createCompositeProvider(): EventProvider {
         findLibraryById,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("communico"))),
+    },
+    {
+      // Brooklyn Public Library's custom Drupal+Solr search API
+      provider: createBklynProvider({
+        feeds: activeFeedsByVendor("bklyn"),
+        fetchText,
+        findLibraryById,
+      }),
+      systemKeys: new Set(Object.keys(activeFeedsByVendor("bklyn"))),
     },
   ];
 

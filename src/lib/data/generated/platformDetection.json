@@ -5,19 +5,24 @@
  },
  "PA0385": {
   "domain": "freelibrary.org",
-  "resolution": "site-unreachable"
+  "resolution": "needs-scraper",
+  "note": "libwww.freelibrary.org/calendar is Cloudflare-403 to non-browser clients. Clean URL taxonomy (/calendar/age/<x>, /calendar/event/<id>) once past CF \u2014 headless scraper viable."
  },
  "NY0778": {
   "domain": "nypl.org",
-  "resolution": "no-platform-found"
+  "resolution": "needs-scraper",
+  "note": "SSR Next.js behind Imperva bot protection; drupal.nypl.org JSON:API is stale (2022) + beta test content \u2014 no public event data source. Scraper needs headless browser."
  },
  "NY0562": {
   "domain": "queenslibrary.org",
-  "resolution": "no-platform-found"
+  "resolution": "needs-scraper",
+  "note": "Server-rendered calendar behind F5 WAF (Request Rejected on all /api paths). Scraper needs WAF-tolerant HTML parsing of /calendar."
  },
  "CA0062": {
   "domain": "lacountylibrary.org",
-  "resolution": "no-platform-found"
+  "resolution": "activated",
+  "vendor": "communico",
+  "note": "Communico on visit.lacountylibrary.org (verified 701 events/14d)"
  },
  "FL0025": {
   "domain": "mdpls.org",
@@ -37,7 +42,9 @@
  },
  "NY0004": {
   "domain": "bklynlibrary.org",
-  "resolution": "no-platform-found"
+  "resolution": "activated",
+  "vendor": "bklyn",
+  "note": "custom Drupal+Solr API mapped via DevTools: /api/search/index.php?event=true&eventdate&eventage&pagination"
  },
  "TX0099": {
   "domain": "houstonlibrary.org",

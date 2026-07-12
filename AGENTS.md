@@ -77,3 +77,13 @@ The IMLS dataset has no web addresses — the root cause of low discovery recall
 The Communico adapter (`src/lib/events/communico/provider.ts`) uses the unauthenticated `eeventcaldata` JSON endpoint (found via Chrome DevTools network inspection on attend.cuyahogalibrary.org): structured ages, branch names, wall-clock times. Vendor age labels are authoritative even when a title suggests otherwise.
 
 Coverage is reported as a DECISION TREE (per Amool's direction): every system sits on exactly one branch (`serving`, `calendar-id-needed`, `adapter-needed:<vendor>`, `no-platform-found`, `domain-unknown-probed`, `never-probed`, …) and each branch names the human/engineering action that unblocks it — see `stageForSystem()` in coverageHarness.mjs, the report's "Pipeline decision tree" section, and the /status page table. State unknowns as unknowns: never assert what unprobed systems do.
+
+## Metro custom-platform findings (2026-07-12 DevTools sessions)
+
+- **Brooklyn (NY0004)**: custom Drupal+Solr — adapter `src/lib/events/custom/bklynProvider.ts`. API: `discover.bklynlibrary.org/api/search/index.php?event=true&eventdate=MM-DD-YYYY&eventage=A||B&pagination=N` (requires browser UA + Referer; fixed 20/page; `ss_event_age` values: "Birth to Five Years", "Kids", "Teens & Young Adults", "Adults", "Older Adults").
+- **LA County (CA0062)**: Communico on `visit.lacountylibrary.org` (not `attend.*`) — config-only, existing adapter. Activation script now probes `visit.<domain>` too.
+- **NYPL (NY0778)**: needs-scraper. SSR + Imperva; `drupal.nypl.org` JSON:API is open but stale (2022) + beta test data — NOT the production source.
+- **Queens (NY0562)**: needs-scraper. Server-rendered behind F5 WAF ("Request Rejected" on API paths).
+- **Philadelphia (PA0385)**: needs-scraper. Cloudflare 403s all non-browser clients; clean URL taxonomy (`/calendar/age/<x>`, `/calendar/event/<id>`) once past CF.
+
+Pattern for future metros: open the events page in Chrome DevTools, filter network to xhr/fetch, replicate the data call with curl, verify shape, then adapter (JSON API) or config (known vendor on odd subdomain) or needs-scraper (bot-walled SSR).

@@ -33,7 +33,7 @@ export function mapAudiencesToAgeGroups(audiences: string[]): AgeGroup[] | null 
       groups.add("school-age");
     } else if (/famil|all ages|everyone/.test(audience)) {
       groups.add("all-ages");
-    } else if (/birth to 5|birth-5|ages 0-5|under 5/.test(audience)) {
+    } else if (/birth to (5|five)|birth-5|ages 0-5|under 5/.test(audience)) {
       groups.add("baby");
       groups.add("toddler");
       groups.add("preschool");
