@@ -58,8 +58,4 @@ describe("mockEventProvider", () => {
     }
   });
 
-  test("returns empty array for unknown library ids", async () => {
-    const events = await mockEventProvider.getEvents(["no-such-library"], RANGE);
-    expect(events).toEqual([]);
-  });
 });

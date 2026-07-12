@@ -1,7 +1,11 @@
 import { z } from "zod";
 import { apiError, apiSuccess } from "@/lib/apiResponse";
-import { AGE_GROUPS, DEFAULT_EVENT_RANGE_DAYS, EVENT_TYPES } from "@/lib/constants";
-import { mockEventProvider } from "@/lib/events/mockEventProvider";
+import {
+  AGE_GROUPS,
+  DEFAULT_EVENT_RANGE_DAYS,
+  EVENT_TYPES,
+} from "@/lib/constants";
+import { getEventProvider, hasCalendarFeed } from "@/lib/events";
 import { filterEvents } from "@/lib/filterEvents";
 
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
@@ -45,6 +49,17 @@ export async function GET(request: Request) {
   const start = new Date();
   const end = new Date(start.getTime() + days * MS_PER_DAY);
 
-  const events = await mockEventProvider.getEvents(libraryIds, { start, end });
-  return apiSuccess(filterEvents(events, { ageGroup, eventType }));
+  try {
+    const events = await getEventProvider().getEvents(libraryIds, {
+      start,
+      end,
+    });
+    return apiSuccess({
+      events: filterEvents(events, { ageGroup, eventType }),
+      libraryIdsWithoutFeed: libraryIds.filter((id) => !hasCalendarFeed(id)),
+    });
+  } catch (error: unknown) {
+    console.error("Event lookup failed", error);
+    return apiError("Could not load events right now. Please try again.", 502);
+  }
 }

@@ -36,7 +36,7 @@ export function EventList({ events, librariesById }: EventListProps) {
         const start = new Date(event.startTime);
         return (
           <li
-            key={event.id}
+            key={`${event.libraryId}:${event.id}`}
             className="flex flex-col gap-1 rounded-lg border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between dark:border-slate-700 dark:bg-slate-800"
           >
             <div>

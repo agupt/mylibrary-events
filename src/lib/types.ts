@@ -10,7 +10,8 @@ export type EventType =
   | "craft"
   | "stem"
   | "music-movement"
-  | "book-club";
+  | "book-club"
+  | "other";
 
 export interface Coordinates {
   latitude: number;
@@ -23,8 +24,10 @@ export interface Library {
   system: string;
   address: string;
   city: string;
+  state: string;
   zipCode: string;
   coordinates: Coordinates;
+  websiteUrl?: string;
 }
 
 export interface StorytimeEvent {
@@ -46,10 +49,16 @@ export interface LibraryDistance {
 export interface LocationMatch {
   query: string;
   matchedCity: string;
+  matchedState: string;
   coordinates: Coordinates;
   homeLibrary: Library;
   nearbyLibraries: LibraryDistance[];
 }
+
+export type LocationResult =
+  | { status: "ok"; match: LocationMatch }
+  | { status: "not-found" }
+  | { status: "ambiguous"; options: string[] };
 
 export interface EventFilters {
   ageGroup?: AgeGroup;

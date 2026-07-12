@@ -1,59 +1,164 @@
 import { describe, expect, test } from "vitest";
-import { findLocationMatch } from "../locate";
+import { findLocation, type LocateDeps } from "../locate";
+import type { Library } from "../types";
 
-describe("findLocationMatch", () => {
-  test("maps a library zip code to its home library", () => {
-    // Act
-    const match = findLocationMatch("94612");
+function library(overrides: Partial<Library> & { id: string }): Library {
+  return {
+    name: "Test Library",
+    system: "Test System",
+    address: "1 Main St",
+    city: "Oakland",
+    state: "CA",
+    zipCode: "94612",
+    coordinates: { latitude: 37.8, longitude: -122.27 },
+    ...overrides,
+  };
+}
+
+const LIBRARIES: Library[] = [
+  library({
+    id: "CA0081-002",
+    name: "Oakland Main Library",
+    city: "Oakland",
+    state: "CA",
+    coordinates: { latitude: 37.8014, longitude: -122.2727 },
+  }),
+  library({
+    id: "CA0081-015",
+    name: "Rockridge Branch Library",
+    city: "Oakland",
+    state: "CA",
+    zipCode: "94618",
+    coordinates: { latitude: 37.8443, longitude: -122.2519 },
+  }),
+  library({
+    id: "CA0114-002",
+    name: "San Francisco Main Library",
+    city: "San Francisco",
+    state: "CA",
+    zipCode: "94102",
+    coordinates: { latitude: 37.7793, longitude: -122.4157 },
+  }),
+  library({
+    id: "OR0999-001",
+    name: "Portland Central Library",
+    city: "Portland",
+    state: "OR",
+    zipCode: "97205",
+    coordinates: { latitude: 45.5191, longitude: -122.6837 },
+  }),
+];
+
+const PLACES = {
+  "94609": { city: "Oakland", state: "CA", latitude: 37.8362, longitude: -122.2648 },
+  "94102": { city: "San Francisco", state: "CA", latitude: 37.7793, longitude: -122.4157 },
+};
+
+const CITIES = [
+  { city: "Oakland", state: "CA", latitude: 37.8044, longitude: -122.2712, zipCount: 30 },
+  { city: "Portland", state: "OR", latitude: 45.5202, longitude: -122.6742, zipCount: 60 },
+  { city: "Portland", state: "ME", latitude: 43.6591, longitude: -70.2568, zipCount: 8 },
+];
+
+const deps: LocateDeps = {
+  getLibraries: () => LIBRARIES,
+  lookupZip: (zip) => {
+    const place = PLACES[zip as keyof typeof PLACES];
+    return place
+      ? {
+          coordinates: { latitude: place.latitude, longitude: place.longitude },
+          city: place.city,
+          state: place.state,
+        }
+      : null;
+  },
+  lookupCity: (city, state) =>
+    CITIES.filter(
+      (candidate) =>
+        candidate.city.toLowerCase() === city.toLowerCase() &&
+        (!state || candidate.state === state.toUpperCase()),
+    ).map((candidate) => ({
+      coordinates: {
+        latitude: candidate.latitude,
+        longitude: candidate.longitude,
+      },
+      city: candidate.city,
+      state: candidate.state,
+      zipCount: candidate.zipCount,
+    })),
+};
+
+describe("findLocation", () => {
+  test("maps a residential zip to the nearest library in the same city", () => {
+    // Act — 94609 is Temescal, Oakland; Rockridge is the closest library
+    const result = findLocation("94609", deps);
 
     // Assert
-    expect(match).not.toBeNull();
-    expect(match?.matchedCity).toBe("Oakland");
-    expect(match?.homeLibrary.id).toBe("opl-main");
+    expect(result.status).toBe("ok");
+    if (result.status !== "ok") return;
+    expect(result.match.matchedCity).toBe("Oakland");
+    expect(result.match.matchedState).toBe("CA");
+    expect(result.match.homeLibrary.id).toBe("CA0081-015");
   });
 
-  test("maps a residential zip with no library to the nearest library in that city", () => {
-    // Act — 94609 is Temescal, Oakland; Rockridge branch is closest
-    const match = findLocationMatch("94609");
+  test("prefers a same-city library as home even when another is closer", () => {
+    // Act — SF Main is at 94102 exactly; home must be an SF library
+    const result = findLocation("94102", deps);
 
     // Assert
-    expect(match?.matchedCity).toBe("Oakland");
-    expect(match?.homeLibrary.system).toBe("Oakland Public Library");
+    expect(result.status).toBe("ok");
+    if (result.status !== "ok") return;
+    expect(result.match.homeLibrary.city).toBe("San Francisco");
   });
 
-  test("maps a city name to its home library, case-insensitively", () => {
-    // Act
-    const match = findLocationMatch("  berkeley ");
+  test("resolves 'city, ST' queries case-insensitively", () => {
+    const result = findLocation("  portland, or ", deps);
 
-    // Assert
-    expect(match?.matchedCity).toBe("Berkeley");
-    expect(match?.homeLibrary.id).toBe("bpl-central");
+    expect(result.status).toBe("ok");
+    if (result.status !== "ok") return;
+    expect(result.match.matchedState).toBe("OR");
+    expect(result.match.homeLibrary.id).toBe("OR0999-001");
   });
 
-  test("returns nearby libraries sorted by ascending distance, excluding the home library", () => {
-    // Act
-    const match = findLocationMatch("94102");
+  test("returns ambiguous options for a multi-state city, largest city first", () => {
+    const result = findLocation("portland", deps);
 
-    // Assert
-    expect(match).not.toBeNull();
-    const nearby = match!.nearbyLibraries;
-    expect(nearby.length).toBeGreaterThan(0);
+    expect(result.status).toBe("ambiguous");
+    if (result.status !== "ambiguous") return;
+    // OR has more zips (bigger city), so it's suggested before ME
+    expect(result.options).toEqual(["Portland, OR", "Portland, ME"]);
+  });
+
+  test("resolves an unambiguous bare city name", () => {
+    const result = findLocation("oakland", deps);
+
+    expect(result.status).toBe("ok");
+    if (result.status !== "ok") return;
+    expect(result.match.matchedCity).toBe("Oakland");
+  });
+
+  test("sorts nearby libraries ascending and excludes the home library", () => {
+    const result = findLocation("94609", deps);
+
+    expect(result.status).toBe("ok");
+    if (result.status !== "ok") return;
+    const nearby = result.match.nearbyLibraries;
     expect(nearby.map((n) => n.library.id)).not.toContain(
-      match!.homeLibrary.id,
+      result.match.homeLibrary.id,
     );
     const distances = nearby.map((n) => n.distanceMiles);
     expect(distances).toEqual([...distances].sort((a, b) => a - b));
   });
 
-  test("returns null for an unknown zip code", () => {
-    expect(findLocationMatch("10001")).toBeNull();
+  test("returns not-found for an unknown zip", () => {
+    expect(findLocation("00000", deps).status).toBe("not-found");
   });
 
-  test("returns null for an unknown city", () => {
-    expect(findLocationMatch("Springfield")).toBeNull();
+  test("returns not-found for an unknown city", () => {
+    expect(findLocation("Atlantis", deps).status).toBe("not-found");
   });
 
-  test("returns null for empty input", () => {
-    expect(findLocationMatch("   ")).toBeNull();
+  test("returns not-found for empty input", () => {
+    expect(findLocation("   ", deps).status).toBe("not-found");
   });
 });

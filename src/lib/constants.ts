@@ -14,6 +14,7 @@ export const EVENT_TYPE_LABELS: Record<EventType, string> = {
   stem: "STEM",
   "music-movement": "Music & Movement",
   "book-club": "Book Club",
+  other: "Other Programs",
 };
 
 export const AGE_GROUPS = Object.keys(AGE_GROUP_LABELS) as AgeGroup[];

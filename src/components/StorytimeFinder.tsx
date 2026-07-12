@@ -31,6 +31,7 @@ export function StorytimeFinder() {
   const [error, setError] = useState<string | null>(null);
   const [match, setMatch] = useState<LocationMatch | null>(null);
   const [events, setEvents] = useState<StorytimeEvent[]>([]);
+  const [libraryIdsWithoutFeed, setLibraryIdsWithoutFeed] = useState<string[]>([]);
   const [filters, setFilters] = useState<ActiveFilters>(NO_FILTERS);
 
   const handleSearch = useCallback(async (query: string) => {
@@ -44,15 +45,18 @@ export function StorytimeFinder() {
         location.homeLibrary.id,
         ...location.nearbyLibraries.map((entry) => entry.library.id),
       ];
-      const calendar = await fetchJson<StorytimeEvent[]>(
-        `/api/events?libraryIds=${libraryIds.join(",")}`,
-      );
+      const calendar = await fetchJson<{
+        events: StorytimeEvent[];
+        libraryIdsWithoutFeed: string[];
+      }>(`/api/events?libraryIds=${libraryIds.join(",")}`);
       setMatch(location);
-      setEvents(calendar);
+      setEvents(calendar.events);
+      setLibraryIdsWithoutFeed(calendar.libraryIdsWithoutFeed);
       setFilters(NO_FILTERS);
     } catch (caught) {
       setMatch(null);
       setEvents([]);
+      setLibraryIdsWithoutFeed([]);
       setError(
         caught instanceof Error
           ? caught.message
@@ -114,6 +118,15 @@ export function StorytimeFinder() {
               filters={filters}
               onChange={setFilters}
             />
+            {libraryIdsWithoutFeed.length > 0 && (
+              <p className="rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800 dark:bg-amber-950/40 dark:text-amber-300">
+                No public calendar feed is connected yet for:{" "}
+                {libraryIdsWithoutFeed
+                  .map((id) => librariesById.get(id)?.name ?? id)
+                  .join(", ")}
+                . Check their websites for events.
+              </p>
+            )}
             <EventList events={visibleEvents} librariesById={librariesById} />
           </section>
         </>

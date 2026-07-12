@@ -1,0 +1,141 @@
+import type { Library, StorytimeEvent } from "../../types";
+import type { DateRange, EventProvider } from "../eventProvider";
+import { classifyEventType, mapAudiencesToAgeGroups } from "./classify";
+import { parseBcFeed, type BcFeedEvent } from "./parseFeed";
+
+const DEFAULT_CACHE_TTL_MS = 15 * 60 * 1000;
+
+export interface BcProviderDeps {
+  /** feedUrl by system key (the FSCSKEY portion of a library id). */
+  feeds: Record<string, string>;
+  fetchText: (url: string) => Promise<string>;
+  findLibraryById: (id: string) => Library | undefined;
+  cacheTtlMs?: number;
+  now?: () => number;
+}
+
+function systemKeyOf(libraryId: string): string {
+  return libraryId.split("-")[0];
+}
+
+function normalizeName(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/\b(library|branch|the)\b/g, " ")
+    .replace(/[^a-z0-9 ]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/** An event belongs to a library if the branch zip or name lines up. */
+function matchesLibrary(event: BcFeedEvent, library: Library): boolean {
+  if (event.locationZip && event.locationZip === library.zipCode) {
+    return true;
+  }
+  const eventName = normalizeName(event.locationName);
+  const libraryName = normalizeName(library.name);
+  return (
+    eventName.length > 0 &&
+    (eventName === libraryName ||
+      libraryName.includes(eventName) ||
+      eventName.includes(libraryName))
+  );
+}
+
+function toStorytimeEvent(
+  event: BcFeedEvent,
+  libraryId: string,
+): StorytimeEvent | null {
+  const ageGroups = mapAudiencesToAgeGroups(event.audiences);
+  if (ageGroups === null) {
+    return null; // teen/adult-only program
+  }
+  return {
+    id: event.id,
+    libraryId,
+    title: event.title,
+    eventType: classifyEventType(event.categories, event.title),
+    ageGroups,
+    startTime: new Date(event.startTime).toISOString(),
+    endTime: new Date(
+      Number.isNaN(Date.parse(event.endTime))
+        ? event.startTime
+        : event.endTime,
+    ).toISOString(),
+    description: event.description,
+  };
+}
+
+/**
+ * EventProvider over BiblioCommons events RSS feeds. One feed covers a
+ * whole library system; events are attributed to individual branches by
+ * matching the feed item's location (zip, then name) against the IMLS
+ * outlet record. Feeds are cached in-memory per URL.
+ */
+export function createBiblioCommonsProvider(deps: BcProviderDeps): EventProvider {
+  const cacheTtlMs = deps.cacheTtlMs ?? DEFAULT_CACHE_TTL_MS;
+  const now = deps.now ?? Date.now;
+  // Caches the in-flight promise (not the resolved value) so concurrent
+  // requests for branches of the same system share one fetch.
+  const cache = new Map<
+    string,
+    { fetchedAt: number; events: Promise<BcFeedEvent[]> }
+  >();
+
+  function getFeedEvents(url: string): Promise<BcFeedEvent[]> {
+    const cached = cache.get(url);
+    if (cached && now() - cached.fetchedAt < cacheTtlMs) {
+      return cached.events;
+    }
+    const events = deps
+      .fetchText(url)
+      .then(parseBcFeed)
+      .catch((error: unknown) => {
+        cache.delete(url); // don't cache failures
+        throw error;
+      });
+    cache.set(url, { fetchedAt: now(), events });
+    return events;
+  }
+
+  return {
+    async getEvents(libraryIds: string[], range: DateRange) {
+      const results = await Promise.all(
+        libraryIds.map(async (libraryId) => {
+          const feedUrl = deps.feeds[systemKeyOf(libraryId)];
+          const library = deps.findLibraryById(libraryId);
+          if (!feedUrl || !library) {
+            return [];
+          }
+          let feedEvents: BcFeedEvent[];
+          try {
+            feedEvents = await getFeedEvents(feedUrl);
+          } catch (error: unknown) {
+            console.error(`Failed to load events feed ${feedUrl}`, error);
+            return [];
+          }
+          return feedEvents
+            .filter((event) => !event.isCancelled)
+            .filter((event) => {
+              const start = Date.parse(event.startTime);
+              return start >= range.start.getTime() && start < range.end.getTime();
+            })
+            .filter((event) => matchesLibrary(event, library))
+            .map((event) => toStorytimeEvent(event, libraryId))
+            .filter((event): event is StorytimeEvent => event !== null);
+        }),
+      );
+      return results
+        .flat()
+        .sort(
+          (a, b) =>
+            new Date(a.startTime).getTime() - new Date(b.startTime).getTime(),
+        );
+    },
+  };
+}
+
+/** System keys that have a configured feed. */
+export function systemsWithFeeds(feeds: Record<string, string>): Set<string> {
+  return new Set(Object.keys(feeds));
+}

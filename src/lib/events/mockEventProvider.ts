@@ -1,5 +1,4 @@
 import { EVENT_TYPES } from "../constants";
-import { LIBRARIES } from "../data/libraries";
 import type { AgeGroup, EventType, StorytimeEvent } from "../types";
 import type { DateRange, EventProvider } from "./eventProvider";
 
@@ -25,6 +24,7 @@ const TITLES: Record<EventType, string[]> = {
   stem: ["LEGO Builders Club", "Little Scientists", "Coding for Kids"],
   "music-movement": ["Music & Movement", "Dance Party", "Sing-Along"],
   "book-club": ["Kids Book Club", "Graphic Novel Club", "Read to a Dog"],
+  other: ["Petting Zoo Visit", "Summer Reading Kickoff", "Puppet Show"],
 };
 
 /** FNV-1a string hash — stable across runs so mock data is deterministic. */
@@ -101,16 +101,14 @@ function occurrencesInRange(
   return events;
 }
 
-const KNOWN_LIBRARY_IDS = new Set(LIBRARIES.map((library) => library.id));
-
 /**
- * Deterministic seeded calendar: each library gets a stable set of weekly
- * recurring programs derived from a hash of its id.
+ * TEST-ONLY deterministic calendar: each library id gets a stable set of
+ * weekly recurring programs derived from a hash of its id. Never used at
+ * runtime — the app uses the BiblioCommons provider (see events/index.ts).
  */
 export const mockEventProvider: EventProvider = {
   async getEvents(libraryIds, range) {
     return libraryIds
-      .filter((id) => KNOWN_LIBRARY_IDS.has(id))
       .flatMap((libraryId) =>
         buildWeeklySlots(libraryId).flatMap((slot) =>
           occurrencesInRange(libraryId, slot, range),

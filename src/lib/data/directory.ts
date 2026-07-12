@@ -1,0 +1,39 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
+import type { Library } from "../types";
+import { websiteForLibraryId } from "./systemWebsites";
+
+/**
+ * Library directory generated from the IMLS Public Libraries Survey by
+ * scripts/importImlsLibraries.mjs (validated with zod at import time).
+ * Server-side only — loaded lazily and cached for the process lifetime.
+ */
+
+type GeneratedLibrary = Omit<Library, "websiteUrl">;
+
+let cache: Library[] | null = null;
+
+function loadGeneratedLibraries(): GeneratedLibrary[] {
+  const filePath = path.join(
+    process.cwd(),
+    "src/lib/data/generated/libraries.json",
+  );
+  const parsed: unknown = JSON.parse(readFileSync(filePath, "utf8"));
+  if (!Array.isArray(parsed) || parsed.length === 0) {
+    throw new Error(
+      `Library directory at ${filePath} is empty or malformed. ` +
+        "Run: npm run data:libraries",
+    );
+  }
+  return parsed as GeneratedLibrary[];
+}
+
+export function getAllLibraries(): Library[] {
+  if (cache === null) {
+    cache = loadGeneratedLibraries().map((library) => {
+      const websiteUrl = websiteForLibraryId(library.id);
+      return websiteUrl ? { ...library, websiteUrl } : library;
+    });
+  }
+  return cache;
+}

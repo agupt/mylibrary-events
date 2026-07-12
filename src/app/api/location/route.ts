@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { apiError, apiSuccess } from "@/lib/apiResponse";
-import { findLocationMatch } from "@/lib/locate";
+import { findLocation } from "@/lib/locate";
 
 const querySchema = z.object({
   q: z
@@ -17,13 +17,21 @@ export async function GET(request: Request) {
     return apiError(parsed.error.issues[0].message, 400);
   }
 
-  const match = findLocationMatch(parsed.data.q);
-  if (!match) {
+  const result = findLocation(parsed.data.q);
+  if (result.status === "not-found") {
     return apiError(
-      `No libraries found for "${parsed.data.q}". Try a Bay Area city (e.g. Oakland) or zip code (e.g. 94612).`,
+      `No location found for "${parsed.data.q}". Try a city with state (e.g. "Oakland, CA") or a 5-digit zip code.`,
       404,
     );
   }
+  if (result.status === "ambiguous") {
+    return apiError(
+      `"${parsed.data.q}" exists in several states — try one of: ${result.options.join(
+        "; ",
+      )}.`,
+      400,
+    );
+  }
 
-  return apiSuccess(match);
+  return apiSuccess(result.match);
 }

@@ -22,7 +22,7 @@ export function SearchForm({ isLoading, onSearch }: SearchFormProps) {
         type="text"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        placeholder="City or zip code (e.g. Oakland or 94110)"
+        placeholder="City, ST or zip code (e.g. Oakland, CA or 94110)"
         aria-label="City or zip code"
         className="flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100"
       />
