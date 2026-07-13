@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-07-13T22:01:41.815Z",
+  "generatedAt": "2026-07-13T22:11:03.847Z",
   "libraries": {
     "total": 16883,
-    "active": 1856,
+    "active": 1886,
     "detected": 976,
-    "none": 14051
+    "none": 14021
   },
   "systems": {
     "total": 9234,
-    "active": 89,
+    "active": 90,
     "detected": 106,
-    "none": 9039
+    "none": 9038
   },
   "pipeline": [
     {
@@ -27,14 +27,14 @@
     },
     {
       "stage": "serving",
-      "systems": 89,
-      "libraries": 1856,
+      "systems": 90,
+      "libraries": 1886,
       "humanAction": "— (events flowing)"
     },
     {
       "stage": "no-platform-found",
-      "systems": 60,
-      "libraries": 1074,
+      "systems": 59,
+      "libraries": 1044,
       "humanAction": "Domain read, no known vendor fingerprint — inspect site, identify platform or scope a site scraper"
     },
     {
@@ -101,8 +101,8 @@
       "libraries": 435
     },
     "ical": {
-      "systems": 2,
-      "libraries": 82
+      "systems": 3,
+      "libraries": 112
     },
     "bklyn": {
       "systems": 1,
@@ -505,10 +505,10 @@
     {
       "state": "TX",
       "libraries": 868,
-      "active": 65,
+      "active": 95,
       "detected": 61,
       "zips": 2600,
-      "zipsNearActive": 219
+      "zipsNearActive": 320
     },
     {
       "state": "UT",
@@ -599,15 +599,6 @@
       "system": "Pioneerland Library System",
       "state": "MN",
       "outlets": 32,
-      "status": "none",
-      "vendor": null,
-      "stage": "no-platform-found"
-    },
-    {
-      "systemKey": "TX0003",
-      "system": "Dallas Public Library",
-      "state": "TX",
-      "outlets": 30,
       "status": "none",
       "vendor": null,
       "stage": "no-platform-found"
@@ -755,12 +746,21 @@
       "status": "none",
       "vendor": null,
       "stage": "no-platform-found"
+    },
+    {
+      "systemKey": "MI0123",
+      "system": "Genesee District Library",
+      "state": "MI",
+      "outlets": 19,
+      "status": "none",
+      "vendor": null,
+      "stage": "no-platform-found"
     }
   ],
   "zipAnalysis": {
     "total": 40979,
     "failures": 0,
-    "nearestIsActive": 4242,
+    "nearestIsActive": 4343,
     "nearestIsDetected": 2428,
     "nearestDistanceMiles": {
       "median": 2.0860216177145445,
@@ -768,6 +768,6 @@
       "p99": 25.364223263245464,
       "max": 1815.9511109284065
     },
-    "elapsedMs": 240
+    "elapsedMs": 244
   }
 }

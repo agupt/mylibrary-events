@@ -1,5 +1,5 @@
 import type { Library, StorytimeEvent } from "../../types";
-import { namesOverlap } from "../nameMatch";
+import { addressesMatch, namesOverlap } from "../nameMatch";
 import { classifyEventType, inferAgeGroupsFromText } from "../classify";
 import type { DateRange, EventProvider } from "../eventProvider";
 import { createFeedCache } from "../feedCache";
@@ -20,7 +20,12 @@ function systemKeyOf(libraryId: string): string {
 }
 
 function locationMatches(event: IcsEvent, library: Library): boolean {
-  return namesOverlap(event.location, library.name);
+  // Branch name first; street address second (Dallas-style feeds put
+  // "1515 Young Street, Dallas, TX" in LOCATION with no branch name)
+  return (
+    namesOverlap(event.location, library.name) ||
+    addressesMatch(event.location, library.address)
+  );
 }
 
 function toStorytimeEvent(

@@ -1056,6 +1056,14 @@
   "note": "discovered: sumterlibrary.libcal.com \u2014 needs calendar id",
   "source": "discovered"
  },
+ "TX0003": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://dallaslibrary.librarymarket.com/events/feed/ical?_wrapper_format=lc_calendar_feed",
+  "note": "Dallas Public Library \u2014 LibraryMarket LibraryCalendar iCal export (found by Amool 2026-07-13; 2,900 events, address-based branch attribution)",
+  "source": "verified",
+  "verifiedAt": "2026-07"
+ },
  "TX0099": {
   "vendor": "libcal",
   "status": "active",

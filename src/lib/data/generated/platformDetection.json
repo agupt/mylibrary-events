@@ -89,7 +89,9 @@
  },
  "TX0003": {
   "domain": "dallaslibrary.org",
-  "resolution": "no-platform-found"
+  "resolution": "activated",
+  "vendor": "ical",
+  "note": "dallaslibrary.librarymarket.com LibraryCalendar ical (found by Amool)"
  },
  "CA0105": {
   "domain": "saclibrary.org",

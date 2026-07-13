@@ -104,6 +104,42 @@ describe("createIcsProvider", () => {
     expect(events.map((e) => e.title)).toEqual(["Toddler Storytime"]);
   });
 
+  test("attributes by street address when LOCATION has no branch name", async () => {
+    const central: Library = {
+      ...MVPL,
+      id: "TX0003-002",
+      name: "Dallas Public Library",
+      address: "1515 Young St",
+    };
+    const addressIcs = [
+      "BEGIN:VCALENDAR",
+      "BEGIN:VEVENT",
+      "DTSTART:20260715T170000Z",
+      "UID:dal-1",
+      "SUMMARY:Toddler Storytime",
+      "LOCATION:1515 Young Street\\, Dallas\\, TX\\, 75201\\, US",
+      "END:VEVENT",
+      "BEGIN:VEVENT",
+      "DTSTART:20260715T180000Z",
+      "UID:dal-2",
+      "SUMMARY:Baby Rhyme Time",
+      "LOCATION:9609 Lake June Road\\, Dallas\\, TX\\, 75217\\, US",
+      "END:VEVENT",
+      "END:VCALENDAR",
+    ].join("\r\n");
+    const provider = createIcsProvider({
+      feeds: { TX0003: "https://dallaslibrary.librarymarket.com/ical" },
+      fetchText: vi.fn(async () => addressIcs),
+      findLibraryById: (id) => (id === central.id ? central : undefined),
+    });
+
+    const events = await provider.getEvents([central.id], RANGE);
+
+    // 1515 Young matches Central by address; Lake June (another branch)
+    // is dropped, not mis-attributed
+    expect(events.map((e) => e.title)).toEqual(["Toddler Storytime"]);
+  });
+
   test("attributes unlocated events to the system's main outlet", async () => {
     const branch: Library = { ...MVPL, id: "CA0076-005", name: "North Branch" };
     const provider = createIcsProvider({

@@ -29,3 +29,20 @@ export function namesOverlap(a: string, b: string): boolean {
     (left === right || left.includes(right) || right.includes(left))
   );
 }
+
+/**
+ * Street-address matching for feeds whose LOCATION is an address rather
+ * than a branch name (Dallas: "1515 Young Street, Dallas, TX" vs IMLS
+ * "1515 Young St"). Compares street number + first street-name token —
+ * suffix variations (St/Street, Rd/Road) don't matter.
+ */
+function streetKey(text: string): string | null {
+  const match = normalizeName(text).match(/\b(\d{1,6}) ([a-z0-9]+)/);
+  return match ? `${match[1]} ${match[2]}` : null;
+}
+
+export function addressesMatch(freeText: string, address: string): boolean {
+  const left = streetKey(freeText);
+  const right = streetKey(address);
+  return left !== null && right !== null && left === right;
+}
