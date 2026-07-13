@@ -135,6 +135,14 @@
   "note": "discovered: riversidelibrary.libcal.com \u2014 needs calendar id",
   "source": "discovered"
  },
+ "CA0105": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://engage.saclibrary.org/feeds?data=eyJmZWVkVHlwZSI6ImljYWwiLCJmaWx0ZXJzIjp7ImxvY2F0aW9uIjpbImFsbCJdLCJhZ2VzIjpbImFsbCJdLCJ0eXBlcyI6WyJhbGwiXSwidGFncyI6W10sInRlcm0iOiIiLCJkYXlzIjoxNH19",
+  "note": "Sacramento Public Library \u2014 engage.saclibrary.org iCal (base64 JSON query, days=14; found by Amool 2026-07-13)",
+  "source": "verified",
+  "verifiedAt": "2026-07"
+ },
  "CA0106": {
   "vendor": "libcal",
   "status": "detected",

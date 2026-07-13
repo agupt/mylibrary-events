@@ -91,7 +91,9 @@
  },
  "CA0105": {
   "domain": "saclibrary.org",
-  "resolution": "no-platform-found"
+  "resolution": "activated",
+  "vendor": "ical",
+  "note": "engage.saclibrary.org parameterizable feed API (found by Amool)"
  },
  "OH0051": {
   "domain": "cpl.org",

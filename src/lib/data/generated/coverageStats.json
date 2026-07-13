@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-07-13T21:29:33.490Z",
+  "generatedAt": "2026-07-13T21:32:03.501Z",
   "libraries": {
     "total": 16883,
-    "active": 1790,
+    "active": 1818,
     "detected": 976,
-    "none": 14117
+    "none": 14089
   },
   "systems": {
     "total": 9234,
-    "active": 87,
+    "active": 88,
     "detected": 106,
-    "none": 9041
+    "none": 9040
   },
   "pipeline": [
     {
@@ -27,14 +27,14 @@
     },
     {
       "stage": "serving",
-      "systems": 87,
-      "libraries": 1790,
+      "systems": 88,
+      "libraries": 1818,
       "humanAction": "— (events flowing)"
     },
     {
       "stage": "no-platform-found",
-      "systems": 62,
-      "libraries": 1140,
+      "systems": 61,
+      "libraries": 1112,
       "humanAction": "Domain read, no known vendor fingerprint — inspect site, identify platform or scope a site scraper"
     },
     {
@@ -101,8 +101,8 @@
       "libraries": 369
     },
     "ical": {
-      "systems": 2,
-      "libraries": 82
+      "systems": 3,
+      "libraries": 110
     },
     "bklyn": {
       "systems": 1,
@@ -161,10 +161,10 @@
     {
       "state": "CA",
       "libraries": 1175,
-      "active": 335,
+      "active": 363,
       "detected": 176,
       "zips": 2593,
-      "zipsNearActive": 627
+      "zipsNearActive": 755
     },
     {
       "state": "CO",
@@ -622,15 +622,6 @@
       "stage": "no-platform-found"
     },
     {
-      "systemKey": "CA0105",
-      "system": "Sacramento Public Library",
-      "state": "CA",
-      "outlets": 28,
-      "status": "none",
-      "vendor": null,
-      "stage": "no-platform-found"
-    },
-    {
       "systemKey": "FL0127",
       "system": "Pinellas Public Library Cooperative",
       "state": "FL",
@@ -755,12 +746,21 @@
       "status": "none",
       "vendor": null,
       "stage": "site-unreachable"
+    },
+    {
+      "systemKey": "UT0049",
+      "system": "Salt Lake County Library",
+      "state": "UT",
+      "outlets": 20,
+      "status": "none",
+      "vendor": null,
+      "stage": "site-unreachable"
     }
   ],
   "zipAnalysis": {
     "total": 40979,
     "failures": 0,
-    "nearestIsActive": 4031,
+    "nearestIsActive": 4159,
     "nearestIsDetected": 2428,
     "nearestDistanceMiles": {
       "median": 2.0860216177145445,
@@ -768,6 +768,6 @@
       "p99": 25.364223263245464,
       "max": 1815.9511109284065
     },
-    "elapsedMs": 248
+    "elapsedMs": 242
   }
 }
