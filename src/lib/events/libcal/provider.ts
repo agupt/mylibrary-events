@@ -77,10 +77,19 @@ export function createIcsProvider(deps: IcsProviderDeps): EventProvider {
 
       const results = await Promise.all(
         [...bySystem.entries()].map(async ([systemKey, libraries]) => {
-          const feedUrl = deps.feeds[systemKey];
+          let feedUrl = deps.feeds[systemKey];
           if (!feedUrl) {
             return [];
           }
+          // "{YYYY-MM}" template → the range's month at fetch time.
+          // Month-scoped feeds (Dallas's LibraryCalendar) generate in
+          // seconds; the unscoped variant renders months of events and
+          // times out. Trade-off: windows crossing a month boundary are
+          // partially covered until the month rolls (same as LibCal RSS).
+          feedUrl = feedUrl.replace(
+            "{YYYY-MM}",
+            range.start.toISOString().slice(0, 7),
+          );
           let feedEvents: IcsEvent[];
           try {
             feedEvents = await getFeedEvents(feedUrl);

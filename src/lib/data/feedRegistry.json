@@ -1059,8 +1059,8 @@
  "TX0003": {
   "vendor": "ical",
   "status": "active",
-  "url": "https://dallaslibrary.librarymarket.com/events/feed/ical?_wrapper_format=lc_calendar_feed",
-  "note": "Dallas Public Library \u2014 LibraryMarket LibraryCalendar iCal export (found by Amool 2026-07-13; 2,900 events, address-based branch attribution)",
+  "url": "https://dallaslibrary.librarymarket.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "Dallas Public Library \u2014 LibraryMarket LibraryCalendar iCal (found by Amool 2026-07-13); month-templated URL, address-based branch attribution",
   "source": "verified",
   "verifiedAt": "2026-07"
  },

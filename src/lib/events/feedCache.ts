@@ -58,6 +58,21 @@ export function createFeedCache<T>(options: FeedCacheOptions<T>): (url: string) 
     }
   }
 
+  const refreshing = new Set<string>();
+
+  function startRefresh(url: string): Promise<T> {
+    refreshing.add(url);
+    const value = options
+      .load(url)
+      .then((loaded) => {
+        writeDisk(url, loaded);
+        cache.set(url, { fetchedAt: now(), value: Promise.resolve(loaded) });
+        return loaded;
+      })
+      .finally(() => refreshing.delete(url));
+    return value;
+  }
+
   return (url: string) => {
     const cached = cache.get(url);
     if (cached && now() - cached.fetchedAt < ttlMs) {
@@ -72,22 +87,35 @@ export function createFeedCache<T>(options: FeedCacheOptions<T>): (url: string) 
       return value;
     }
 
-    const value = options
-      .load(url)
-      .then((loaded) => {
-        writeDisk(url, loaded);
-        return loaded;
-      })
-      .catch((error: unknown) => {
-        // Live fetch failed — serve the last-known-good copy at any age
-        const stale = readDisk(url, null);
-        if (stale !== null) {
-          console.warn(`feed cache: serving stale copy of ${url} after fetch failure`, error);
-          return stale;
-        }
-        cache.delete(url);
-        throw error;
-      });
+    // Stale-while-revalidate: some vendor feeds take 45s+ to generate
+    // (Dallas's LibraryCalendar). If ANY previous copy exists — expired
+    // memory or any-age disk — serve it immediately and refresh in the
+    // background; a user request never waits on a slow vendor.
+    const stale = cached?.value ?? null;
+    const staleDisk = stale === null ? readDisk(url, null) : null;
+    if (stale !== null || staleDisk !== null) {
+      if (!refreshing.has(url)) {
+        startRefresh(url).catch((error: unknown) => {
+          console.warn(`feed cache: background refresh of ${url} failed`, error);
+        });
+      }
+      const value = stale ?? Promise.resolve(staleDisk as T);
+      // Don't bump fetchedAt to now — a completed refresh overwrites this
+      // entry; until then, keep serving stale without re-triggering.
+      cache.set(url, { fetchedAt: now() - ttlMs + 60_000, value });
+      return value;
+    }
+
+    // First-ever fetch: nothing to serve, must block
+    const value = startRefresh(url).catch((error: unknown) => {
+      const recovered = readDisk(url, null);
+      if (recovered !== null) {
+        console.warn(`feed cache: serving stale copy of ${url} after fetch failure`, error);
+        return recovered;
+      }
+      cache.delete(url);
+      throw error;
+    });
     cache.set(url, { fetchedAt: now(), value });
     return value;
   };

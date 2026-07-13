@@ -53,7 +53,7 @@ claim is made about whether they publish calendars.
 - Nearest library is on a **detected** platform: 2,428 (5.9%)
 - Distance to nearest library: median 2.1 mi, p90 10.0 mi, p99 25.4 mi, max 1816 mi
 - Every zip resolved to a nearest library: yes ✅
-- Analysis runtime: 244 ms (grid-indexed)
+- Analysis runtime: 245 ms (grid-indexed)
 
 ## Active systems (90)
 

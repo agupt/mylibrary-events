@@ -11,7 +11,7 @@ import { createIcsProvider } from "./libcal/provider";
 import { createLibcalRssProvider } from "./libcal/rssProvider";
 import { createSnapshotProvider } from "./snapshot/provider";
 
-const FETCH_TIMEOUT_MS = 10_000;
+const FETCH_TIMEOUT_MS = 60_000; // slow vendors (LibraryCalendar ~46s) are tolerable: SWR serves stale instantly while refreshing
 
 // Disk-persistent feed cache: survives restarts (cold start serves the
 // fresh disk copy) and outages (stale copy beats an empty page). On
