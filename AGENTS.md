@@ -87,3 +87,22 @@ Coverage is reported as a DECISION TREE (per Amool's direction): every system si
 - **Philadelphia (PA0385)**: needs-scraper. Cloudflare 403s all non-browser clients; clean URL taxonomy (`/calendar/age/<x>`, `/calendar/event/<id>`) once past CF.
 
 Pattern for future metros: open the events page in Chrome DevTools, filter network to xhr/fetch, replicate the data call with curl, verify shape, then adapter (JSON API) or config (known vendor on odd subdomain) or needs-scraper (bot-walled SSR).
+
+## Development rules (established by Amool, 2026-07-13)
+
+**Before building any feature: analyze its impact on the complete website, discuss assumptions, then edit.**
+
+1. **Impact analysis first.** Map what the feature touches across the whole
+   system — data model, UI, API, coverage pipeline, scripts, docs, ops/cron —
+   and write it down before changing code.
+2. **Surface assumptions for discussion.** Anything assumed (trust levels,
+   data freshness, who consumes a field) gets stated explicitly and agreed
+   on, not silently embedded in an implementation.
+3. **One source of truth per fact.** Features built at different times must
+   not diverge in data model. If new data overlaps an existing concept,
+   extend the existing model; overrides express trust tiers
+   (hand-verified > machine-derived), never parallel stores.
+
+Origin: website links (UI) and searched domains (pipeline) were built days
+apart as two disconnected stores of the same fact — the app knew domains it
+never showed users. Divergence was a process failure, not a trust necessity.
