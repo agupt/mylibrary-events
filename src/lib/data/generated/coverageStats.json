@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-07-13T21:32:03.501Z",
+  "generatedAt": "2026-07-13T22:01:41.815Z",
   "libraries": {
     "total": 16883,
-    "active": 1818,
+    "active": 1856,
     "detected": 976,
-    "none": 14089
+    "none": 14051
   },
   "systems": {
     "total": 9234,
-    "active": 88,
+    "active": 89,
     "detected": 106,
-    "none": 9040
+    "none": 9039
   },
   "pipeline": [
     {
@@ -27,14 +27,14 @@
     },
     {
       "stage": "serving",
-      "systems": 88,
-      "libraries": 1818,
+      "systems": 89,
+      "libraries": 1856,
       "humanAction": "— (events flowing)"
     },
     {
       "stage": "no-platform-found",
-      "systems": 61,
-      "libraries": 1112,
+      "systems": 60,
+      "libraries": 1074,
       "humanAction": "Domain read, no known vendor fingerprint — inspect site, identify platform or scope a site scraper"
     },
     {
@@ -97,12 +97,12 @@
       "libraries": 1140
     },
     "communico": {
-      "systems": 15,
-      "libraries": 369
+      "systems": 17,
+      "libraries": 435
     },
     "ical": {
-      "systems": 3,
-      "libraries": 110
+      "systems": 2,
+      "libraries": 82
     },
     "bklyn": {
       "systems": 1,
@@ -201,10 +201,10 @@
     {
       "state": "FL",
       "libraries": 539,
-      "active": 126,
+      "active": 164,
       "detected": 77,
       "zips": 1473,
-      "zipsNearActive": 329
+      "zipsNearActive": 412
     },
     {
       "state": "GA",
@@ -595,15 +595,6 @@
       "stage": "needs-scraper"
     },
     {
-      "systemKey": "FL0012",
-      "system": "Broward County Libraries Division",
-      "state": "FL",
-      "outlets": 38,
-      "status": "none",
-      "vendor": null,
-      "stage": "no-platform-found"
-    },
-    {
       "systemKey": "MN0051",
       "system": "Pioneerland Library System",
       "state": "MN",
@@ -755,12 +746,21 @@
       "status": "none",
       "vendor": null,
       "stage": "site-unreachable"
+    },
+    {
+      "systemKey": "MD0004",
+      "system": "Baltimore County Public Library",
+      "state": "MD",
+      "outlets": 19,
+      "status": "none",
+      "vendor": null,
+      "stage": "no-platform-found"
     }
   ],
   "zipAnalysis": {
     "total": 40979,
     "failures": 0,
-    "nearestIsActive": 4159,
+    "nearestIsActive": 4242,
     "nearestIsDetected": 2428,
     "nearestDistanceMiles": {
       "median": 2.0860216177145445,
@@ -768,6 +768,6 @@
       "p99": 25.364223263245464,
       "max": 1815.9511109284065
     },
-    "elapsedMs": 242
+    "elapsedMs": 240
   }
 }

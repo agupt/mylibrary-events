@@ -136,10 +136,10 @@
   "source": "discovered"
  },
  "CA0105": {
-  "vendor": "ical",
+  "vendor": "communico",
   "status": "active",
-  "url": "https://engage.saclibrary.org/feeds?data=eyJmZWVkVHlwZSI6ImljYWwiLCJmaWx0ZXJzIjp7ImxvY2F0aW9uIjpbImFsbCJdLCJhZ2VzIjpbImFsbCJdLCJ0eXBlcyI6WyJhbGwiXSwidGFncyI6W10sInRlcm0iOiIiLCJkYXlzIjoxNH19",
-  "note": "Sacramento Public Library \u2014 engage.saclibrary.org iCal (base64 JSON query, days=14; found by Amool 2026-07-13)",
+  "url": "https://engage.saclibrary.org",
+  "note": "Sacramento Public Library \u2014 Communico on custom engage.* domain (upgraded from iCal: structured ages/branches; found by Amool 2026-07-13)",
   "source": "verified",
   "verifiedAt": "2026-07"
  },
@@ -319,6 +319,14 @@
   "url": "https://attend.ocls.org",
   "note": "communico attend site (1137 events in next 14d at activation)",
   "source": "discovered"
+ },
+ "FL0012": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://broward.libnet.info",
+  "note": "Broward County Libraries \u2014 Communico on libnet.info (found by Amool 2026-07-13; 982 events/14d)",
+  "source": "verified",
+  "verifiedAt": "2026-07"
  },
  "FL0025": {
   "vendor": "communico",

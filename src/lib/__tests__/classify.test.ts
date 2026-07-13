@@ -27,6 +27,14 @@ describe("mapAudiencesToAgeGroups", () => {
     ]);
   });
 
+  test("compound labels contribute every named group", () => {
+    expect(mapAudiencesToAgeGroups(["Toddlers & Preschoolers", "Babies"])).toEqual([
+      "baby",
+      "preschool",
+      "toddler",
+    ]);
+  });
+
   test("returns null for adult-only events so callers can drop them", () => {
     expect(mapAudiencesToAgeGroups(["Adults", "Seniors"])).toBeNull();
     expect(mapAudiencesToAgeGroups(["Teens"])).toBeNull();

@@ -23,17 +23,16 @@ export function mapAudiencesToAgeGroups(audiences: string[]): AgeGroup[] | null 
       for (const group of fromRange) groups.add(group);
       continue;
     }
-    if (/\bbab(y|ies)\b|\binfant/.test(audience)) {
-      groups.add("baby");
-    } else if (/toddler/.test(audience)) {
-      groups.add("toddler");
-    } else if (/preschool|pre-school|pre-k/.test(audience)) {
-      groups.add("preschool");
-    } else if (/elementary|grade school|school age|school-age|\bkids?\b|tween|children/.test(audience)) {
+    // Independent checks: compound labels ("Toddlers & Preschoolers")
+    // must contribute every group they name, not just the first match.
+    if (/\bbab(y|ies)\b|\binfant/.test(audience)) groups.add("baby");
+    if (/toddler/.test(audience)) groups.add("toddler");
+    if (/preschool|pre-school|pre-k/.test(audience)) groups.add("preschool");
+    if (/elementary|grade school|school age|school-age|\bkids?\b|tween|children/.test(audience)) {
       groups.add("school-age");
-    } else if (/famil|all ages|everyone/.test(audience)) {
-      groups.add("all-ages");
-    } else if (/birth to (5|five)|birth-5|ages 0-5|under 5|early childhood/.test(audience)) {
+    }
+    if (/famil|all ages|everyone/.test(audience)) groups.add("all-ages");
+    if (/birth to (5|five)|birth-5|ages 0-5|under 5|early childhood/.test(audience)) {
       groups.add("baby");
       groups.add("toddler");
       groups.add("preschool");

@@ -6,9 +6,9 @@ Data: IMLS PLS FY2022 (16,883 library outlets, 9,234 systems), GeoNames (40,979 
 
 | Status | Libraries | Share | Systems |
 |---|---|---|---|
-| Active (live events served) | 1,818 | 10.8% | 88 |
+| Active (live events served) | 1,856 | 11.0% | 89 |
 | Detected (vendor found, needs config) | 976 | 5.8% | 106 |
-| No coverage | 14,089 | 83.5% | 9040 |
+| No coverage | 14,051 | 83.2% | 9039 |
 
 ## Pipeline decision tree — where each system is stuck and who can unblock it
 
@@ -20,8 +20,8 @@ across all systems on that vendor.
 |---|---|---|---|
 | never-probed | 8,179 | 8,701 | Not yet examined (small system) — extend findDomains/detectPlatforms coverage |
 | domain-unknown-probed | 791 | 4,061 | Slug guessing failed and official website unknown — run findDomains for this system |
-| serving | 88 | 1,818 | — (events flowing) |
-| no-platform-found | 61 | 1,112 | Domain read, no known vendor fingerprint — inspect site, identify platform or scope a site scraper |
+| serving | 89 | 1,856 | — (events flowing) |
+| no-platform-found | 60 | 1,074 | Domain read, no known vendor fingerprint — inspect site, identify platform or scope a site scraper |
 | calendar-id-needed | 82 | 526 | Open the LibCal instance, pick the events calendar, add its id to the registry |
 | feed-empty | 9 | 214 | Instance verified but feed has no items — check for a different public calendar |
 | feed-unverified | 8 | 177 | Re-verify feed (possible WAF block at probe time) |
@@ -41,21 +41,21 @@ claim is made about whether they publish calendars.
 |---|---|---|
 | libcal | 130 | 1140 |
 | bibliocommons | 43 | 968 |
-| communico | 15 | 369 |
-| ical | 3 | 110 |
+| communico | 17 | 435 |
+| ical | 2 | 82 |
 | bklyn | 1 | 60 |
 | snapshot | 1 | 94 |
 | flp | 1 | 53 |
 
 ## Zip-code analysis (all 40,979 US zips)
 
-- Nearest library has an **active** feed: **4,159 zips (10.1%)**
+- Nearest library has an **active** feed: **4,242 zips (10.4%)**
 - Nearest library is on a **detected** platform: 2,428 (5.9%)
 - Distance to nearest library: median 2.1 mi, p90 10.0 mi, p99 25.4 mi, max 1816 mi
 - Every zip resolved to a nearest library: yes ✅
-- Analysis runtime: 242 ms (grid-indexed)
+- Analysis runtime: 240 ms (grid-indexed)
 
-## Active systems (88)
+## Active systems (89)
 
 | System | State | Outlets | Vendor |
 |---|---|---|---|
@@ -69,6 +69,7 @@ claim is made about whether they publish calendars.
 | King County Library System (WA0059) | WA | 49 | bibliocommons |
 | Hennepin County Library (MN0041) | MN | 41 | bibliocommons |
 | Cincinnati And Hamilton County Public Library (OH0049) | OH | 41 | bibliocommons |
+| Broward County Libraries Division (FL0012) | FL | 38 | communico |
 | Houston Public Library (TX0099) | TX | 37 | libcal |
 | Riverside County Library System (CA0199) | CA | 35 | libcal |
 | Fulton County Library System (GA0022) | GA | 34 | bibliocommons |
@@ -78,7 +79,7 @@ claim is made about whether they publish calendars.
 | Great River Regional Library (MN0032) | MN | 32 | libcal |
 | North Central Regional Library (WA0062) | WA | 30 | libcal |
 | Timberland Regional Library (WA0069) | WA | 29 | bibliocommons |
-| Sacramento Public Library (CA0105) | CA | 28 | ical |
+| Sacramento Public Library (CA0105) | CA | 28 | communico |
 | Cleveland Public Library (OH0051) | OH | 28 | libcal |
 | Harris County Public Library (TX0101) | TX | 28 | bibliocommons |
 | Pima County Public Library (AZ0064) | AZ | 27 | bibliocommons |
@@ -221,7 +222,6 @@ claim is made about whether they publish calendars.
 |---|---|---|---|
 | Los Angeles Public Library (CA0063) | CA | 73 | no-platform-found |
 | Queens Borough Public Library (NY0562) | NY | 62 | needs-scraper |
-| Broward County Libraries Division (FL0012) | FL | 38 | no-platform-found |
 | Pioneerland Library System (MN0051) | MN | 32 | no-platform-found |
 | Dallas Public Library (TX0003) | TX | 30 | no-platform-found |
 | Pinellas Public Library Cooperative (FL0127) | FL | 25 | no-platform-found |
@@ -239,3 +239,4 @@ claim is made about whether they publish calendars.
 | Central Mississippi Regional Library (MS0006) | MS | 20 | no-platform-found |
 | Toledo-Lucas County Public Library (OH0215) | OH | 20 | site-unreachable |
 | Salt Lake County Library (UT0049) | UT | 20 | site-unreachable |
+| Baltimore County Public Library (MD0004) | MD | 19 | no-platform-found |

@@ -79,7 +79,9 @@
  },
  "FL0012": {
   "domain": "broward.org",
-  "resolution": "no-platform-found"
+  "resolution": "activated",
+  "vendor": "communico",
+  "note": "broward.libnet.info (found by Amool)"
  },
  "MN0051": {
   "domain": "pioneerland.lib.mn.us",
@@ -92,7 +94,7 @@
  "CA0105": {
   "domain": "saclibrary.org",
   "resolution": "activated",
-  "vendor": "ical",
+  "vendor": "communico",
   "note": "engage.saclibrary.org parameterizable feed API (found by Amool)"
  },
  "OH0051": {
