@@ -2728,5 +2728,1199 @@
   "source": "web-search",
   "system": "Licking County Library",
   "state": "OH"
+ },
+ "OH0179": {
+  "domain": "mypccl.org",
+  "source": "web-search",
+  "system": "Paulding County Carnegie Library",
+  "state": "OH"
+ },
+ "OH0203": {
+  "domain": "shelbycountylibraries.org",
+  "source": "web-search",
+  "system": "Shelby County Libraries - Amos Memorial",
+  "state": "OH"
+ },
+ "OH0221": {
+  "domain": "brumbacklib.org",
+  "source": "web-search",
+  "system": "Brumback Library",
+  "state": "OH"
+ },
+ "OH0225": {
+  "domain": "auglaizelibraries.org",
+  "source": "web-search",
+  "system": "Auglaize County Public District Library",
+  "state": "OH"
+ },
+ "OH0226": {
+  "domain": "wtcpl.org",
+  "source": "web-search",
+  "system": "Warren-Trumbull County Public Library",
+  "state": "OH"
+ },
+ "OH0250": {
+  "domain": "muskingumlibrary.org",
+  "source": "web-search",
+  "system": "Muskingum County Library System",
+  "state": "OH"
+ },
+ "OR0046": {
+  "domain": "bakerlib.org",
+  "source": "web-search",
+  "system": "Baker County Library District",
+  "state": "OR"
+ },
+ "OR0087": {
+  "domain": "tillabook.org",
+  "source": "web-search",
+  "system": "Tillamook County Library",
+  "state": "OR"
+ },
+ "OR0091": {
+  "domain": "deschuteslibrary.org",
+  "source": "web-search",
+  "system": "Deschutes Public Library District",
+  "state": "OR"
+ },
+ "PA0176": {
+  "domain": "adamslibrary.org",
+  "source": "web-search",
+  "system": "Adams Sys Admin Unit",
+  "state": "PA"
+ },
+ "PA9037": {
+  "domain": "discovery.fclspa.org",
+  "source": "web-search",
+  "system": "Franklin Sys Admin Unit",
+  "state": "PA"
+ },
+ "RI0010": {
+  "domain": "cranstonlibrary.org",
+  "source": "web-search",
+  "system": "Cranston Public Library",
+  "state": "RI"
+ },
+ "SC0019": {
+  "domain": "florencelibrary.org",
+  "source": "web-search",
+  "system": "Florence County Library System",
+  "state": "SC"
+ },
+ "SC0033": {
+  "domain": "orangeburgcounty.org",
+  "source": "web-search",
+  "system": "Orangeburg County Library Commission",
+  "state": "SC"
+ },
+ "TN0008": {
+  "domain": "wcpltn.org",
+  "source": "web-search",
+  "system": "Williamson County Public Library",
+  "state": "TN"
+ },
+ "TN0062": {
+  "domain": "rclstn.org",
+  "source": "web-search",
+  "system": "Rutherford County Library System",
+  "state": "TN"
+ },
+ "TX0216": {
+  "domain": "beaumonttexas.gov",
+  "source": "web-search",
+  "system": "Beaumont Public Library System",
+  "state": "TX"
+ },
+ "TX0445": {
+  "domain": "corpuschristitx.gov",
+  "source": "web-search",
+  "system": "Corpus Christi Public Libraries",
+  "state": "TX"
+ },
+ "VA0007": {
+  "domain": "bplsonline.org",
+  "source": "web-search",
+  "system": "Bedford Public Library System",
+  "state": "VA"
+ },
+ "VA0070": {
+  "domain": "roanokecountyva.gov",
+  "source": "web-search",
+  "system": "Roanoke County Public Library",
+  "state": "VA"
+ },
+ "VA0076": {
+  "domain": "countylib.org",
+  "source": "web-search",
+  "system": "Shenandoah County Library",
+  "state": "VA"
+ },
+ "WA0067": {
+  "domain": "spokanelibrary.org",
+  "source": "web-search",
+  "system": "Spokane Public Library",
+  "state": "WA"
+ },
+ "WI0291": {
+  "domain": "shawanolibrary.org",
+  "source": "web-search",
+  "system": "Shawano County Library",
+  "state": "WI"
+ },
+ "WY0017": {
+  "domain": "linclib.org",
+  "source": "web-search",
+  "system": "Lincoln County Library System",
+  "state": "WY"
+ },
+ "AK0002": {
+  "domain": "anchoragelibrary.org",
+  "source": "web-search",
+  "system": "Anchorage Public Library",
+  "state": "AK"
+ },
+ "AL0199": {
+  "domain": "cullmanlib.org",
+  "source": "web-search",
+  "system": "Cullman County Public Library",
+  "state": "AL"
+ },
+ "AR0004": {
+  "domain": "library.arkansas.gov",
+  "source": "web-search",
+  "system": "Southwest Arkansas Regional Library",
+  "state": "AR"
+ },
+ "AR0008": {
+  "domain": "pineblufflibrary.org",
+  "source": "web-search",
+  "system": "Pine Bluff/Jefferson County Library System",
+  "state": "AR"
+ },
+ "AR0013": {
+  "domain": "mylibrarynow.org",
+  "source": "web-search",
+  "system": "Northeast Arkansas Regional Library",
+  "state": "AR"
+ },
+ "AR0023": {
+  "domain": "scottsebastianregionallibrary.com",
+  "source": "web-search",
+  "system": "Scott Sebastian Regional Library",
+  "state": "AR"
+ },
+ "AR0024": {
+  "domain": "library.arkansas.gov",
+  "source": "web-search",
+  "system": "East Central Arkansas Regional Library System",
+  "state": "AR"
+ },
+ "AR0041": {
+  "domain": "lclibraries.org",
+  "source": "web-search",
+  "system": "Lonoke County Library System",
+  "state": "AR"
+ },
+ "AZ0050": {
+  "domain": "pinal.gov",
+  "source": "web-search",
+  "system": "Pinal County Library District",
+  "state": "AZ"
+ },
+ "AZ0107": {
+  "domain": "navajocountylibraries.org",
+  "source": "web-search",
+  "system": "Navajo County Library District",
+  "state": "AZ"
+ },
+ "AZ0169": {
+  "domain": "flagstaffpubliclibrary.org",
+  "source": "web-search",
+  "system": "Flagstaff City-Coconino County Public Library",
+  "state": "AZ"
+ },
+ "CA0006": {
+  "domain": "amadorcounty.gov",
+  "source": "web-search",
+  "system": "Amador County Library",
+  "state": "CA"
+ },
+ "CA0046": {
+  "domain": "huntingtonbeachca.gov",
+  "source": "web-search",
+  "system": "Huntington Beach Public Library",
+  "state": "CA"
+ },
+ "CA0064": {
+  "domain": "maderacounty.com",
+  "source": "web-search",
+  "system": "Madera County Library",
+  "state": "CA"
+ },
+ "CA0066": {
+  "domain": "mendolibrary.org",
+  "source": "web-search",
+  "system": "Mendocino County Library",
+  "state": "CA"
+ },
+ "CA0129": {
+  "domain": "cityofsantamaria.org",
+  "source": "web-search",
+  "system": "Santa Maria Public Library",
+  "state": "CA"
+ },
+ "CA0130": {
+  "domain": "santamonica.gov",
+  "source": "web-search",
+  "system": "Santa Monica Public Library",
+  "state": "CA"
+ },
+ "CA0192": {
+  "domain": "mariposacounty.gov",
+  "source": "web-search",
+  "system": "Mariposa County Library",
+  "state": "CA"
+ },
+ "CO0012": {
+  "domain": "boulderlibrary.org",
+  "source": "web-search",
+  "system": "Boulder Public Library",
+  "state": "CO"
+ },
+ "CO0051": {
+  "domain": "gcld.org",
+  "source": "web-search",
+  "system": "Grand County Library District",
+  "state": "CO"
+ },
+ "CO0144": {
+  "domain": "deltalibraries.org",
+  "source": "web-search",
+  "system": "Delta County Public Library District",
+  "state": "CO"
+ },
+ "CT0016": {
+  "domain": "bportlibrary.org",
+  "source": "web-search",
+  "system": "Bridgeport Public Library",
+  "state": "CT"
+ },
+ "CT0103": {
+  "domain": "nhfpl.org",
+  "source": "web-search",
+  "system": "New Haven Free Public Library",
+  "state": "CT"
+ },
+ "FL0018": {
+  "domain": "citruslibraries.org",
+  "source": "web-search",
+  "system": "Citrus County Library System",
+  "state": "FL"
+ },
+ "FL0019": {
+  "domain": "claycountygov.com",
+  "source": "web-search",
+  "system": "Clay County Public Library System",
+  "state": "FL"
+ },
+ "FL0036": {
+  "domain": "indianriver.gov",
+  "source": "web-search",
+  "system": "Indian River County Library",
+  "state": "FL"
+ },
+ "FL0048": {
+  "domain": "keyslibraries.org",
+  "source": "web-search",
+  "system": "Monroe County Public Library System",
+  "state": "FL"
+ },
+ "FL0095": {
+  "domain": "seminolecountyfl.gov",
+  "source": "web-search",
+  "system": "Seminole County Public Library System",
+  "state": "FL"
+ },
+ "FL0146": {
+  "domain": "sumtercountyfl.gov",
+  "source": "web-search",
+  "system": "Sumter County Library System",
+  "state": "FL"
+ },
+ "FL8005": {
+  "domain": "nassaureads.com",
+  "source": "web-search",
+  "system": "Nassau County Public Library System",
+  "state": "FL"
+ },
+ "GA0019": {
+  "domain": "docolib.org",
+  "source": "web-search",
+  "system": "Dougherty County Public Library",
+  "state": "GA"
+ },
+ "GA0031": {
+  "domain": "ocrl.org",
+  "source": "web-search",
+  "system": "Oconee Regional Library System",
+  "state": "GA"
+ },
+ "GA0034": {
+  "domain": "desototrail.org",
+  "source": "web-search",
+  "system": "De Soto Trail Regional Library System",
+  "state": "GA"
+ },
+ "GA0053": {
+  "domain": "okrls.org",
+  "source": "web-search",
+  "system": "Okefenokee Regional Library System",
+  "state": "GA"
+ },
+ "GA0054": {
+  "domain": "henrylibraries.org",
+  "source": "web-search",
+  "system": "Henry County Library System",
+  "state": "GA"
+ },
+ "GA0060": {
+  "domain": "hallcountylibrary.org",
+  "source": "web-search",
+  "system": "Hall County Library System",
+  "state": "GA"
+ },
+ "IA0148": {
+  "domain": "dubcolib.org",
+  "source": "web-search",
+  "system": "Dubuque County Library",
+  "state": "IA"
+ },
+ "ID0005": {
+  "domain": "boisepubliclibrary.org",
+  "source": "web-search",
+  "system": "Boise Public",
+  "state": "ID"
+ },
+ "IL0423": {
+  "domain": "peoriapubliclibrary.org",
+  "source": "web-search",
+  "system": "Peoria Public Library",
+  "state": "IL"
+ },
+ "IN0043": {
+  "domain": "pcpls.org",
+  "source": "web-search",
+  "system": "Porter County Public Library System",
+  "state": "IN"
+ },
+ "IN0050": {
+  "domain": "myepl.org",
+  "source": "web-search",
+  "system": "Elkhart Public Library",
+  "state": "IN"
+ },
+ "IN0207": {
+  "domain": "pageafterpage.org",
+  "source": "web-search",
+  "system": "Johnson County Public Library",
+  "state": "IN"
+ },
+ "IN0217": {
+  "domain": "youseemore.com",
+  "source": "web-search",
+  "system": "Charlestown-Clark County Public Library",
+  "state": "IN"
+ },
+ "IN0224": {
+  "domain": "hcpl.lib.in.us",
+  "source": "web-search",
+  "system": "Harrison County Public Library",
+  "state": "IN"
+ },
+ "KS0133": {
+  "domain": "kckpl.org",
+  "source": "web-search",
+  "system": "Kansas City, Kansas Public Library",
+  "state": "KS"
+ },
+ "KY0014": {
+  "domain": "bcplib.org",
+  "source": "web-search",
+  "system": "Bullitt County Library District",
+  "state": "KY"
+ },
+ "KY0095": {
+  "domain": "pulaskilibrary.com",
+  "source": "web-search",
+  "system": "Pulaski County Public Library",
+  "state": "KY"
+ },
+ "LA0002": {
+  "domain": "grantparishlibrary.org",
+  "source": "web-search",
+  "system": "Grant Parish Library",
+  "state": "LA"
+ },
+ "LA0005": {
+  "domain": "winnlibrary.org",
+  "source": "web-search",
+  "system": "Winn Parish Library",
+  "state": "LA"
+ },
+ "LA0011": {
+  "domain": "assumptionlibrary.com",
+  "source": "web-search",
+  "system": "Assumption Parish Library",
+  "state": "LA"
+ },
+ "LA0015": {
+  "domain": "pointe-coupee.lib.la.us",
+  "source": "web-search",
+  "system": "Pointe Coupee Parish Library",
+  "state": "LA"
+ },
+ "LA0017": {
+  "domain": "sabineparishlibrary.org",
+  "source": "web-search",
+  "system": "Sabine Parish Library",
+  "state": "LA"
+ },
+ "LA0020": {
+  "domain": "library.beau.org",
+  "source": "web-search",
+  "system": "Beauregard Parish Library",
+  "state": "LA"
+ },
+ "LA0040": {
+  "domain": "mylpl.info",
+  "source": "web-search",
+  "system": "Livingston Parish Library",
+  "state": "LA"
+ },
+ "LA0064": {
+  "domain": "bienvillelibrary.org",
+  "source": "web-search",
+  "system": "Bienville Parish Library",
+  "state": "LA"
+ },
+ "MA0198": {
+  "domain": "libraries.state.ma.us",
+  "source": "web-search",
+  "system": "New Bedford Free Public Library",
+  "state": "MA"
+ },
+ "MD0012": {
+  "domain": "relib.net",
+  "source": "web-search",
+  "system": "Ruth Enlow Library Of Garrett County",
+  "state": "MD"
+ },
+ "MD0024": {
+  "domain": "worcesterlibrary.org",
+  "source": "web-search",
+  "system": "Worcester County Library",
+  "state": "MD"
+ },
+ "MI0012": {
+  "domain": "aadl.org",
+  "source": "web-search",
+  "system": "Ann Arbor District Library",
+  "state": "MI"
+ },
+ "MI0049": {
+  "domain": "cadillaclibrary.org",
+  "source": "web-search",
+  "system": "Cadillac Wexford Public Library",
+  "state": "MI"
+ },
+ "MI0055": {
+  "domain": "cassdistrictlibrary.org",
+  "source": "web-search",
+  "system": "Cass District Library",
+  "state": "MI"
+ },
+ "MI0180": {
+  "domain": "kpl.gov",
+  "source": "web-search",
+  "system": "Kalamazoo Public Library",
+  "state": "MI"
+ },
+ "MI0279": {
+  "domain": "pidl.org",
+  "source": "web-search",
+  "system": "Presque Isle District Library",
+  "state": "MI"
+ },
+ "MI0348": {
+  "domain": "crdl.org",
+  "source": "web-search",
+  "system": "Chippewa River District Library System",
+  "state": "MI"
+ },
+ "MN0108": {
+  "domain": "watonwancountymn.gov",
+  "source": "web-search",
+  "system": "Watonwan County Library",
+  "state": "MN"
+ },
+ "MN9030": {
+  "domain": "sibleycounty.gov",
+  "source": "web-search",
+  "system": "Sibley County Library",
+  "state": "MN"
+ },
+ "MO0059": {
+  "domain": "nemolibrary.org",
+  "source": "web-search",
+  "system": "Northeast Missouri Library Service",
+  "state": "MO"
+ },
+ "MO0091": {
+  "domain": "mexico-audrain.lib.mo.us",
+  "source": "web-search",
+  "system": "Mexico-Audrain County Library District",
+  "state": "MO"
+ },
+ "MO0137": {
+  "domain": "reynoldscountylibrary.missouri.org",
+  "source": "web-search",
+  "system": "Reynolds County Library District",
+  "state": "MO"
+ },
+ "MO0164": {
+  "domain": "ocld.lib.mo.us",
+  "source": "web-search",
+  "system": "Oregon County Library District",
+  "state": "MO"
+ },
+ "MS0003": {
+  "domain": "bolivar.lib.ms.us",
+  "source": "web-search",
+  "system": "Bolivar County Library",
+  "state": "MS"
+ },
+ "MS0008": {
+  "domain": "copjeflibrary.blogspot.com",
+  "source": "web-search",
+  "system": "Copiah-Jefferson Regional Library",
+  "state": "MS"
+ },
+ "MS0014": {
+  "domain": "hcls.info",
+  "source": "web-search",
+  "system": "Hancock County Library",
+  "state": "MS"
+ },
+ "MS0023": {
+  "domain": "knrls.lib.ms.us",
+  "source": "web-search",
+  "system": "Kemper-Newton Regional Library",
+  "state": "MS"
+ },
+ "MS0029": {
+  "domain": "mcls.ms",
+  "source": "web-search",
+  "system": "Madison County Library System",
+  "state": "MS"
+ },
+ "MS0044": {
+  "domain": "sunflower.lib.ms.us",
+  "source": "web-search",
+  "system": "Sunflower County Library",
+  "state": "MS"
+ },
+ "NC0002": {
+  "domain": "arlibrary.org",
+  "source": "web-search",
+  "system": "Appalachian Regional Library",
+  "state": "NC"
+ },
+ "NC0006": {
+  "domain": "mycprl.org",
+  "source": "web-search",
+  "system": "Craven-Pamlico Regional Library",
+  "state": "NC"
+ },
+ "NC0018": {
+  "domain": "brunswickcountync.gov",
+  "source": "web-search",
+  "system": "Brunswick County Library",
+  "state": "NC"
+ },
+ "NC0021": {
+  "domain": "cabarruscounty.us",
+  "source": "web-search",
+  "system": "Cabarrus County Public Library",
+  "state": "NC"
+ },
+ "NC0027": {
+  "domain": "davidson.nccardinal.org",
+  "source": "web-search",
+  "system": "Davidson County Public Library System",
+  "state": "NC"
+ },
+ "NC0036": {
+  "domain": "halifaxnc.com",
+  "source": "web-search",
+  "system": "Halifax County Library System",
+  "state": "NC"
+ },
+ "NC0046": {
+  "domain": "braswell-library.libguides.com",
+  "source": "web-search",
+  "system": "Braswell Memorial Public Library",
+  "state": "NC"
+ },
+ "NC0050": {
+  "domain": "sheppardlibrary.org",
+  "source": "web-search",
+  "system": "Sheppard Memorial Library",
+  "state": "NC"
+ },
+ "NC0113": {
+  "domain": "carteretcountync.libguides.com",
+  "source": "web-search",
+  "system": "Carteret County Public Library System",
+  "state": "NC"
+ },
+ "NJ0130": {
+  "domain": "gcls.org",
+  "source": "web-search",
+  "system": "Gloucester County Library",
+  "state": "NJ"
+ },
+ "NJ0306": {
+  "domain": "warrenlib.org",
+  "source": "web-search",
+  "system": "Warren County Library",
+  "state": "NJ"
+ },
+ "NV0015": {
+  "domain": "lyon-county.org",
+  "source": "web-search",
+  "system": "Lyon County Library System",
+  "state": "NV"
+ },
+ "NY0794": {
+  "domain": "chemunglibraries.org",
+  "source": "web-search",
+  "system": "Chemung County Library District",
+  "state": "NY"
+ },
+ "OH0089": {
+  "domain": "portagelibrary.org",
+  "source": "web-search",
+  "system": "Portage County District Library",
+  "state": "OH"
+ },
+ "OH0101": {
+  "domain": "highlandco.org",
+  "source": "web-search",
+  "system": "Highland County District Library",
+  "state": "OH"
+ },
+ "OH0107": {
+  "domain": "briggslibrary.org",
+  "source": "web-search",
+  "system": "Briggs Lawrence County Public Library",
+  "state": "OH"
+ },
+ "OH0116": {
+  "domain": "fcdlibrary.org",
+  "source": "web-search",
+  "system": "Fairfield County District Library",
+  "state": "OH"
+ },
+ "OH0144": {
+  "domain": "midpointelibrary.org",
+  "source": "web-search",
+  "system": "Midpointe Library System",
+  "state": "OH"
+ },
+ "OH0161": {
+  "domain": "tusclibrary.org",
+  "source": "web-search",
+  "system": "Tuscarawas County Public Library",
+  "state": "OH"
+ },
+ "OH0189": {
+  "domain": "sciotolibrary.org",
+  "source": "web-search",
+  "system": "Portsmouth Public Library",
+  "state": "OH"
+ },
+ "OH0204": {
+  "domain": "ccplohio.org",
+  "source": "web-search",
+  "system": "Clark County Public Library",
+  "state": "OH"
+ },
+ "PA0336": {
+  "domain": "mcnpl.org",
+  "source": "web-search",
+  "system": "Mont Co-Norristown Pub Lib",
+  "state": "PA"
+ },
+ "PA0423": {
+  "domain": "erielibrary.org",
+  "source": "web-search",
+  "system": "Erie County Public Library",
+  "state": "PA"
+ },
+ "PA0447": {
+  "domain": "cheltenhamlibraries.org",
+  "source": "web-search",
+  "system": "Cheltenham Twnshp Lib System",
+  "state": "PA"
+ },
+ "PR0012": {
+  "domain": "municipiohormiguerospr.com",
+  "source": "web-search",
+  "system": "Hormigueros Public Municipal Library (Prof. Evelyn Liciaga)",
+  "state": "PR"
+ },
+ "SC0003": {
+  "domain": "ahjlibrary.org",
+  "source": "web-search",
+  "system": "Allendale Hampton Jasper Regional Library",
+  "state": "SC"
+ },
+ "SC0005": {
+  "domain": "beaufortcountylibrary.org",
+  "source": "web-search",
+  "system": "Beaufort County Library",
+  "state": "SC"
+ },
+ "SC0012": {
+  "domain": "cclssc.org",
+  "source": "web-search",
+  "system": "Chesterfield County Library System",
+  "state": "SC"
+ },
+ "SC0038": {
+  "domain": "unionlibrary.org",
+  "source": "web-search",
+  "system": "Union County Library System",
+  "state": "SC"
+ },
+ "SC0040": {
+  "domain": "yclibrary.org",
+  "source": "web-search",
+  "system": "York County Library System",
+  "state": "SC"
+ },
+ "TN0125": {
+  "domain": "scpltn.org",
+  "source": "web-search",
+  "system": "Sullivan County Public Library",
+  "state": "TN"
+ },
+ "TN0132": {
+  "domain": "chattlibrary.org",
+  "source": "web-search",
+  "system": "Chattanooga Public Library",
+  "state": "TN"
+ },
+ "TN8060": {
+  "domain": "sumnercountytn.gov",
+  "source": "web-search",
+  "system": "The Sumner County Library System",
+  "state": "TN"
+ },
+ "TX0091": {
+  "domain": "youseemore.com",
+  "source": "web-search",
+  "system": "Rusk County Library System",
+  "state": "TX"
+ },
+ "TX0228": {
+  "domain": "plano.gov",
+  "source": "web-search",
+  "system": "Plano Public Library System",
+  "state": "TX"
+ },
+ "TX0412": {
+  "domain": "catalog.burnetcountylibrary.org",
+  "source": "web-search",
+  "system": "Burnet County Library System",
+  "state": "TX"
+ },
+ "TX0447": {
+  "domain": "amarillolibrary.org",
+  "source": "web-search",
+  "system": "Amarillo Public Library",
+  "state": "TX"
+ },
+ "UT0050": {
+  "domain": "sanjuancountyut.gov",
+  "source": "web-search",
+  "system": "San Juan County Library",
+  "state": "UT"
+ },
+ "UT0069": {
+  "domain": "weberpl.lib.ut.us",
+  "source": "web-search",
+  "system": "Weber County Library System",
+  "state": "UT"
+ },
+ "VA0008": {
+  "domain": "brrl.lib.va.us",
+  "source": "web-search",
+  "system": "Blue Ridge Regional Library",
+  "state": "VA"
+ },
+ "VA0060": {
+  "domain": "pcplib.org",
+  "source": "web-search",
+  "system": "Pittsylvania County Public Library",
+  "state": "VA"
+ },
+ "VA0071": {
+  "domain": "rrlib.net",
+  "source": "web-search",
+  "system": "Rockbridge Regional Library",
+  "state": "VA"
+ },
+ "VA0084": {
+  "domain": "wcpl.net",
+  "source": "web-search",
+  "system": "Washington County Public Library",
+  "state": "VA"
+ },
+ "VA0087": {
+  "domain": "wythegrayson.lib.va.us",
+  "source": "web-search",
+  "system": "Wythe-Grayson Regional Library",
+  "state": "VA"
+ },
+ "VI0002": {
+  "domain": "dpnr.vi.gov",
+  "source": "web-search",
+  "system": "Virgin Islands Division Of Libraries, Archives And Museums",
+  "state": "VI"
+ },
+ "WI0390": {
+  "domain": "lacrosselibrary.org",
+  "source": "web-search",
+  "system": "La Crosse County Library",
+  "state": "WI"
+ },
+ "WV0007": {
+  "domain": "putnamlibrarywv.org",
+  "source": "web-search",
+  "system": "Putnam County Library",
+  "state": "WV"
+ },
+ "WV0023": {
+  "domain": "mympls.org",
+  "source": "web-search",
+  "system": "Morgantown Public Library",
+  "state": "WV"
+ },
+ "WV0096": {
+  "domain": "pocahontaslibrary.org",
+  "source": "web-search",
+  "system": "Pocahontas County Libraries & Visitor Informa",
+  "state": "WV"
+ },
+ "WY0010": {
+  "domain": "bhcwylibrarysystem.org",
+  "source": "web-search",
+  "system": "Big Horn County Library",
+  "state": "WY"
+ },
+ "AL0192": {
+  "domain": "appl.info",
+  "source": "web-search",
+  "system": "Autauga - Prattville Public Library",
+  "state": "AL"
+ },
+ "AR0011": {
+  "domain": "fortsmithlibrary.org",
+  "source": "web-search",
+  "system": "Fort Smith Public Library",
+  "state": "AR"
+ },
+ "AR0021": {
+  "domain": "popelibrary.org",
+  "source": "web-search",
+  "system": "Pope County Library System",
+  "state": "AR"
+ },
+ "AZ0031": {
+  "domain": "chandlerlibrary.org",
+  "source": "web-search",
+  "system": "Chandler Public Library",
+  "state": "AZ"
+ },
+ "AZ0033": {
+  "domain": "library.glendaleaz.gov",
+  "source": "web-search",
+  "system": "Glendale Public Library",
+  "state": "AZ"
+ },
+ "AZ0036": {
+  "domain": "scottsdalelibrary.org",
+  "source": "web-search",
+  "system": "Scottsdale Public Library",
+  "state": "AZ"
+ },
+ "AZ0065": {
+  "domain": "nogalesaz.gov",
+  "source": "web-search",
+  "system": "Nogales/Santa Cruz County Public Library",
+  "state": "AZ"
+ },
+ "CA0027": {
+  "domain": "cityofcommercepubliclibrary.org",
+  "source": "web-search",
+  "system": "City Of Commerce Public Library",
+  "state": "CA"
+ },
+ "CA0031": {
+  "domain": "dalycity.org",
+  "source": "web-search",
+  "system": "Daly City Public Library",
+  "state": "CA"
+ },
+ "CA0047": {
+  "domain": "library.imperialcounty.org",
+  "source": "web-search",
+  "system": "Imperial County Library",
+  "state": "CA"
+ },
+ "CA0054": {
+  "domain": "library.lakecountyca.gov",
+  "source": "web-search",
+  "system": "Lake County Library",
+  "state": "CA"
+ },
+ "CA0070": {
+  "domain": "modoccountylibrary.org",
+  "source": "web-search",
+  "system": "Modoc County Library",
+  "state": "CA"
+ },
+ "CA0077": {
+  "domain": "napalibrary.gov",
+  "source": "web-search",
+  "system": "Napa County Library",
+  "state": "CA"
+ },
+ "CA0080": {
+  "domain": "newportbeachlibrary.org",
+  "source": "web-search",
+  "system": "Newport Beach Public Library",
+  "state": "CA"
+ },
+ "CA0101": {
+  "domain": "redwoodcity.org",
+  "source": "web-search",
+  "system": "Redwood City Public Library",
+  "state": "CA"
+ },
+ "CA0110": {
+  "domain": "sbpl.org",
+  "source": "web-search",
+  "system": "San Bernardino Public Library",
+  "state": "CA"
+ },
+ "CA0117": {
+  "domain": "sanleandro.org",
+  "source": "web-search",
+  "system": "San Leandro Public Library",
+  "state": "CA"
+ },
+ "CA0124": {
+  "domain": "library.santabarbaraca.gov",
+  "source": "web-search",
+  "system": "Santa Barbara Public Library",
+  "state": "CA"
+ },
+ "CA0150": {
+  "domain": "tuolumnecounty.ca.gov",
+  "source": "web-search",
+  "system": "Tuolumne County Library",
+  "state": "CA"
+ },
+ "CO0040": {
+  "domain": "pplibraries.org",
+  "source": "web-search",
+  "system": "Elbert County Library District",
+  "state": "CO"
+ },
+ "CO0094": {
+  "domain": "parkcounty.colibraries.org",
+  "source": "web-search",
+  "system": "Park County Public Library",
+  "state": "CO"
+ },
+ "CT0151": {
+  "domain": "fergusonlibrary.org",
+  "source": "web-search",
+  "system": "Ferguson Library",
+  "state": "CT"
+ },
+ "FL0101": {
+  "domain": "waltonlibraries.com",
+  "source": "web-search",
+  "system": "Walton County Public Library System",
+  "state": "FL"
+ },
+ "FL0106": {
+  "domain": "hernandocountylibrary.us",
+  "source": "web-search",
+  "system": "Hernando County Public Library System",
+  "state": "FL"
+ },
+ "FL0135": {
+  "domain": "wildernesscoast.org",
+  "source": "web-search",
+  "system": "Wilderness Coast Public Libraries",
+  "state": "FL"
+ },
+ "FL0258": {
+  "domain": "charlottefl.ent.sirsi.net",
+  "source": "web-search",
+  "system": "Charlotte County Public Library",
+  "state": "FL"
+ },
+ "FL8009": {
+  "domain": "wcplfl.com",
+  "source": "web-search",
+  "system": "Washington County Public Library",
+  "state": "FL"
+ },
+ "GA0047": {
+  "domain": "mountainlibrary.com",
+  "source": "web-search",
+  "system": "Mountain Regional Library System",
+  "state": "GA"
+ },
+ "GA0049": {
+  "domain": "chrl.org",
+  "source": "web-search",
+  "system": "Cherokee Regional Library System",
+  "state": "GA"
+ },
+ "GA0056": {
+  "domain": "leecountylibrary.org",
+  "source": "web-search",
+  "system": "Lee County Public Library",
+  "state": "GA"
+ },
+ "GA0058": {
+  "domain": "forsythpl.org",
+  "source": "web-search",
+  "system": "Forsyth County Public Library",
+  "state": "GA"
+ },
+ "GA0063": {
+  "domain": "coweta.ga.us",
+  "source": "web-search",
+  "system": "Coweta County Public Library System",
+  "state": "GA"
+ },
+ "IA0229": {
+  "domain": "woodburycounty.lib.ia.us",
+  "source": "web-search",
+  "system": "Woodbury County Library",
+  "state": "IA"
+ },
+ "ID0006": {
+  "domain": "adalib.org",
+  "source": "web-search",
+  "system": "Ada County District",
+  "state": "ID"
+ },
+ "ID0061": {
+  "domain": "mld.org",
+  "source": "web-search",
+  "system": "Meridian District",
+  "state": "ID"
+ },
+ "IL0280": {
+  "domain": "greaterwestcentral.org",
+  "source": "web-search",
+  "system": "Greater West Central Public Library District",
+  "state": "IL"
+ },
+ "IL0457": {
+  "domain": "robinsonpubliclibrary.com",
+  "source": "web-search",
+  "system": "Robinson Public Library District",
+  "state": "IL"
+ },
+ "IL0462": {
+  "domain": "rockfordpubliclibrary.org",
+  "source": "web-search",
+  "system": "Rockford Public Library",
+  "state": "IL"
+ },
+ "IL0555": {
+  "domain": "warrenpl.org",
+  "source": "web-search",
+  "system": "Warren County Public Library District",
+  "state": "IL"
+ },
+ "IN0003": {
+  "domain": "jdcpl.us",
+  "source": "web-search",
+  "system": "Jasper-Dubois County Contractual Public Library",
+  "state": "IN"
+ },
+ "IN0019": {
+  "domain": "spencercountypubliclibrary.org",
+  "source": "web-search",
+  "system": "Spencer County Public Library",
+  "state": "IN"
+ },
+ "IN0023": {
+  "domain": "boonvillelib.org",
+  "source": "web-search",
+  "system": "Boonville-Warrick County Public Library",
+  "state": "IN"
+ },
+ "IN0049": {
+  "domain": "scpls.org",
+  "source": "web-search",
+  "system": "Starke County Public Library System",
+  "state": "IN"
+ },
+ "IN0104": {
+  "domain": "myfcpl.org",
+  "source": "web-search",
+  "system": "Frankfort Community Public Library-Clinton County Contractua",
+  "state": "IN"
+ },
+ "IN0115": {
+  "domain": "tcpl.lib.in.us",
+  "source": "web-search",
+  "system": "Tippecanoe County Public Library",
+  "state": "IN"
+ },
+ "IN0138": {
+  "domain": "munciepubliclibrary.org",
+  "source": "web-search",
+  "system": "Muncie-Center Township Public Library",
+  "state": "IN"
+ },
+ "IN0223": {
+  "domain": "floydlibrary.org",
+  "source": "web-search",
+  "system": "New Albany-Floyd County Public Library",
+  "state": "IN"
+ },
+ "KS0258": {
+  "domain": "librarydistrict1.org",
+  "source": "web-search",
+  "system": "Library District #1, Doniphan County",
+  "state": "KS"
+ },
+ "KY0018": {
+  "domain": "cc-pl.org",
+  "source": "web-search",
+  "system": "Campbell County Public Library District",
+  "state": "KY"
  }
 }

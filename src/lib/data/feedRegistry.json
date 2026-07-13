@@ -1,14 +1,29 @@
 {
+ "AK0094": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://tuzzy.libcal.com/rss.php?m=month&cid=8374",
+  "note": "via own-domain link on tuzzy.org: tuzzy.libcal.com cal 8374 \"Tuzzy Consortium Library LibCal: Events\" (7 events)",
+  "source": "discovered"
+ },
  "AR0001": {
   "vendor": "bibliocommons",
   "status": "detected",
   "note": "discovered run 1: Central Arkansas Library System (feed empty at probe time)",
   "source": "discovered"
  },
+ "AR0017": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://fcl.libnet.info",
+  "note": "communico attend site (103 events in next 14d at activation)",
+  "source": "discovered"
+ },
  "AZ0031": {
-  "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: chandlerlibrary.libcal.com \u2014 needs calendar id",
+  "vendor": "bibliocommons",
+  "status": "active",
+  "url": "https://chandler.bibliocommons.com/events/rss/all",
+  "note": "via own-domain link on chandlerlibrary.org (688 items)",
   "source": "discovered"
  },
  "AZ0064": {
@@ -23,6 +38,12 @@
   "status": "active",
   "url": "https://yumalibrary.bibliocommons.com/events/rss/all",
   "note": "discovered run 1 (title-verified): Yuma County Library District",
+  "source": "discovered"
+ },
+ "AZ0169": {
+  "vendor": "libcal",
+  "status": "detected",
+  "note": "own-domain link: flagstaffpubliclibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "CA0001": {
@@ -50,7 +71,7 @@
   "vendor": "communico",
   "status": "active",
   "url": "https://berkeleypubliclibrary.libnet.info",
-  "note": "Berkeley Public Library \u2014 Communico on libnet.info hosted domain, verified 2026-07 (108 events/14d)",
+  "note": "Berkeley Public Library — Communico on libnet.info hosted domain, verified 2026-07 (108 events/14d)",
   "source": "verified",
   "verifiedAt": "2026-07"
  },
@@ -64,7 +85,13 @@
  "CA0040": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "own-domain link: fresnolibrary.libcal.com \u2014 needs calendar id",
+  "note": "own-domain link: fresnolibrary.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "CA0042": {
+  "vendor": "bibliocommons",
+  "status": "detected",
+  "note": "own-domain link: glac.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
  "CA0046": {
@@ -74,13 +101,26 @@
   "note": "auto-activated: hbpl.libcal.com cal 5188 \"Events Calendar\" (500 events at activation) | migrated to RSS month feed (90 upcoming items)",
   "source": "discovered"
  },
+ "CA0054": {
+  "vendor": "bibliocommons",
+  "status": "detected",
+  "note": "own-domain link: lakecountyca.bibliocommons.com (feed empty/unverified — possibly WAF)",
+  "source": "discovered"
+ },
  "CA0062": {
   "vendor": "communico",
   "status": "active",
   "url": "https://visit.lacountylibrary.org",
-  "note": "LA County Library \u2014 Communico on visit.* subdomain, verified 2026-07 (701 events/14d)",
+  "note": "LA County Library — Communico on visit.* subdomain, verified 2026-07 (701 events/14d)",
   "source": "verified",
   "verifiedAt": "2026-07"
+ },
+ "CA0065": {
+  "vendor": "bibliocommons",
+  "status": "active",
+  "url": "https://marinlibrary.bibliocommons.com/events/rss/all",
+  "note": "via own-domain link on marinlibrary.org (514 items)",
+  "source": "discovered"
  },
  "CA0076": {
   "vendor": "libcal",
@@ -89,6 +129,12 @@
   "note": "Library Events Calendar (cal 8800)",
   "source": "verified",
   "verifiedAt": "2026-07"
+ },
+ "CA0077": {
+  "vendor": "bibliocommons",
+  "status": "detected",
+  "note": "own-domain link: napalibrary.bibliocommons.com (feed empty/unverified — possibly WAF)",
+  "source": "discovered"
  },
  "CA0081": {
   "vendor": "bibliocommons",
@@ -100,20 +146,19 @@
  "CA0082": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: oceansidelibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: oceansidelibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "CA0084": {
   "vendor": "libcal",
-  "status": "active",
-  "url": "https://ocpl.libcal.com/rss.php?m=month&cid=19125",
-  "note": "auto-activated: ocpl.libcal.com cal 19125 \"Aliso Viejo\" (164 events at activation) | migrated to RSS month feed (44 upcoming items)",
+  "status": "detected",
+  "note": "demoted, collision: ocpl.libcal.com claimed by CA0084, VA0056 — needs manual confirmation",
   "source": "discovered"
  },
  "CA0085": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: orangepubliclibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: orangepubliclibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "CA0091": {
@@ -125,35 +170,36 @@
  },
  "CA0102": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "demoted, collision: richmondpubliclibrary.libcal.com identity ambiguous (CA vs VA) \u2014 needs manual confirmation (richmondpubliclibrary.libcal.com)",
+  "status": "active",
+  "url": "https://richmondpubliclibrary.libcal.com/rss.php?m=month&cid=7752",
+  "note": "auto-activated: richmondpubliclibrary.libcal.com cal 7752 \"Richmond Public Library LibCal: Events\" (23 events at activation)",
   "source": "discovered"
  },
  "CA0103": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: riversidelibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: riversidelibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "CA0105": {
   "vendor": "communico",
   "status": "active",
   "url": "https://engage.saclibrary.org",
-  "note": "Sacramento Public Library \u2014 Communico on custom engage.* domain (upgraded from iCal: structured ages/branches; found by Amool 2026-07-13)",
+  "note": "Sacramento Public Library — Communico on custom engage.* domain (upgraded from iCal: structured ages/branches; found by Amool 2026-07-13)",
   "source": "verified",
   "verifiedAt": "2026-07"
  },
  "CA0106": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: salinaslibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: salinaslibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "CA0109": {
   "vendor": "ical",
   "status": "active",
   "url": "https://library.sbcounty.gov/?post_type=tribe_events&ical=1&eventDisplay=list",
-  "note": "San Bernardino County Library \u2014 WordPress Events Calendar iCal export found by Amool 2026-07-13",
+  "note": "San Bernardino County Library — WordPress Events Calendar iCal export found by Amool 2026-07-13",
   "source": "verified",
   "verifiedAt": "2026-07"
  },
@@ -173,14 +219,14 @@
  "CA0114": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "sfpl.libcal.com \u2014 needs calendar id",
+  "note": "sfpl.libcal.com — needs calendar id",
   "source": "verified",
   "verifiedAt": "2026-07"
  },
  "CA0115": {
   "vendor": "bibliocommons",
   "status": "detected",
-  "note": "own-domain link: sjpl.bibliocommons.com (feed empty/unverified \u2014 possibly WAF)",
+  "note": "own-domain link: sjpl.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
  "CA0117": {
@@ -197,10 +243,16 @@
   "source": "verified",
   "verifiedAt": "2026-07"
  },
+ "CA0124": {
+  "vendor": "libcal",
+  "status": "detected",
+  "note": "own-domain link: santabarbaraca.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
  "CA0125": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: sccl.libcal.com \u2014 needs calendar id",
+  "note": "discovered: sccl.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "CA0126": {
@@ -220,7 +272,14 @@
  "CA0135": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: siskiyou.libcal.com \u2014 needs calendar id",
+  "note": "discovered: siskiyou.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "CA0136": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://solanolibrary.libnet.info",
+  "note": "communico attend site (260 events in next 14d at activation)",
   "source": "discovered"
  },
  "CA0137": {
@@ -232,7 +291,7 @@
  "CA0143": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "sunnyvale.libcal.com \u2014 needs calendar id",
+  "note": "sunnyvale.libcal.com — needs calendar id",
   "source": "verified",
   "verifiedAt": "2026-07"
  },
@@ -246,7 +305,14 @@
  "CA0244": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: riversidelibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: riversidelibrary.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "CO0005": {
+  "vendor": "bibliocommons",
+  "status": "active",
+  "url": "https://arapahoelibraries.bibliocommons.com/events/rss/all",
+  "note": "via own-domain link on arapahoelibraries.org (394 items)",
   "source": "discovered"
  },
  "CO0007": {
@@ -263,54 +329,80 @@
   "note": "auto-activated: denverlibrary.libcal.com cal 20634 \"Programming, Events, & Workshops\" (500 events at activation) | migrated to RSS month feed (300 upcoming items)",
   "source": "discovered"
  },
+ "CO0037": {
+  "vendor": "bibliocommons",
+  "status": "detected",
+  "note": "own-domain link: dcl.bibliocommons.com (feed empty/unverified — possibly WAF)",
+  "source": "discovered"
+ },
  "CO0049": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: gcpld.libcal.com \u2014 needs calendar id",
+  "note": "discovered: gcpld.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "CO0060": {
+  "vendor": "bibliocommons",
+  "status": "active",
+  "url": "https://jeffcolibrary.bibliocommons.com/events/rss/all",
+  "note": "via own-domain link on jeffcolibrary.org (2000 items)",
+  "source": "discovered"
+ },
+ "CO0082": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://mesacountylibraries.libcal.com/rss.php?m=month&cid=1159",
+  "note": "via own-domain link on mesacountylibraries.org: mesacountylibraries.libcal.com cal 1159 \"Mesa County Libraries Library Events: Events\" (235 events)",
+  "source": "discovered"
+ },
+ "CO0099": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://pueblolibrary.libnet.info",
+  "note": "communico attend site (289 events in next 14d at activation)",
   "source": "discovered"
  },
  "CO0115": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: summitlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: summitlibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "CO0145": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: highplains.libcal.com \u2014 needs calendar id",
+  "note": "discovered: highplains.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "CT0016": {
+  "vendor": "libcal",
+  "status": "detected",
+  "note": "own-domain link: bportlibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "CT0063": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: greenwichlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: greenwichlibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "CT0072": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: hamdenlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: hamdenlibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
- "DC0001": {
-  "vendor": "communico",
+ "CT0103": {
+  "vendor": "libcal",
   "status": "active",
-  "url": "https://dclibrary.libnet.info",
-  "note": "communico attend site (532 events in next 14d at activation)",
+  "url": "https://nhfpl.libcal.com/rss.php?m=month&cid=21963",
+  "note": "via own-domain link on nhfpl.org: nhfpl.libcal.com cal 21963 \"New Haven Free Public Library NHFPL Events &#x26; Room Bookings: Events\" (20 events)",
   "source": "discovered"
  },
  "FL0001": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: mcpls.libcal.com \u2014 needs calendar id",
-  "source": "discovered"
- },
- "FL0003": {
-  "vendor": "communico",
-  "status": "active",
-  "url": "https://jaxpubliclibrary.libnet.info",
-  "note": "communico attend site (416 events in next 14d at activation)",
+  "note": "discovered: mcpls.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "FL0005": {
@@ -324,9 +416,16 @@
   "vendor": "communico",
   "status": "active",
   "url": "https://broward.libnet.info",
-  "note": "Broward County Libraries \u2014 Communico on libnet.info (found by Amool 2026-07-13; 982 events/14d)",
+  "note": "Broward County Libraries — Communico on libnet.info (found by Amool 2026-07-13; 982 events/14d)",
   "source": "verified",
   "verifiedAt": "2026-07"
+ },
+ "FL0018": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://attend.citruslibraries.org",
+  "note": "communico attend site (135 events in next 14d at activation)",
+  "source": "discovered"
  },
  "FL0025": {
   "vendor": "communico",
@@ -338,7 +437,7 @@
  "FL0035": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: hcplc.libcal.com \u2014 needs calendar id",
+  "note": "discovered: hcplc.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "FL0039": {
@@ -351,13 +450,20 @@
  "FL0046": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: manateelibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: manateelibrary.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "FL0065": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://pascolibraries.libnet.info",
+  "note": "communico attend site (267 events in next 14d at activation)",
   "source": "discovered"
  },
  "FL0099": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: volusialibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: volusialibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "FL0109": {
@@ -367,16 +473,10 @@
   "note": "auto-activated: osceolalibrary.libcal.com cal 18086 \"Buenaventura Lakes Library\" (500 events at activation) | migrated to RSS month feed (52 upcoming items)",
   "source": "discovered"
  },
- "FL0136": {
-  "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: pplcs.libcal.com \u2014 needs calendar id",
-  "source": "discovered"
- },
  "FL0146": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: sumterlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: sumterlibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "FL0246": {
@@ -386,16 +486,32 @@
   "note": "via own-domain link on pbclibrary.org (2000 items)",
   "source": "discovered"
  },
- "FL8005": {
+ "FL0258": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: nassaulibrary.libcal.com \u2014 needs calendar id",
+  "status": "active",
+  "url": "https://charlottecountyfl.libcal.com/rss.php?m=month&cid=17654",
+  "note": "via own-domain link on charlottefl.ent.sirsi.net: charlottecountyfl.libcal.com cal 17654 \"Charlotte County Libraries and History Library Events: Events\" (160 events)",
+  "source": "discovered"
+ },
+ "GA0001": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://prlib.libcal.com/rss.php?m=month&cid=20687",
+  "note": "via own-domain link on prlib.org: prlib.libcal.com cal 20687 \"Piedmont Regional Library System LibCal: Events\" (37 events)",
+  "source": "discovered"
+ },
+ "GA0011": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://athenslibrary.libcal.com/rss.php?m=month&cid=12913",
+  "note": "via own-domain link on athenslibrary.org: athenslibrary.libcal.com cal 12913 \"Athens Regional Library System Athens Regional Library System Events: Events\" (290 events)",
   "source": "discovered"
  },
  "GA0012": {
-  "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: clayton.libcal.com \u2014 needs calendar id",
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://claytonpl.libnet.info",
+  "note": "communico attend site (132 events in next 14d at activation)",
   "source": "discovered"
  },
  "GA0017": {
@@ -422,7 +538,14 @@
  "GA0029": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "demoted, collision: houstonlibrary.libcal.com is Houston TX (houstonlibrary.org) \u2014 needs manual confirmation (houstonlibrary.libcal.com)",
+  "note": "demoted, collision: houstonlibrary.libcal.com claimed by GA0029, TX0099 — needs manual confirmation",
+  "source": "discovered"
+ },
+ "GA0036": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://cvl.libnet.info",
+  "note": "communico attend site (191 events in next 14d at activation)",
   "source": "discovered"
  },
  "GA0045": {
@@ -432,11 +555,31 @@
   "note": "auto-activated: tcpls.libcal.com cal 21385 \"Thomas County Public Library System\" (104 events at activation) | migrated to RSS month feed (31 upcoming items)",
   "source": "discovered"
  },
+ "GA0054": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://henrylibraries.libnet.info",
+  "note": "communico attend site (116 events in next 14d at activation)",
+  "source": "discovered"
+ },
+ "GA0058": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://events.forsythpl.org",
+  "note": "communico attend site (170 events in next 14d at activation)",
+  "source": "discovered"
+ },
+ "GA0060": {
+  "vendor": "libcal",
+  "status": "detected",
+  "note": "own-domain link: hallcountylibrary.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
  "HI0001": {
   "vendor": "ical",
   "status": "active",
   "url": "https://www.librarieshawaii.org/?post_type=tribe_events&ical=1&eventDisplay=list",
-  "note": "Hawaii State Public Library System \u2014 WordPress Events Calendar iCal export found by Amool 2026-07-13",
+  "note": "Hawaii State Public Library System — WordPress Events Calendar iCal export found by Amool 2026-07-13",
   "source": "verified",
   "verifiedAt": "2026-07"
  },
@@ -447,11 +590,17 @@
   "note": "auto-activated: davenportlibrary.libcal.com cal 11101 \"Community Outreach & Off-Site Events\" (52 events at activation) | migrated to RSS month feed (16 upcoming items)",
   "source": "discovered"
  },
- "ID0120": {
+ "ID0005": {
   "vendor": "libcal",
   "status": "active",
-  "url": "https://communitylibrary.libcal.com/rss.php?m=month&cid=17809",
-  "note": "auto-activated: communitylibrary.libcal.com cal 17809 \"Community Library Network\" (14 events at activation) | migrated to RSS month feed (1 upcoming items)",
+  "url": "https://boisepubliclibrary.libcal.com/rss.php?m=month&cid=12885",
+  "note": "via own-domain link on boisepubliclibrary.org: boisepubliclibrary.libcal.com cal 12885 \"Boise Public Library Library Events : Events\" (278 events)",
+  "source": "discovered"
+ },
+ "ID0120": {
+  "vendor": "libcal",
+  "status": "detected",
+  "note": "demoted, collision: communitylibrary.libcal.com claimed by ID0120, MI0310 — needs manual confirmation",
   "source": "discovered"
  },
  "IL0098": {
@@ -464,7 +613,20 @@
  "IL0555": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: warrenlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: warrenlibrary.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "IN0020": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://events.evpl.org",
+  "note": "communico attend site (135 events in next 14d at activation)",
+  "source": "discovered"
+ },
+ "IN0027": {
+  "vendor": "bibliocommons",
+  "status": "detected",
+  "note": "own-domain link: ec.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
  "IN0068": {
@@ -476,7 +638,7 @@
  "IN0069": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: mphpl.libcal.com \u2014 needs calendar id",
+  "note": "discovered: mphpl.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "IN0073": {
@@ -486,10 +648,23 @@
   "note": "communico attend site (458 events in next 14d at activation)",
   "source": "discovered"
  },
+ "IN0186": {
+  "vendor": "libcal",
+  "status": "detected",
+  "note": "own-domain link: sullivan-in.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "IN0207": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://jcplin.libnet.info",
+  "note": "communico attend site (142 events in next 14d at activation)",
+  "source": "discovered"
+ },
  "IN0210": {
   "vendor": "bibliocommons",
   "status": "detected",
-  "note": "own-domain link: indypl.bibliocommons.com (feed empty/unverified \u2014 possibly WAF)",
+  "note": "own-domain link: indypl.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
  "KS0134": {
@@ -499,16 +674,42 @@
   "note": "via own-domain link on jocolibrary.org (183 items)",
   "source": "discovered"
  },
+ "KY0008": {
+  "vendor": "libcal",
+  "status": "detected",
+  "note": "own-domain link: bcpl-ky.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "KY0018": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://cc-pl.org",
+  "note": "communico attend site (76 events in next 14d at activation)",
+  "source": "discovered"
+ },
  "KY0056": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: kentonlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: kentonlibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "KY0109": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: warrenlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: warrenlibrary.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "LA0022": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://myipl.libcal.com/rss.php?m=month&cid=18936",
+  "note": "via own-domain link on myipl.org: myipl.libcal.com cal 18936 \"Iberville Parish Library IPL Calendar: Events\" (120 events)",
+  "source": "discovered"
+ },
+ "LA0040": {
+  "vendor": "libcal",
+  "status": "detected",
+  "note": "own-domain link: mylpl.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "LA0043": {
@@ -518,6 +719,12 @@
   "note": "auto-activated: stmaryparishlibrary.libcal.com cal 21998 \"Amelia Branch\" (24 events at activation) | migrated to RSS month feed (5 upcoming items)",
   "source": "discovered"
  },
+ "LA0048": {
+  "vendor": "libcal",
+  "status": "detected",
+  "note": "own-domain link: mytpl.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
  "LA0049": {
   "vendor": "bibliocommons",
   "status": "active",
@@ -525,28 +732,36 @@
   "note": "discovered run 1 (title-verified): St. Tammany Parish Library",
   "source": "discovered"
  },
- "LA0053": {
+ "LA0052": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: calcasieulibrary.libcal.com \u2014 needs calendar id",
+  "status": "active",
+  "url": "https://lafayettela.libcal.com/rss.php?m=month&cid=11387",
+  "note": "via own-domain link on lafayettepubliclibrary.org: lafayettela.libcal.com cal 11387 \"Lafayette Public Library LibCal: Events\" (28 events)",
+  "source": "discovered"
+ },
+ "LA0053": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://calcasieulibrary.libnet.info",
+  "note": "communico attend site (102 events in next 14d at activation)",
   "source": "discovered"
  },
  "LA0055": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: ebrpl.libcal.com \u2014 needs calendar id",
+  "note": "discovered: ebrpl.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "LA0058": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "own-domain link: nolalibrary.libcal.com \u2014 needs calendar id",
+  "note": "own-domain link: nolalibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "MA0008": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: joneslibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: joneslibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "MA0035": {
@@ -559,7 +774,7 @@
  "MA0044": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: brocktonpubliclibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: brocktonpubliclibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "MA0046": {
@@ -576,10 +791,24 @@
   "note": "communico attend site (363 events in next 14d at activation)",
   "source": "discovered"
  },
- "MI0131": {
+ "MD0024": {
   "vendor": "libcal",
+  "status": "active",
+  "url": "https://worcesterlibrary.libcal.com/rss.php?m=month&cid=13001",
+  "note": "via own-domain link on worcesterlibrary.org: worcesterlibrary.libcal.com cal 13001 \"Worcester County Library LibCal: Events\" (1 events)",
+  "source": "discovered"
+ },
+ "MI0131": {
+  "vendor": "bibliocommons",
+  "status": "active",
+  "url": "https://grpl.bibliocommons.com/events/rss/all",
+  "note": "via own-domain link on grpl.org (69 items)",
+  "source": "discovered"
+ },
+ "MI0171": {
+  "vendor": "bibliocommons",
   "status": "detected",
-  "note": "discovered: grpl.libcal.com \u2014 needs calendar id",
+  "note": "own-domain link: iadl.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
  "MI0182": {
@@ -589,28 +818,41 @@
   "note": "via own-domain link on kdl.org (2000 items)",
   "source": "discovered"
  },
+ "MI0190": {
+  "vendor": "bibliocommons",
+  "status": "detected",
+  "note": "own-domain link: ldl.bibliocommons.com (feed empty/unverified — possibly WAF)",
+  "source": "discovered"
+ },
  "MI0200": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: livonia.libcal.com \u2014 needs calendar id",
+  "note": "discovered: livonia.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "MI0240": {
-  "vendor": "libcal",
+  "vendor": "bibliocommons",
+  "status": "active",
+  "url": "https://muskegonadl.bibliocommons.com/events/rss/all",
+  "note": "via own-domain link on madl.org (291 items)",
+  "source": "discovered"
+ },
+ "MI0279": {
+  "vendor": "bibliocommons",
   "status": "detected",
-  "note": "discovered: madl.libcal.com \u2014 needs calendar id",
+  "note": "own-domain link: pidl.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
  "MI0310": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "demoted, collision: communitylibrary.libcal.com is Community Library Network, ID \u2014 needs manual confirmation (communitylibrary.libcal.com)",
+  "note": "demoted, collision: communitylibrary.libcal.com claimed by ID0120, MI0310 — needs manual confirmation",
   "source": "discovered"
  },
  "MI0356": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: warrenlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: warrenlibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "MI0424": {
@@ -641,10 +883,22 @@
   "note": "communico attend site (97 events in next 14d at activation)",
   "source": "discovered"
  },
+ "MN0035": {
+  "vendor": "libcal",
+  "status": "detected",
+  "note": "own-domain link: anokacounty.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "MN0038": {
+  "vendor": "libcal",
+  "status": "detected",
+  "note": "own-domain link: carverlib.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
  "MN0039": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: dakotacountylibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: dakotacountylibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "MN0041": {
@@ -654,6 +908,13 @@
   "note": "via own-domain link on hclib.org (1650 items)",
   "source": "discovered"
  },
+ "MN0043": {
+  "vendor": "bibliocommons",
+  "status": "active",
+  "url": "https://rclreads.bibliocommons.com/events/rss/all",
+  "note": "via own-domain link on rclreads.org (806 items)",
+  "source": "discovered"
+ },
  "MN0044": {
   "vendor": "bibliocommons",
   "status": "active",
@@ -661,58 +922,84 @@
   "note": "via own-domain link on sppl.org (1723 items)",
   "source": "discovered"
  },
+ "MN0045": {
+  "vendor": "libcal",
+  "status": "detected",
+  "note": "own-domain link: scottlib.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
  "MO0004": {
   "vendor": "bibliocommons",
   "status": "detected",
-  "note": "own-domain link: mymcpl.bibliocommons.com (feed empty/unverified \u2014 possibly WAF)",
+  "note": "own-domain link: mymcpl.bibliocommons.com (feed empty/unverified — possibly WAF)",
+  "source": "discovered"
+ },
+ "MO0014": {
+  "vendor": "bibliocommons",
+  "status": "detected",
+  "note": "own-domain link: kclibrary.bibliocommons.com (feed empty/unverified — possibly WAF)",
+  "source": "discovered"
+ },
+ "MO0020": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://thelibrary.libnet.info",
+  "note": "communico attend site (113 events in next 14d at activation)",
   "source": "discovered"
  },
  "MO0030": {
   "vendor": "bibliocommons",
   "status": "detected",
-  "note": "own-domain link: slpl.bibliocommons.com (feed empty/unverified \u2014 possibly WAF)",
+  "note": "own-domain link: slpl.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
  "MO0110": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: christiancountylibrary.libcal.com \u2014 needs calendar id",
-  "source": "discovered"
- },
- "MO0128": {
-  "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: riversidelibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: christiancountylibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "MO0137": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: reynolds.libcal.com \u2014 needs calendar id",
+  "note": "discovered: reynolds.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "NC0004": {
+  "vendor": "libcal",
+  "status": "detected",
+  "note": "own-domain link: bhm.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "NC0006": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: cprl.libcal.com \u2014 needs calendar id",
+  "note": "discovered: cprl.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "NC0011": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: nantahalalibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: nantahalalibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "NC0012": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: neuselibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: neuselibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "NC0015": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: srls.libcal.com \u2014 needs calendar id",
+  "note": "discovered: srls.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "NC0018": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://brunsco.libcal.com/rss.php?m=month&cid=21880",
+  "note": "via own-domain link on brunswickcountync.gov: brunsco.libcal.com cal 21880 \"Brunswick County Public Library Library Events: Events\" (59 events)",
   "source": "discovered"
  },
  "NC0022": {
@@ -725,13 +1012,13 @@
  "NC0030": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: durhamcountylibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: durhamcountylibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "NC0035": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: greensborolibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: greensborolibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "NC0037": {
@@ -744,13 +1031,13 @@
  "NC0038": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: haywoodlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: haywoodlibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "NC0039": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: henderson.libcal.com \u2014 needs calendar id",
+  "note": "discovered: henderson.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "NC0045": {
@@ -760,22 +1047,36 @@
   "note": "via own-domain link on cmlibrary.org (2000 items)",
   "source": "discovered"
  },
+ "NC0046": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://braswell-library.libcal.com/rss.php?m=month&cid=5322",
+  "note": "via own-domain link on braswell-library.libguides.com: braswell-library.libcal.com cal 5322 \"Braswell Memorial Library LibCal: Events\" (46 events)",
+  "source": "discovered"
+ },
  "NC0047": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: nhcpl.libcal.com \u2014 needs calendar id",
+  "note": "discovered: nhcpl.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "NC0050": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: sheppardlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: sheppardlibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "NC0057": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: sampsonclintonpubliclibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: sampsonclintonpubliclibrary.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "NC0113": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://carteretcountync.libcal.com/rss.php?m=month&cid=13273",
+  "note": "via own-domain link on carteretcountync.libguides.com: carteretcountync.libcal.com cal 13273 \"Carteret County Public Library LibCal: Events\" (137 events)",
   "source": "discovered"
  },
  "NE0162": {
@@ -785,16 +1086,30 @@
   "note": "via own-domain link on omahalibrary.org (1616 items)",
   "source": "discovered"
  },
+ "NJ0070": {
+  "vendor": "bibliocommons",
+  "status": "active",
+  "url": "https://bclsnj.bibliocommons.com/events/rss/all",
+  "note": "via own-domain link on bcls.lib.nj.us (798 items)",
+  "source": "discovered"
+ },
+ "NJ0100": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://cmclibrary.libnet.info",
+  "note": "communico attend site (154 events in next 14d at activation)",
+  "source": "discovered"
+ },
  "NJ0122": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: npl.libcal.com \u2014 needs calendar id",
+  "note": "discovered: npl.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "NJ0195": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "own-domain link: monmouthcountylib.libcal.com \u2014 needs calendar id",
+  "note": "own-domain link: monmouthcountylib.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "NJ0252": {
@@ -804,10 +1119,25 @@
   "note": "communico attend site (493 events in next 14d at activation)",
   "source": "discovered"
  },
- "NJ0306": {
+ "NJ0275": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://sclsnj.libnet.info",
+  "note": "communico attend site (261 events in next 14d at activation)",
+  "source": "discovered"
+ },
+ "NJ0284": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: warrenlibrary.libcal.com \u2014 needs calendar id",
+  "status": "active",
+  "url": "https://sussexcountylibrary.libcal.com/rss.php?m=month&cid=21469",
+  "note": "via own-domain link on sussexcountylibrary.org: sussexcountylibrary.libcal.com cal 21469 \"SCLS Home Sussex County Library Events: Events\" (169 events)",
+  "source": "discovered"
+ },
+ "NJ0306": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://warrenlib.libnet.info",
+  "note": "communico attend site (70 events in next 14d at activation)",
   "source": "discovered"
  },
  "NV0008": {
@@ -820,35 +1150,57 @@
  "NV0012": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: henderson.libcal.com \u2014 needs calendar id",
+  "note": "discovered: henderson.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "NY0004": {
   "vendor": "bklyn",
   "status": "active",
   "url": "https://discover.bklynlibrary.org",
-  "note": "Brooklyn Public Library \u2014 custom Drupal+Solr API mapped via DevTools 2026-07",
+  "note": "Brooklyn Public Library — custom Drupal+Solr API mapped via DevTools 2026-07",
   "source": "verified",
   "verifiedAt": "2026-07"
+ },
+ "NY0005": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://buffalolib.libcal.com/rss.php?m=month&cid=12898",
+  "note": "via own-domain link on buffalolib.org: buffalolib.libcal.com cal 12898 \"Buffalo &#x26; Erie County Public Library Buffalo &#x26; Erie County Public Library: Events\" (300 events)",
+  "source": "discovered"
  },
  "NY0348": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: greatnecklibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: greatnecklibrary.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "NY0476": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://onlib-central.libcal.com/rss.php?m=month&cid=19741",
+  "note": "via own-domain link on onlib.org: onlib-central.libcal.com cal 19741 \"Onondaga County Public Libraries Onondaga County Public Libraries: Events\" (23 events)",
   "source": "discovered"
  },
  "NY0778": {
   "vendor": "snapshot",
   "status": "active",
   "url": "https://www.nypl.org",
-  "note": "NYPL \u2014 Imperva-walled SSR; served from browser-scraped snapshot (scripts/scrapeNyplSnapshot.mjs, refreshed by data-refresh workflow)",
+  "note": "NYPL — Imperva-walled SSR; served from browser-scraped snapshot (scripts/scrapeNyplSnapshot.mjs, refreshed by data-refresh workflow)",
   "source": "verified",
   "verifiedAt": "2026-07"
  },
- "OH0039": {
+ "OH0032": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: starklibrary.libcal.com \u2014 needs calendar id",
+  "status": "active",
+  "url": "https://mywcpl.libcal.com/rss.php?m=month&cid=18907",
+  "note": "via own-domain link on mywcpl.org: mywcpl.libcal.com cal 18907 \"Williams County Public Library LibCal: Events\" (81 events)",
+  "source": "discovered"
+ },
+ "OH0039": {
+  "vendor": "bibliocommons",
+  "status": "active",
+  "url": "https://starklibrary.bibliocommons.com/events/rss/all",
+  "note": "via own-domain link on starklibrary.org (1118 items)",
   "source": "discovered"
  },
  "OH0046": {
@@ -856,6 +1208,13 @@
   "status": "active",
   "url": "https://geaugalibrary.libcal.com/rss.php?m=month&cid=9901",
   "note": "auto-activated: geaugalibrary.libcal.com cal 9901 \"Public Events\" (500 events at activation) | migrated to RSS month feed (190 upcoming items)",
+  "source": "discovered"
+ },
+ "OH0048": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://events.crcpl.org",
+  "note": "communico attend site (57 events in next 14d at activation)",
   "source": "discovered"
  },
  "OH0049": {
@@ -882,7 +1241,7 @@
  "OH0057": {
   "vendor": "bibliocommons",
   "status": "detected",
-  "note": "own-domain link: cml.bibliocommons.com (feed empty/unverified \u2014 possibly WAF)",
+  "note": "own-domain link: cml.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
  "OH0063": {
@@ -899,28 +1258,56 @@
   "note": "auto-activated: elyrialibrary.libcal.com cal 11384 \"Public Calendar\" (269 events at activation) | migrated to RSS month feed (111 upcoming items)",
   "source": "discovered"
  },
+ "OH0089": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://events.portagelibrary.org",
+  "note": "communico attend site (92 events in next 14d at activation)",
+  "source": "discovered"
+ },
  "OH0101": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: highlandlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: highlandlibrary.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "OH0116": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://fcdlibrary.libnet.info",
+  "note": "communico attend site (67 events in next 14d at activation)",
   "source": "discovered"
  },
  "OH0125": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: lorainpubliclibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: lorainpubliclibrary.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "OH0130": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://mrcpl.libnet.info",
+  "note": "communico attend site (131 events in next 14d at activation)",
   "source": "discovered"
  },
  "OH0141": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: mcdl.libcal.com \u2014 needs calendar id",
+  "note": "discovered: mcdl.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "OH0158": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: perrylibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: perrylibrary.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "OH0204": {
+  "vendor": "bibliocommons",
+  "status": "active",
+  "url": "https://ccplohio.bibliocommons.com/events/rss/all",
+  "note": "via own-domain link on ccplohio.org (619 items)",
   "source": "discovered"
  },
  "OH0216": {
@@ -930,10 +1317,18 @@
   "note": "auto-activated: tmcpl.libcal.com cal 17649 \"Troy-Miami County Public Library Events\" (317 events at activation) | migrated to RSS month feed (83 upcoming items)",
   "source": "discovered"
  },
- "OH0247": {
+ "OH0245": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: greenelibrary.libcal.com \u2014 needs calendar id",
+  "status": "active",
+  "url": "https://wcpl-oh.libcal.com/rss.php?m=month&cid=10481",
+  "note": "via own-domain link on wcpl.info: wcpl-oh.libcal.com cal 10481 \"Wayne County Public Library (OH) LibCal: Events\" (11 events)",
+  "source": "discovered"
+ },
+ "OH0247": {
+  "vendor": "bibliocommons",
+  "status": "active",
+  "url": "https://greenelibrary.bibliocommons.com/events/rss/all",
+  "note": "via own-domain link on greenelibrary.info (1119 items)",
   "source": "discovered"
  },
  "OH0248": {
@@ -943,54 +1338,74 @@
   "note": "via own-domain link on libraryvisit.org (689 items)",
   "source": "discovered"
  },
+ "OH0250": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://muskingumlibrary.libnet.info",
+  "note": "communico attend site (73 events in next 14d at activation)",
+  "source": "discovered"
+ },
  "OK0093": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: tulsalibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: tulsalibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "OR0005": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: eugene.libcal.com \u2014 needs calendar id",
+  "note": "discovered: eugene.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "OR0041": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: jcls.libcal.com \u2014 needs calendar id",
+  "note": "discovered: jcls.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "OR0063": {
   "vendor": "bibliocommons",
   "status": "detected",
-  "note": "own-domain link: multcolib.bibliocommons.com (feed empty/unverified \u2014 possibly WAF)",
+  "note": "own-domain link: multcolib.bibliocommons.com (feed empty/unverified — possibly WAF)",
+  "source": "discovered"
+ },
+ "OR0091": {
+  "vendor": "bibliocommons",
+  "status": "detected",
+  "note": "own-domain link: dpl.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
  "PA0042": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: carnegielibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: carnegielibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "PA0222": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: dcls.libcal.com \u2014 needs calendar id",
+  "note": "discovered: dcls.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "PA0336": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://mnl.libcal.com/rss.php?m=month&cid=20290",
+  "note": "via own-domain link on mcnpl.org: mnl.libcal.com cal 20290 \"Montgomery County-Norristown Public Library LibCal: Events\" (29 events)",
   "source": "discovered"
  },
  "PA0385": {
   "vendor": "flp",
   "status": "active",
   "url": "https://libwww.freelibrary.org",
-  "note": "Free Library of Philadelphia \u2014 Cloudflare-exempt RSS endpoint (rss/eventsrss.cfm) found by Amool; rolling next-10 per age filter",
+  "note": "Free Library of Philadelphia — Cloudflare-exempt RSS endpoint (rss/eventsrss.cfm) found by Amool; rolling next-10 per age filter",
   "source": "verified",
   "verifiedAt": "2026-07"
  },
  "PA0448": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: lmls.libcal.com \u2014 needs calendar id",
+  "note": "discovered: lmls.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "RI0010": {
@@ -1003,13 +1418,13 @@
  "RI0043": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: skpl.libcal.com \u2014 needs calendar id",
+  "note": "discovered: skpl.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "RI0046": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: warwicklibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: warwicklibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "SC0002": {
@@ -1022,13 +1437,14 @@
  "SC0004": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: andersonlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: andersonlibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "SC0006": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: berkeley.libcal.com \u2014 needs calendar id",
+  "status": "active",
+  "url": "https://berkeleylibrarysc.libcal.com/rss.php?m=month&cid=8713",
+  "note": "via own-domain link on berkeleylibrarysc.org: berkeleylibrarysc.libcal.com cal 8713 \"Berkeley County Library System BCLS - Library Events: Events\" (17 events)",
   "source": "discovered"
  },
  "SC0009": {
@@ -1041,34 +1457,40 @@
  "SC0012": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: chesterfield.libcal.com \u2014 needs calendar id",
+  "note": "discovered: chesterfield.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "SC0023": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: kershawcountylibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: kershawcountylibrary.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "SC0027": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://lexcolibrary.libcal.com/rss.php?m=month&cid=22836",
+  "note": "via own-domain link on lexcolibrary.com: lexcolibrary.libcal.com cal 22836 \"Lexington County Public Library Programs &#x26; Events: Events\" (32 events)",
   "source": "discovered"
  },
  "SC0037": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: sumterlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: sumterlibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "TX0003": {
   "vendor": "ical",
   "status": "active",
   "url": "https://dallaslibrary.librarymarket.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
-  "note": "Dallas Public Library \u2014 LibraryMarket LibraryCalendar iCal (found by Amool 2026-07-13); month-templated URL, address-based branch attribution",
+  "note": "Dallas Public Library — LibraryMarket LibraryCalendar iCal (found by Amool 2026-07-13); month-templated URL, address-based branch attribution",
   "source": "verified",
   "verifiedAt": "2026-07"
  },
  "TX0099": {
   "vendor": "libcal",
-  "status": "active",
-  "url": "https://houstonlibrary.libcal.com/rss.php?m=month&cid=15272",
-  "note": "auto-activated: houstonlibrary.libcal.com cal 15272 \"Events\" (500 events at activation) | migrated to RSS month feed (300 upcoming items)",
+  "status": "detected",
+  "note": "demoted, collision: houstonlibrary.libcal.com claimed by GA0029, TX0099 — needs manual confirmation",
   "source": "discovered"
  },
  "TX0101": {
@@ -1081,49 +1503,90 @@
  "TX0109": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: irvinglibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: irvinglibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "TX0111": {
   "vendor": "bibliocommons",
   "status": "detected",
-  "note": "own-domain link: austin.bibliocommons.com (feed empty/unverified \u2014 possibly WAF)",
+  "note": "own-domain link: austin.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
  "TX0216": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: beaumontlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: beaumontlibrary.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "TX0228": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://plano.libnet.info",
+  "note": "communico attend site (162 events in next 14d at activation)",
   "source": "discovered"
  },
  "TX0263": {
   "vendor": "bibliocommons",
   "status": "detected",
-  "note": "own-domain link: mysapl.bibliocommons.com (feed empty/unverified \u2014 possibly WAF)",
+  "note": "own-domain link: mysapl.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
  "UT0051": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: summitlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: summitlibrary.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "UT0066": {
+  "vendor": "libcal",
+  "status": "detected",
+  "note": "own-domain link: washco.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "VA0001": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://alexlibraryva.org",
+  "note": "communico attend site (127 events in next 14d at activation)",
   "source": "discovered"
  },
  "VA0007": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: bedfordlibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: bedfordlibrary.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "VA0014": {
+  "vendor": "bibliocommons",
+  "status": "active",
+  "url": "https://librarypoint.bibliocommons.com/events/rss/all",
+  "note": "via own-domain link on librarypoint.org (1034 items)",
   "source": "discovered"
  },
  "VA0018": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: chesterfield.libcal.com \u2014 needs calendar id",
+  "note": "discovered: chesterfield.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "VA0036": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://henricolibrary-va.libcal.com/rss.php?m=month&cid=12415",
+  "note": "via own-domain link on henricolibrary.org: henricolibrary-va.libcal.com cal 12415 \"Henrico County Public Library LibCal: Events\" (163 events)",
   "source": "discovered"
  },
  "VA0040": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: jmrl.libcal.com \u2014 needs calendar id",
+  "note": "discovered: jmrl.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "VA0044": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://loudoun.libnet.info",
+  "note": "communico attend site (387 events in next 14d at activation)",
   "source": "discovered"
  },
  "VA0051": {
@@ -1136,7 +1599,7 @@
  "VA0053": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: nnpls.libcal.com \u2014 needs calendar id",
+  "note": "discovered: nnpls.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "VA0054": {
@@ -1149,19 +1612,26 @@
  "VA0056": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "demoted, collision: ocpl.libcal.com is Orange County CA (calendars named Aliso Viejo) \u2014 needs manual confirmation (ocpl.libcal.com)",
+  "note": "demoted, collision: ocpl.libcal.com claimed by CA0084, VA0056 — needs manual confirmation",
   "source": "discovered"
  },
  "VA0057": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: pamunkeylibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: pamunkeylibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "VA0068": {
   "vendor": "libcal",
+  "status": "active",
+  "url": "https://rvalibrary.libcal.com/rss.php?m=month&cid=7752",
+  "note": "via own-domain link on rvalibrary.org: rvalibrary.libcal.com cal 7752 \"Richmond Public Library LibCal: Events\" (23 events)",
+  "source": "discovered"
+ },
+ "VA0072": {
+  "vendor": "libcal",
   "status": "detected",
-  "note": "demoted, collision: richmondpubliclibrary.libcal.com identity ambiguous (CA vs VA) \u2014 needs manual confirmation (richmondpubliclibrary.libcal.com)",
+  "note": "own-domain link: mrlib.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "WA0041": {
@@ -1200,16 +1670,10 @@
   "source": "discovered"
  },
  "WA0060": {
-  "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: krl.libcal.com \u2014 needs calendar id",
-  "source": "discovered"
- },
- "WA0062": {
-  "vendor": "libcal",
+  "vendor": "bibliocommons",
   "status": "active",
-  "url": "https://ncwlibraries.libcal.com/rss.php?m=month&cid=20128",
-  "note": "via own-domain link on ncwlibraries.org: ncwlibraries.libcal.com cal 20128 \"NCW Libraries Library Events: Events\" (68 events)",
+  "url": "https://krl.bibliocommons.com/events/rss/all",
+  "note": "via own-domain link on krl.org (986 items)",
   "source": "discovered"
  },
  "WA0063": {
@@ -1222,7 +1686,7 @@
  "WA0064": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: spl.libcal.com \u2014 needs calendar id",
+  "note": "discovered: spl.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "WA0065": {
@@ -1242,13 +1706,14 @@
  "WA0067": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: spokanelibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: spokanelibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "WA0068": {
-  "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: tacomapubliclibrary.libcal.com \u2014 needs calendar id",
+  "vendor": "bibliocommons",
+  "status": "active",
+  "url": "https://tacoma.bibliocommons.com/events/rss/all",
+  "note": "via own-domain link on tacomalibrary.org (1012 items)",
   "source": "discovered"
  },
  "WA0069": {
@@ -1265,10 +1730,35 @@
   "note": "communico attend site (309 events in next 14d at activation)",
   "source": "discovered"
  },
+ "WI0291": {
+  "vendor": "bibliocommons",
+  "status": "detected",
+  "note": "own-domain link: infosoup.bibliocommons.com (feed empty/unverified — possibly WAF)",
+  "source": "discovered"
+ },
+ "WI0312": {
+  "vendor": "bibliocommons",
+  "status": "detected",
+  "note": "own-domain link: infosoup.bibliocommons.com (feed empty/unverified — possibly WAF)",
+  "source": "discovered"
+ },
+ "WI0394": {
+  "vendor": "bibliocommons",
+  "status": "detected",
+  "note": "own-domain link: infosoup.bibliocommons.com (feed empty/unverified — possibly WAF)",
+  "source": "discovered"
+ },
+ "WV0023": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://mympls.libcal.com/rss.php?m=month&cid=17544",
+  "note": "via own-domain link on mympls.org: mympls.libcal.com cal 17544 \"Morgantown Public Library LibCal: Events\" (69 events)",
+  "source": "discovered"
+ },
  "WV0071": {
   "vendor": "libcal",
   "status": "detected",
-  "note": "discovered: mcdowellpubliclibrary.libcal.com \u2014 needs calendar id",
+  "note": "discovered: mcdowellpubliclibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
  "WY0004": {
