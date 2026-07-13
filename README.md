@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📚 Library Storytime
 
-## Getting Started
+Find storytimes and kids' events at US public libraries. Enter a city or zip
+code, get matched to your home library plus nearby branches, and browse live
+event calendars filtered by **age group**, **event type**, and **library**.
 
-First, run the development server:
+Built on real data end to end:
+
+- **16,883 library outlets** from the IMLS Public Libraries Survey (every US
+  central/branch library, with coordinates)
+- **40,979 zip codes** from the GeoNames US postal dataset
+- **Live events** aggregated from the calendar platforms libraries actually
+  use — BiblioCommons, LibCal (Springshare), Communico, and custom APIs —
+  currently ~1,400 branches across ~110 systems (Chicago, Boston, Brooklyn,
+  LA County, Miami-Dade, King County, Denver, Cleveland, the Bay Area, …)
+
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for how it fits together and
+[`/status`](http://localhost:3000/status) for live coverage (US map + the
+pipeline decision tree).
+
+## Quickstart
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Try: `94609` (Oakland), `11238` (Brooklyn), `60614` (Chicago), `Portland, OR`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | What it does |
+|---|---|
+| `npm run dev` / `build` / `start` | Next.js dev server / production build / serve |
+| `npm test` | Vitest suite (incl. exhaustive all-zip validation) |
+| `npm run test:coverage` | Coverage with 80% thresholds on `src/lib/` |
+| `npm run lint` / `typecheck` | ESLint / `tsc --noEmit` |
 
-## Learn More
+### Data & coverage pipeline
 
-To learn more about Next.js, take a look at the following resources:
+| Command | What it does |
+|---|---|
+| `npm run data:import` | Regenerate the IMLS library directory + GeoNames zip database |
+| `npm run data:domains` | Web-search official websites for library systems (IMLS has none) |
+| `npm run data:platforms` | Fingerprint each system's event platform from its real website; activate feeds |
+| `npm run data:discover` | Slug-guess BiblioCommons/LibCal instances (legacy, lower recall) |
+| `npm run data:activate` | Auto-find LibCal calendar ids and activate feeds |
+| `npm run data:communico` | Probe/activate Communico attend sites |
+| `npm run coverage` | Coverage harness: classify all libraries + nearest-library for **every** zip; writes `reports/coverage-report-<date>.md` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All responses use a `{ success, data, error }` envelope.
 
-## Deploy on Vercel
+- `GET /api/location?q=<zip | city | "city, ST">` — home library + 5 nearest
+  (ambiguous city names return suggestions ranked by city size)
+- `GET /api/events?libraryIds=A,B&days=14&ageGroup=toddler&eventType=storytime`
+  — live events; `libraryIdsWithoutFeed` reports gaps honestly
+- `GET /api/libraries/<id>/analysis` — coverage status + live feed probe
+  (event counts, age/type distribution, feed reachability)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Pages
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/` — the finder: search → libraries → filterable event list
+- `/status` — coverage dashboard: stat tiles, Albers US dot map, the
+  pipeline decision tree (every system on one branch with a named next
+  action), vendor/state tables
