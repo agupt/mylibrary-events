@@ -82,6 +82,7 @@ interface EventProvider {
 | `libcal/provider` | generic iCal | RFC 5545 ICS | inferred from title text | LOCATION field |
 | `communico/` | Communico | unauthenticated `eeventcaldata` JSON | structured `ages` field | `location` field |
 | `custom/bklynProvider` | Brooklyn PL (Drupal+Solr) | custom search JSON | `ss_event_age` taxonomy | `ss_event_location` |
+| `snapshot/` | bot-walled SSR (NYPL) | cron-scraped JSON snapshot | audience column ("Infant (0-18 months)") | location column; Schwarzman → `-002` |
 | `mockEventProvider` | — | deterministic (FNV-1a hash) | — | **tests only, never runtime** |
 
 Shared machinery: `classify.ts` (audience/type mapping — numeric age ranges
@@ -156,3 +157,63 @@ map (16k library dots drawn directly — green active / amber detected /
 gray none, CVD-validated palette, AK/HI counted in tables), the pipeline
 decision tree, vendor and state tables. Zip stats come from the committed
 `coverageStats.json`; library stats are computed live from the registry.
+
+## Runtime & operations
+
+**Serving model.** This is a *dynamic* site, not a static export: `/api/*`
+routes and `/status` (`force-dynamic`) execute per request, and event
+freshness comes from pull-through fetching. It needs a long-lived Node.js
+server (or containers) — plain static hosting won't work, and pure
+edge/lambda runtimes are awkward because the app reads its datasets from
+the filesystem and relies on **in-process memory caches**.
+
+**Rendering.** React Server Components render everything on the server;
+the only client components are the interactive islands (search/filter
+state, the zoomable coverage map, ad slots). The map is precomputed
+server-side and hydrated from serialized props, so server and client
+render identically.
+
+**Data store.** There is deliberately **no database**. Three layers:
+
+| Layer | Store | Freshness |
+|---|---|---|
+| Seed data (IMLS libraries, GeoNames zips) | committed JSON in `src/lib/data/generated/`, loaded via `fs` and cached in process memory | IMLS: annual release; zips: quarterly is plenty (`npm run data:import`) |
+| Feed registry + domains + detection + snapshots | committed JSON, same loading | weekly cron (see below) |
+| **Events** | *never stored* — pulled live from vendor feeds per request, cached in memory 15 min per feed URL | real-time within the cache TTL |
+
+**How events sync: dynamic pull-through, not a cron.** When a request
+needs events for Oakland, the composite provider fetches Oakland's feed
+*at that moment* (or serves the ≤15-min-old in-memory copy). There is no
+events database to keep in sync and nothing to backfill. The one
+exception is bot-walled sites (NYPL): a **daily cron** runs a headless
+browser (`scripts/scrapeNyplSnapshot.mjs`) and commits a JSON snapshot
+the `snapshot` adapter serves from disk.
+
+**Recurring updates.** `.github/workflows/data-refresh.yml`:
+daily → NYPL snapshot; weekly → findDomains → detectPlatforms →
+activate (LibCal + Communico) → verify → coverage harness + report; both
+jobs commit to `main`, so every deploy ships current registry data.
+
+**Where to deploy cheapest.** Requirements: one small always-on Node
+process, filesystem reads, outbound HTTP, ~256–512 MB RAM. Ranked:
+
+1. **Fly.io / Railway / Render single small instance (~$0–5/mo)** — the
+   recommended fit. One machine keeps the in-memory feed cache warm, so
+   a popular system's feed is fetched once per 15 min *total*, not once
+   per lambda instance. Fly's shared-cpu-1x or Render's free tier
+   suffices at this traffic level.
+2. **A $4–6/mo VPS (Hetzner/Lightsail) + `next start` under systemd** —
+   cheapest at steady state, most ops effort.
+3. **Vercel Hobby (free)** — works (datasets deploy with
+   `outputFileTracingIncludes`), but every cold lambda re-reads the 6 MB
+   datasets and has its *own* feed cache, multiplying vendor fetches; fine
+   as a free demo, not the best citizen toward library feeds.
+   Cloudflare Workers is a poor fit (no fs, no long-lived memory).
+
+**Monetization.** `AdSlot` (client component) renders Google AdSense
+responsive units when `NEXT_PUBLIC_ADSENSE_CLIENT` is set; without it,
+production renders nothing and dev shows a placeholder. Placement: one
+unit under the library results. Compliance note: caregivers are the
+audience but the content is child-adjacent — keep AdSense's
+child-directed treatment enabled and non-personalized ads on (COPPA).
+At hobby traffic, expect ads to roughly offset a $5/mo host, not more.

@@ -7,7 +7,9 @@
   "CA0126": { "vendor": "bibliocommons", "status": "active", "url": "https://sccl.bibliocommons.com/events/rss/all" },
   "CA0076": { "vendor": "libcal", "status": "active", "url": "https://mountainview.libcal.com/rss.php?m=month&cid=8800", "note": "Library Events Calendar (cal 8800)" },
   "CA0062": { "vendor": "communico", "status": "active", "url": "https://visit.lacountylibrary.org", "note": "LA County Library — Communico on visit.* subdomain, verified 2026-07 (701 events/14d)" },
+  "CA0011": { "vendor": "communico", "status": "active", "url": "https://berkeleypubliclibrary.libnet.info", "note": "Berkeley Public Library — Communico on libnet.info hosted domain, verified 2026-07 (108 events/14d)" },
   "NY0004": { "vendor": "bklyn", "status": "active", "url": "https://discover.bklynlibrary.org", "note": "Brooklyn Public Library — custom Drupal+Solr API mapped via DevTools 2026-07" },
+  "NY0778": { "vendor": "snapshot", "status": "active", "url": "https://www.nypl.org", "note": "NYPL — Imperva-walled SSR; served from browser-scraped snapshot (scripts/scrapeNyplSnapshot.mjs, refreshed by data-refresh workflow)" },
   "CA0114": { "vendor": "libcal", "status": "detected", "note": "sfpl.libcal.com — needs calendar id" },
   "CA0143": { "vendor": "libcal", "status": "detected", "note": "sunnyvale.libcal.com — needs calendar id" }
 }

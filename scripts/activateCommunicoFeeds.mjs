@@ -28,10 +28,15 @@ function eventDataUrl(base) {
 }
 
 async function probeAttendHost(entry, domain) {
-  // Prefer an attend.* host seen in the site HTML evidence, else convention
+  // Prefer hosts seen in the site HTML evidence, else conventions
   const evidenced = entry.platforms
-    ?.map((p) => p.evidence?.match(/attend\.[a-z0-9.-]+[a-z]/)?.[0])
+    ?.map(
+      (p) =>
+        p.evidence?.match(/attend\.[a-z0-9.-]+[a-z]/)?.[0] ??
+        p.evidence?.match(/[a-z0-9-]+\.libnet\.info/)?.[0],
+    )
     .find(Boolean);
+  const domainLabel = domain.replace(/^www\./, "").split(".")[0];
   const candidates = [
     ...new Set(
       [
@@ -39,6 +44,7 @@ async function probeAttendHost(entry, domain) {
         `attend.${domain}`,
         `visit.${domain}`, // LA County pattern
         `events.${domain}`,
+        `${domainLabel}.libnet.info`, // Communico's hosted domain (Berkeley pattern)
         domain, // some libraries mount the Communico SPA on their own domain
         `www.${domain}`,
       ].filter((h) => h && !h.endsWith(".the") && h.includes(".")),

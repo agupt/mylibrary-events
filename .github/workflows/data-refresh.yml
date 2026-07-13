@@ -1,0 +1,58 @@
+# Recurring data refresh — answers "how is seed data updated" concretely:
+#  - daily:  NYPL snapshot (bot-walled site needs a real browser)
+#  - weekly: domain search → platform detection → feed activation →
+#            verification → coverage harness + report
+# Event feeds themselves need NO cron: they are pulled live per request
+# with a 15-minute in-memory cache. Only the registry/snapshot layers
+# refresh here. Commits land on main so the next deploy ships fresh data.
+name: data-refresh
+
+on:
+  schedule:
+    - cron: "17 9 * * *" # daily 09:17 UTC — NYPL snapshot
+    - cron: "43 7 * * 1" # Mondays 07:43 UTC — discovery + coverage
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  nypl-snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/scrapeNyplSnapshot.mjs --days 14
+      - name: Commit snapshot
+        run: |
+          git config user.name "data-refresh bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/lib/data/generated/snapshots
+          git diff --cached --quiet || git commit -m "chore: refresh NYPL snapshot"
+          git push
+
+  weekly-coverage:
+    if: github.event.schedule == '43 7 * * 1' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci
+      - run: node scripts/findDomains.mjs --top 100
+      - run: node scripts/detectPlatforms.mjs
+      - run: node scripts/activateLibcalFeeds.mjs
+      - run: node scripts/activateCommunicoFeeds.mjs
+      - run: node scripts/verifyDiscoveredFeeds.mjs
+      - run: node scripts/coverageHarness.mjs
+      - run: npm test
+      - name: Commit refreshed data
+        run: |
+          git config user.name "data-refresh bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/lib/data/generated reports
+          git diff --cached --quiet || git commit -m "chore: weekly coverage refresh"
+          git push

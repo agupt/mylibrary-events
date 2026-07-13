@@ -35,7 +35,9 @@ const FINGERPRINTS = [
   { vendor: "assabet", pattern: /assabetinteractive\.com/i },
   { vendor: "eventkeeper", pattern: /eventkeeper\.com/i },
   { vendor: "localist", pattern: /([a-z0-9-]+)\.enterprise\.localist\.com|localist-images/i },
-  { vendor: "librarymarket", pattern: /([a-z0-9-]+)\.libnet\.info/i },
+  // libnet.info is Communico's hosted domain (verified: Berkeley's
+  // libnet site serves the eeventcaldata endpoint)
+  { vendor: "communico", pattern: /([a-z0-9-]+)\.libnet\.info/i },
 ];
 
 async function fetchPages(domain) {

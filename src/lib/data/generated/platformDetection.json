@@ -6,12 +6,12 @@
  "PA0385": {
   "domain": "freelibrary.org",
   "resolution": "needs-scraper",
-  "note": "libwww.freelibrary.org/calendar is Cloudflare-403 to non-browser clients. Clean URL taxonomy (/calendar/age/<x>, /calendar/event/<id>) once past CF \u2014 headless scraper viable."
+  "note": "libwww.freelibrary.org/calendar is Cloudflare-403 to non-browser clients. Clean URL taxonomy (/calendar/age/<x>, /calendar/event/<id>) once past CF — headless scraper viable."
  },
  "NY0778": {
   "domain": "nypl.org",
   "resolution": "needs-scraper",
-  "note": "SSR Next.js behind Imperva bot protection; drupal.nypl.org JSON:API is stale (2022) + beta test content \u2014 no public event data source. Scraper needs headless browser."
+  "note": "SSR Next.js behind Imperva bot protection; drupal.nypl.org JSON:API is stale (2022) + beta test content — no public event data source. Scraper needs headless browser."
  },
  "NY0562": {
   "domain": "queenslibrary.org",
@@ -151,7 +151,7 @@
  },
  "DC0001": {
   "domain": "dclibrary.org",
-  "resolution": "adapter-needed:communico",
+  "resolution": "activated",
   "vendor": "communico",
   "note": "evidence: api.communico.co",
   "platforms": [
@@ -231,7 +231,7 @@
  },
  "NJ0252": {
   "domain": "theoceancountylibrary.org",
-  "resolution": "adapter-needed:communico",
+  "resolution": "activated",
   "vendor": "communico",
   "note": "evidence: api.communico.co",
   "platforms": [
@@ -306,8 +306,8 @@
  },
  "FL0003": {
   "domain": "jaxpubliclibrary.org",
-  "resolution": "adapter-needed:librarymarket",
-  "vendor": "librarymarket",
+  "resolution": "activated",
+  "vendor": "communico",
   "note": "evidence: jaxpubliclibrary.libnet.info",
   "platforms": [
    {
@@ -318,7 +318,7 @@
  },
  "WA0063": {
   "domain": "mypcls.org",
-  "resolution": "adapter-needed:communico",
+  "resolution": "activated",
   "vendor": "communico",
   "note": "evidence: api.communico.co",
   "platforms": [
@@ -533,7 +533,7 @@
  },
  "IN0073": {
   "domain": "acpl.lib.in.us",
-  "resolution": "adapter-needed:communico",
+  "resolution": "activated",
   "vendor": "communico",
   "note": "evidence: api.communico.co",
   "platforms": [
@@ -635,7 +635,7 @@
  },
  "MN0034": {
   "domain": "larl.org",
-  "resolution": "adapter-needed:communico",
+  "resolution": "activated",
   "vendor": "communico",
   "note": "evidence: api.communico.co",
   "platforms": [
@@ -707,7 +707,7 @@
  },
  "WI0199": {
   "domain": "mpl.org",
-  "resolution": "adapter-needed:communico",
+  "resolution": "activated",
   "vendor": "communico",
   "note": "evidence: api.communico.co",
   "platforms": [

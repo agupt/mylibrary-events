@@ -135,9 +135,10 @@
   "note": "discovered: mcpls.libcal.com — needs calendar id"
  },
  "FL0003": {
-  "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: jpl.libcal.com — needs calendar id"
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://jaxpubliclibrary.libnet.info",
+  "note": "communico attend site (416 events in next 14d at activation)"
  },
  "CT0072": {
   "vendor": "libcal",
@@ -929,5 +930,41 @@
   "status": "active",
   "url": "https://pgcmls.info",
   "note": "communico attend site (363 events in next 14d at activation)"
+ },
+ "DC0001": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://dclibrary.libnet.info",
+  "note": "communico attend site (532 events in next 14d at activation)"
+ },
+ "NJ0252": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://theoceancountylibrary.libnet.info",
+  "note": "communico attend site (493 events in next 14d at activation)"
+ },
+ "WA0063": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://piercecounty.libnet.info",
+  "note": "communico attend site (204 events in next 14d at activation)"
+ },
+ "IN0073": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://acpl.libnet.info",
+  "note": "communico attend site (458 events in next 14d at activation)"
+ },
+ "MN0034": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://larl.libnet.info",
+  "note": "communico attend site (97 events in next 14d at activation)"
+ },
+ "WI0199": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://mpl.libnet.info",
+  "note": "communico attend site (309 events in next 14d at activation)"
  }
 }

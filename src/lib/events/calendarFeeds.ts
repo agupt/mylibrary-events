@@ -6,7 +6,8 @@ export type FeedVendor =
   | "libcal"
   | "ical"
   | "communico"
-  | "bklyn";
+  | "bklyn"
+  | "snapshot";
 
 export interface FeedEntry {
   vendor: FeedVendor;

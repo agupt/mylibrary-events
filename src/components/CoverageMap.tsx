@@ -1,21 +1,21 @@
 import { isConterminous, projectAlbersUsa } from "@/lib/albersProjection";
 import type { LibraryCoverage } from "@/lib/coverage";
+import { CoverageMapClient, type NamedDot } from "./CoverageMapClient";
 
 const WIDTH = 960;
 const HEIGHT = 600;
 const PADDING = 16;
 
-/**
- * Status colors (validated for both surfaces): active=green, detected=
- * amber, none=muted gray. Identity is never color-alone — the legend
- * carries labels + counts and the state table repeats every number.
- */
-const LIGHT = { active: "#059669", detected: "#d97706", none: "#94a3b8" };
-
 interface CoverageMapProps {
   coverage: LibraryCoverage[];
 }
 
+/**
+ * Server side of the coverage map: projects every library onto the SVG
+ * plane once and hands compact, serializable dot data to the interactive
+ * client component. Status colors are validated for both surfaces;
+ * identity is never color-alone (legend + tables carry every number).
+ */
 export function CoverageMap({ coverage }: CoverageMapProps) {
   const projected = coverage
     .filter((entry) => isConterminous(entry.library.coordinates))
@@ -25,26 +25,36 @@ export function CoverageMap({ coverage }: CoverageMapProps) {
       name: `${entry.library.name} — ${entry.library.city}, ${entry.library.state}`,
     }));
 
-  const xs = projected.map((p) => p.x);
-  const ys = projected.map((p) => p.y);
-  const minX = Math.min(...xs);
-  const maxX = Math.max(...xs);
-  const minY = Math.min(...ys);
-  const maxY = Math.max(...ys);
+  let minX = Infinity;
+  let maxX = -Infinity;
+  let minY = Infinity;
+  let maxY = -Infinity;
+  for (const p of projected) {
+    if (p.x < minX) minX = p.x;
+    if (p.x > maxX) maxX = p.x;
+    if (p.y < minY) minY = p.y;
+    if (p.y > maxY) maxY = p.y;
+  }
   const scale = Math.min(
     (WIDTH - 2 * PADDING) / (maxX - minX),
     (HEIGHT - 2 * PADDING) / (maxY - minY),
   );
+  const round = (value: number) => Math.round(value * 10) / 10;
   const toSvg = (p: { x: number; y: number }) => ({
+    x: round(PADDING + (p.x - minX) * scale),
     // Albers y grows northward; SVG y grows downward
-    cx: PADDING + (p.x - minX) * scale,
-    cy: HEIGHT - PADDING - (p.y - minY) * scale,
+    y: round(HEIGHT - PADDING - (p.y - minY) * scale),
   });
 
-  const none = projected.filter((p) => p.status === "none");
-  const detected = projected.filter((p) => p.status === "detected");
-  const active = projected.filter((p) => p.status === "active");
-  const excluded = coverage.length - projected.length;
+  const nonePoints: number[] = [];
+  const detected: NamedDot[] = [];
+  const active: NamedDot[] = [];
+  for (const p of projected) {
+    const { x, y } = toSvg(p);
+    if (p.status === "active") active.push({ x, y, name: p.name });
+    else if (p.status === "detected") detected.push({ x, y, name: p.name });
+    else nonePoints.push(x, y);
+  }
 
   return (
     <figure className="rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
@@ -62,53 +72,15 @@ export function CoverageMap({ coverage }: CoverageMapProps) {
         </span>
         <span className="flex items-center gap-1.5">
           <span className="inline-block h-2 w-2 rounded-full bg-slate-400 dark:bg-slate-500" />
-          No coverage ({none.length.toLocaleString()})
+          No coverage ({(nonePoints.length / 2).toLocaleString()})
         </span>
       </figcaption>
-      <div className="overflow-x-auto">
-        <svg
-          viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-          role="img"
-          aria-label="Map of the conterminous United States showing each public library as a dot, colored by event-calendar coverage status"
-          className="h-auto w-full min-w-[640px]"
-        >
-          {none.map((p, index) => {
-            const { cx, cy } = toSvg(p);
-            return (
-              <circle
-                key={index}
-                cx={cx.toFixed(1)}
-                cy={cy.toFixed(1)}
-                r={1}
-                fill={LIGHT.none}
-                opacity={0.5}
-              />
-            );
-          })}
-          {detected.map((p, index) => {
-            const { cx, cy } = toSvg(p);
-            return (
-              <circle key={index} cx={cx.toFixed(1)} cy={cy.toFixed(1)} r={2.4} fill={LIGHT.detected}>
-                <title>{p.name} — vendor detected, feed not yet configured</title>
-              </circle>
-            );
-          })}
-          {active.map((p, index) => {
-            const { cx, cy } = toSvg(p);
-            return (
-              <circle key={index} cx={cx.toFixed(1)} cy={cy.toFixed(1)} r={2.8} fill={LIGHT.active}>
-                <title>{p.name} — live events served</title>
-              </circle>
-            );
-          })}
-        </svg>
-      </div>
-      {excluded > 0 && (
-        <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
-          {excluded.toLocaleString()} libraries in AK, HI, and territories are
-          not shown on the map but are counted in every table.
-        </p>
-      )}
+      <CoverageMapClient
+        nonePoints={nonePoints}
+        detected={detected}
+        active={active}
+        excludedCount={coverage.length - projected.length}
+      />
     </figure>
   );
 }

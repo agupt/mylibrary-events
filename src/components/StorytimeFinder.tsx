@@ -3,6 +3,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { filterEvents } from "@/lib/filterEvents";
 import type { LocationMatch, StorytimeEvent } from "@/lib/types";
+import { AdSlot } from "./AdSlot";
 import type { ActiveFilters } from "./EventFilterBar";
 import { EventFilterBar } from "./EventFilterBar";
 import { EventList } from "./EventList";
@@ -109,6 +110,7 @@ export function StorytimeFinder() {
       {match && (
         <>
           <LibraryResults match={match} />
+          <AdSlot slot="finder-results" />
           <section aria-label="Upcoming events" className="space-y-3">
             <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300">
               Upcoming events (next 2 weeks)

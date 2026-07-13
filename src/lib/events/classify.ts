@@ -29,11 +29,11 @@ export function mapAudiencesToAgeGroups(audiences: string[]): AgeGroup[] | null 
       groups.add("toddler");
     } else if (/preschool|pre-school|pre-k/.test(audience)) {
       groups.add("preschool");
-    } else if (/grade school|school age|school-age|\bkids?\b|tween|children/.test(audience)) {
+    } else if (/elementary|grade school|school age|school-age|\bkids?\b|tween|children/.test(audience)) {
       groups.add("school-age");
     } else if (/famil|all ages|everyone/.test(audience)) {
       groups.add("all-ages");
-    } else if (/birth to (5|five)|birth-5|ages 0-5|under 5/.test(audience)) {
+    } else if (/birth to (5|five)|birth-5|ages 0-5|under 5|early childhood/.test(audience)) {
       groups.add("baby");
       groups.add("toddler");
       groups.add("preschool");
@@ -56,10 +56,12 @@ const AGE_GROUP_BOUNDS: Array<{ group: AgeGroup; minYears: number; maxYears: num
  * groups it overlaps. Returns null when no range is present.
  */
 export function ageGroupsFromRange(text: string): AgeGroup[] | null {
-  const match = text.match(/(\d{1,2})\s*(?:-|–|to)\s*(\d{1,2})/);
+  const match = text.match(/(\d{1,2})\s*(?:-|–|to)\s*(\d{1,2})\s*(months?)?/);
   if (!match) return null;
-  const min = Number(match[1]);
-  const max = Number(match[2]);
+  const isMonths = Boolean(match[3]) || /months?/.test(text);
+  const divisor = isMonths ? 12 : 1;
+  const min = Number(match[1]) / divisor;
+  const max = Number(match[2]) / divisor;
   if (min > max || max > 25) return null;
   const groups = AGE_GROUP_BOUNDS.filter(
     (bound) => min < bound.maxYears && max > bound.minYears,

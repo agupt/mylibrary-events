@@ -7,6 +7,7 @@ import { createCommunicoProvider } from "./communico/provider";
 import { createBklynProvider } from "./custom/bklynProvider";
 import { createIcsProvider } from "./libcal/provider";
 import { createLibcalRssProvider } from "./libcal/rssProvider";
+import { createSnapshotProvider } from "./snapshot/provider";
 
 const FETCH_TIMEOUT_MS = 10_000;
 
@@ -87,6 +88,14 @@ function createCompositeProvider(): EventProvider {
         findLibraryById,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("bklyn"))),
+    },
+    {
+      // Bot-walled sites served from cron-scraped snapshots (NYPL)
+      provider: createSnapshotProvider({
+        feeds: activeFeedsByVendor("snapshot"),
+        findLibraryById,
+      }),
+      systemKeys: new Set(Object.keys(activeFeedsByVendor("snapshot"))),
     },
   ];
 
