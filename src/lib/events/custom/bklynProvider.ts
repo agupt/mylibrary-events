@@ -1,4 +1,5 @@
 import type { Library, StorytimeEvent } from "../../types";
+import { namesOverlap } from "../nameMatch";
 import { classifyEventType, mapAudiencesToAgeGroups } from "../classify";
 import type { DateRange, EventProvider } from "../eventProvider";
 import { createFeedCache } from "../feedCache";
@@ -42,15 +43,6 @@ function stripHtml(html: string): string {
     .replace(/&amp;/g, "&")
     .replace(/&#39;|&apos;/g, "'")
     .replace(/&quot;/g, '"')
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function normalizeName(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/\b(library|branch|the)\b/g, " ")
-    .replace(/[^a-z0-9 ]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -184,16 +176,8 @@ export function createBklynProvider(deps: BklynProviderDeps): EventProvider {
             })
             .map((doc) => {
               const locationName = String(doc.ss_event_location ?? "");
-              const location = normalizeName(locationName);
               const branch =
-                libraries.find((library) => {
-                  const name = normalizeName(library.name);
-                  return (
-                    name.length > 0 &&
-                    location.length > 0 &&
-                    (location === name || location.includes(name) || name.includes(location))
-                  );
-                }) ??
+                libraries.find((library) => namesOverlap(locationName, library.name)) ??
                 (centralOutlet && /\bcentral\b/i.test(locationName) ? centralOutlet : undefined);
               if (locationName.length > 0 && !branch) {
                 return null; // a branch the user didn't select

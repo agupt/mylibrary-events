@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-07-13T21:04:09.464Z",
+  "generatedAt": "2026-07-13T21:25:39.032Z",
   "libraries": {
     "total": 16883,
-    "active": 1655,
+    "active": 1758,
     "detected": 976,
-    "none": 14252
+    "none": 14149
   },
   "systems": {
     "total": 9234,
-    "active": 84,
+    "active": 86,
     "detected": 106,
-    "none": 9044
+    "none": 9042
   },
   "pipeline": [
     {
@@ -27,8 +27,8 @@
     },
     {
       "stage": "serving",
-      "systems": 84,
-      "libraries": 1655,
+      "systems": 86,
+      "libraries": 1758,
       "humanAction": "— (events flowing)"
     },
     {
@@ -63,21 +63,21 @@
     },
     {
       "stage": "needs-scraper",
-      "systems": 2,
-      "libraries": 115,
+      "systems": 1,
+      "libraries": 62,
       "humanAction": "Investigate"
-    },
-    {
-      "stage": "adapter-needed:communico",
-      "systems": 2,
-      "libraries": 73,
-      "humanAction": "Build communico adapter (unlocks every system on it; worst case a scraper)"
     },
     {
       "stage": "identity-collision",
       "systems": 5,
       "libraries": 25,
       "humanAction": "Adjudicate which system owns the instance (same-named systems in different states)"
+    },
+    {
+      "stage": "adapter-needed:communico",
+      "systems": 1,
+      "libraries": 23,
+      "humanAction": "Build communico adapter (unlocks every system on it; worst case a scraper)"
     },
     {
       "stage": "adapter-needed:localist",
@@ -100,6 +100,10 @@
       "systems": 15,
       "libraries": 369
     },
+    "ical": {
+      "systems": 1,
+      "libraries": 50
+    },
     "bklyn": {
       "systems": 1,
       "libraries": 60
@@ -107,6 +111,10 @@
     "snapshot": {
       "systems": 1,
       "libraries": 94
+    },
+    "flp": {
+      "systems": 1,
+      "libraries": 53
     }
   },
   "byState": [
@@ -217,10 +225,10 @@
     {
       "state": "HI",
       "libraries": 50,
-      "active": 0,
+      "active": 50,
       "detected": 0,
       "zips": 137,
-      "zipsNearActive": 0
+      "zipsNearActive": 136
     },
     {
       "state": "IA",
@@ -449,10 +457,10 @@
     {
       "state": "PA",
       "libraries": 615,
-      "active": 0,
+      "active": 53,
       "detected": 34,
       "zips": 2176,
-      "zipsNearActive": 3
+      "zipsNearActive": 88
     },
     {
       "state": "PR",
@@ -585,24 +593,6 @@
       "status": "none",
       "vendor": null,
       "stage": "needs-scraper"
-    },
-    {
-      "systemKey": "PA0385",
-      "system": "Free Library Of Philadelphia",
-      "state": "PA",
-      "outlets": 53,
-      "status": "none",
-      "vendor": null,
-      "stage": "needs-scraper"
-    },
-    {
-      "systemKey": "HI0001",
-      "system": "Hawaii State Public Library System",
-      "state": "HI",
-      "outlets": 50,
-      "status": "none",
-      "vendor": null,
-      "stage": "adapter-needed:communico"
     },
     {
       "systemKey": "FL0012",
@@ -747,12 +737,30 @@
       "status": "none",
       "vendor": null,
       "stage": "no-platform-found"
+    },
+    {
+      "systemKey": "MO0036",
+      "system": "Saint Louis County Library",
+      "state": "MO",
+      "outlets": 20,
+      "status": "none",
+      "vendor": null,
+      "stage": "no-platform-found"
+    },
+    {
+      "systemKey": "MS0006",
+      "system": "Central Mississippi Regional Library",
+      "state": "MS",
+      "outlets": 20,
+      "status": "none",
+      "vendor": null,
+      "stage": "no-platform-found"
     }
   ],
   "zipAnalysis": {
     "total": 40979,
     "failures": 0,
-    "nearestIsActive": 3734,
+    "nearestIsActive": 3955,
     "nearestIsDetected": 2428,
     "nearestDistanceMiles": {
       "median": 2.0860216177145445,
@@ -760,6 +768,6 @@
       "p99": 25.364223263245464,
       "max": 1815.9511109284065
     },
-    "elapsedMs": 231
+    "elapsedMs": 240
   }
 }

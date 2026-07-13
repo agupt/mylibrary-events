@@ -82,10 +82,11 @@ interface EventProvider {
 | `libcal/provider` | generic iCal | RFC 5545 ICS | inferred from title text | LOCATION field |
 | `communico/` | Communico | unauthenticated `eeventcaldata` JSON | structured `ages` field | `location` field |
 | `custom/bklynProvider` | Brooklyn PL (Drupal+Solr) | custom search JSON | `ss_event_age` taxonomy | `ss_event_location` |
+| `custom/flpProvider` | Free Library of Philadelphia | Cloudflare-exempt RSS (`rss/eventsrss.cfm?age=`) | which age feed it appeared in (stacked + merged) | " - Branch" title suffix |
 | `snapshot/` | bot-walled SSR (NYPL) | cron-scraped JSON snapshot | audience column ("Infant (0-18 months)") | location column; Schwarzman → `-002` |
 | `mockEventProvider` | — | deterministic (FNV-1a hash) | — | **tests only, never runtime** |
 
-Shared machinery: `classify.ts` (audience/type mapping — numeric age ranges
+Shared machinery: `nameMatch.ts` (ONE branch-name matcher for all adapters, folding diacritics and okina so "Hawaiʻi" ≡ "Hawaii"), `classify.ts` (audience/type mapping — numeric age ranges
 beat keywords; adult/teen-only events are dropped app-wide), `feedCache.ts`
 (promise-level TTL cache — caching the *promise* rather than the value
 prevents concurrent branch requests from stampeding one feed).

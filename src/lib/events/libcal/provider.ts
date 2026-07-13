@@ -1,4 +1,5 @@
 import type { Library, StorytimeEvent } from "../../types";
+import { namesOverlap } from "../nameMatch";
 import { classifyEventType, inferAgeGroupsFromText } from "../classify";
 import type { DateRange, EventProvider } from "../eventProvider";
 import { createFeedCache } from "../feedCache";
@@ -18,25 +19,8 @@ function systemKeyOf(libraryId: string): string {
   return libraryId.split("-")[0];
 }
 
-function normalizeName(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/\b(library|branch|the)\b/g, " ")
-    .replace(/[^a-z0-9 ]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
 function locationMatches(event: IcsEvent, library: Library): boolean {
-  const location = normalizeName(event.location);
-  const libraryName = normalizeName(library.name);
-  return (
-    location.length > 0 &&
-    libraryName.length > 0 &&
-    (location === libraryName ||
-      location.includes(libraryName) ||
-      libraryName.includes(location))
-  );
+  return namesOverlap(event.location, library.name);
 }
 
 function toStorytimeEvent(

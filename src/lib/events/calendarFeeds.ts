@@ -7,6 +7,7 @@ export type FeedVendor =
   | "ical"
   | "communico"
   | "bklyn"
+  | "flp"
   | "snapshot";
 
 export interface FeedEntry {

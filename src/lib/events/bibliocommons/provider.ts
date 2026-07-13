@@ -1,4 +1,5 @@
 import type { Library, StorytimeEvent } from "../../types";
+import { namesOverlap } from "../nameMatch";
 import type { DateRange, EventProvider } from "../eventProvider";
 import { classifyEventType, mapAudiencesToAgeGroups } from "../classify";
 import { createFeedCache } from "../feedCache";
@@ -18,28 +19,12 @@ function systemKeyOf(libraryId: string): string {
   return libraryId.split("-")[0];
 }
 
-function normalizeName(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/\b(library|branch|the)\b/g, " ")
-    .replace(/[^a-z0-9 ]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
 /** An event belongs to a library if the branch zip or name lines up. */
 function matchesLibrary(event: BcFeedEvent, library: Library): boolean {
   if (event.locationZip && event.locationZip === library.zipCode) {
     return true;
   }
-  const eventName = normalizeName(event.locationName);
-  const libraryName = normalizeName(library.name);
-  return (
-    eventName.length > 0 &&
-    (eventName === libraryName ||
-      libraryName.includes(eventName) ||
-      eventName.includes(libraryName))
-  );
+  return namesOverlap(event.locationName, library.name);
 }
 
 function toStorytimeEvent(

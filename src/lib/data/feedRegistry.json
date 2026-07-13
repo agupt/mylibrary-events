@@ -408,6 +408,14 @@
   "note": "auto-activated: tcpls.libcal.com cal 21385 \"Thomas County Public Library System\" (104 events at activation) | migrated to RSS month feed (31 upcoming items)",
   "source": "discovered"
  },
+ "HI0001": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.librarieshawaii.org/?post_type=tribe_events&ical=1&eventDisplay=list",
+  "note": "Hawaii State Public Library System \u2014 WordPress Events Calendar iCal export found by Amool 2026-07-13",
+  "source": "verified",
+  "verifiedAt": "2026-07"
+ },
  "IA0355": {
   "vendor": "libcal",
   "status": "active",
@@ -946,6 +954,14 @@
   "status": "detected",
   "note": "discovered: dcls.libcal.com \u2014 needs calendar id",
   "source": "discovered"
+ },
+ "PA0385": {
+  "vendor": "flp",
+  "status": "active",
+  "url": "https://libwww.freelibrary.org",
+  "note": "Free Library of Philadelphia \u2014 Cloudflare-exempt RSS endpoint (rss/eventsrss.cfm) found by Amool; rolling next-10 per age filter",
+  "source": "verified",
+  "verifiedAt": "2026-07"
  },
  "PA0448": {
   "vendor": "libcal",

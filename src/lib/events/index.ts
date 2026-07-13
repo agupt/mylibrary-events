@@ -6,6 +6,7 @@ import { activeFeedsByVendor, getFeedEntry } from "./calendarFeeds";
 import type { DateRange, EventProvider } from "./eventProvider";
 import { createCommunicoProvider } from "./communico/provider";
 import { createBklynProvider } from "./custom/bklynProvider";
+import { createFlpProvider } from "./custom/flpProvider";
 import { createIcsProvider } from "./libcal/provider";
 import { createLibcalRssProvider } from "./libcal/rssProvider";
 import { createSnapshotProvider } from "./snapshot/provider";
@@ -100,6 +101,16 @@ function createCompositeProvider(): EventProvider {
         persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("bklyn"))),
+    },
+    {
+      // Free Library of Philadelphia's Cloudflare-exempt RSS endpoint
+      provider: createFlpProvider({
+        feeds: activeFeedsByVendor("flp"),
+        fetchText,
+        findLibraryById,
+        persistDir: PERSIST_DIR,
+      }),
+      systemKeys: new Set(Object.keys(activeFeedsByVendor("flp"))),
     },
     {
       // Bot-walled sites served from cron-scraped snapshots (NYPL)

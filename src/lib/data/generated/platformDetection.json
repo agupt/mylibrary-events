@@ -5,13 +5,14 @@
  },
  "PA0385": {
   "domain": "freelibrary.org",
-  "resolution": "needs-scraper",
-  "note": "libwww.freelibrary.org/calendar is Cloudflare-403 to non-browser clients. Clean URL taxonomy (/calendar/age/<x>, /calendar/event/<id>) once past CF — headless scraper viable."
+  "resolution": "activated",
+  "vendor": "flp",
+  "note": "RSS endpoint rss/eventsrss.cfm is Cloudflare-exempt (found by Amool 2026-07-13)"
  },
  "NY0778": {
   "domain": "nypl.org",
   "resolution": "needs-scraper",
-  "note": "SSR Next.js behind Imperva bot protection; drupal.nypl.org JSON:API is stale (2022) + beta test content — no public event data source. Scraper needs headless browser."
+  "note": "SSR Next.js behind Imperva bot protection; drupal.nypl.org JSON:API is stale (2022) + beta test content \u2014 no public event data source. Scraper needs headless browser."
  },
  "NY0562": {
   "domain": "queenslibrary.org",
@@ -68,15 +69,9 @@
  },
  "HI0001": {
   "domain": "librarieshawaii.org",
-  "resolution": "adapter-needed:communico",
-  "vendor": "communico",
-  "note": "evidence: attend.jpg",
-  "platforms": [
-   {
-    "vendor": "communico",
-    "evidence": "attend.jpg"
-   }
-  ]
+  "resolution": "activated",
+  "vendor": "ical",
+  "note": "tribe_events iCal export (found by Amool)"
  },
  "MN0032": {
   "domain": "griver.org",

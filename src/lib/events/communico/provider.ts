@@ -1,4 +1,5 @@
 import type { Library, StorytimeEvent } from "../../types";
+import { namesOverlap } from "../nameMatch";
 import { classifyEventType, inferAgeGroupsFromText, mapAudiencesToAgeGroups } from "../classify";
 import type { DateRange, EventProvider } from "../eventProvider";
 import { createFeedCache } from "../feedCache";
@@ -106,25 +107,8 @@ export interface CommunicoProviderDeps {
   persistDir?: string;
 }
 
-function normalizeName(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/\b(library|branch|the)\b/g, " ")
-    .replace(/[^a-z0-9 ]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
 function branchMatches(raw: CommunicoRawEvent, library: Library): boolean {
-  const branch = normalizeName(String(raw.location ?? raw.library ?? ""));
-  const libraryName = normalizeName(library.name);
-  return (
-    branch.length > 0 &&
-    libraryName.length > 0 &&
-    (branch === libraryName ||
-      branch.includes(libraryName) ||
-      libraryName.includes(branch))
-  );
+  return namesOverlap(String(raw.location ?? raw.library ?? ""), library.name);
 }
 
 export function createCommunicoProvider(deps: CommunicoProviderDeps): EventProvider {

@@ -1,4 +1,5 @@
 import type { Library, StorytimeEvent } from "../../types";
+import { namesOverlap } from "../nameMatch";
 import { classifyEventType, mapAudiencesToAgeGroups } from "../classify";
 import type { DateRange, EventProvider } from "../eventProvider";
 import { createFeedCache } from "../feedCache";
@@ -18,26 +19,9 @@ function systemKeyOf(libraryId: string): string {
   return libraryId.split("-")[0];
 }
 
-function normalizeName(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/\b(library|branch|the)\b/g, " ")
-    .replace(/[^a-z0-9 ]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
 /** libcal:campus carries the branch name (e.g. "Rice", "Rockridge Branch"). */
 function campusMatches(event: LibcalRssEvent, library: Library): boolean {
-  const campus = normalizeName(`${event.campus} ${event.location}`);
-  const libraryName = normalizeName(library.name);
-  return (
-    campus.length > 0 &&
-    libraryName.length > 0 &&
-    (campus === libraryName ||
-      campus.includes(libraryName) ||
-      libraryName.includes(campus))
-  );
+  return namesOverlap(`${event.campus} ${event.location}`, library.name);
 }
 
 function toStorytimeEvent(

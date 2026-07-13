@@ -1,4 +1,5 @@
 import { existsSync, readFileSync } from "node:fs";
+import { namesOverlap } from "../nameMatch";
 import path from "node:path";
 import type { Library, StorytimeEvent } from "../../types";
 import { classifyEventType, mapAudiencesToAgeGroups } from "../classify";
@@ -70,15 +71,6 @@ export function mapSnapshotEvent(
   };
 }
 
-function normalizeName(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/\b(library|branch|the|and|center)\b/g, " ")
-    .replace(/[^a-z0-9 ]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
 export interface SnapshotProviderDeps {
   /** Origin used for stable event ids, by system key. */
   feeds: Record<string, string>;
@@ -140,16 +132,8 @@ export function createSnapshotProvider(deps: SnapshotProviderDeps): EventProvide
             continue;
           }
           const branchName = raw.location.split(",")[0] ?? "";
-          const location = normalizeName(branchName);
           const branch =
-            libraries.find((library) => {
-              const name = normalizeName(library.name);
-              return (
-                name.length > 0 &&
-                location.length > 0 &&
-                (location === name || location.includes(name) || name.includes(location))
-              );
-            }) ??
+            libraries.find((library) => namesOverlap(branchName, library.name)) ??
             (centralOutlet && /\b(main|central|stephen a schwarzman)\b/i.test(branchName)
               ? centralOutlet
               : undefined);
