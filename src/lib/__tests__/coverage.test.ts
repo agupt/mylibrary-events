@@ -26,8 +26,8 @@ const LIBRARIES: Library[] = [
 ];
 
 const REGISTRY: Record<string, FeedEntry> = {
-  CA0081: { vendor: "bibliocommons", status: "active", url: "https://x/rss" },
-  CA0114: { vendor: "libcal", status: "detected" },
+  CA0081: { vendor: "bibliocommons", status: "active", url: "https://x/rss", source: "verified" },
+  CA0114: { vendor: "libcal", status: "detected", source: "discovered" },
 };
 
 describe("computeCoverage", () => {

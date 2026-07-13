@@ -7,11 +7,12 @@
  * Evanced, Assabet, EventKeeper, Localist, LibraryMarket).
  *
  * Writes generated/platformDetection.json; merges verified activations
- * into generated/discoveredFeeds.json (collision-guarded).
+ * into feedRegistry.json (collision-guarded; verified entries untouched).
  *
  * Usage: node scripts/detectPlatforms.mjs
  */
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
+import { readRegistry, writeDiscovered } from "./lib/registry.mjs";
 import {
   activateLibcalInstance,
   fetchText,
@@ -23,9 +24,7 @@ const CONCURRENCY = 6;
 const BC_VERIFY_DELAY_MS = 1500; // BiblioCommons WAF is trigger-happy
 
 const domains = JSON.parse(readFileSync("src/lib/data/generated/domains.json", "utf8"));
-const feedsPath = "src/lib/data/generated/discoveredFeeds.json";
-const feeds = JSON.parse(readFileSync(feedsPath, "utf8"));
-const staticFeeds = JSON.parse(readFileSync("src/lib/data/staticFeeds.json", "utf8"));
+const feeds = readRegistry();
 
 const FINGERPRINTS = [
   { vendor: "bibliocommons", pattern: /([a-z0-9-]+)\.bibliocommons\.com/i },
@@ -54,7 +53,7 @@ async function fetchPages(domain) {
 }
 
 async function detectSystem(systemKey, info) {
-  const registryEntry = staticFeeds[systemKey] ?? feeds[systemKey];
+  const registryEntry = feeds[systemKey];
   if (registryEntry?.status === "active") {
     return { systemKey, domain: info.domain, resolution: "already-active" };
   }
@@ -181,7 +180,7 @@ for (const [key, entry] of Object.entries(feeds)) {
 for (const [host, keys] of hosts) {
   if (keys.length > 1) {
     for (const key of keys) {
-      if (!(key in staticFeeds)) {
+      if (feeds[key]?.source !== "verified") {
         feeds[key] = { vendor: feeds[key].vendor, status: "detected", note: `demoted, collision: ${host} claimed by ${keys.join(", ")}` };
         activated -= 1;
       }
@@ -190,7 +189,9 @@ for (const [host, keys] of hosts) {
   }
 }
 
-writeFileSync(feedsPath, JSON.stringify(feeds, null, 1));
+writeDiscovered(Object.fromEntries(
+  Object.entries(feeds).filter(([, v]) => v.source !== "verified"),
+));
 writeFileSync(
   "src/lib/data/generated/platformDetection.json",
   JSON.stringify(detection, null, 1),

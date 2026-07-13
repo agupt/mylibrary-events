@@ -7,12 +7,12 @@
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { fetchText } from "./lib/probeHelpers.mjs";
+import { readRegistry, writeDiscovered } from "./lib/registry.mjs";
 
 const detection = JSON.parse(
   readFileSync("src/lib/data/generated/platformDetection.json", "utf8"),
 );
-const feedsPath = "src/lib/data/generated/discoveredFeeds.json";
-const feeds = JSON.parse(readFileSync(feedsPath, "utf8"));
+const feeds = readRegistry();
 
 const targets = Object.entries(detection).filter(
   ([, entry]) => entry.resolution === "adapter-needed:communico",
@@ -83,7 +83,9 @@ for (const [systemKey, entry] of targets) {
   }
 }
 
-writeFileSync(feedsPath, JSON.stringify(feeds, null, 1));
+writeDiscovered(Object.fromEntries(
+  Object.entries(feeds).filter(([, v]) => v.source !== "verified"),
+));
 writeFileSync(
   "src/lib/data/generated/platformDetection.json",
   JSON.stringify(detection, null, 1),

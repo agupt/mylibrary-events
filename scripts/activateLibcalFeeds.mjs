@@ -13,18 +13,20 @@
  *
  * Usage: node scripts/activateLibcalFeeds.mjs
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { readRegistry, writeDiscovered } from "./lib/registry.mjs";
 
 const CONCURRENCY = 12;
 const TIMEOUT_MS = 10000;
 const MAX_CALENDAR_PAGES = 6;
 const MAX_ICAL_CHECKS = 3;
 
-const feedsPath = "src/lib/data/generated/discoveredFeeds.json";
-const feeds = JSON.parse(readFileSync(feedsPath, "utf8"));
+const feeds = readRegistry();
 
 const targets = Object.entries(feeds).filter(
-  ([, entry]) => entry.vendor === "libcal" && entry.status === "detected",
+  ([, entry]) =>
+    entry.vendor === "libcal" &&
+    entry.status === "detected" &&
+    entry.source === "discovered",
 );
 console.log(`Attempting activation for ${targets.length} detected LibCal systems`);
 
@@ -173,7 +175,7 @@ await Promise.all(Array.from({ length: CONCURRENCY }, worker));
 // Houston County GA). None of the claimants can be trusted automatically.
 const claimants = new Map();
 for (const [systemKey, entry] of Object.entries(feeds)) {
-  if (entry.status === "active" && entry.vendor === "libcal" && entry.url) {
+  if (entry.status === "active" && entry.vendor === "libcal" && entry.url && entry.source !== "verified") {
     const host = new URL(entry.url).host;
     claimants.set(host, [...(claimants.get(host) ?? []), systemKey]);
   }
@@ -192,5 +194,7 @@ for (const [host, keys] of claimants) {
   }
 }
 
-writeFileSync(feedsPath, JSON.stringify(feeds, null, 1));
-console.log(`\nActivated ${activated} of ${targets.length} detected LibCal systems → ${feedsPath}`);
+writeDiscovered(Object.fromEntries(
+  Object.entries(feeds).filter(([, v]) => v.source !== "verified"),
+));
+console.log(`\nActivated ${activated} of ${targets.length} detected LibCal systems`);

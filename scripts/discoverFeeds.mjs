@@ -1,7 +1,7 @@
 /**
  * Probes library systems for public event-calendar feeds and writes
- * verified findings to src/lib/data/generated/discoveredFeeds.json
- * (merged into the app's registry; hand-verified staticFeeds.json wins).
+ * verified findings to src/lib/data/feedRegistry.json as
+ * source:"discovered" entries (source:"verified" entries are never touched).
  *
  * Vendors probed:
  *  - BiblioCommons: https://<slug>.bibliocommons.com/events/rss/all
@@ -13,8 +13,8 @@
  *
  * Usage: node scripts/discoverFeeds.mjs [--min-outlets 5] [--state CA]
  */
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
-import path from "node:path";
+import { readFileSync } from "node:fs";
+import { readRegistry, writeDiscovered } from "./lib/registry.mjs";
 
 const MIN_OUTLETS_DEFAULT = 5;
 const CONCURRENCY = 24;
@@ -30,9 +30,7 @@ const stateFilter = argValue("--state", null);
 const libraries = JSON.parse(
   readFileSync("src/lib/data/generated/libraries.json", "utf8"),
 );
-const staticFeeds = JSON.parse(
-  readFileSync("src/lib/data/staticFeeds.json", "utf8"),
-);
+const registry = readRegistry();
 
 // Group into systems
 const systems = new Map();
@@ -50,7 +48,8 @@ for (const library of libraries) {
 const targets = [...systems.values()].filter(
   (s) =>
     s.outlets >= minOutlets &&
-    !(s.systemKey in staticFeeds) &&
+    !(registry[s.systemKey]?.source === "verified") &&
+    !(registry[s.systemKey]?.status === "active") &&
     (!stateFilter || s.state === stateFilter),
 );
 console.log(
@@ -220,14 +219,8 @@ async function worker() {
 
 await Promise.all(Array.from({ length: CONCURRENCY }, worker));
 
-const outputPath = "src/lib/data/generated/discoveredFeeds.json";
-const previous = existsSync(outputPath)
-  ? JSON.parse(readFileSync(outputPath, "utf8"))
-  : {};
-const merged = { ...previous, ...results };
-mkdirSync(path.dirname(outputPath), { recursive: true });
-writeFileSync(outputPath, JSON.stringify(merged, null, 2));
+const merged = writeDiscovered(results);
 console.log(
   `\nDone. ${Object.keys(results).length} systems found this run ` +
-    `(${activeCount} active). Total discovered: ${Object.keys(merged).length} → ${outputPath}`,
+    `(${activeCount} active). Registry now has ${Object.keys(merged).length} entries.`,
 );

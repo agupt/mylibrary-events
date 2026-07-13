@@ -31,7 +31,7 @@ across all systems on that vendor.
 | identity-collision | 5 | 25 | Adjudicate which system owns the instance (same-named systems in different states) |
 | adapter-needed:localist | 1 | 22 | Build localist adapter (unlocks every system on it; worst case a scraper) |
 
-Known official domains: 150 systems (source: web search; IMLS publishes none).
+Known official domains: 156 systems (source: web search; IMLS publishes none).
 Honest unknown: "never-probed" systems have NOT been checked at all — no
 claim is made about whether they publish calendars.
 
@@ -51,7 +51,7 @@ claim is made about whether they publish calendars.
 - Nearest library is on a **detected** platform: 2,428 (5.9%)
 - Distance to nearest library: median 2.1 mi, p90 10.0 mi, p99 25.4 mi, max 1816 mi
 - Every zip resolved to a nearest library: yes ✅
-- Analysis runtime: 230 ms (grid-indexed)
+- Analysis runtime: 231 ms (grid-indexed)
 
 ## Active systems (84)
 

@@ -181,7 +181,7 @@
  },
  "CA0114": {
   "domain": "sfpl.org",
-  "source": "web-search",
+  "source": "verified",
   "system": "San Francisco Public Library",
   "state": "CA"
  },
@@ -223,7 +223,7 @@
  },
  "CA0028": {
   "domain": "ccclib.org",
-  "source": "web-search",
+  "source": "verified",
   "system": "Contra Costa County Library",
   "state": "CA"
  },
@@ -241,7 +241,7 @@
  },
  "CA0115": {
   "domain": "sjpl.org",
-  "source": "web-search",
+  "source": "verified",
   "system": "San Jose Public Library",
   "state": "CA"
  },
@@ -475,7 +475,7 @@
  },
  "CA0081": {
   "domain": "oaklandlibrary.org",
-  "source": "web-search",
+  "source": "verified",
   "system": "Oakland Public Library",
   "state": "CA"
  },
@@ -775,7 +775,7 @@
  },
  "CA0120": {
   "domain": "smcl.org",
-  "source": "web-search",
+  "source": "verified",
   "system": "San Mateo County Libraries",
   "state": "CA"
  },
@@ -897,6 +897,42 @@
   "domain": "countyofmerced.com",
   "source": "web-search",
   "system": "Merced County Library",
+  "state": "CA"
+ },
+ "CA0001": {
+  "domain": "aclibrary.org",
+  "source": "verified",
+  "system": "Alameda County Library",
+  "state": "CA"
+ },
+ "CA0011": {
+  "domain": "berkeleypubliclibrary.org",
+  "source": "verified",
+  "system": "Berkeley Public Library",
+  "state": "CA"
+ },
+ "CA0076": {
+  "domain": "mountainview.gov",
+  "source": "verified",
+  "system": "Mountain View Public Library",
+  "state": "CA"
+ },
+ "CA0091": {
+  "domain": "library.cityofpaloalto.org",
+  "source": "verified",
+  "system": "Palo Alto City Library",
+  "state": "CA"
+ },
+ "CA0126": {
+  "domain": "sccld.org",
+  "source": "verified",
+  "system": "Santa Clara County Library",
+  "state": "CA"
+ },
+ "CA0143": {
+  "domain": "sunnyvale.ca.gov",
+  "source": "verified",
+  "system": "Sunnyvale Public Library",
   "state": "CA"
  }
 }

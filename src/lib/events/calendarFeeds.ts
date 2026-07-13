@@ -17,42 +17,43 @@ export interface FeedEntry {
    *            configuration (e.g. a LibCal calendar id)
    */
   status: "active" | "detected";
+  /**
+   * verified   — confirmed by a human (or an engineered integration like
+   *              the Brooklyn adapter / NYPL snapshot); automation must
+   *              NEVER modify or delete these entries
+   * discovered — written by the discovery/activation scripts, which may
+   *              freely update them on later runs
+   */
+  source: "verified" | "discovered";
   url?: string;
   note?: string;
+  verifiedAt?: string;
 }
 
 let registryCache: Record<string, FeedEntry> | null = null;
 
-function readJsonIfPresent(filePath: string): Record<string, FeedEntry> {
-  if (!existsSync(filePath)) {
-    return {};
-  }
-  try {
-    return JSON.parse(readFileSync(filePath, "utf8"));
-  } catch (error: unknown) {
-    console.error(`Ignoring malformed feed registry file ${filePath}`, error);
-    return {};
-  }
-}
-
 /**
- * Full feed registry keyed by IMLS system key (FSCSKEY):
- * hand-verified entries (src/lib/data/staticFeeds.json) merged with
- * auto-discovered ones from scripts/discoverFeeds.mjs — static wins.
- * BiblioCommons feeds cover every branch in a system; LibCal URLs are
- * ical_subscribe.php exports for a specific calendar id.
+ * The single feed registry (src/lib/data/feedRegistry.json), keyed by
+ * IMLS system key (FSCSKEY). One store per fact: trust is the `source`
+ * field on each entry, not a file boundary. Humans and scripts write the
+ * same file; scripts only touch source:"discovered" entries.
  */
 export function getFeedRegistry(): Record<string, FeedEntry> {
   if (registryCache === null) {
-    const staticFeeds = readJsonIfPresent(
-      path.join(process.cwd(), "src/lib/data/staticFeeds.json"),
-    );
-    const discovered = readJsonIfPresent(
-      path.join(process.cwd(), "src/lib/data/generated/discoveredFeeds.json"),
-    );
-    registryCache = { ...discovered, ...staticFeeds };
+    const filePath = path.join(process.cwd(), "src/lib/data/feedRegistry.json");
+    if (!existsSync(filePath)) {
+      console.error(`Feed registry missing at ${filePath}`);
+      registryCache = {};
+    } else {
+      try {
+        registryCache = JSON.parse(readFileSync(filePath, "utf8"));
+      } catch (error: unknown) {
+        console.error("Malformed feedRegistry.json", error);
+        registryCache = {};
+      }
+    }
   }
-  return registryCache;
+  return registryCache ?? {};
 }
 
 export function getFeedEntry(systemKey: string): FeedEntry | undefined {

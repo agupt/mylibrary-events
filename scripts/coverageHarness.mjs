@@ -2,7 +2,7 @@
  * Coverage harness — runs the full-dataset analysis:
  *
  * 1. Every library (16,883): coverage status from the feed registry
- *    (staticFeeds.json + generated/discoveredFeeds.json).
+ *    (src/lib/data/feedRegistry.json — one store, provenance per entry).
  * 2. Every zip code (40,979): nearest library via a spatial grid index,
  *    and whether that nearest library has an active feed.
  *
@@ -22,11 +22,9 @@ const readJson = (path, fallback) =>
 
 const libraries = JSON.parse(readFileSync("src/lib/data/generated/libraries.json", "utf8"));
 const zips = JSON.parse(readFileSync("src/lib/data/generated/zips.json", "utf8"));
-const staticFeeds = JSON.parse(readFileSync("src/lib/data/staticFeeds.json", "utf8"));
-const discovered = readJson("src/lib/data/generated/discoveredFeeds.json", {});
 const domains = readJson("src/lib/data/generated/domains.json", {});
 const platformDetection = readJson("src/lib/data/generated/platformDetection.json", {});
-const registry = { ...discovered, ...staticFeeds };
+const registry = JSON.parse(readFileSync("src/lib/data/feedRegistry.json", "utf8"));
 
 const SLUG_PROBE_MIN_OUTLETS = 3; // what discoverFeeds.mjs has been run with
 

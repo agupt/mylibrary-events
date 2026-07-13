@@ -21,8 +21,8 @@ and how coverage of US library calendars is measured and grown.
  └───────────┬─────────────┘
              │ libraryIds, date range
              ▼
- ┌─────────────────────────┐   feed registry (staticFeeds.json +
- │ Composite EventProvider │◄── generated/discoveredFeeds.json)
+ ┌─────────────────────────┐   feed registry (feedRegistry.json,
+ │ Composite EventProvider │◄── provenance per entry)
  │ src/lib/events/index.ts │    routes each system to its vendor adapter
  └───────────┬─────────────┘
              ▼
@@ -53,7 +53,7 @@ loader):
 | `libraries.json` | IMLS Public Libraries Survey FY2022 outlet file | every US central (CE) / branch (BR) outlet: name, system, address, city/state/zip, coordinates |
 | `zips.json` | GeoNames US postal dataset | zip → lat/lng/city/state |
 | `domains.json` | web search (`findDomains.mjs`) | system → official website. **IMLS publishes no URLs** — this closes the biggest discovery gap |
-| `discoveredFeeds.json` | discovery/activation scripts | system → feed entry (merged under `staticFeeds.json`, static wins) |
+| `../feedRegistry.json` | humans AND scripts (one store) | system → feed entry with `source: "verified" \| "discovered"`; scripts may only mutate discovered entries |
 | `platformDetection.json` | `detectPlatforms.mjs` | per-system platform fingerprints + resolution (activated / adapter-needed / needs-scraper / …) |
 | `coverageStats.json` | `coverageHarness.mjs` | totals, pipeline branches, per-state and zip analysis (consumed by `/status`) |
 

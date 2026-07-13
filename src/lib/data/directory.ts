@@ -1,7 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import type { Library } from "../types";
-import { websiteForLibraryId } from "./systemWebsites";
 
 /**
  * Library directory generated from the IMLS Public Libraries Survey by
@@ -29,12 +28,10 @@ function loadGeneratedLibraries(): GeneratedLibrary[] {
 }
 
 /**
- * Website sources, by trust tier:
- *  1. systemWebsites.ts — hand-verified overrides (always win)
- *  2. generated/domains.json — web-searched official domains
- *     (junk-filtered, spot-checked; found by findDomains.mjs)
- * Both the UI and the coverage pipeline read the same merged view, so
- * "we know the domain" and "we show the domain" can no longer diverge.
+ * Websites come from ONE store: generated/domains.json, keyed by system.
+ * Trust is a field on each entry (source: "verified" hand-checked vs
+ * "web-search" machine-found), not a separate file — findDomains.mjs
+ * never overwrites existing keys, so verified entries are stable.
  */
 function loadSearchedDomains(): Record<string, string> {
   const filePath = path.join(
@@ -60,10 +57,9 @@ function loadSearchedDomains(): Record<string, string> {
 
 export function getAllLibraries(): Library[] {
   if (cache === null) {
-    const searched = loadSearchedDomains();
+    const domains = loadSearchedDomains();
     cache = loadGeneratedLibraries().map((library) => {
-      const websiteUrl =
-        websiteForLibraryId(library.id) ?? searched[library.id.split("-")[0]];
+      const websiteUrl = domains[library.id.split("-")[0]];
       return websiteUrl ? { ...library, websiteUrl } : library;
     });
   }

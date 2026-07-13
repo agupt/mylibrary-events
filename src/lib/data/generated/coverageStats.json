@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-13T17:36:26.341Z",
+  "generatedAt": "2026-07-13T21:04:09.464Z",
   "libraries": {
     "total": 16883,
     "active": 1655,
@@ -86,7 +86,7 @@
       "humanAction": "Build localist adapter (unlocks every system on it; worst case a scraper)"
     }
   ],
-  "domainsKnown": 150,
+  "domainsKnown": 156,
   "byVendor": {
     "bibliocommons": {
       "systems": 43,
@@ -760,6 +760,6 @@
       "p99": 25.364223263245464,
       "max": 1815.9511109284065
     },
-    "elapsedMs": 230
+    "elapsedMs": 231
   }
 }

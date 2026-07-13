@@ -1,12 +1,13 @@
 /**
- * Re-verifies every entry in generated/discoveredFeeds.json against the
+ * Re-verifies every source:"discovered" registry entry against the
  * live page/feed title and removes entries that fail — used after guard
  * improvements to purge earlier false positives (e.g. academic LibCal
  * instances matched by a shared town name).
  *
  * Usage: node scripts/verifyDiscoveredFeeds.mjs
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
+import { readRegistry, writeDiscovered } from "./lib/registry.mjs";
 
 const CONCURRENCY = 16;
 const TIMEOUT_MS = 8000;
@@ -25,8 +26,9 @@ for (const library of libraries) {
   systemNames.set(library.id.split("-")[0], library.system);
 }
 
-const feedsPath = "src/lib/data/generated/discoveredFeeds.json";
-const feeds = JSON.parse(readFileSync(feedsPath, "utf8"));
+const feeds = Object.fromEntries(
+  Object.entries(readRegistry()).filter(([, v]) => v.source === "discovered"),
+);
 
 function distinctiveWords(systemName) {
   return systemName
@@ -94,7 +96,9 @@ async function worker() {
 
 await Promise.all(Array.from({ length: CONCURRENCY }, worker));
 
-writeFileSync(feedsPath, JSON.stringify(feeds, null, 1));
+writeDiscovered(Object.fromEntries(
+  entries.map(([key]) => [key, key in feeds ? feeds[key] : null]),
+));
 console.log(`Checked ${entries.length}. Removed ${removed.length}:`);
 for (const [key, reason] of removed) {
   console.log(`  ${key} (${systemNames.get(key)}): ${reason}`);
