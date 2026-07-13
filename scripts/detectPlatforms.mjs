@@ -37,7 +37,50 @@ const FINGERPRINTS = [
   // libnet.info is Communico's hosted domain (verified: Berkeley's
   // libnet site serves the eeventcaldata endpoint)
   { vendor: "communico", pattern: /([a-z0-9-]+)\.libnet\.info/i },
+  // Communico also runs on custom engage./attend./visit. domains — the
+  // /feeds?data= base64 API is the giveaway (Sacramento, Broward)
+  { vendor: "communico", pattern: /(engage|visit|attend)\.[a-z0-9.-]+\/feeds\?data=/i },
+  { vendor: "librarymarket", pattern: /([a-z0-9-]+)\.librarymarket\.com/i },
+  // WordPress + The Events Calendar exposes ?post_type=tribe_events&ical=1
+  { vendor: "tribe", pattern: /tribe_events|tribe-events/i },
 ];
+
+/** Probes learned from hand-verified finds (Hawaii, San Bernardino, Dallas). */
+async function probeTribeIcal(domain) {
+  for (const host of [`www.${domain}`, domain]) {
+    try {
+      const ics = await fetchText(
+        `https://${host}/?post_type=tribe_events&ical=1&eventDisplay=list`,
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+      );
+      const count = (ics.match(/BEGIN:VEVENT/g) ?? []).length;
+      if (ics.startsWith("BEGIN:VCALENDAR") && count > 0) {
+        return { url: `https://${host}/?post_type=tribe_events&ical=1&eventDisplay=list`, count };
+      }
+    } catch {
+      // next host
+    }
+  }
+  return null;
+}
+
+async function probeLibraryMarket(slug) {
+  const month = new Date().toISOString().slice(0, 7);
+  const url = `https://${slug}.librarymarket.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month=${month}`;
+  try {
+    const ics = await fetchText(url, "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36");
+    const count = (ics.match(/BEGIN:VEVENT/g) ?? []).length;
+    if (ics.startsWith("BEGIN:VCALENDAR") && count > 0) {
+      return {
+        url: `https://${slug}.librarymarket.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}`,
+        count,
+      };
+    }
+  } catch {
+    // fall through
+  }
+  return null;
+}
 
 async function fetchPages(domain) {
   const pages = [];
@@ -98,7 +141,7 @@ async function worker() {
 
     const bc = platforms.find((p) => p.vendor === "bibliocommons");
     const libcal = platforms.find((p) => p.vendor === "libcal");
-    const other = platforms.find((p) => !["bibliocommons", "libcal"].includes(p.vendor));
+    const other = platforms.find((p) => !["bibliocommons", "libcal", "librarymarket", "tribe"].includes(p.vendor));
 
     if (bc) {
       const slug = html.match(/([a-z0-9-]+)\.bibliocommons\.com/i)?.[1]?.toLowerCase();
@@ -127,6 +170,43 @@ async function worker() {
       if (!feeds[systemKey]) {
         feeds[systemKey] = { vendor: "libcal", status: "detected", note: `own-domain link: ${host} — needs calendar id` };
       }
+      continue;
+    }
+    const librarymarket = platforms.find((p) => p.vendor === "librarymarket");
+    if (librarymarket) {
+      const slug = html.match(/([a-z0-9-]+)\.librarymarket\.com/i)?.[1]?.toLowerCase();
+      const verified = slug ? await probeLibraryMarket(slug) : null;
+      if (verified) {
+        feeds[systemKey] = {
+          vendor: "ical",
+          status: "active",
+          url: verified.url,
+          note: `LibraryMarket LibraryCalendar via own-domain link on ${result.domain} (${verified.count} events; month-templated)`,
+        };
+        activated += 1;
+        detection[systemKey] = { domain: result.domain, resolution: "activated", vendor: "ical", platforms };
+        console.log(`  ACTIVE ${systemKey} (${info.system}) → librarymarket ${slug}`);
+        continue;
+      }
+    }
+    const tribe = platforms.find((p) => p.vendor === "tribe");
+    if (tribe) {
+      const verified = await probeTribeIcal(info.domain);
+      if (verified) {
+        feeds[systemKey] = {
+          vendor: "ical",
+          status: "active",
+          url: verified.url,
+          note: `WordPress tribe_events iCal on ${result.domain} (${verified.count} events)`,
+        };
+        activated += 1;
+        detection[systemKey] = { domain: result.domain, resolution: "activated", vendor: "ical", platforms };
+        console.log(`  ACTIVE ${systemKey} (${info.system}) → tribe ical on ${info.domain}`);
+        continue;
+      }
+    }
+    if (!other) {
+      detection[systemKey] = { domain: result.domain, resolution: "no-platform-found", platforms };
       continue;
     }
     detection[systemKey] = {

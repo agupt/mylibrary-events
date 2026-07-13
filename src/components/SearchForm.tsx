@@ -12,26 +12,37 @@ export function SearchForm({ isLoading, onSearch }: SearchFormProps) {
 
   return (
     <form
-      className="flex gap-2"
+      className="flex flex-col gap-2 sm:flex-row"
       onSubmit={(event) => {
         event.preventDefault();
         onSearch(query);
       }}
     >
-      <input
-        type="text"
-        value={query}
-        onChange={(event) => setQuery(event.target.value)}
-        placeholder="City, ST or zip code (e.g. Oakland, CA or 94110)"
-        aria-label="City or zip code"
-        className="flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100"
-      />
+      <div className="relative flex-1">
+        <span
+          aria-hidden
+          className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+        </span>
+        <input
+          type="text"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="City, ST or zip code — try 94609 or Portland, OR"
+          aria-label="City or zip code"
+          className="w-full rounded-2xl border border-slate-200 bg-white/90 py-3.5 pl-11 pr-4 text-base shadow-lg shadow-violet-100/50 outline-none backdrop-blur transition placeholder:text-slate-400 focus:border-violet-400 focus:ring-4 focus:ring-violet-100 dark:border-slate-700 dark:bg-slate-800/90 dark:shadow-none dark:focus:border-violet-500 dark:focus:ring-violet-500/20"
+        />
+      </div>
       <button
         type="submit"
         disabled={isLoading || query.trim().length === 0}
-        className="rounded-lg bg-indigo-600 px-5 py-2.5 font-medium text-white shadow-sm transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
+        className="rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-7 py-3.5 font-semibold text-white shadow-lg shadow-violet-200/60 transition hover:from-violet-500 hover:to-fuchsia-500 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50 dark:shadow-none"
       >
-        {isLoading ? "Searching…" : "Find Libraries"}
+        {isLoading ? "Searching…" : "Find events"}
       </button>
     </form>
   );

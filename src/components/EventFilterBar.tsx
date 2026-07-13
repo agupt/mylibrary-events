@@ -16,7 +16,20 @@ interface EventFilterBarProps {
 }
 
 const selectClass =
-  "rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-indigo-500 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100";
+  "w-full appearance-none rounded-xl border border-slate-200 bg-white/90 py-2 pl-3 pr-8 text-sm font-medium shadow-sm outline-none backdrop-blur transition focus:border-violet-400 focus:ring-2 focus:ring-violet-100 dark:border-slate-700 dark:bg-slate-800/90 dark:focus:border-violet-500 dark:focus:ring-violet-500/20";
+
+function Chevron() {
+  return (
+    <span
+      aria-hidden
+      className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400"
+    >
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </span>
+  );
+}
 
 export function EventFilterBar({
   libraries,
@@ -25,12 +38,12 @@ export function EventFilterBar({
 }: EventFilterBarProps) {
   return (
     <div
-      className="flex flex-wrap items-center gap-3"
+      className="grid grid-cols-1 gap-2 sm:grid-cols-3"
       role="group"
       aria-label="Event filters"
     >
-      <label className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
-        Age group
+      <label className="relative block">
+        <span className="sr-only">Age group</span>
         <select
           className={selectClass}
           value={filters.ageGroup}
@@ -45,10 +58,11 @@ export function EventFilterBar({
             </option>
           ))}
         </select>
+        <Chevron />
       </label>
 
-      <label className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
-        Event type
+      <label className="relative block">
+        <span className="sr-only">Event type</span>
         <select
           className={selectClass}
           value={filters.eventType}
@@ -56,17 +70,18 @@ export function EventFilterBar({
             onChange({ ...filters, eventType: event.target.value as ActiveFilters["eventType"] })
           }
         >
-          <option value="">All types</option>
+          <option value="">All event types</option>
           {Object.entries(EVENT_TYPE_LABELS).map(([value, label]) => (
             <option key={value} value={value}>
               {label}
             </option>
           ))}
         </select>
+        <Chevron />
       </label>
 
-      <label className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
-        Library
+      <label className="relative block">
+        <span className="sr-only">Library</span>
         <select
           className={selectClass}
           value={filters.libraryId}
@@ -81,6 +96,7 @@ export function EventFilterBar({
             </option>
           ))}
         </select>
+        <Chevron />
       </label>
     </div>
   );

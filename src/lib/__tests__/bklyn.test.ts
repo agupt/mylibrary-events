@@ -69,7 +69,9 @@ describe("parseBklynResponse / mapBklynDoc", () => {
       id: "829071",
       title: "Storytime",
       eventType: "storytime",
-      startTime: "2026-07-13T11:30:00.000Z",
+      // 11:30 UTC → 07:30 Eastern wall-clock (all adapters emit
+      // library-local floating time)
+      startTime: "2026-07-13T07:30:00",
     });
     expect(event?.ageGroups).toEqual(["baby", "preschool", "toddler"]);
     expect(event?.description).toBe(

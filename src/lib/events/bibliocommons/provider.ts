@@ -41,12 +41,10 @@ function toStorytimeEvent(
     title: event.title,
     eventType: classifyEventType(event.categories, event.title),
     ageGroups,
-    startTime: new Date(event.startTime).toISOString(),
-    endTime: new Date(
-      Number.isNaN(Date.parse(event.endTime))
-        ? event.startTime
-        : event.endTime,
-    ).toISOString(),
+    startTime: event.startTime,
+    endTime: Number.isNaN(Date.parse(event.endTime))
+      ? event.startTime
+      : event.endTime,
     description: event.description,
   };
 }

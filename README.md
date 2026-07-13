@@ -65,3 +65,29 @@ All responses use a `{ success, data, error }` envelope.
 - `/status` — coverage dashboard: stat tiles, Albers US dot map, the
   pipeline decision tree (every system on one branch with a named next
   action), vendor/state tables
+
+## Deploying (mylibrary-events.com)
+
+The app is a standalone Next.js server (`output: "standalone"`, datasets
+traced into the bundle). Recommended host: **Fly.io** (one always-warm
+machine keeps the feed cache hot) fronted by **Cloudflare** (the API
+emits `s-maxage` so the edge caches events for 15 min).
+
+```bash
+fly auth login
+fly launch --copy-config --no-deploy   # uses ./fly.toml
+fly volumes create feed_cache --size 1 --region sjc
+fly deploy
+fly certs add mylibrary-events.com
+# Cloudflare DNS: CNAME @ → mylibrary-events.fly.dev (DNS-only until the
+# cert validates, then enable the orange-cloud proxy; SSL "Full strict")
+```
+
+| Env var | Purpose |
+|---|---|
+| `FEED_CACHE_DIR` | disk cache location (set in Dockerfile; volume-backed on Fly) |
+| `NEXT_PUBLIC_ADSENSE_CLIENT` | `ca-pub-…` — activates ad slots (unset = no ads) |
+| `ADSENSE_PUBLISHER_ID` | `pub-…` — serves `/ads.txt` (unset = 404) |
+
+Ads note: audience is caregivers but content is child-adjacent — keep
+AdSense child-directed treatment ON and personalized ads OFF (COPPA).

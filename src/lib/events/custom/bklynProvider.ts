@@ -3,6 +3,7 @@ import { namesOverlap } from "../nameMatch";
 import { classifyEventType, mapAudiencesToAgeGroups } from "../classify";
 import type { DateRange, EventProvider } from "../eventProvider";
 import { createFeedCache } from "../feedCache";
+import { toWallClock } from "../time";
 
 /**
  * Brooklyn Public Library adapter. BPL runs a custom Drupal+Solr search
@@ -86,10 +87,13 @@ export function mapBklynDoc(doc: BklynDoc, libraryId: string): StorytimeEvent | 
     title,
     eventType: classifyEventType(tags, title),
     ageGroups,
-    startTime: new Date(startTime).toISOString(),
-    endTime: new Date(
+    // Solr stores UTC instants; emit Eastern wall-clock like every
+    // other adapter (BPL is New York only)
+    startTime: toWallClock(startTime, "America/New_York"),
+    endTime: toWallClock(
       Number.isNaN(Date.parse(String(doc.ds_event_end_date))) ? startTime : String(doc.ds_event_end_date),
-    ).toISOString(),
+      "America/New_York",
+    ),
     description: stripHtml(String(doc.ts_body ?? "")).slice(0, MAX_DESCRIPTION_LENGTH),
   };
 }

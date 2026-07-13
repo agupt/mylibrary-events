@@ -4,6 +4,12 @@ import path from "node:path";
 
 export const DEFAULT_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
 
+/**
+ * Disk entries store PARSED values, so parser changes must invalidate
+ * them — bump this whenever any feed parser's output shape changes.
+ */
+export const FEED_CACHE_VERSION = "v2-local-wallclock";
+
 export interface FeedCacheOptions<T> {
   load: (url: string) => Promise<T>;
   ttlMs?: number;
@@ -33,7 +39,7 @@ export function createFeedCache<T>(options: FeedCacheOptions<T>): (url: string) 
   const diskPath = (url: string) =>
     path.join(
       options.persistDir as string,
-      `${createHash("sha256").update(url).digest("hex").slice(0, 24)}.json`,
+      `${createHash("sha256").update(`${FEED_CACHE_VERSION}:${url}`).digest("hex").slice(0, 24)}.json`,
     );
 
   function readDisk(url: string, maxAgeMs: number | null): T | null {

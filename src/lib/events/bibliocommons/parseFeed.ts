@@ -56,7 +56,17 @@ export function parseBcFeed(xml: string): BcFeedEvent[] {
   const events: BcFeedEvent[] = [];
   for (const rawItem of items) {
     const item = rawItem as Record<string, unknown>;
-    const startTime = String(item["bc:start_date"] ?? "");
+    // Prefer the library-local wall-clock timestamps: every adapter in
+    // the app emits floating local time so cross-system sorting and
+    // day-grouping agree.
+    const normalizeLocal = (value: string) =>
+      /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(value) ? `${value}:00` : value;
+    const startTime = normalizeLocal(
+      String(item["bc:start_date_local"] ?? item["bc:start_date"] ?? ""),
+    );
+    const endTimeRaw = normalizeLocal(
+      String(item["bc:end_date_local"] ?? item["bc:end_date"] ?? startTime),
+    );
     const title = String(item.title ?? "").trim();
     const link = String(item.link ?? item.guid ?? "");
     if (!startTime || !title || Number.isNaN(Date.parse(startTime))) {
@@ -86,7 +96,7 @@ export function parseBcFeed(xml: string): BcFeedEvent[] {
       description: stripHtml(descriptionHtml).slice(0, MAX_DESCRIPTION_LENGTH),
       link,
       startTime,
-      endTime: String(item["bc:end_date"] ?? startTime),
+      endTime: endTimeRaw,
       isCancelled: String(item["bc:is_cancelled"]) === "true",
       audiences: byDomain("Audience"),
       categories: [...byDomain("Type"), ...byDomain("Program")],

@@ -107,21 +107,35 @@ export function StorytimeFinder() {
         </p>
       )}
 
+      {isLoading && !match && (
+        <div className="space-y-3" aria-hidden>
+          {[0, 1, 2].map((i) => (
+            <div
+              key={i}
+              className="h-24 animate-pulse rounded-2xl bg-slate-200/60 dark:bg-slate-800/60"
+            />
+          ))}
+        </div>
+      )}
+
       {match && (
         <>
           <LibraryResults match={match} />
           <AdSlot slot="finder-results" />
           <section aria-label="Upcoming events" className="space-y-3">
-            <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300">
-              Upcoming events (next 2 weeks)
-            </h3>
+            <div className="flex items-baseline justify-between px-1">
+              <h3 className="text-lg font-bold">Upcoming events</h3>
+              <span className="text-xs text-slate-500 dark:text-slate-400">
+                next 2 weeks · {visibleEvents.length} shown
+              </span>
+            </div>
             <EventFilterBar
               libraries={allLibraries}
               filters={filters}
               onChange={setFilters}
             />
             {libraryIdsWithoutFeed.length > 0 && (
-              <p className="rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800 dark:bg-amber-950/40 dark:text-amber-300">
+              <p className="rounded-xl border border-amber-200/70 bg-amber-50/80 px-3 py-2 text-xs text-amber-800 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-300">
                 No public calendar feed is connected yet for:{" "}
                 {libraryIdsWithoutFeed
                   .map((id) => librariesById.get(id)?.name ?? id)
