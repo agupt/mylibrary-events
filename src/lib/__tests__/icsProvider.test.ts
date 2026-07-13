@@ -69,6 +69,41 @@ describe("createIcsProvider", () => {
     expect(fetchText).not.toHaveBeenCalled();
   });
 
+  test("drops other branches' events when locations carry branch names", async () => {
+    const fairOaks: Library = {
+      ...MVPL,
+      id: "CA0105-010",
+      name: "Fair Oaks Library",
+    };
+    const branchIcs = [
+      "BEGIN:VCALENDAR",
+      "BEGIN:VEVENT",
+      "DTSTART:20260715T170000Z",
+      "UID:fo-1",
+      "SUMMARY:Toddler Storytime",
+      "LOCATION:Fair Oaks - Fair Oaks Meeting Room",
+      "END:VEVENT",
+      "BEGIN:VEVENT",
+      "DTSTART:20260715T180000Z",
+      "UID:cm-1",
+      "SUMMARY:Preschool Storytime",
+      "LOCATION:Carmichael - Carmichael Meeting Room",
+      "END:VEVENT",
+      "END:VCALENDAR",
+    ].join("\r\n");
+    const provider = createIcsProvider({
+      feeds: { CA0105: "https://engage.example.org/ical" },
+      fetchText: vi.fn(async () => branchIcs),
+      findLibraryById: (id) => (id === fairOaks.id ? fairOaks : undefined),
+    });
+
+    const events = await provider.getEvents([fairOaks.id], RANGE);
+
+    // Fair Oaks kept; Carmichael (unselected branch) dropped, NOT
+    // mis-attributed to the requested outlet
+    expect(events.map((e) => e.title)).toEqual(["Toddler Storytime"]);
+  });
+
   test("attributes unlocated events to the system's main outlet", async () => {
     const branch: Library = { ...MVPL, id: "CA0076-005", name: "North Branch" };
     const provider = createIcsProvider({

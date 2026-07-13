@@ -86,15 +86,27 @@ export function createIcsProvider(deps: IcsProviderDeps): EventProvider {
           const mainOutlet = [...libraries].sort((a, b) =>
             a.id.localeCompare(b.id),
           )[0];
-          return feedEvents
-            .filter((event) => {
-              const start = Date.parse(event.startTime);
-              return start >= range.start.getTime() && start < range.end.getTime();
-            })
+          const inRange = feedEvents.filter((event) => {
+            const start = Date.parse(event.startTime);
+            return start >= range.start.getTime() && start < range.end.getTime();
+          });
+          // Does this feed's LOCATION field carry branch names at all?
+          // Single-building systems (Mountain View) put rooms there
+          // ("Children's Room") — attribute everything to the main outlet.
+          // Multi-branch systems (Sacramento, Hawaii) put branches there —
+          // then an unmatched location means "a branch the user didn't
+          // select" and must be dropped, not mis-attributed to Central.
+          const locationsAreBranches = inRange.some((event) =>
+            libraries.some((library) => locationMatches(event, library)),
+          );
+          return inRange
             .map((event) => {
               const branch = libraries.find((library) =>
                 locationMatches(event, library),
               );
+              if (!branch && locationsAreBranches && event.location.length > 0) {
+                return null;
+              }
               return toStorytimeEvent(event, (branch ?? mainOutlet).id);
             })
             .filter((event): event is StorytimeEvent => event !== null);
