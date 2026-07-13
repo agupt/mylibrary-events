@@ -84,6 +84,8 @@ export interface SnapshotProviderDeps {
   feeds: Record<string, string>;
   findLibraryById: (id: string) => Library | undefined;
   snapshotDir?: string;
+  /** Accepted for provider-constructor symmetry; snapshots are already on disk. */
+  persistDir?: string;
 }
 
 export function createSnapshotProvider(deps: SnapshotProviderDeps): EventProvider {

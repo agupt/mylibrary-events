@@ -11,6 +11,7 @@ export interface BcProviderDeps {
   findLibraryById: (id: string) => Library | undefined;
   cacheTtlMs?: number;
   now?: () => number;
+  persistDir?: string;
 }
 
 function systemKeyOf(libraryId: string): string {
@@ -76,6 +77,7 @@ export function createBiblioCommonsProvider(deps: BcProviderDeps): EventProvider
     load: (url) => deps.fetchText(url).then(parseBcFeed),
     ttlMs: deps.cacheTtlMs,
     now: deps.now,
+    persistDir: deps.persistDir,
   });
 
   return {

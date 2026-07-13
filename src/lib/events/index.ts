@@ -1,3 +1,4 @@
+import path from "node:path";
 import { getAllLibraries } from "../data/directory";
 import type { Library } from "../types";
 import { createBiblioCommonsProvider } from "./bibliocommons/provider";
@@ -10,6 +11,12 @@ import { createLibcalRssProvider } from "./libcal/rssProvider";
 import { createSnapshotProvider } from "./snapshot/provider";
 
 const FETCH_TIMEOUT_MS = 10_000;
+
+// Disk-persistent feed cache: survives restarts (cold start serves the
+// fresh disk copy) and outages (stale copy beats an empty page). On
+// serverless, point FEED_CACHE_DIR at /tmp.
+const PERSIST_DIR =
+  process.env.FEED_CACHE_DIR ?? path.join(process.cwd(), ".cache/feeds");
 
 async function fetchText(
   url: string,
@@ -50,6 +57,7 @@ function createCompositeProvider(): EventProvider {
         feeds: activeFeedsByVendor("bibliocommons"),
         fetchText,
         findLibraryById,
+        persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("bibliocommons"))),
     },
@@ -59,6 +67,7 @@ function createCompositeProvider(): EventProvider {
         feeds: activeFeedsByVendor("libcal"),
         fetchText,
         findLibraryById,
+        persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("libcal"))),
     },
@@ -68,6 +77,7 @@ function createCompositeProvider(): EventProvider {
         feeds: activeFeedsByVendor("ical"),
         fetchText,
         findLibraryById,
+        persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("ical"))),
     },
@@ -77,6 +87,7 @@ function createCompositeProvider(): EventProvider {
         feeds: activeFeedsByVendor("communico"),
         fetchText,
         findLibraryById,
+        persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("communico"))),
     },
@@ -86,6 +97,7 @@ function createCompositeProvider(): EventProvider {
         feeds: activeFeedsByVendor("bklyn"),
         fetchText,
         findLibraryById,
+        persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("bklyn"))),
     },
@@ -94,6 +106,7 @@ function createCompositeProvider(): EventProvider {
       provider: createSnapshotProvider({
         feeds: activeFeedsByVendor("snapshot"),
         findLibraryById,
+        persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("snapshot"))),
     },

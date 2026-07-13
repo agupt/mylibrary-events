@@ -11,6 +11,7 @@ export interface IcsProviderDeps {
   findLibraryById: (id: string) => Library | undefined;
   cacheTtlMs?: number;
   now?: () => number;
+  persistDir?: string;
 }
 
 function systemKeyOf(libraryId: string): string {
@@ -72,6 +73,7 @@ export function createIcsProvider(deps: IcsProviderDeps): EventProvider {
     load: (url) => deps.fetchText(url).then(parseIcs),
     ttlMs: deps.cacheTtlMs,
     now: deps.now,
+    persistDir: deps.persistDir,
   });
 
   return {

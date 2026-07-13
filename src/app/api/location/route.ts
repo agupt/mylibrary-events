@@ -33,5 +33,5 @@ export async function GET(request: Request) {
     );
   }
 
-  return apiSuccess(result.match);
+  return apiSuccess(result.match, 86_400); // library geography changes ~annually
 }

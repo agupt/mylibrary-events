@@ -217,3 +217,47 @@ unit under the library results. Compliance note: caregivers are the
 audience but the content is child-adjacent — keep AdSense's
 child-directed treatment enabled and non-personalized ads on (COPPA).
 At hobby traffic, expect ads to roughly offset a $5/mo host, not more.
+
+## Caching layers & deployment, revisited (mylibrary-events.com)
+
+Three cache layers now sit between a visitor and a library's calendar
+server — this section supersedes the earlier serverless caveats:
+
+| Layer | Where | TTL | Survives |
+|---|---|---|---|
+| **Edge** — Cloudflare in front of `mylibrary-events.com` (orange-cloud proxy) | CDN POPs worldwide | `/api/events`: 15 min via `s-maxage=900` + SWR; `/api/location`: 24 h | everything — even app downtime, within SWR |
+| **Memory** — per-process promise cache | Node process | 15 min | until restart |
+| **Disk** — `.cache/feeds/` (`FEED_CACHE_DIR`) | instance filesystem | fresh ≤ 15 min for cold starts; **any age** as fallback when a vendor fetch fails | restarts; vendor outages |
+
+**"What if the server dies?"** Nothing is lost — events were never *our*
+data. A restarted server serves the fresh disk copy without refetching;
+if a vendor feed is down, the last-known-good disk copy is served with a
+logged warning (stale storytimes beat an empty page). During the outage
+window Cloudflare keeps serving edge-cached responses anyway.
+
+**Why not a once-daily sync?** Deliberately rejected for feeds we can
+reach: (a) libraries cancel/add events same-day — a daily copy shows
+kids' events that were cancelled at breakfast; (b) it turns stateless
+pull-through into a stateful pipeline (store, backfill, monitor) for no
+gain; (c) vendor load is already bounded by the three cache layers. The
+one place daily sync is *forced* on us is bot-walled sites (NYPL
+snapshot), and that's exactly the cron in `data-refresh.yml`.
+
+**Why not AWS?** AWS is fine — the earlier ranking was about cost/effort
+shape, not vendor. On AWS specifically:
+- **Lightsail** ($5/mo container or $3.50 nano instance) *is* AWS and is
+  the best AWS fit — always-on Node, disks work, zero surprise billing.
+- **App Runner / ECS Fargate** work but idle at ~$9+/mo for the smallest
+  always-on task — more than the app needs.
+- **Lambda + API Gateway** is now *viable* (Cloudflare edge absorbs most
+  traffic; `FEED_CACHE_DIR=/tmp` gives warm instances the disk layer),
+  but each cold instance still re-reads 6 MB of datasets, and per-instance
+  caches multiply vendor fetches. Choose it only if Lambda is already
+  your operational home.
+
+**DNS setup (domain on Cloudflare).** Point `mylibrary-events.com` at the
+host (CNAME to the Fly/Render/Lightsail endpoint), enable the proxy
+(orange cloud) so `s-maxage` takes effect at the edge, set SSL mode
+"Full (strict)", and add a cache rule "Cache Eligible: /api/*" if the
+zone's default ignores query-string URLs. No code changes needed — the
+API already emits the right `Cache-Control` headers.

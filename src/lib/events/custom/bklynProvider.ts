@@ -109,6 +109,7 @@ export interface BklynProviderDeps {
   findLibraryById: (id: string) => Library | undefined;
   cacheTtlMs?: number;
   now?: () => number;
+  persistDir?: string;
 }
 
 export function createBklynProvider(deps: BklynProviderDeps): EventProvider {
@@ -122,6 +123,7 @@ export function createBklynProvider(deps: BklynProviderDeps): EventProvider {
         .then(parseBklynResponse),
     ttlMs: deps.cacheTtlMs,
     now: deps.now,
+    persistDir: deps.persistDir,
   });
 
   return {

@@ -54,10 +54,13 @@ export async function GET(request: Request) {
       start,
       end,
     });
-    return apiSuccess({
-      events: filterEvents(events, { ageGroup, eventType }),
-      libraryIdsWithoutFeed: libraryIds.filter((id) => !hasCalendarFeed(id)),
-    });
+    return apiSuccess(
+      {
+        events: filterEvents(events, { ageGroup, eventType }),
+        libraryIdsWithoutFeed: libraryIds.filter((id) => !hasCalendarFeed(id)),
+      },
+      900, // Cloudflare/CDN may cache 15 min — matches the feed cache TTL
+    );
   } catch (error: unknown) {
     console.error("Event lookup failed", error);
     return apiError("Could not load events right now. Please try again.", 502);

@@ -11,6 +11,7 @@ export interface LibcalRssProviderDeps {
   findLibraryById: (id: string) => Library | undefined;
   cacheTtlMs?: number;
   now?: () => number;
+  persistDir?: string;
 }
 
 function systemKeyOf(libraryId: string): string {
@@ -79,6 +80,7 @@ export function createLibcalRssProvider(deps: LibcalRssProviderDeps): EventProvi
     load: (url) => deps.fetchText(url).then(parseLibcalRss),
     ttlMs: deps.cacheTtlMs,
     now: deps.now,
+    persistDir: deps.persistDir,
   });
 
   return {

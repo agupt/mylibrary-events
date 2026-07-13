@@ -103,6 +103,7 @@ export interface CommunicoProviderDeps {
   findLibraryById: (id: string) => Library | undefined;
   cacheTtlMs?: number;
   now?: () => number;
+  persistDir?: string;
 }
 
 function normalizeName(name: string): string {
@@ -138,6 +139,7 @@ export function createCommunicoProvider(deps: CommunicoProviderDeps): EventProvi
     },
     ttlMs: deps.cacheTtlMs,
     now: deps.now,
+    persistDir: deps.persistDir,
   });
 
   return {
