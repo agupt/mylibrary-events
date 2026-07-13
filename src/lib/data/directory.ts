@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import type { Library } from "../types";
 import { websiteForLibraryId } from "./systemWebsites";
@@ -28,10 +28,42 @@ function loadGeneratedLibraries(): GeneratedLibrary[] {
   return parsed as GeneratedLibrary[];
 }
 
+/**
+ * Website sources, by trust tier:
+ *  1. systemWebsites.ts — hand-verified overrides (always win)
+ *  2. generated/domains.json — web-searched official domains
+ *     (junk-filtered, spot-checked; found by findDomains.mjs)
+ * Both the UI and the coverage pipeline read the same merged view, so
+ * "we know the domain" and "we show the domain" can no longer diverge.
+ */
+function loadSearchedDomains(): Record<string, string> {
+  const filePath = path.join(
+    process.cwd(),
+    "src/lib/data/generated/domains.json",
+  );
+  if (!existsSync(filePath)) return {};
+  try {
+    const parsed = JSON.parse(readFileSync(filePath, "utf8")) as Record<
+      string,
+      { domain?: string }
+    >;
+    return Object.fromEntries(
+      Object.entries(parsed)
+        .filter(([, value]) => typeof value.domain === "string")
+        .map(([key, value]) => [key, `https://${value.domain}`]),
+    );
+  } catch (error: unknown) {
+    console.error("Ignoring malformed domains.json", error);
+    return {};
+  }
+}
+
 export function getAllLibraries(): Library[] {
   if (cache === null) {
+    const searched = loadSearchedDomains();
     cache = loadGeneratedLibraries().map((library) => {
-      const websiteUrl = websiteForLibraryId(library.id);
+      const websiteUrl =
+        websiteForLibraryId(library.id) ?? searched[library.id.split("-")[0]];
       return websiteUrl ? { ...library, websiteUrl } : library;
     });
   }

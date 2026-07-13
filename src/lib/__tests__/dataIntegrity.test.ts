@@ -22,6 +22,16 @@ describe("generated library directory", () => {
     expect(oaklandMain?.websiteUrl).toBe("https://oaklandlibrary.org");
   });
 
+  test("web-searched domains flow into websiteUrl (UI and pipeline share one view)", () => {
+    // Orange County PL has no hand-maintained override; its link must
+    // come from generated/domains.json
+    const katieWheeler = getAllLibraries().find((l) => l.id === "CA0084-035");
+    expect(katieWheeler?.websiteUrl).toBe("https://ocpl.org");
+    // Hand-verified overrides still win over searched domains
+    const sfMain = getAllLibraries().find((l) => l.id === "CA0114-002");
+    expect(sfMain?.websiteUrl).toBe("https://sfpl.org");
+  });
+
   test("every library has valid coordinates and a 5-digit zip", () => {
     for (const library of getAllLibraries()) {
       expect(Math.abs(library.coordinates.latitude)).toBeLessThanOrEqual(90);
