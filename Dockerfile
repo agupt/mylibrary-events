@@ -4,6 +4,11 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
+# NEXT_PUBLIC_* vars are inlined into the client bundle at build time, so the
+# AdSense client id must arrive as a build arg (fly.toml [build.args]), not a
+# runtime secret. It is a public id — it ships in page source and /ads.txt.
+ARG NEXT_PUBLIC_ADSENSE_CLIENT
+ENV NEXT_PUBLIC_ADSENSE_CLIENT=$NEXT_PUBLIC_ADSENSE_CLIENT
 RUN npm run build
 
 # Runtime stage — Next standalone output (~150MB image)

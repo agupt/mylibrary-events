@@ -7,13 +7,19 @@
 #   fly certs add mylibrary-events.com     # then CNAME via Cloudflare (DNS-only
 #                                          # while cert validates, orange-cloud after)
 #
-# Optional env:
-#   fly secrets set NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-XXXXXXXX
+# AdSense: both values below are the same public publisher id in two
+# spellings. The client id is a BUILD arg (Next inlines NEXT_PUBLIC_* at
+# build time); the ads.txt id is read at runtime by src/app/ads.txt/route.ts.
 
 app = "mylibrary-events"
 primary_region = "sjc"
 
 [build]
+  [build.args]
+    NEXT_PUBLIC_ADSENSE_CLIENT = "ca-pub-9216109025053274"
+
+[env]
+  ADSENSE_PUBLISHER_ID = "pub-9216109025053274"
 
 [http_service]
   internal_port = 3000
