@@ -34,12 +34,20 @@ export default function Home() {
             </a>{" "}
             · Zip data: GeoNames · Events belong to their libraries.
           </p>
-          <a
-            href="/status"
-            className="font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
-          >
-            Coverage status →
-          </a>
+          <span className="flex items-center gap-4">
+            <a
+              href="/privacy"
+              className="font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
+            >
+              Privacy
+            </a>
+            <a
+              href="/status"
+              className="font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
+            >
+              Coverage status →
+            </a>
+          </span>
         </div>
       </footer>
     </div>
