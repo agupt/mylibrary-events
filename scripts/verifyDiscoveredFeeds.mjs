@@ -13,6 +13,15 @@ const CONCURRENCY = 16;
 const TIMEOUT_MS = 8000;
 const ACADEMIC_MARKERS = /universit|college|schools|academy|institute/i;
 
+// Title matching exists to catch slug-guess false positives (a shared town
+// name landing on the wrong library's instance). Entries discovered on the
+// system's OWN website — or on attend hosts derived from its own domain —
+// have identity proven by provenance, and their pages often carry titles
+// that legitimately fail word matching ("Attend / Reserve - DC Public
+// Library" vs "District Of Columbia Public Library"). Provenance beats
+// title matching; never purge these on a title check.
+const PROVENANCE_MARKERS = /own-domain link|via own-domain|communico attend site/i;
+
 const STOP_WORDS = new Set([
   "public", "library", "libraries", "district", "system", "regional",
   "county", "city", "town", "free", "memorial", "the", "of", "and", "&",
@@ -66,6 +75,7 @@ const queue = [...entries];
 async function worker() {
   while (queue.length > 0) {
     const [systemKey, entry] = queue.shift();
+    if (PROVENANCE_MARKERS.test(entry.note ?? "")) continue;
     const systemName = systemNames.get(systemKey) ?? "";
     const url = probeUrl(entry);
     if (!url) continue;
@@ -84,6 +94,9 @@ async function worker() {
       }
       const body = await response.text();
       const title = body.match(/<title>([\s\S]*?)<\/title>/)?.[1]?.replace(/\s+/g, " ").trim() ?? "";
+      if (title === "") {
+        continue; // feed XML/ICS or JS-shell page — no title to judge by
+      }
       if (!titleOk(title, systemName)) {
         removed.push([systemKey, `title mismatch: "${title}" vs "${systemName}"`]);
         delete feeds[systemKey];
