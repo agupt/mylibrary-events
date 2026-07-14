@@ -75,13 +75,33 @@ emits `s-maxage` so the edge caches events for 15 min).
 
 ```bash
 fly auth login
-fly launch --copy-config --no-deploy   # uses ./fly.toml
+fly apps create mylibrary-events       # or: fly launch --copy-config --no-deploy
 fly volumes create feed_cache --size 1 --region sjc
 fly deploy
-fly certs add mylibrary-events.com
-# Cloudflare DNS: CNAME @ → mylibrary-events.fly.dev (DNS-only until the
-# cert validates, then enable the orange-cloud proxy; SSL "Full strict")
+fly certs add mylibrary-events.com && fly certs add www.mylibrary-events.com
 ```
+
+Deployed 2026-07-14 (Fly account amoolgupta@outlook.com, app
+`mylibrary-events`, region sjc). Cloudflare setup as executed:
+
+- The domain is on **Cloudflare Registrar** (with iCloud custom-domain
+  mail — keep the MX/SPF/DKIM/apple-domain records). The registrar's
+  parking page auto-creates a locked apex CNAME; disable it first under
+  **Domain Registration → Manage domains → Configuration → Parking page**
+  or every apex record add fails with "already exists".
+- DNS records: `CNAME @ → mylibrary-events.fly.dev` and `CNAME www → …`
+  (grey-cloud until `fly certs check` shows Issued, then orange), plus
+  two permanently grey validation records:
+  `CNAME _acme-challenge → mylibrary-events.com.<app-id>.flydns.net` and
+  `TXT _fly-ownership → app-<app-id>` (required once proxied).
+- **Cache Rule (required for edge caching)**: Cloudflare treats JSON/HTML
+  as DYNAMIC and ignores `s-maxage` unless opted in. Rule "Cache API
+  responses": URI Path **wildcard `/api/*`** (a bare `/api/` matches
+  nothing, and "URI Full" never starts with a slash) → Eligible for
+  cache, Edge TTL "use cache-control header". Verify with
+  `curl -sI …/api/location?q=94110 | grep cf-cache-status` → MISS then HIT.
+- Privacy contact: `privacy@mylibrary-events.com` (iCloud mail alias),
+  referenced by `/privacy` — the page AdSense review expects.
 
 | Env var | Purpose |
 |---|---|
