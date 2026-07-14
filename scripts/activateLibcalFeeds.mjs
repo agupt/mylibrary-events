@@ -131,6 +131,21 @@ async function activate(systemKey, entry) {
     }
   }
 
+  // Default-calendar fallback: /calendar?cid=-1 renders the instance's
+  // default calendar and leaks its real cid in <body id="calendar_N"> even
+  // when the homepage advertises no calendars at all (this is how JCLS and
+  // Fresno were cracked). rss.php?cid=-1 itself always returns an empty
+  // shell, so the leaked cid — not -1 — is what gets verified.
+  try {
+    const found = cidFromCalendarPage(
+      await fetchText(`${base}/calendar?cid=-1`),
+      `${base}/calendar?cid=-1`,
+    );
+    if (found) candidates.push(found);
+  } catch {
+    // no public calendar view — instance may be rooms/passes only
+  }
+
   const unique = [...new Map(candidates.map((c) => [c.cid, c])).values()].sort(
     (a, b) => b.score - a.score,
   );
