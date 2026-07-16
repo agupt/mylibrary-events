@@ -47,6 +47,7 @@ function toStorytimeEvent(
     startTime: event.startTime,
     endTime: event.endTime,
     description: event.description,
+    isAllDay: event.isAllDay,
   };
 }
 

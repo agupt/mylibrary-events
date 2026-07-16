@@ -38,7 +38,7 @@ export function EventFilterBar({
 }: EventFilterBarProps) {
   return (
     <div
-      className="grid grid-cols-1 gap-2 sm:grid-cols-3"
+      className="grid grid-cols-1 gap-2"
       role="group"
       aria-label="Event filters"
     >

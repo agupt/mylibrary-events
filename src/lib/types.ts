@@ -36,9 +36,11 @@ export interface StorytimeEvent {
   title: string;
   eventType: EventType;
   ageGroups: AgeGroup[];
-  startTime: string; // ISO 8601
-  endTime: string; // ISO 8601
+  startTime: string; // floating local wall-clock ISO (library's own timezone), no offset
+  endTime: string;
   description: string;
+  /** True for all-day events (no specific start time); the UI shows "All day". */
+  isAllDay?: boolean;
 }
 
 export interface LibraryDistance {

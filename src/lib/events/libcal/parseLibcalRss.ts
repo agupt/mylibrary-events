@@ -8,6 +8,8 @@ export interface LibcalRssEvent {
   /** Floating local wall-clock ISO (library's own timezone), e.g. "2026-07-13T10:15:00" */
   startTime: string;
   endTime: string;
+  /** True when the feed item carried no start time (all-day). */
+  isAllDay: boolean;
   audiences: string[];
   campus: string;
   location: string;
@@ -64,7 +66,8 @@ export function parseLibcalRss(xml: string): LibcalRssEvent[] {
     }
     const start = String(item["libcal:start"] ?? "");
     const end = String(item["libcal:end"] ?? "");
-    const startTime = `${date}T${TIME_PATTERN.test(start) ? start : "00:00:00"}`;
+    const hasStartTime = TIME_PATTERN.test(start);
+    const startTime = `${date}T${hasStartTime ? start : "00:00:00"}`;
     const link = String(item.link ?? item.guid ?? "");
 
     events.push({
@@ -73,6 +76,7 @@ export function parseLibcalRss(xml: string): LibcalRssEvent[] {
       link,
       startTime,
       endTime: `${date}T${TIME_PATTERN.test(end) ? end : start || "23:59:59"}`,
+      isAllDay: !hasStartTime,
       audiences: stripHtml(String(item["libcal:audience"] ?? ""))
         .split(",")
         .map((audience) => audience.trim())

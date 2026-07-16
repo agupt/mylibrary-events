@@ -22,6 +22,11 @@ const ICS_FIXTURE = [
   "SUMMARY:Adult Yoga",
   "END:VEVENT",
   "BEGIN:VEVENT",
+  "DTSTART;VALUE=DATE:20260718",
+  "DTEND;VALUE=DATE:20260719",
+  "SUMMARY:Summer Reading Kickoff",
+  "END:VEVENT",
+  "BEGIN:VEVENT",
   "SUMMARY:Broken event with no date",
   "END:VEVENT",
   "END:VCALENDAR",
@@ -37,20 +42,32 @@ describe("parseIcs", () => {
     expect(storytime?.description).toContain("folded across two physical lines");
     expect(storytime?.location).toBe("Children's Room");
     expect(storytime?.categories).toEqual(["Storytime", "Kids"]);
-    expect(storytime?.startTime).toBe("2026-07-15T17:00:00.000Z");
-    expect(storytime?.endTime).toBe("2026-07-15T18:00:00.000Z");
+    // Floating library-local wall-clock (no zone), so the client renders the
+    // library's own time regardless of the viewer's timezone. A trailing "Z"
+    // in the source is kept as wall-clock, not converted.
+    expect(storytime?.startTime).toBe("2026-07-15T17:00:00");
+    expect(storytime?.endTime).toBe("2026-07-15T18:00:00");
+    expect(storytime?.isAllDay).toBe(false);
   });
 
-  test("handles TZID-local datetimes without crashing", () => {
+  test("keeps TZID-local wall-clock digits without a zone", () => {
     const events = parseIcs(ICS_FIXTURE);
     const yoga = events.find((e) => e.title === "Adult Yoga");
-    expect(yoga?.startTime).toBe("2026-07-16T10:00:00.000Z");
+    expect(yoga?.startTime).toBe("2026-07-16T10:00:00");
+    expect(yoga?.isAllDay).toBe(false);
+  });
+
+  test("flags DATE-only (all-day) events and anchors them to midnight", () => {
+    const events = parseIcs(ICS_FIXTURE);
+    const allDay = events.find((e) => e.title === "Summer Reading Kickoff");
+    expect(allDay?.startTime).toBe("2026-07-18T00:00:00");
+    expect(allDay?.isAllDay).toBe(true);
   });
 
   test("skips events with no parseable start date", () => {
     const events = parseIcs(ICS_FIXTURE);
     expect(events.map((e) => e.title)).not.toContain("Broken event with no date");
-    expect(events).toHaveLength(2);
+    expect(events).toHaveLength(3);
   });
 
   test("returns empty array for an empty calendar", () => {

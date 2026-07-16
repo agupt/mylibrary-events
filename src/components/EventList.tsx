@@ -73,12 +73,22 @@ export function EventList({ events, librariesById }: EventListProps) {
                   className="group flex gap-4 rounded-xl border border-slate-200/80 bg-white/80 p-4 backdrop-blur transition hover:border-violet-300 hover:shadow-md dark:border-slate-700 dark:bg-slate-800/80 dark:hover:border-violet-700"
                 >
                   <div className="flex w-16 shrink-0 flex-col items-center justify-center rounded-lg bg-slate-50 py-2 text-center dark:bg-slate-900/60">
-                    <span className="text-sm font-bold tabular-nums">
-                      {timeFormatter.format(start).replace(/ (AM|PM)/, "")}
-                    </span>
-                    <span className="text-[10px] font-medium uppercase text-slate-400">
-                      {start.getHours() < 12 ? "AM" : "PM"}
-                    </span>
+                    {event.isAllDay ? (
+                      <span className="text-[11px] font-semibold uppercase leading-tight text-slate-500 dark:text-slate-400">
+                        All
+                        <br />
+                        day
+                      </span>
+                    ) : (
+                      <>
+                        <span className="text-sm font-bold tabular-nums">
+                          {timeFormatter.format(start).replace(/ (AM|PM)/, "")}
+                        </span>
+                        <span className="text-[10px] font-medium uppercase text-slate-400">
+                          {start.getHours() < 12 ? "AM" : "PM"}
+                        </span>
+                      </>
+                    )}
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="font-semibold leading-snug">{event.title}</p>

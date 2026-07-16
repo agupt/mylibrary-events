@@ -6,8 +6,11 @@ export interface IcsEvent {
   location: string;
   categories: string[];
   url: string;
-  startTime: string; // ISO 8601 UTC
+  /** Floating local wall-clock ISO (library's own timezone), no offset — e.g. "2026-07-16T14:00:00". Matches every other adapter so the client renders the library's wall-clock time regardless of the viewer's zone. */
+  startTime: string;
   endTime: string;
+  /** True when the source used a DATE value (VALUE=DATE / all-day), so the UI shows "All day" instead of a midnight time. */
+  isAllDay: boolean;
 }
 
 /** RFC 5545 line unfolding: continuation lines start with space/tab. */
@@ -31,21 +34,33 @@ function unescapeText(value: string): string {
     .replace(/\\\\/g, "\\");
 }
 
+interface IcsInstant {
+  /** Floating wall-clock ISO with no zone, e.g. "2026-07-16T14:00:00". */
+  iso: string;
+  /** Source used a DATE value (all-day) rather than a DATE-TIME. */
+  isDateOnly: boolean;
+}
+
 /**
- * Parses an iCal DATE-TIME. Supports UTC ("...Z"), floating/TZID local
- * times (treated as UTC — feed-level precision is good enough for a
- * day-oriented calendar), and all-day DATE values.
+ * Parses an iCal DATE-TIME into a floating wall-clock ISO (no zone). LibCal /
+ * LibraryMarket / tribe_events export the library's own local time (as a
+ * TZID or floating value); we keep the wall-clock digits and drop the zone so
+ * the client shows the library's time regardless of the viewer's location —
+ * the same contract every other adapter follows. A trailing "Z" is treated as
+ * wall-clock too: our ICS sources are local library calendars, and shifting by
+ * the viewer's UTC offset (the old behavior) was wrong for every non-UTC user.
+ * All-day DATE values become midnight and are flagged via isDateOnly.
  */
-function parseIcsDate(value: string): Date | null {
-  const dateTime = value.match(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})(Z?)$/);
+function parseIcsDate(value: string): IcsInstant | null {
+  const dateTime = value.match(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z?$/);
   if (dateTime) {
     const [, y, mo, d, h, mi, s] = dateTime;
-    return new Date(Date.UTC(+y, +mo - 1, +d, +h, +mi, +s));
+    return { iso: `${y}-${mo}-${d}T${h}:${mi}:${s}`, isDateOnly: false };
   }
   const dateOnly = value.match(/^(\d{4})(\d{2})(\d{2})$/);
   if (dateOnly) {
     const [, y, mo, d] = dateOnly;
-    return new Date(Date.UTC(+y, +mo - 1, +d));
+    return { iso: `${y}-${mo}-${d}T00:00:00`, isDateOnly: true };
   }
   return null;
 }
@@ -72,7 +87,7 @@ export function parseIcs(ics: string): IcsEvent[] {
         const title = unescapeText(current.SUMMARY ?? "").trim();
         if (start && title) {
           events.push({
-            uid: current.UID ?? `${title}:${start.toISOString()}`,
+            uid: current.UID ?? `${title}:${start.iso}`,
             title,
             description: unescapeText(current.DESCRIPTION ?? "")
               .replace(/\s+/g, " ")
@@ -84,8 +99,9 @@ export function parseIcs(ics: string): IcsEvent[] {
               .map((category) => category.trim())
               .filter(Boolean),
             url: current.URL ?? "",
-            startTime: start.toISOString(),
-            endTime: (end ?? start).toISOString(),
+            startTime: start.iso,
+            endTime: (end ?? start).iso,
+            isAllDay: start.isDateOnly,
           });
         }
       }

@@ -3,8 +3,8 @@ import { StorytimeFinder } from "@/components/StorytimeFinder";
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-      <main className="mx-auto w-full max-w-3xl flex-1 px-4 pb-16 pt-14 sm:pt-20">
-        <header className="mb-10 text-center">
+      <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-16 pt-14 sm:pt-20">
+        <header className="mx-auto mb-10 max-w-2xl text-center">
           <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/70 px-4 py-1.5 text-xs font-medium text-violet-700 shadow-sm backdrop-blur dark:border-violet-800 dark:bg-slate-800/70 dark:text-violet-300">
             <span aria-hidden>📚</span> Live calendars from 1,700+ US library
             branches
@@ -23,7 +23,7 @@ export default function Home() {
         <StorytimeFinder />
       </main>
       <footer className="border-t border-slate-200/70 bg-white/60 py-6 backdrop-blur dark:border-slate-800 dark:bg-slate-900/60">
-        <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-4 text-xs text-slate-500 dark:text-slate-400">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 text-xs text-slate-500 dark:text-slate-400">
           <p>
             Library data:{" "}
             <a

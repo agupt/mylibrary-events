@@ -23,6 +23,7 @@ export interface CommunicoRawEvent {
   description?: string | null;
   event_start: string; // "2026-07-13 10:00:00" local wall-clock
   event_end: string;
+  time_string?: string | null; // vendor-rendered time, "All day" for all-day events
   ages?: string | null;
   tagsArray?: string[] | null;
   location?: string | null;
@@ -90,6 +91,7 @@ export function mapCommunicoEvent(
     ageGroups,
     startTime,
     endTime: endTime ?? startTime,
+    isAllDay: /^all day$/i.test(String(raw.time_string ?? "").trim()),
     description: String(raw.description ?? "")
       .replace(/\s+/g, " ")
       .trim()

@@ -46,7 +46,13 @@ export async function GET(request: Request) {
   }
 
   const { libraryIds, days, ageGroup, eventType } = parsed.data;
-  const start = new Date();
+  // Events carry floating library-local wall-clock times (no zone); providers
+  // compare them against this lower bound in server-local time. Anchor to the
+  // START OF TODAY, not the current instant: comparing a floating afternoon
+  // time against `now` on a UTC server wrongly drops the rest of today's
+  // events as "past" (a 2pm event is 14:00, already behind an afternoon `now`).
+  const now = new Date();
+  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   const end = new Date(start.getTime() + days * MS_PER_DAY);
 
   try {

@@ -96,32 +96,47 @@ export function StorytimeFinder() {
 
   return (
     <div className="space-y-6">
-      <SearchForm isLoading={isLoading} onSearch={handleSearch} />
+      <div className="mx-auto max-w-2xl">
+        <SearchForm isLoading={isLoading} onSearch={handleSearch} />
 
-      {error && (
-        <p
-          role="alert"
-          className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300"
-        >
-          {error}
-        </p>
-      )}
+        {error && (
+          <p
+            role="alert"
+            className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300"
+          >
+            {error}
+          </p>
+        )}
 
-      {isLoading && !match && (
-        <div className="space-y-3" aria-hidden>
-          {[0, 1, 2].map((i) => (
-            <div
-              key={i}
-              className="h-24 animate-pulse rounded-2xl bg-slate-200/60 dark:bg-slate-800/60"
-            />
-          ))}
-        </div>
-      )}
+        {isLoading && !match && (
+          <div className="mt-4 space-y-3" aria-hidden>
+            {[0, 1, 2].map((i) => (
+              <div
+                key={i}
+                className="h-24 animate-pulse rounded-2xl bg-slate-200/60 dark:bg-slate-800/60"
+              />
+            ))}
+          </div>
+        )}
+      </div>
 
       {match && (
-        <>
-          <LibraryResults match={match} />
-          <AdSlot slot="finder-results" />
+        <div className="grid gap-6 lg:grid-cols-[minmax(280px,340px)_1fr]">
+          <aside className="space-y-4 lg:sticky lg:top-6 lg:self-start">
+            <LibraryResults match={match} />
+            <div className="rounded-2xl border border-slate-200/80 bg-white/70 p-4 backdrop-blur dark:border-slate-700 dark:bg-slate-800/70">
+              <h3 className="mb-2 px-1 text-sm font-semibold text-slate-700 dark:text-slate-300">
+                Filter events
+              </h3>
+              <EventFilterBar
+                libraries={allLibraries}
+                filters={filters}
+                onChange={setFilters}
+              />
+            </div>
+            <AdSlot slot="finder-results" />
+          </aside>
+
           <section aria-label="Upcoming events" className="space-y-3">
             <div className="flex items-baseline justify-between px-1">
               <h3 className="text-lg font-bold">Upcoming events</h3>
@@ -129,11 +144,6 @@ export function StorytimeFinder() {
                 next 2 weeks · {visibleEvents.length} shown
               </span>
             </div>
-            <EventFilterBar
-              libraries={allLibraries}
-              filters={filters}
-              onChange={setFilters}
-            />
             {libraryIdsWithoutFeed.length > 0 && (
               <p className="rounded-xl border border-amber-200/70 bg-amber-50/80 px-3 py-2 text-xs text-amber-800 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-300">
                 No public calendar feed is connected yet for:{" "}
@@ -145,7 +155,7 @@ export function StorytimeFinder() {
             )}
             <EventList events={visibleEvents} librariesById={librariesById} />
           </section>
-        </>
+        </div>
       )}
     </div>
   );
