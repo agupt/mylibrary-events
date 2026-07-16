@@ -6,6 +6,20 @@
   "note": "via own-domain link on tuzzy.org: tuzzy.libcal.com cal 8374 \"Tuzzy Consortium Library LibCal: Events\" (7 events)",
   "source": "discovered"
  },
+ "AL0158": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://dhcls.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month=2026-07",
+  "note": "LibraryMarket (dhcls.librarycalendar.com) linked from own domain. iCal verified 83 VEVENTs for 2026-07. Month-templated (current_month={YYYY-MM}). [sweep 2026-07-16, ~83 events]",
+  "source": "discovered"
+ },
+ "AL0186": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.mobilepubliclibrary.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar iCal on own domain (Drupal 11); verified 583 VEVENTs [sweep 2026-07-16, ~583 events]",
+  "source": "discovered"
+ },
  "AL0187": {
   "vendor": "ical",
   "status": "active",
@@ -26,11 +40,39 @@
   "note": "discovered run 1: Central Arkansas Library System (feed empty at probe time)",
   "source": "discovered"
  },
+ "AR0011": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.fortsmithlibrary.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar (Drupal library_calendar) on own domain. Verified ICS, 1357 VEVENTs for 2026-07 (includes lc_closing entries). [sweep 2026-07-16, ~1357 events]",
+  "source": "discovered"
+ },
+ "AR0014": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://searlibrary.org/events/feed/ical",
+  "note": "LibraryMarket self-hosted on own domain (/events/month, /events/upcoming?branches); ical feed verified 155 VEVENTs. [sweep 2026-07-16, ~155 events]",
+  "source": "discovered"
+ },
  "AR0017": {
   "vendor": "communico",
   "status": "active",
   "url": "https://fcl.libnet.info",
   "note": "communico attend site (103 events in next 14d at activation)",
+  "source": "discovered"
+ },
+ "AR0021": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://popecountyar.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar on popecountyar.librarycalendar.com (linked from popelibrary.org). Verified ICS, 294 VEVENTs for 2026-07. [sweep 2026-07-16, ~294 events]",
+  "source": "discovered"
+ },
+ "AR0041": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.google.com/calendar/ical/lonokecountylibrary.org_67cgvrgtlib7f92jkqsq0u3oag%40group.calendar.google.com/public/basic.ics",
+  "note": "Embeds a public Google Calendar on /calendar/lonoke; basic.ics verified with 794 VEVENTs. Covers the Lonoke branch calendar; Cabot/Carlisle branches have separate Google Calendars (add later). [sweep 2026-07-16, ~794 events]",
   "source": "discovered"
  },
  "AR0049": {
@@ -47,6 +89,34 @@
   "note": "via own-domain link on chandlerlibrary.org (688 items)",
   "source": "discovered"
  },
+ "AZ0033": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://glendaleaz.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar on glendaleaz.librarycalendar.com (linked from library.glendaleaz.gov). Verified ICS, 1012 VEVENTs for 2026-07. [sweep 2026-07-16, ~1012 events]",
+  "source": "discovered"
+ },
+ "AZ0034": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://events.mesalibrary.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month=2026-07",
+  "note": "LibraryMarket self-hosted on events.mesalibrary.org (Drupal 11, lc_calendar_feed). Main site WAF-403 but events subdomain open. iCal 663 VEVENTs all upcoming (2026-07-16 to 2027-01). Month-templated. [sweep 2026-07-16, ~663 events]",
+  "source": "discovered"
+ },
+ "AZ0035": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://calendar.phoenixpubliclibrary.org/rss.php?m=month&cid=15413",
+  "note": "LibCal on own-domain calendar.phoenixpubliclibrary.org; cid=15413 RSS month has 85 upcoming items (cid=-1 empty as expected). [sweep 2026-07-16, ~85 events]",
+  "source": "discovered"
+ },
+ "AZ0042": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.trumba.com/calendars/MohaveCountyLibrary.ics",
+  "note": "Trumba calendar embedded on own site (webName MohaveCountyLibrary); standard iCalendar feed verified 300 VEVENTs (generic ical adapter). [sweep 2026-07-16, ~300 events]",
+  "source": "discovered"
+ },
  "AZ0048": {
   "vendor": "ical",
   "status": "detected",
@@ -58,6 +128,13 @@
   "status": "active",
   "url": "https://pima.bibliocommons.com/events/rss/all",
   "note": "discovered run 1 (title-verified): Pima County Public Library",
+  "source": "discovered"
+ },
+ "AZ0067": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://yavapai.events/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryCalendar (lc_calendar_upcoming_form) on yavapai.events linked from ycfld.gov; iCal verified (VEVENTs). [sweep 2026-07-16, ~4243 events]",
   "source": "discovered"
  },
  "AZ0082": {
@@ -183,6 +260,13 @@
   "vendor": "bibliocommons",
   "status": "detected",
   "note": "own-domain link: napalibrary.bibliocommons.com (feed empty/unverified — possibly WAF)",
+  "source": "discovered"
+ },
+ "CA0079": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://nevadacountyca.libcal.com/rss.php?m=month&cid=20247",
+  "note": "LibCal linked from nevadacountyca.gov/library; body id calendar_20247; RSS month feed verified, 140 items. [sweep 2026-07-16, ~140 events]",
   "source": "discovered"
  },
  "CA0081": {
@@ -339,6 +423,13 @@
   "note": "discovered run 1 (title-verified): Santa Monica Public Library",
   "source": "discovered"
  },
+ "CA0133": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://shasta.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month=2026-07",
+  "note": "LibraryMarket (shasta.librarycalendar.com) linked from own domain /events. iCal verified 317 VEVENTs for 2026-07. Month-templated. [sweep 2026-07-16, ~317 events]",
+  "source": "discovered"
+ },
  "CA0135": {
   "vendor": "libcal",
   "status": "active",
@@ -366,11 +457,39 @@
   "source": "verified",
   "verifiedAt": "2026-07"
  },
+ "CA0152": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://library.venturacounty.gov/events/feed/ical",
+  "note": "LibraryMarket/LibraryCalendar (Drupal, /event/<slug>, age_groups facets); ical export returns 955 upcoming VEVENTs. [sweep 2026-07-16, ~955 events]",
+  "source": "discovered"
+ },
+ "CA0155": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.google.com/calendar/ical/willowspublib%40gmail.com/public/basic.ics",
+  "note": "Willows /events embeds a public Google Calendar (willowspublib@gmail.com). ICS verified: 76 VEVENTs, 11 concrete one-off events dated >= today (through 2026-09), only 6 RRULE. Own-domain provenance. [sweep 2026-07-16, ~76 events]",
+  "source": "discovered"
+ },
+ "CA0157": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://events.yolocountylibrary.org/rss.php?m=month&cid=21064",
+  "note": "LibCal (Springshare) on events.yolocountylibrary.org, calendar id 21064 confirmed via body#calendar_21064; RSS month feed served 272 items. [sweep 2026-07-16, ~272 events]",
+  "source": "discovered"
+ },
  "CA0199": {
   "vendor": "libcal",
   "status": "active",
   "url": "https://rivlib.libcal.com/rss.php?m=month&cid=15516",
   "note": "via own-domain link on rivlib.net: rivlib.libcal.com cal 15516 \"Riverside County Library System LibCal: Events\" (300 events)",
+  "source": "discovered"
+ },
+ "CA0210": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://santaclarita.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month=2026-07",
+  "note": "LibraryCalendar (LibraryMarket) linked from library.santaclarita.gov/events to santaclarita.librarycalendar.com. iCal feed verified 706 VEVENTs; month-templated. [sweep 2026-07-16, ~706 events]",
   "source": "discovered"
  },
  "CA0244": {
@@ -439,6 +558,13 @@
   "note": "auto-activated: gcpld.libcal.com cal 14608 \"Garfield County Libraries GCPLD Reservations: Events\" (247 events at activation)",
   "source": "discovered"
  },
+ "CO0051": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://gcld.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar on gcld.librarycalendar.com (linked from gcld.org/events-activities-calendar); own-site iframe host. iCal verified. [sweep 2026-07-16, ~398 events]",
+  "source": "discovered"
+ },
  "CO0060": {
   "vendor": "bibliocommons",
   "status": "active",
@@ -467,6 +593,13 @@
   "note": "WordPress tribe_events iCal on parkcounty.colibraries.org (2 events)",
   "source": "discovered"
  },
+ "CO0096": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://ppld.librarymarket.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar on ppld.librarymarket.com linked from ppld.org; iCal verified (VEVENTs). [sweep 2026-07-16, ~2422 events]",
+  "source": "discovered"
+ },
  "CO0099": {
   "vendor": "communico",
   "status": "active",
@@ -475,9 +608,10 @@
   "source": "discovered"
  },
  "CO0115": {
-  "vendor": "libcal",
-  "status": "detected",
-  "note": "demoted, collision: summitlibrary.libcal.com claimed by CO0115, UT0051 — needs manual confirmation",
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://summitco.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month=2026-07",
+  "note": "LibraryCalendar (LibraryMarket) on own-domain link to summitco.librarycalendar.com. iCal feed verified 413 VEVENTs; month-templated URL (current_month). [sweep 2026-07-16, ~413 events]",
   "source": "discovered"
  },
  "CO0143": {
@@ -487,6 +621,13 @@
   "note": "WordPress tribe_events iCal on cccld.org (30 events)",
   "source": "discovered"
  },
+ "CO0144": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://deltalibraries.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar served on own domain (deltalibraries.org); iCal export verified. [sweep 2026-07-16, ~615 events]",
+  "source": "discovered"
+ },
  "CO0145": {
   "vendor": "libcal",
   "status": "active",
@@ -494,6 +635,13 @@
   "note": "hpld main calendar (cid 8181, ~300 items/mo) — cid from own-site link on mylibrary.us",
   "source": "verified",
   "verifiedAt": "2026-07"
+ },
+ "CO0146": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.google.com/calendar/ical/sfbcarnegie%40gmail.com/public/basic.ics",
+  "note": "Homepage embeds public Google Calendar (sfbcarnegie@gmail.com). Public .ics verified, 7 upcoming events (mostly board meetings/branch closures - general community calendar, limited kids programming). [sweep 2026-07-16, ~7 events]",
+  "source": "discovered"
  },
  "CT0016": {
   "vendor": "libcal",
@@ -516,11 +664,25 @@
   "note": "auto-activated: hamdenlibrary.libcal.com cal 12838 \"Hamden Public Library LibCal: Events\" (49 events at activation)",
   "source": "discovered"
  },
+ "CT0087": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.mansfieldpubliclibraryct.org/common/modules/iCalendar/iCalendar.aspx?catID=31&feed=calendar",
+  "note": "CivicPlus calendar (CID=31). iCal export verified: text/calendar with 113 upcoming library events (Craft & Chat, Tech Savvy, game nights). [sweep 2026-07-16, ~113 events]",
+  "source": "discovered"
+ },
  "CT0103": {
   "vendor": "libcal",
   "status": "active",
   "url": "https://nhfpl.libcal.com/rss.php?m=month&cid=21963",
   "note": "via own-domain link on nhfpl.org: nhfpl.libcal.com cal 21963 \"New Haven Free Public Library NHFPL Events &#x26; Room Bookings: Events\" (20 events)",
+  "source": "discovered"
+ },
+ "CT0151": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://fergusonlibrary.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar (Drupal library_calendar) on own domain. Verified ICS, 429 VEVENTs for 2026-07. [sweep 2026-07-16, ~429 events]",
   "source": "discovered"
  },
  "CT0171": {
@@ -599,6 +761,20 @@
   "note": "via own-domain link on mylakelibrary.org: mylakelibrary.libcal.com cal 20119 \"Lake County Library System LibCal: Events\" (89 events)",
   "source": "discovered"
  },
+ "FL0042": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://leelibrary.librarymarket.com/events/feed/ical",
+  "note": "Lee County library events hosted on leelibrary.librarymarket.com (LibraryCalendar); /events/feed/ical returns VCALENDAR with 954 upcoming VEVENTs. [sweep 2026-07-16, ~954 events]",
+  "source": "discovered"
+ },
+ "FL0044": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://leoncountyfl.libcal.com/rss.php?m=month&cid=15236",
+  "note": "Library site (leoncountylibrary.org -> cms.leoncountyfl.gov/Library) links to leoncountyfl.libcal.com; main calendar body id=calendar_15236. RSS month feed verified 135 items. [sweep 2026-07-16, ~135 events]",
+  "source": "discovered"
+ },
  "FL0046": {
   "vendor": "libcal",
   "status": "active",
@@ -625,6 +801,13 @@
   "status": "active",
   "url": "https://www.waltonlibraries.com/?post_type=tribe_events&ical=1&eventDisplay=list",
   "note": "WordPress tribe_events iCal on waltonlibraries.com (30 events)",
+  "source": "discovered"
+ },
+ "FL0106": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://hernandocounty.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar (own-domain link to hernandocounty.librarycalendar.com). Month-templated iCal verified: 373 VEVENT for 2026-07. [sweep 2026-07-16, ~373 events]",
   "source": "discovered"
  },
  "FL0109": {
@@ -661,11 +844,32 @@
   "note": "discovered: sumterlibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
+ "FL0149": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://newriverplc.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar via own-domain link (newriverplc.librarycalendar.com); verified 34 VEVENTs; month-templated [sweep 2026-07-16, ~34 events]",
+  "source": "discovered"
+ },
+ "FL0150": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.google.com/calendar/ical/dr9h33ci2lp2e76rc1feh49v0c%40group.calendar.google.com/public/basic.ics",
+  "note": "7 branch Google Calendars embedded on /programming-upcoming-events; primary feed given (21 upcoming). Other 6 cal ids: 2aj7j8j4avr500iti7qgjra2vo, j27bpe5755qh3qouhtvublppfs, sq6d8nno5gspfs93t630pq84ec, j093qcukelmcb2fsriqlpjnmro, ecj897st4i0lhv9a2t3bn8eab4, 9j4je43i6k812tbrog61okhal0 (all @group.calendar.google.com) — need multi-feed for full branch coverage. [sweep 2026-07-16, ~21 events]",
+  "source": "discovered"
+ },
  "FL0246": {
   "vendor": "bibliocommons",
   "status": "active",
   "url": "https://pbclibrary.bibliocommons.com/events/rss/all",
   "note": "via own-domain link on pbclibrary.org (2000 items)",
+  "source": "discovered"
+ },
+ "FL0255": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://santarosa.fl.gov/common/modules/iCalendar/iCalendar.aspx?catID=27&feed=calendar",
+  "note": "CivicPlus CivicEngage iCal export for Library category (catID=27); own-domain link from homepage calendar.aspx?CID=27. Verified 34 upcoming VEVENTs. [sweep 2026-07-16, ~34 events]",
   "source": "discovered"
  },
  "FL0258": {
@@ -717,6 +921,13 @@
   "note": "communico attend site (132 events in next 14d at activation)",
   "source": "discovered"
  },
+ "GA0014": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.google.com/calendar/ical/georgialibraries.org_qjo6672rf7dq812pqnc76nphi4%40group.calendar.google.com/public/basic.ics",
+  "note": "Google Calendar embedded on /calendar/ (own domain). Public ICS verified with 38 upcoming VEVENTs (a second embedded Google cal has 19 more). [sweep 2026-07-16, ~38 events]",
+  "source": "discovered"
+ },
  "GA0017": {
   "vendor": "communico",
   "status": "active",
@@ -738,11 +949,25 @@
   "note": "via own-domain link on fulcolibrary.org (2000 items)",
   "source": "discovered"
  },
+ "GA0023": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://trrl.librarycalendar.com/events/feed/ical",
+  "note": "LibraryMarket on trrl.librarycalendar.com (linked from /calendar); ical feed verified 145 VEVENTs. [sweep 2026-07-16, ~145 events]",
+  "source": "discovered"
+ },
  "GA0025": {
   "vendor": "communico",
   "status": "active",
   "url": "https://events.gwinnettpl.org",
   "note": "communico attend site (260 events in next 14d at activation)",
+  "source": "discovered"
+ },
+ "GA0026": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.google.com/calendar/ical/c_c08efee61baf91d1d35441b1dbc299d4ac68555ca757e83713516e66344c9907%40group.calendar.google.com/public/basic.ics",
+  "note": "Single system Google Calendar embedded on /upcoming-events/; public iCal verified, 15 upcoming dated events (basic.ics also carries history/recurring). [sweep 2026-07-16, ~15 events]",
   "source": "discovered"
  },
  "GA0029": {
@@ -758,11 +983,25 @@
   "note": "communico attend site (191 events in next 14d at activation)",
   "source": "discovered"
  },
+ "GA0039": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://arcpls.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryCalendar (LibraryMarket) at arcpls.librarycalendar.com, linked from arcpls.org. Verified 325 VEVENTs; month-templated feed. [sweep 2026-07-16, ~325 events]",
+  "source": "discovered"
+ },
  "GA0045": {
   "vendor": "libcal",
   "status": "active",
   "url": "https://tcpls.libcal.com/rss.php?m=month&cid=21385",
   "note": "auto-activated: tcpls.libcal.com cal 21385 \"Thomas County Public Library System\" (104 events at activation) | migrated to RSS month feed (31 upcoming items)",
+  "source": "discovered"
+ },
+ "GA0048": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://thrl.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month=2026-07",
+  "note": "LibraryCalendar (LibraryMarket) linked from thrl.org to thrl.librarycalendar.com. iCal feed verified 87 VEVENTs; month-templated. [sweep 2026-07-16, ~87 events]",
   "source": "discovered"
  },
  "GA0050": {
@@ -801,6 +1040,13 @@
   "source": "verified",
   "verifiedAt": "2026-07"
  },
+ "IA0027": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://dmpl.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryCalendar (LibraryMarket) on own domain (40librarymarket Zodiac theme, /event/ + /events/month paths). Verified 1074 VEVENTs. [sweep 2026-07-16, ~1074 events]",
+  "source": "discovered"
+ },
  "IA0148": {
   "vendor": "ical",
   "status": "active",
@@ -836,6 +1082,20 @@
   "note": "WordPress tribe_events iCal on ifpl.org (30 events)",
   "source": "discovered"
  },
+ "ID0060": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.latahlibrary.org/?mec-ical-feed=1",
+  "note": "WordPress Modern Events Calendar (MEC); mec-ical-feed iCal verified, 62 upcoming dated events (feed also carries history/recurring). [sweep 2026-07-16, ~62 events]",
+  "source": "discovered"
+ },
+ "ID0061": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.mld.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "Self-hosted Drupal 11 with LibraryMarket library_calendar module. Month-templated iCal verified: 136 VEVENT for 2026-07 (incl 'Pajama Storytime'). [sweep 2026-07-16, ~136 events]",
+  "source": "discovered"
+ },
  "ID0120": {
   "vendor": "libcal",
   "status": "detected",
@@ -862,16 +1122,44 @@
   "note": "WordPress tribe_events iCal on haynerlibrary.org (30 events)",
   "source": "discovered"
  },
+ "IL0253": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://ipdpl.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryCalendar (LibraryMarket) on own domain (40librarymarket Zodiac theme, /event/ + /events/month). Verified 171 VEVENTs. [sweep 2026-07-16, ~171 events]",
+  "source": "discovered"
+ },
  "IL0368": {
   "vendor": "bibliocommons",
   "status": "detected",
   "note": "own-domain link: naperlib.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
+ "IL0392": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://oakpark.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar; oppl.org/calendar redirects to oakpark.librarycalendar.com; verified 790 VEVENTs; month-templated [sweep 2026-07-16, ~790 events]",
+  "source": "discovered"
+ },
  "IL0408": {
   "vendor": "bibliocommons",
   "status": "detected",
   "note": "own-domain link: palatinelibrary.bibliocommons.com (feed empty/unverified — possibly WAF)",
+  "source": "discovered"
+ },
+ "IL0423": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://peoria.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar on peoria.librarycalendar.com (linked from peoriapubliclibrary.org). iCal export verified. [sweep 2026-07-16, ~631 events]",
+  "source": "discovered"
+ },
+ "IL0457": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://robinsonpubliclibrary.com/?ical=1",
+  "note": "WordPress Events Manager plugin. /?ical=1 upcoming feed verified: 6 future VEVENT (recurring Gentle Stretch Yoga, Movie Friday). Note /events-2/?ical=1 dumps 50 stale/past events; use the homepage ical for upcoming. [sweep 2026-07-16, ~6 events]",
   "source": "discovered"
  },
  "IL0479": {
@@ -907,6 +1195,20 @@
   "note": "own-domain link: ec.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
+ "IN0037": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.laportelibrary.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month=2026-07",
+  "note": "LibraryMarket LibraryCalendar (self-hosted Drupal on own domain; PRODID Library Market, lc-event markup); month-templated feed, 293 VEVENTs for 2026-07. [sweep 2026-07-16, ~293 events]",
+  "source": "discovered"
+ },
+ "IN0043": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.pcpls.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar served on own domain (www.pcpls.org); iCal export verified. [sweep 2026-07-16, ~433 events]",
+  "source": "discovered"
+ },
  "IN0050": {
   "vendor": "ical",
   "status": "active",
@@ -921,9 +1223,10 @@
   "source": "discovered"
  },
  "IN0069": {
-  "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: mphpl.libcal.com — needs calendar id",
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://mphpl.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar via own-domain link (mphpl.librarycalendar.com); verified 150 VEVENTs; month-templated [sweep 2026-07-16, ~150 events]",
   "source": "discovered"
  },
  "IN0073": {
@@ -961,6 +1264,13 @@
   "note": "communico attend site (99 events in next 14d at activation)",
   "source": "discovered"
  },
+ "IN0138": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.munciepubliclibrary.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "Self-hosted Drupal with LibraryMarket library_calendar module (@librarymarket/zodiac). Month-templated iCal verified: 516 VEVENT for 2026-07 (incl 'Mother Goose', 'Tinker Tots'). [sweep 2026-07-16, ~516 events]",
+  "source": "discovered"
+ },
  "IN0186": {
   "vendor": "libcal",
   "status": "active",
@@ -981,6 +1291,13 @@
   "note": "own-domain link: indypl.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
+ "IN0212": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://morgancounty.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryCalendar (LibraryMarket) at morgancounty.librarycalendar.com, linked from morgancountylibrary.info. Verified 484 VEVENTs. [sweep 2026-07-16, ~484 events]",
+  "source": "discovered"
+ },
  "IN0214": {
   "vendor": "communico",
   "status": "active",
@@ -995,11 +1312,25 @@
   "note": "via own-domain link on floydlibrary.org: nafclibrary.libcal.com cal 10014 \"Floyd County Library LibCal: Events\" (91 events)",
   "source": "discovered"
  },
+ "IN0224": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.google.com/calendar/ical/127106028a12927928d706ef5495186dd0b5923cd1da1a6188eaaa80a8f1718b%40group.calendar.google.com/public/basic.ics",
+  "note": "hcpl.lib.in.us youth-events-calendar page embeds a public Google Calendar (own-domain page). Public .ics verified: recurring storytimes (223 RRULEs) plus dated events through 2026-07-27. [sweep 2026-07-16, ~6 events]",
+  "source": "discovered"
+ },
  "IN0241": {
   "vendor": "ical",
   "status": "active",
   "url": "https://www.lowellpl.lib.in.us/?post_type=tribe_events&ical=1&eventDisplay=list",
   "note": "WordPress tribe_events iCal on lowellpl.lib.in.us (30 events)",
+  "source": "discovered"
+ },
+ "KS0133": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.kckpl.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar served on own domain (www.kckpl.org; /event/, /events/upcoming). iCal export verified. [sweep 2026-07-16, ~826 events]",
   "source": "discovered"
  },
  "KS0134": {
@@ -1020,6 +1351,13 @@
   "vendor": "libcal",
   "status": "detected",
   "note": "own-domain link: bcpl-ky.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "KY0010": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.thebookplace.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "Boyd County; self-hosted LibraryMarket on own domain (thebookplace.org/events/month); verified 147 VEVENTs; month-templated [sweep 2026-07-16, ~147 events]",
   "source": "discovered"
  },
  "KY0014": {
@@ -1043,6 +1381,27 @@
   "note": "via own-domain link on kentonlibrary.org (1419 items)",
   "source": "discovered"
  },
+ "KY0072": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.marshallcolibrary.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "Marshall County; self-hosted LibraryMarket on own domain (marshallcolibrary.org/events/month); verified 433 VEVENTs; month-templated [sweep 2026-07-16, ~433 events]",
+  "source": "discovered"
+ },
+ "KY0085": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.ncplky.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "Nelson County; self-hosted LibraryMarket on own domain (ncplky.org/events/upcoming); verified 1149 VEVENTs; month-templated [sweep 2026-07-16, ~1149 events]",
+  "source": "discovered"
+ },
+ "KY0095": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://pulaskilibrary.com/?mec-ical-feed=1",
+  "note": "WordPress Modern Events Calendar (MEC) on pulaskilibrary.com; MEC iCal feed verified, storytimes present, events dated into Nov 2026. [sweep 2026-07-16, ~33 events]",
+  "source": "discovered"
+ },
  "KY0109": {
   "vendor": "libcal",
   "status": "detected",
@@ -1063,11 +1422,25 @@
   "note": "WordPress tribe_events iCal on library.beau.org (30 events)",
   "source": "discovered"
  },
+ "LA0021": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://stjohnlib.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar (own-domain link to stjohnlib.librarycalendar.com). Month-templated iCal verified: 333 VEVENT for 2026-07 (incl 'Storytime'). [sweep 2026-07-16, ~333 events]",
+  "source": "discovered"
+ },
  "LA0022": {
   "vendor": "libcal",
   "status": "active",
   "url": "https://myipl.libcal.com/rss.php?m=month&cid=18936",
   "note": "via own-domain link on myipl.org: myipl.libcal.com cal 18936 \"Iberville Parish Library IPL Calendar: Events\" (120 events)",
+  "source": "discovered"
+ },
+ "LA0027": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://myscpl.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryCalendar (LibraryMarket) on own domain (/events/feed/html?_wrapper_format=lc_calendar_feed present). Verified 233 VEVENTs. [sweep 2026-07-16, ~233 events]",
   "source": "discovered"
  },
  "LA0037": {
@@ -1096,6 +1469,20 @@
   "status": "active",
   "url": "https://stmaryparishlibrary.libcal.com/rss.php?m=month&cid=21998",
   "note": "auto-activated: stmaryparishlibrary.libcal.com cal 21998 \"Amelia Branch\" (24 events at activation) | migrated to RSS month feed (5 upcoming items)",
+  "source": "discovered"
+ },
+ "LA0046": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.bossierlibrary.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month=2026-07",
+  "note": "LibraryMarket LibraryCalendar (Drupal, own domain, /event/<slug>-<id> pattern); month-templated feed, 541 VEVENTs for 2026-07. [sweep 2026-07-16, ~541 events]",
+  "source": "discovered"
+ },
+ "LA0047": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://lafourche.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket via own-domain link on lafourche.org (Wix site links lafourche.librarycalendar.com); verified 335 VEVENTs [sweep 2026-07-16, ~335 events]",
   "source": "discovered"
  },
  "LA0048": {
@@ -1130,6 +1517,13 @@
   "vendor": "libcal",
   "status": "detected",
   "note": "discovered: ebrpl.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "LA0057": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.jplibrary.net/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar on own-domain calendar.jplibrary.net; iCal verified (VEVENTs). [sweep 2026-07-16, ~1872 events]",
   "source": "discovered"
  },
  "LA0058": {
@@ -1185,6 +1579,20 @@
   "note": "LibraryMarket LibraryCalendar via own-domain link on alleganycountylibrary.info (490 events; month-templated)",
   "source": "discovered"
  },
+ "MD0002": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.aacpl.net/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryCalendar (lc_event bundles) on own Drupal at www.aacpl.net; iCal verified (VEVENTs). Note: requires www host. [sweep 2026-07-16, ~2694 events]",
+  "source": "discovered"
+ },
+ "MD0004": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://events.bcpl.info",
+  "note": "Communico on own-domain host events.bcpl.info (libnet markers); eeventcaldata returned 306 events/14d. [sweep 2026-07-16, ~306 events]",
+  "source": "discovered"
+ },
  "MD0005": {
   "vendor": "communico",
   "status": "active",
@@ -1198,6 +1606,20 @@
   "note": "own-domain link: carolib.libcal.com — needs calendar id",
   "source": "discovered"
  },
+ "MD0007": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://ccpl.librarymarket.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "library.carr.org links to ccpl.librarymarket.com (LibraryMarket). Month-templated ICS verified BEGIN:VCALENDAR, 2109 VEVENTs for 2026-07 (includes recurrences). [sweep 2026-07-16, ~2109 events]",
+  "source": "discovered"
+ },
+ "MD0008": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://cecilcountylibrary.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryCalendar (LibraryMarket) on own domain (/events/ librarymarket assets). Verified 324 VEVENTs. [sweep 2026-07-16, ~324 events]",
+  "source": "discovered"
+ },
  "MD0009": {
   "vendor": "communico",
   "status": "active",
@@ -1205,11 +1627,25 @@
   "note": "communico attend site (91 events in next 14d at activation)",
   "source": "discovered"
  },
+ "MD0011": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://frederick.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket via own-domain link on fcpl.org (frederick.librarycalendar.com); verified 2534 VEVENTs [sweep 2026-07-16, ~2534 events]",
+  "source": "discovered"
+ },
  "MD0015": {
   "vendor": "libcal",
   "status": "active",
   "url": "https://kent-md.libcal.com/rss.php?m=month&cid=10900",
   "note": "via own-domain link on kentcountylibrary.org: kent-md.libcal.com cal 10900 \"Kent County Public Library LibCal: Events\" (64 events)",
+  "source": "discovered"
+ },
+ "MD0016": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://mcpl.libnet.info",
+  "note": "Communico attend host mcpl.libnet.info linked from own site; eeventcaldata returned 524 events/14d. [sweep 2026-07-16, ~524 events]",
   "source": "discovered"
  },
  "MD0017": {
@@ -1226,6 +1662,13 @@
   "note": "communico attend site (113 events in next 14d at activation)",
   "source": "discovered"
  },
+ "MD0023": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.wicomicolibrary.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month=2026-07",
+  "note": "LibraryMarket LibraryCalendar (Drupal, Sabre VObject). Verified iCal feed on own domain, 504 upcoming VEVENTs. Month-templated: current_month={YYYY-MM}. [sweep 2026-07-16, ~504 events]",
+  "source": "discovered"
+ },
  "MD0024": {
   "vendor": "libcal",
   "status": "active",
@@ -1233,11 +1676,25 @@
   "note": "via own-domain link on worcesterlibrary.org: worcesterlibrary.libcal.com cal 13001 \"Worcester County Library LibCal: Events\" (1 events)",
   "source": "discovered"
  },
+ "ME0174": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://portlandme.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket/LibraryCalendar on portlandme.librarycalendar.com. Verified iCal feed serves upcoming events incl. Baby Storytime. [sweep 2026-07-16, ~1503 events]",
+  "source": "discovered"
+ },
  "MI0131": {
   "vendor": "bibliocommons",
   "status": "active",
   "url": "https://grpl.bibliocommons.com/events/rss/all",
   "note": "via own-domain link on grpl.org (69 items)",
+  "source": "discovered"
+ },
+ "MI0134": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://grossepointe.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month=2026-07",
+  "note": "LibraryMarket LibraryCalendar on grossepointe.librarycalendar.com (linked from own domain). Verified iCal, 255 upcoming VEVENTs. Month-templated: current_month={YYYY-MM}. [sweep 2026-07-16, ~255 events]",
   "source": "discovered"
  },
  "MI0171": {
@@ -1271,6 +1728,13 @@
   "note": "own-domain link: mackinaw.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
+ "MI0233": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://monroecounty.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar linked from mymcls.com; iCal verified (VEVENTs). [sweep 2026-07-16, ~1885 events]",
+  "source": "discovered"
+ },
  "MI0234": {
   "vendor": "bibliocommons",
   "status": "detected",
@@ -1282,6 +1746,13 @@
   "status": "active",
   "url": "https://muskegonadl.bibliocommons.com/events/rss/all",
   "note": "via own-domain link on madl.org (291 items)",
+  "source": "discovered"
+ },
+ "MI0258": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.otsego.lib.mi.us/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month=2026-07",
+  "note": "LibraryMarket LibraryCalendar (Drupal, Sabre VObject) on own domain /events/month. Verified iCal, 209 upcoming VEVENTs. Month-templated: current_month={YYYY-MM}. [sweep 2026-07-16, ~209 events]",
   "source": "discovered"
  },
  "MI0279": {
@@ -1306,6 +1777,20 @@
   "vendor": "libcal",
   "status": "detected",
   "note": "own-domain link: sccl-mi.libcal.com — needs calendar id",
+  "source": "discovered"
+ },
+ "MI0342": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.tadl.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar self-hosted on own domain (lc-event markers); month-templated iCal verified, 1391 upcoming VEVENTs. [sweep 2026-07-16, ~1391 events]",
+  "source": "discovered"
+ },
+ "MI0348": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://crdl.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar on own domain; verified iCal 202 VEVENTs for July. Month-templated. [sweep 2026-07-16, ~202 events]",
   "source": "discovered"
  },
  "MI0356": {
@@ -1411,11 +1896,25 @@
   "note": "WordPress tribe_events iCal on marshalllyonlibrary.org (30 events)",
   "source": "discovered"
  },
+ "MN0106": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://becls.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "Events link on own site -> becls.librarycalendar.com (LibraryMarket LibraryCalendar). Month-templated iCal verified, 116 upcoming VEVENTs. [sweep 2026-07-16, ~116 events]",
+  "source": "discovered"
+ },
  "MN0107": {
   "vendor": "ical",
   "status": "active",
   "url": "https://www.wasecalesueurlibraries.com/?post_type=tribe_events&ical=1&eventDisplay=list",
   "note": "WordPress tribe_events iCal on wasecalesueurlibraries.com (30 events)",
+  "source": "discovered"
+ },
+ "MN0145": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://krls.org/feed/my-calendar-ics/",
+  "note": "WordPress My Calendar plugin; iCal feed at /feed/my-calendar-ics/ verified with 53 VEVENTs [sweep 2026-07-16, ~53 events]",
   "source": "discovered"
  },
  "MO0004": {
@@ -1449,6 +1948,20 @@
   "note": "own-domain link: dbrl.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
+ "MO0035": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://stcharles.librarycalendar.com/events/feed/ical",
+  "note": "LibraryMarket on stcharles.librarycalendar.com (linked from /events); ical feed verified 2810 VEVENTs. [sweep 2026-07-16, ~2810 events]",
+  "source": "discovered"
+ },
+ "MO0039": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.boonslickregionallibrary.com/?post_type=tribe_events&ical=1&eventDisplay=list",
+  "note": "WordPress The Events Calendar (tribe_events) iCal export. Verified upcoming events incl. Warsaw Story Time. [sweep 2026-07-16, ~50 events]",
+  "source": "discovered"
+ },
  "MO0040": {
   "vendor": "libcal",
   "status": "detected",
@@ -1467,6 +1980,27 @@
   "status": "active",
   "url": "https://www.trailslibrary.org/?post_type=tribe_events&ical=1&eventDisplay=list",
   "note": "WordPress tribe_events iCal on trailslibrary.org (30 events)",
+  "source": "discovered"
+ },
+ "MO0059": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.nemolibrary.org/calendar-news/events/@@ics_view",
+  "note": "Plone CMS; @@ics_view exports VCALENDAR; ~7 upcoming events (3 in 2026, 4 in 2027). Static full-dump ICS. [sweep 2026-07-16, ~7 events]",
+  "source": "discovered"
+ },
+ "MO0065": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://scenicregional.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket via own-domain link on scenicregional.org; verified 1615 VEVENTs [sweep 2026-07-16, ~1615 events]",
+  "source": "discovered"
+ },
+ "MO0091": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.mexico-audrain.lib.mo.us/calendar-news/events/@@ics_view",
+  "note": "Plone CMS; @@ics_view exports VCALENDAR; ~36 upcoming (30 in 2026 Jul-Dec + 6 in 2027). Static full-dump ICS. [sweep 2026-07-16, ~36 events]",
   "source": "discovered"
  },
  "MO0110": {
@@ -1497,11 +2031,67 @@
   "note": "auto-activated: reynolds.libcal.com cal 566 \"Reynolds Libraries LibCal: Events\" (7 events at activation)",
   "source": "discovered"
  },
+ "MO0143": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://cartermo.ploud.net/calendar/@@event_listing_ical?mode=future",
+  "note": "Ploud/Plone site; native Plone iCal export (@@event_listing_ical?mode=future) verified, 11 upcoming VEVENTs (mix of programs + closures). [sweep 2026-07-16, ~11 events]",
+  "source": "discovered"
+ },
+ "MO0173": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.bclib.info/calendar-news/@@event_listing_ical?mode=future",
+  "note": "Ploud/Plone site; native Plone iCal export on the /calendar-news collection verified, 16 upcoming VEVENTs. [sweep 2026-07-16, ~16 events]",
+  "source": "discovered"
+ },
+ "MO0199": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.pulaskicounty.lib.mo.us/calendar-news/@@event_listing_ical?mode=future",
+  "note": "Ploud/Plone site; native Plone iCal export on /calendar-news collection verified, 33 upcoming VEVENTs. [sweep 2026-07-16, ~33 events]",
+  "source": "discovered"
+ },
  "MO0227": {
   "vendor": "ical",
   "status": "active",
   "url": "https://sjpl.librarymarket.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
   "note": "LibraryMarket LibraryCalendar via own-domain link on sjpl.lib.mo.us (437 events; month-templated)",
+  "source": "discovered"
+ },
+ "MS0014": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://hcls.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "hcls.info links to hcls.librarycalendar.com (LibraryMarket); verified iCal 504 VEVENTs for July. Month-templated. [sweep 2026-07-16, ~504 events]",
+  "source": "discovered"
+ },
+ "MS0020": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://jgrls.org/?feed=eo-events",
+  "note": "WordPress Event Organiser iCal feed verified: 1411 VEVENTs including 64 future-dated single events + 191 recurring rules. Standard iCal, consumable by the ICS adapter. [sweep 2026-07-16, ~64 events]",
+  "source": "discovered"
+ },
+ "MS0021": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.jhlibrary.org/events/feed/ical",
+  "note": "LibraryMarket/LibraryCalendar (Drupal lc_calendar_feed); ical export returns 434 upcoming VEVENTs. [sweep 2026-07-16, ~434 events]",
+  "source": "discovered"
+ },
+ "MS0026": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://llf.lib.ms.us/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket/LibraryCalendar on own Drupal domain (event URL pattern /event/<slug>-<id>). Verified iCal feed serves upcoming events. [sweep 2026-07-16, ~94 events]",
+  "source": "discovered"
+ },
+ "MS0038": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.google.com/calendar/ical/starkvillelibrary%40gmail.com/public/basic.ics",
+  "note": "WordPress /calendar embeds Google Calendar (starkvillelibrary@gmail.com); public ICS verified, 1570 total VEVENTs / 19 upcoming (feed carries full history). [sweep 2026-07-16, ~19 events]",
   "source": "discovered"
  },
  "MT0039": {
@@ -1523,6 +2113,13 @@
   "status": "active",
   "url": "https://www.lincolncountymt.us/?post_type=tribe_events&ical=1&eventDisplay=list",
   "note": "WordPress tribe_events iCal on lincolncountymt.us (4 events)",
+  "source": "discovered"
+ },
+ "MT0051": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.missoulapubliclibrary.org/?mec-ical-feed=1",
+  "note": "WordPress Modern Events Calendar (MEC v6.5.5); mec-ical-feed iCal verified, 104 upcoming dated events. [sweep 2026-07-16, ~104 events]",
   "source": "discovered"
  },
  "NC0004": {
@@ -1564,6 +2161,13 @@
   "note": "via own-domain link on brunswickcountync.gov: brunsco.libcal.com cal 21880 \"Brunswick County Public Library Library Events: Events\" (59 events)",
   "source": "discovered"
  },
+ "NC0019": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://buncombe.librarycalendar.com/events/feed/ical",
+  "note": "LibraryMarket on buncombe.librarycalendar.com (linked from own site); ical feed verified 1246 VEVENTs. [sweep 2026-07-16, ~1246 events]",
+  "source": "discovered"
+ },
  "NC0022": {
   "vendor": "libcal",
   "status": "active",
@@ -1576,6 +2180,13 @@
   "status": "active",
   "url": "https://durhamcountylibrary.libcal.com/rss.php?m=month&cid=14288",
   "note": "auto-activated: durhamcountylibrary.libcal.com cal 14288 \"Durham County Library DCoL Events &#x26; Room Reservations: Events\" (300 events at activation)",
+  "source": "discovered"
+ },
+ "NC0032": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://forsythcounty.librarycalendar.com/events/feed/ical",
+  "note": "LibraryMarket on forsythcounty.librarycalendar.com (linked from forsyth.cc/library); ical feed verified 764 VEVENTs. [sweep 2026-07-16, ~764 events]",
   "source": "discovered"
  },
  "NC0035": {
@@ -1637,6 +2248,13 @@
   "note": "discovered: sheppardlibrary.libcal.com — needs calendar id",
   "source": "discovered"
  },
+ "NC0053": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.google.com/calendar/ical/childrensrcpl%40gmail.com/public/basic.ics",
+  "note": "Children's-programs Google Calendar embedded on /events/ (base64 src decoded to childrensrcpl@gmail.com); public iCal, 21 upcoming dated events. Additional public cal a0qeq8o5htd1bhk0pu051mtfgg@group.calendar.google.com (~70 events) also available. [sweep 2026-07-16, ~21 events]",
+  "source": "discovered"
+ },
  "NC0057": {
   "vendor": "libcal",
   "status": "detected",
@@ -1671,6 +2289,13 @@
   "note": "via own-domain link on omahalibrary.org (1616 items)",
   "source": "discovered"
  },
+ "NJ0001": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://atlanticcounty.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket via own-domain link on atlanticlibrary.org; verified 1264 VEVENTs [sweep 2026-07-16, ~1264 events]",
+  "source": "discovered"
+ },
  "NJ0070": {
   "vendor": "bibliocommons",
   "status": "active",
@@ -1685,11 +2310,25 @@
   "note": "communico attend site (154 events in next 14d at activation)",
   "source": "discovered"
  },
+ "NJ0114": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://events.eopl.org/rss.php?m=month&cid=19881",
+  "note": "LibCal on custom domain events.eopl.org (x-backend-server libcal-us-4.springyaws.com). rss.php?m=month&cid=19881 returns 71 upcoming items. [sweep 2026-07-16, ~71 events]",
+  "source": "discovered"
+ },
  "NJ0122": {
   "vendor": "libcal",
   "status": "active",
   "url": "https://npl.libcal.com/rss.php?m=month&cid=17557",
   "note": "auto-activated: npl.libcal.com cal 17557 \"Newark Public Library LibCal: Events\" (252 events at activation)",
+  "source": "discovered"
+ },
+ "NJ0130": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://gcls.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar on gcls.librarycalendar.com (linked from gcls.org/events); verified 1535 upcoming VEVENTs. Month-templated URL. [sweep 2026-07-16, ~1535 events]",
   "source": "discovered"
  },
  "NJ0156": {
@@ -1754,11 +2393,32 @@
   "note": "via own-domain link on sussexcountylibrary.org: sussexcountylibrary.libcal.com cal 21469 \"SCLS Home Sussex County Library Events: Events\" (169 events)",
   "source": "discovered"
  },
+ "NJ0289": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://elizpl.events.mylibrary.digital/rss.php?m=month&cid=1",
+  "note": "LibCal instance on events.mylibrary.digital (Sol/SOLUS reseller). rss.php not Cloudflare-walled; cid=1 returns 184 upcoming items, channel 'Events | Elizabeth Public Library'. [sweep 2026-07-16, ~184 events]",
+  "source": "discovered"
+ },
  "NJ0306": {
   "vendor": "communico",
   "status": "active",
   "url": "https://warrenlib.libnet.info",
   "note": "communico attend site (70 events in next 14d at activation)",
+  "source": "discovered"
+ },
+ "NM0002": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://libevents.abqlibrary.org/rss.php?m=month&cid=159",
+  "note": "LibCal on Springshare custom domain libevents.abqlibrary.org (linked from abqlibrary.org/events); body id calendar_159; RSS month had 13 items. [sweep 2026-07-16, ~13 events]",
+  "source": "discovered"
+ },
+ "NM0033": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.santafelibrary.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month=2026-07",
+  "note": "LibraryMarket LibraryCalendar (Drupal lc_calendar) self-hosted; verified iCal export with upcoming VEVENTs (DTSTART 2026-07-16+). [sweep 2026-07-16, ~1155 events]",
   "source": "discovered"
  },
  "NV0008": {
@@ -1794,6 +2454,20 @@
   "note": "demoted, collision: buffalolib.libcal.com claimed by NY0005, NY0027 — needs manual confirmation",
   "source": "discovered"
  },
+ "NY0230": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://poughkeepsie.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month=2026-07",
+  "note": "WordPress site links to LibraryMarket calendar at poughkeepsie.librarycalendar.com; verified iCal export with upcoming VEVENTs (DTSTART 2026-07-16+). [sweep 2026-07-16, ~347 events]",
+  "source": "discovered"
+ },
+ "NY0327": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://schenectady.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar (schenectady.librarycalendar.com) linked from own site; month-templated iCal verified 600 VEVENTs for 2026-07. [sweep 2026-07-16, ~600 events]",
+  "source": "discovered"
+ },
  "NY0348": {
   "vendor": "libcal",
   "status": "active",
@@ -1801,11 +2475,39 @@
   "note": "auto-activated: greatnecklibrary.libcal.com cal 20029 \"Great Neck Library LibCal: Events\" (295 events at activation)",
   "source": "discovered"
  },
+ "NY0457": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://outlook.office365.com/owa/calendar/aaedb97b9f5a443d995c07bb9d142d7f@ncls.org/d2bfb8aa1b1040a6a310d0fcb18ca1331109478667404066770/calendar.ics",
+  "note": "Outlook/Office365 published calendar (NCLS-hosted) linked from homepage; 174 VEVENTs, ~100 upcoming incl. kids storytimes (e.g. '3 & 4 yr olds', '18-35mos'). Homepage 202-blocks default UA; reachable via Googlebot UA. [sweep 2026-07-16, ~100 events]",
+  "source": "discovered"
+ },
  "NY0476": {
   "vendor": "libcal",
   "status": "active",
   "url": "https://onlib-central.libcal.com/rss.php?m=month&cid=19741",
   "note": "via own-domain link on onlib.org: onlib-central.libcal.com cal 19741 \"Onondaga County Public Libraries Onondaga County Public Libraries: Events\" (23 events)",
+  "source": "discovered"
+ },
+ "NY0689": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://smithlib.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar (Drupal) on own domain. iCal feed returns 583 VEVENTs (upcoming, e.g. Story Tots, Game Night). Month-templated URL. [sweep 2026-07-16, ~583 events]",
+  "source": "discovered"
+ },
+ "NY0697": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://albany.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket (albany.librarycalendar.com) embedded on albanypubliclibrary.org/events; iCal verified, 1248 VEVENTs; month-templated. [sweep 2026-07-16, ~1248 events]",
+  "source": "discovered"
+ },
+ "NY0761": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.ypl.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month=2026-07",
+  "note": "LibraryMarket LibraryCalendar (Drupal lc_calendar) self-hosted; verified iCal export with upcoming VEVENTs (DTSTART 2026-07-13+). [sweep 2026-07-16, ~1482 events]",
   "source": "discovered"
  },
  "NY0778": {
@@ -1821,6 +2523,13 @@
   "status": "active",
   "url": "https://onlib-nopl.libcal.com/rss.php?m=month&cid=20015",
   "note": "via own-domain link on nopl.org: onlib-nopl.libcal.com cal 20015 \"Northern Onondaga Public Libraries NOPL Events: Events\" (22 events)",
+  "source": "discovered"
+ },
+ "NY0794": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.chemunglibraries.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar on own Drupal domain; verified 603 upcoming VEVENTs. Month-templated URL. [sweep 2026-07-16, ~603 events]",
   "source": "discovered"
  },
  "NY9015": {
@@ -1842,6 +2551,13 @@
   "status": "active",
   "url": "https://starklibrary.bibliocommons.com/events/rss/all",
   "note": "via own-domain link on starklibrary.org (1118 items)",
+  "source": "discovered"
+ },
+ "OH0045": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://events.wclibrary.info/rss.php?m=month&cid=19432",
+  "note": "LibCal instance on events.wclibrary.info (body id calendar_19432); verified RSS month feed with 56 upcoming items. [sweep 2026-07-16, ~56 events]",
   "source": "discovered"
  },
  "OH0046": {
@@ -1919,6 +2635,13 @@
   "note": "communico attend site (92 events in next 14d at activation)",
   "source": "discovered"
  },
+ "OH0100": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://lanepl.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar self-hosted on own domain; month-templated iCal verified 174 VEVENTs. [sweep 2026-07-16, ~174 events]",
+  "source": "discovered"
+ },
  "OH0101": {
   "vendor": "libcal",
   "status": "active",
@@ -1947,6 +2670,13 @@
   "note": "communico attend site (131 events in next 14d at activation)",
   "source": "discovered"
  },
+ "OH0133": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.google.com/calendar/ical/bcdlprogramming%40gmail.com/public/basic.ics",
+  "note": "WordPress site embeds a public Google Calendar (bcdlprogramming@gmail.com) on /events/; public basic.ics verified VCALENDAR with VEVENTs (count is full feed incl. past). [sweep 2026-07-16, ~1433 events]",
+  "source": "discovered"
+ },
  "OH0141": {
   "vendor": "libcal",
   "status": "detected",
@@ -1958,6 +2688,13 @@
   "status": "active",
   "url": "https://mentorpl.libcal.com/rss.php?m=month&cid=11397",
   "note": "auto-activated: mentorpl.libcal.com cal 11397 \"Mentor Public Library LibCal: Events\" (221 events at activation)",
+  "source": "discovered"
+ },
+ "OH0144": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://programs.midpointelibrary.org",
+  "note": "Communico Attend on own subdomain programs.midpointelibrary.org (linked from WordPress site); eeventcaldata returned 95 events in next 14 days. [sweep 2026-07-16, ~95 events]",
   "source": "discovered"
  },
  "OH0158": {
@@ -2036,6 +2773,27 @@
   "note": "communico attend site (73 events in next 14d at activation)",
   "source": "discovered"
  },
+ "OK0007": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.google.com/calendar/ical/iuilsqfjki4bc6q1lik4r2jg7c%40group.calendar.google.com/public/basic.ics",
+  "note": "Google Calendar embedded on /calendar (src iuilsqfjki4bc6q1lik4r2jg7c@group.calendar.google.com). Public ICS verified BEGIN:VCALENDAR, 102 upcoming VEVENTs; generic ical adapter parses it. Found via own domain. [sweep 2026-07-16, ~102 events]",
+  "source": "discovered"
+ },
+ "OK0062": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://seolibraries.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryCalendar on own domain seolibraries.com; iCal verified (VEVENTs). [sweep 2026-07-16, ~1349 events]",
+  "source": "discovered"
+ },
+ "OK0066": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://eols.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar linked from eols.org; iCal verified (VEVENTs). [sweep 2026-07-16, ~1036 events]",
+  "source": "discovered"
+ },
  "OK0093": {
   "vendor": "libcal",
   "status": "detected",
@@ -2043,9 +2801,10 @@
   "source": "discovered"
  },
  "OR0005": {
-  "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: eugene.libcal.com — needs calendar id",
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.eugene-or.gov/common/modules/iCalendar/iCalendar.aspx?catID=77&feed=calendar",
+  "note": "Eugene Public Library on the city's CivicPlus calendar with dedicated categories. catID=77 'Library - Storytimes' iCal verified 31 VEVENTs (e.g. 'Baby and Toddler Playtime'). Other library cats: 30 Kid Events, 29 Adult, 58 Teen. [sweep 2026-07-16, ~31 events]",
   "source": "discovered"
  },
  "OR0041": {
@@ -2068,6 +2827,13 @@
   "note": "own-domain link: dpl.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
+ "OR0144": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://hoodriver.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "WordPress site embeds LibraryMarket LibraryCalendar via <upcoming-events data-src=hoodriver.librarycalendar.com>; month-templated iCal on that host verified 965 VEVENTs. [sweep 2026-07-16, ~965 events]",
+  "source": "discovered"
+ },
  "PA0034": {
   "vendor": "bibliocommons",
   "status": "detected",
@@ -2081,6 +2847,20 @@
   "note": "cid 22930 (~7 items/mo) — LOW VOLUME, main events may live on another platform; revisit",
   "source": "verified",
   "verifiedAt": "2026-07"
+ },
+ "PA0176": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.adamslibrary.org/events/feed/ical",
+  "note": "LibraryMarket LibraryCalendar (library_calendar Drupal module); iCal export verified with 625 VEVENTs. [sweep 2026-07-16, ~625 events]",
+  "source": "discovered"
+ },
+ "PA0188": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://events.yorklibraries.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar on own subdomain events.yorklibraries.org; verified 1031 VEVENTs [sweep 2026-07-16, ~1031 events]",
+  "source": "discovered"
  },
  "PA0222": {
   "vendor": "libcal",
@@ -2165,6 +2945,13 @@
   "note": "auto-activated: cranstonlibrary.libcal.com cal 15394 \"CPL Events and Programs\" (404 events at activation) | migrated to RSS month feed (132 upcoming items)",
   "source": "discovered"
  },
+ "RI0013": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://eastprovidenceri.gov/calendar/%2A/ical.ics",
+  "note": "Municipal Drupal calendar iCal export; 2075 VEVENTs total, 244 upcoming in 2026 including real branch storytimes (Weaver/Riverside libraries: 'Baby/Toddler Storytime', 'Bilingual Storytime'). Feed mixes city meetings with library events; branch names in titles/locations. [sweep 2026-07-16, ~244 events]",
+  "source": "discovered"
+ },
  "RI0043": {
   "vendor": "libcal",
   "status": "active",
@@ -2206,6 +2993,13 @@
   "note": "auto-activated: andersonlibrary.libcal.com cal 18832 \"Anderson Public Library Anderson Public Library: Events\" (91 events at activation)",
   "source": "discovered"
  },
+ "SC0005": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://beaufort.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar on beaufort.librarycalendar.com (linked from own domain); verified 993 upcoming VEVENTs. Month-templated URL. [sweep 2026-07-16, ~993 events]",
+  "source": "discovered"
+ },
  "SC0006": {
   "vendor": "libcal",
   "status": "active",
@@ -2233,6 +3027,20 @@
   "note": "demoted, collision: chesterfield.libcal.com claimed by SC0012, VA0018 — needs manual confirmation",
   "source": "discovered"
  },
+ "SC0019": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.florencelibrary.org/events/feed/ical",
+  "note": "LibraryMarket LibraryCalendar; iCal export verified with 176 VEVENTs. [sweep 2026-07-16, ~176 events]",
+  "source": "discovered"
+ },
+ "SC0020": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://gtcountysc.gov/common/modules/iCalendar/iCalendar.aspx?catID=61&feed=calendar",
+  "note": "CivicPlus/CivicEngage. Per-branch Library categories export valid iCal: catID 61=Georgetown(23), 60=Waccamaw(19), 63=Andrews(7), 62=S.Georgetown(4), 64=Carvers Bay(2). Verified catID=61 -> text/calendar, 20 upcoming VEVENTs. Configure one feed per branch (no combined catID). [sweep 2026-07-16, ~55 events]",
+  "source": "discovered"
+ },
  "SC0023": {
   "vendor": "libcal",
   "status": "active",
@@ -2254,6 +3062,13 @@
   "note": "communico attend site (61 events in next 14d at activation)",
   "source": "discovered"
  },
+ "SC0036": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.trumba.com/calendars/scpl_events.ics",
+  "note": "Trumba calendar (webName scpl_events) embedded on own /events page; standard iCal feed verified with 523 upcoming VEVENTs. Consumable by the generic ICS adapter. [sweep 2026-07-16, ~523 events]",
+  "source": "discovered"
+ },
  "SC0037": {
   "vendor": "libcal",
   "status": "detected",
@@ -2265,6 +3080,20 @@
   "status": "active",
   "url": "https://www.unionlibrary.org/?post_type=tribe_events&ical=1&eventDisplay=list",
   "note": "WordPress tribe_events iCal on unionlibrary.org (30 events)",
+  "source": "discovered"
+ },
+ "SC8004": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.gwdlibrary.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "Self-hosted LibraryMarket LibraryCalendar (lc_calendar_theme/lc_core) on own domain; iCal month feed verified 39 VEVENTs for 2026-07. [sweep 2026-07-16, ~39 events]",
+  "source": "discovered"
+ },
+ "TN0001": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.google.com/calendar/ical/whatshappeninggiles%40gmail.com/public/basic.ics",
+  "note": "calendar-events.html embeds public Google Calendar (whatshappeninggiles@gmail.com); ICS has 204 VEVENTs, ~33 upcoming. [sweep 2026-07-16, ~33 events]",
   "source": "discovered"
  },
  "TN0062": {
@@ -2295,6 +3124,20 @@
   "note": "WordPress tribe_events iCal on chattlibrary.org (30 events)",
   "source": "discovered"
  },
+ "TN0133": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.knoxcountylibrary.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar iCal on own domain; verified 1077 VEVENTs for 2026-07. Templated month feed. [sweep 2026-07-16, ~1077 events]",
+  "source": "discovered"
+ },
+ "TN0134": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://memphis.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar linked from memphislibrary.org; iCal verified (VEVENTs). [sweep 2026-07-16, ~1992 events]",
+  "source": "discovered"
+ },
  "TX0003": {
   "vendor": "ical",
   "status": "active",
@@ -2308,6 +3151,13 @@
   "status": "active",
   "url": "https://denton.bibliocommons.com/events/rss/all",
   "note": "via own-domain link on library.cityofdenton.com (63 items)",
+  "source": "discovered"
+ },
+ "TX0050": {
+  "vendor": "libcal",
+  "status": "active",
+  "url": "https://fortworthtexas.libcal.com/rss.php?m=month&cid=22361",
+  "note": "LibCal linked from own gov site; body id calendar_22361; RSS month feed had 35 items. [sweep 2026-07-16, ~35 events]",
   "source": "discovered"
  },
  "TX0099": {
@@ -2330,6 +3180,13 @@
   "note": "auto-activated: irvinglibrary.libcal.com cal 19084 \"Irving Public Library LibCal: Events\" (98 events at activation)",
   "source": "discovered"
  },
+ "TX0110": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://abilenetx.gov/common/modules/iCalendar/iCalendar.aspx?catID=43&feed=calendar",
+  "note": "CivicPlus calendar with 'Library - Storytimes' category (CalendarID 43); iCal export verified 307 upcoming VEVENTs (Toddler Time, Preschool Storytime, etc). [sweep 2026-07-16, ~307 events]",
+  "source": "discovered"
+ },
  "TX0111": {
   "vendor": "bibliocommons",
   "status": "detected",
@@ -2341,6 +3198,13 @@
   "status": "active",
   "url": "https://www.laredolibrary.org/?post_type=tribe_events&ical=1&eventDisplay=list",
   "note": "WordPress tribe_events iCal on laredolibrary.org (30 events)",
+  "source": "discovered"
+ },
+ "TX0155": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.mylubbock.us/common/modules/iCalendar/iCalendar.aspx?catID=27&feed=calendar",
+  "note": "CivicPlus/CivicEngage; Library category CID=27 (62 listed) exports valid iCal. Verified text/calendar, 218 VEVENT instances into 2026-10. Library rides city site (wacolibrary.org-style alias lubbocklibrary.com). [sweep 2026-07-16, ~218 events]",
   "source": "discovered"
  },
  "TX0216": {
@@ -2357,6 +3221,20 @@
   "note": "communico attend site (162 events in next 14d at activation)",
   "source": "discovered"
  },
+ "TX0247": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.fortbendlibraries.gov/events/feed/ical",
+  "note": "LibraryMarket/LibraryCalendar (Drupal, /events/month?age_groups[..] facets); ical export returns 1655 upcoming VEVENTs. [sweep 2026-07-16, ~1655 events]",
+  "source": "discovered"
+ },
+ "TX0262": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.google.com/calendar/ical/1f7aad715ee66eae3e7868c9398139bbd32945eaca6930918c8fd1f1822ed2cc%40group.calendar.google.com/public/basic.ics",
+  "note": "Events pages embed multiple public Google Calendars per category/branch; Children's Events calendar ICS verified 96 VEVENTs, 9 upcoming. (Additional per-branch/category Google calendars also available.) [sweep 2026-07-16, ~9 events]",
+  "source": "discovered"
+ },
  "TX0263": {
   "vendor": "bibliocommons",
   "status": "detected",
@@ -2368,6 +3246,13 @@
   "status": "active",
   "url": "https://mcallenlibrary.libnet.info",
   "note": "communico attend site (66 events in next 14d at activation)",
+  "source": "discovered"
+ },
+ "UT0019": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://daviscounty.librarymarket.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar linked from daviscountyutah.gov/library (daviscounty.librarymarket.com); iCal verified, 846 VEVENTs this month; month-templated URL. [sweep 2026-07-16, ~846 events]",
   "source": "discovered"
  },
  "UT0048": {
@@ -2396,10 +3281,18 @@
   "note": "communico attend site (127 events in next 14d at activation)",
   "source": "discovered"
  },
+ "VA0004": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://appomattox.librarycalendar.com/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "arls.org links to appomattox.librarycalendar.com (LibraryMarket). Month-templated ICS verified BEGIN:VCALENDAR, 196 VEVENTs for 2026-07. [sweep 2026-07-16, ~196 events]",
+  "source": "discovered"
+ },
  "VA0007": {
-  "vendor": "libcal",
-  "status": "detected",
-  "note": "discovered: bedfordlibrary.libcal.com — needs calendar id",
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://bedford.librarycalendar.com/events/feed/ical",
+  "note": "Site links to hosted LibraryMarket instance bedford.librarycalendar.com; iCal export verified with 1432 VEVENTs. [sweep 2026-07-16, ~1432 events]",
   "source": "discovered"
  },
  "VA0014": {
@@ -2409,10 +3302,25 @@
   "note": "via own-domain link on librarypoint.org (1034 items)",
   "source": "discovered"
  },
+ "VA0017": {
+  "vendor": "communico",
+  "status": "active",
+  "url": "https://events.chesapeakelibrary.org",
+  "note": "Communico (Server: Communico) on own-domain events.chesapeakelibrary.org; eeventcaldata returned 306 events over 30 days. [sweep 2026-07-16, ~306 events]",
+  "source": "discovered"
+ },
  "VA0018": {
   "vendor": "libcal",
-  "status": "detected",
-  "note": "demoted, collision: chesterfield.libcal.com claimed by SC0012, VA0018 — needs manual confirmation",
+  "status": "active",
+  "url": "https://chesterfield.libcal.com/rss.php?m=month&cid=23106",
+  "note": "LibCal linked from chesterfield.gov/library; cid 23106 from body id; verified 300 RSS items [sweep 2026-07-16, ~300 events]",
+  "source": "discovered"
+ },
+ "VA0035": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.handleyregional.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "Self-hosted LibraryMarket LibraryCalendar on own domain; iCal month feed verified 778 VEVENTs for 2026-07. [sweep 2026-07-16, ~778 events]",
   "source": "discovered"
  },
  "VA0036": {
@@ -2508,6 +3416,13 @@
   "status": "active",
   "url": "https://dpnr.vi.gov/?post_type=tribe_events&ical=1&eventDisplay=list",
   "note": "WordPress tribe_events iCal on dpnr.vi.gov (1 events)",
+  "source": "discovered"
+ },
+ "WA0033": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.asotincountylibrary.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar on own domain; iCal verified (165 VEVENTs, month-templated). [sweep 2026-07-16, ~165 events]",
   "source": "discovered"
  },
  "WA0041": {
@@ -2613,6 +3528,13 @@
   "note": "via own-domain link on trl.org (1312 items)",
   "source": "discovered"
  },
+ "WA0072": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.google.com/calendar/ical/c_1761d90fa7f3d4e1ba6fd8fb5c6b681eead733cf4deb3a49c514e0901a597194%40group.calendar.google.com/public/basic.ics",
+  "note": "Stevens County (thelosc.org/events) embeds a public Google Calendar; public .ics verified with 28 VEVENTs. [sweep 2026-07-16, ~28 events]",
+  "source": "discovered"
+ },
  "WI0148": {
   "vendor": "bibliocommons",
   "status": "active",
@@ -2652,6 +3574,27 @@
   "note": "own-domain link: infosoup.bibliocommons.com (feed empty/unverified — possibly WAF)",
   "source": "discovered"
  },
+ "WV0007": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://calendar.google.com/calendar/ical/unn2jkoo6gn2vi41ktg1pnfco8%40group.calendar.google.com/public/basic.ics",
+  "note": "putnamlibrarywv.org embeds a public Google Calendar (id unn2jkoo6gn2vi41ktg1pnfco8@group.calendar.google.com) on /putnam-library-calendar/. Public basic.ics verified: 861 VEVENTs, 18 concrete future-dated instances (plus RRULE recurring). Generic ICS adapter consumable; provenance via own-domain embed. [sweep 2026-07-16, ~18 events]",
+  "source": "discovered"
+ },
+ "WV0009": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://www.kcpls.org/events/feed/ical?_wrapper_format=lc_calendar_feed&current_month={YYYY-MM}",
+  "note": "LibraryMarket LibraryCalendar iCal on own domain (Drupal 11); verified 518 VEVENTs [sweep 2026-07-16, ~518 events]",
+  "source": "discovered"
+ },
+ "WV0020": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://parkwoodlib.com/events/?ical=1",
+  "note": "WordPress The Events Calendar (wp-events-plugin.com); iCal verified (50 VEVENTs). [sweep 2026-07-16, ~50 events]",
+  "source": "discovered"
+ },
  "WV0023": {
   "vendor": "libcal",
   "status": "active",
@@ -2677,6 +3620,13 @@
   "status": "active",
   "url": "https://fayette.lib.wv.us/?post_type=tribe_events&ical=1&eventDisplay=list",
   "note": "WordPress tribe_events iCal on fayette.lib.wv.us (30 events)",
+  "source": "discovered"
+ },
+ "WV0088": {
+  "vendor": "ical",
+  "status": "active",
+  "url": "https://lincolib.org/?mec-ical-feed=1",
+  "note": "WordPress Modern Events Calendar; iCal feed verified (49 VEVENTs). /events/?ical=1 is HTML; mec-ical-feed is the working export. [sweep 2026-07-16, ~49 events]",
   "source": "discovered"
  },
  "WY0004": {
