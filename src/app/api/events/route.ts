@@ -4,13 +4,13 @@ import {
   AGE_GROUPS,
   DEFAULT_EVENT_RANGE_DAYS,
   EVENT_TYPES,
+  MAX_LIBRARIES_PER_REQUEST,
 } from "@/lib/constants";
 import { getEventProvider, hasCalendarFeed } from "@/lib/events";
 import { filterEvents } from "@/lib/filterEvents";
 
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
 const MAX_RANGE_DAYS = 60;
-const MAX_LIBRARIES_PER_REQUEST = 20;
 
 const querySchema = z.object({
   libraryIds: z

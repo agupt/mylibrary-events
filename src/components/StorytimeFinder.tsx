@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { MAX_LIBRARIES_PER_REQUEST } from "@/lib/constants";
 import { dateRangeForPreset } from "@/lib/datePresets";
 import { filterEvents } from "@/lib/filterEvents";
 import type { Library, LocationMatch, StorytimeEvent } from "@/lib/types";
@@ -18,15 +19,8 @@ const NO_FILTERS: ActiveFilters = {
   datePreset: "any",
 };
 
-/** null = the nearest five; a number = every library within that many miles. */
-type Radius = number | null;
-
-const RADIUS_OPTIONS: Array<{ value: Radius; label: string }> = [
-  { value: null, label: "Nearest 5" },
-  { value: 10, label: "Within 10 mi" },
-  { value: 25, label: "Within 25 mi" },
-  { value: 50, label: "Within 50 mi" },
-];
+const DEFAULT_RADIUS = 10;
+const RADIUS_OPTIONS = [5, 10, 25, 50] as const;
 
 interface ApiEnvelope<T> {
   success: boolean;
@@ -43,27 +37,33 @@ async function fetchJson<T>(url: string): Promise<T> {
   return body.data;
 }
 
-function RadiusControl({ value, onChange }: { value: Radius; onChange: (r: Radius) => void }) {
+function DistanceControl({
+  value,
+  onChange,
+}: {
+  value: number;
+  onChange: (miles: number) => void;
+}) {
   return (
-    <label className="relative">
-      <span className="sr-only">Search radius</span>
-      <select
-        value={value === null ? "" : String(value)}
-        onChange={(event) =>
-          onChange(event.target.value === "" ? null : Number(event.target.value))
-        }
-        className="appearance-none rounded-lg border border-slate-200 bg-white/90 py-1 pl-2.5 pr-7 text-xs font-medium shadow-sm outline-none transition focus:border-violet-400 focus:ring-2 focus:ring-violet-100 dark:border-slate-700 dark:bg-slate-800/90 dark:focus:border-violet-500"
-      >
-        {RADIUS_OPTIONS.map((option) => (
-          <option key={option.label} value={option.value === null ? "" : option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-      <span aria-hidden className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-slate-400">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-          <path d="m6 9 6 6 6-6" />
-        </svg>
+    <label className="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-300">
+      <span className="whitespace-nowrap">Within</span>
+      <span className="relative">
+        <select
+          value={value}
+          onChange={(event) => onChange(Number(event.target.value))}
+          className="appearance-none rounded-lg border border-violet-200 bg-violet-50/80 py-1.5 pl-2.5 pr-7 text-xs font-semibold text-violet-700 shadow-sm outline-none transition focus:border-violet-400 focus:ring-2 focus:ring-violet-100 dark:border-violet-800 dark:bg-violet-950/40 dark:text-violet-300"
+        >
+          {RADIUS_OPTIONS.map((miles) => (
+            <option key={miles} value={miles}>
+              {miles} miles
+            </option>
+          ))}
+        </select>
+        <span aria-hidden className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-violet-400">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </span>
       </span>
     </label>
   );
@@ -71,12 +71,14 @@ function RadiusControl({ value, onChange }: { value: Radius; onChange: (r: Radiu
 
 export function StorytimeFinder() {
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingEvents, setIsLoadingEvents] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [match, setMatch] = useState<LocationMatch | null>(null);
   const [events, setEvents] = useState<StorytimeEvent[]>([]);
   const [libraryIdsWithoutFeed, setLibraryIdsWithoutFeed] = useState<string[]>([]);
   const [filters, setFilters] = useState<ActiveFilters>(NO_FILTERS);
-  const [radius, setRadius] = useState<Radius>(null);
+  const [radius, setRadius] = useState<number>(DEFAULT_RADIUS);
+  const fetchSeq = useRef(0);
 
   const handleSearch = useCallback(async (query: string) => {
     setIsLoading(true);
@@ -85,22 +87,10 @@ export function StorytimeFinder() {
       const location = await fetchJson<LocationMatch>(
         `/api/location?q=${encodeURIComponent(query)}`,
       );
-      // Fetch events for the home library and every returned nearby library
-      // (the API caps at 20 ids); the radius control then narrows the view
-      // client-side without another round-trip.
-      const libraryIds = [
-        location.homeLibrary.id,
-        ...location.nearbyLibraries.map((entry) => entry.library.id),
-      ];
-      const calendar = await fetchJson<{
-        events: StorytimeEvent[];
-        libraryIdsWithoutFeed: string[];
-      }>(`/api/events?libraryIds=${libraryIds.join(",")}`);
       setMatch(location);
-      setEvents(calendar.events);
-      setLibraryIdsWithoutFeed(calendar.libraryIdsWithoutFeed);
+      setEvents([]);
       setFilters(NO_FILTERS);
-      setRadius(null);
+      setRadius(DEFAULT_RADIUS);
     } catch (caught) {
       setMatch(null);
       setEvents([]);
@@ -115,17 +105,46 @@ export function StorytimeFinder() {
     }
   }, []);
 
-  // Nearby libraries within the chosen radius (or the nearest five by default).
-  const nearbyInScope = useMemo(() => {
-    if (!match) return [];
-    if (radius === null) return match.nearbyLibraries.slice(0, 5);
-    return match.nearbyLibraries.filter((entry) => entry.distanceMiles <= radius);
+  // Libraries within the chosen radius (home always included), bounded by the
+  // events API's request cap.
+  const scopeLibraries = useMemo(() => {
+    if (!match) return [] as Library[];
+    const withinRadius = match.nearbyLibraries
+      .filter((entry) => entry.distanceMiles <= radius)
+      .map((entry) => entry.library);
+    return [match.homeLibrary, ...withinRadius].slice(0, MAX_LIBRARIES_PER_REQUEST);
   }, [match, radius]);
 
-  const scopeLibraries = useMemo(
-    () => (match ? [match.homeLibrary, ...nearbyInScope.map((entry) => entry.library)] : []),
-    [match, nearbyInScope],
-  );
+  const nearbyInScope = useMemo(() => {
+    if (!match) return [];
+    const scopeIds = new Set(scopeLibraries.map((l) => l.id));
+    return match.nearbyLibraries.filter((entry) => scopeIds.has(entry.library.id));
+  }, [match, scopeLibraries]);
+
+  // Fetch events for every in-scope library whenever the location or radius
+  // changes; a sequence guard drops responses from superseded requests.
+  useEffect(() => {
+    if (!match || scopeLibraries.length === 0) return;
+    const ids = scopeLibraries.map((library) => library.id);
+    const seq = (fetchSeq.current += 1);
+    setIsLoadingEvents(true);
+    fetchJson<{ events: StorytimeEvent[]; libraryIdsWithoutFeed: string[] }>(
+      `/api/events?libraryIds=${ids.join(",")}`,
+    )
+      .then((calendar) => {
+        if (seq !== fetchSeq.current) return;
+        setEvents(calendar.events);
+        setLibraryIdsWithoutFeed(calendar.libraryIdsWithoutFeed);
+      })
+      .catch(() => {
+        if (seq !== fetchSeq.current) return;
+        setEvents([]);
+        setLibraryIdsWithoutFeed([]);
+      })
+      .finally(() => {
+        if (seq === fetchSeq.current) setIsLoadingEvents(false);
+      });
+  }, [match, scopeLibraries]);
 
   const librariesById = useMemo(() => {
     const all: Library[] = match
@@ -182,7 +201,6 @@ export function StorytimeFinder() {
               matchedCity={match.matchedCity}
               matchedState={match.matchedState}
               nearbyLibraries={nearbyInScope}
-              radiusControl={<RadiusControl value={radius} onChange={setRadius} />}
             />
             {/* House / AdSense slot lives here so widening the radius never
                 shifts it out of view. */}
@@ -191,11 +209,16 @@ export function StorytimeFinder() {
 
           <section aria-label="Upcoming events" className="space-y-3">
             <div className="sticky top-0 z-20 -mx-1 space-y-2 rounded-xl border border-slate-200/70 bg-white/85 px-3 py-3 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-950/85">
-              <div className="flex items-baseline justify-between px-0.5">
-                <h3 className="text-base font-bold">Upcoming events</h3>
-                <span className="text-xs text-slate-500 dark:text-slate-400">
-                  {visibleEvents.length} shown
-                </span>
+              <div className="flex flex-wrap items-center justify-between gap-2 px-0.5">
+                <div className="flex items-baseline gap-2">
+                  <h3 className="text-base font-bold">Upcoming events</h3>
+                  <span className="text-xs text-slate-500 dark:text-slate-400">
+                    {isLoadingEvents
+                      ? "loading…"
+                      : `${visibleEvents.length} at ${scopeLibraries.length} ${scopeLibraries.length === 1 ? "library" : "libraries"}`}
+                  </span>
+                </div>
+                <DistanceControl value={radius} onChange={setRadius} />
               </div>
               <EventFilterBar
                 libraries={scopeLibraries}

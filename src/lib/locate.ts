@@ -1,4 +1,4 @@
-import { MAX_NEARBY_LIBRARIES } from "./constants";
+import { MAX_NEARBY_LIBRARIES, MAX_RADIUS_MILES } from "./constants";
 import { getAllLibraries } from "./data/directory";
 import { lookupCity, lookupZip, type PlaceInfo } from "./data/zipLookup";
 import { haversineMiles } from "./geo";
@@ -58,10 +58,15 @@ function buildMatch(
         entry.library.state === place.state,
     )?.library ?? ranked[0].library;
 
-  // Return a deep list with distances; the client widens the visible radius
-  // from these without another request (events API caps at 20 ids total).
+  // Every library within the max radius (capped), with distances, so the
+  // client's distance control can include far-away libraries — not just the
+  // nearest few — when the user widens the radius.
   const nearbyLibraries = ranked
-    .filter((entry) => entry.library.id !== homeLibrary.id)
+    .filter(
+      (entry) =>
+        entry.library.id !== homeLibrary.id &&
+        entry.distanceMiles <= MAX_RADIUS_MILES,
+    )
     .slice(0, MAX_NEARBY_LIBRARIES);
 
   return {
