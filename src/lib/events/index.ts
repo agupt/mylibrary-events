@@ -10,6 +10,7 @@ import { createFlpProvider } from "./custom/flpProvider";
 import { createSfplProvider } from "./custom/sfplProvider";
 import { createCivicPlusProvider } from "./custom/civicPlusProvider";
 import { createOpenCitiesProvider } from "./custom/openCitiesProvider";
+import { createMyLibraryDigitalProvider } from "./custom/myLibraryDigitalProvider";
 import { createIcsProvider } from "./libcal/provider";
 import { createLibcalRssProvider } from "./libcal/rssProvider";
 import { createSnapshotProvider } from "./snapshot/provider";
@@ -167,6 +168,16 @@ function createCompositeProvider(): EventProvider {
         persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("opencities"))),
+    },
+    {
+      // mylibrary.digital — Cloudflare-exempt /rss (app itself is walled)
+      provider: createMyLibraryDigitalProvider({
+        feeds: activeFeedsByVendor("mylibrarydigital"),
+        fetchText,
+        findLibraryById,
+        persistDir: PERSIST_DIR,
+      }),
+      systemKeys: new Set(Object.keys(activeFeedsByVendor("mylibrarydigital"))),
     },
     {
       // Bot-walled sites served from cron-scraped snapshots (NYPL)

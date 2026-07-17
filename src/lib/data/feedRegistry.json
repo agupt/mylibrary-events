@@ -164,6 +164,14 @@
     "source": "verified",
     "verifiedAt": "2026-07"
   },
+  "CA0002": {
+    "vendor": "mylibrarydigital",
+    "status": "active",
+    "url": "https://alamedafree.events.mylibrary.digital/rss",
+    "note": "Alameda Free Library — mylibrary.digital Cloudflare-exempt /rss (found by Amool 2026-07-16); date parsed from description, main-outlet attribution",
+    "source": "verified",
+    "verifiedAt": "2026-07"
+  },
   "CA0007": {
     "vendor": "libcal",
     "status": "active",
