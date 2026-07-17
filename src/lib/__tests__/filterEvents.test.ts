@@ -77,4 +77,16 @@ describe("filterEvents", () => {
     filterEvents(EVENTS, { ageGroup: "baby" });
     expect(EVENTS).toEqual(copy);
   });
+
+  test("filters by inclusive date range on the event's start day", () => {
+    expect(
+      filterEvents(EVENTS, { dateStart: "2026-07-15", dateEnd: "2026-07-15" }).map((e) => e.id),
+    ).toEqual(["2"]);
+    expect(
+      filterEvents(EVENTS, { dateStart: "2026-07-15" }).map((e) => e.id),
+    ).toEqual(["2", "3"]);
+    expect(
+      filterEvents(EVENTS, { dateEnd: "2026-07-14" }).map((e) => e.id),
+    ).toEqual(["1"]);
+  });
 });

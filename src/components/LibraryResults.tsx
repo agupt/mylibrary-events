@@ -1,9 +1,14 @@
 "use client";
 
-import type { LocationMatch } from "@/lib/types";
+import type { Library, LibraryDistance } from "@/lib/types";
 
 interface LibraryResultsProps {
-  match: LocationMatch;
+  homeLibrary: Library;
+  matchedCity: string;
+  matchedState: string;
+  nearbyLibraries: LibraryDistance[];
+  /** Radius selector rendered beside the "Nearby libraries" heading. */
+  radiusControl?: React.ReactNode;
 }
 
 function WebsiteLink({ href }: { href: string }) {
@@ -22,7 +27,13 @@ function WebsiteLink({ href }: { href: string }) {
   );
 }
 
-export function LibraryResults({ match }: LibraryResultsProps) {
+export function LibraryResults({
+  homeLibrary,
+  matchedCity,
+  matchedState,
+  nearbyLibraries,
+  radiusControl,
+}: LibraryResultsProps) {
   return (
     <section aria-label="Matched libraries" className="space-y-4">
       <div className="relative overflow-hidden rounded-2xl border border-violet-200/80 bg-white/80 p-5 shadow-lg shadow-violet-100/50 backdrop-blur dark:border-violet-800/60 dark:bg-slate-800/80 dark:shadow-none">
@@ -31,28 +42,32 @@ export function LibraryResults({ match }: LibraryResultsProps) {
           className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-violet-500 via-fuchsia-500 to-amber-400"
         />
         <p className="text-xs font-semibold uppercase tracking-wider text-violet-600 dark:text-violet-400">
-          Your home library · {match.matchedCity}, {match.matchedState}
+          Your home library · {matchedCity}, {matchedState}
         </p>
         <div className="mt-1 flex flex-wrap items-baseline justify-between gap-2">
-          <h2 className="text-xl font-bold">{match.homeLibrary.name}</h2>
-          {match.homeLibrary.websiteUrl && (
-            <WebsiteLink href={match.homeLibrary.websiteUrl} />
-          )}
+          <h2 className="text-xl font-bold">{homeLibrary.name}</h2>
+          {homeLibrary.websiteUrl && <WebsiteLink href={homeLibrary.websiteUrl} />}
         </div>
         <p className="mt-0.5 text-sm text-slate-600 dark:text-slate-400">
-          {match.homeLibrary.system} — {match.homeLibrary.address},{" "}
-          {match.homeLibrary.city}, {match.homeLibrary.state}{" "}
-          {match.homeLibrary.zipCode}
+          {homeLibrary.system} — {homeLibrary.address}, {homeLibrary.city},{" "}
+          {homeLibrary.state} {homeLibrary.zipCode}
         </p>
       </div>
 
-      {match.nearbyLibraries.length > 0 && (
-        <div>
-          <h3 className="mb-2 px-1 text-sm font-semibold text-slate-700 dark:text-slate-300">
+      <div>
+        <div className="mb-2 flex flex-wrap items-center justify-between gap-2 px-1">
+          <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300">
             Nearby libraries
           </h3>
-          <ul className="grid gap-2 sm:grid-cols-2">
-            {match.nearbyLibraries.map(({ library, distanceMiles }) => (
+          {radiusControl}
+        </div>
+        {nearbyLibraries.length === 0 ? (
+          <p className="rounded-xl border border-dashed border-slate-300 px-3 py-2 text-xs text-slate-500 dark:border-slate-700 dark:text-slate-400">
+            No other libraries in range — widen the distance to see more.
+          </p>
+        ) : (
+          <ul className="grid gap-2">
+            {nearbyLibraries.map(({ library, distanceMiles }) => (
               <li
                 key={library.id}
                 className="group rounded-xl border border-slate-200/80 bg-white/70 p-3.5 backdrop-blur transition hover:-translate-y-0.5 hover:border-violet-300 hover:shadow-md dark:border-slate-700 dark:bg-slate-800/70 dark:hover:border-violet-700"
@@ -74,8 +89,8 @@ export function LibraryResults({ match }: LibraryResultsProps) {
               </li>
             ))}
           </ul>
-        </div>
-      )}
+        )}
+      </div>
     </section>
   );
 }

@@ -1,8 +1,9 @@
 "use client";
 
 import { useCallback, useMemo, useState } from "react";
+import { dateRangeForPreset } from "@/lib/datePresets";
 import { filterEvents } from "@/lib/filterEvents";
-import type { LocationMatch, StorytimeEvent } from "@/lib/types";
+import type { Library, LocationMatch, StorytimeEvent } from "@/lib/types";
 import { AdSlot } from "./AdSlot";
 import type { ActiveFilters } from "./EventFilterBar";
 import { EventFilterBar } from "./EventFilterBar";
@@ -10,7 +11,22 @@ import { EventList } from "./EventList";
 import { LibraryResults } from "./LibraryResults";
 import { SearchForm } from "./SearchForm";
 
-const NO_FILTERS: ActiveFilters = { ageGroup: "", eventType: "", libraryId: "" };
+const NO_FILTERS: ActiveFilters = {
+  ageGroup: "",
+  eventType: "",
+  libraryId: "",
+  datePreset: "any",
+};
+
+/** null = the nearest five; a number = every library within that many miles. */
+type Radius = number | null;
+
+const RADIUS_OPTIONS: Array<{ value: Radius; label: string }> = [
+  { value: null, label: "Nearest 5" },
+  { value: 10, label: "Within 10 mi" },
+  { value: 25, label: "Within 25 mi" },
+  { value: 50, label: "Within 50 mi" },
+];
 
 interface ApiEnvelope<T> {
   success: boolean;
@@ -27,6 +43,32 @@ async function fetchJson<T>(url: string): Promise<T> {
   return body.data;
 }
 
+function RadiusControl({ value, onChange }: { value: Radius; onChange: (r: Radius) => void }) {
+  return (
+    <label className="relative">
+      <span className="sr-only">Search radius</span>
+      <select
+        value={value === null ? "" : String(value)}
+        onChange={(event) =>
+          onChange(event.target.value === "" ? null : Number(event.target.value))
+        }
+        className="appearance-none rounded-lg border border-slate-200 bg-white/90 py-1 pl-2.5 pr-7 text-xs font-medium shadow-sm outline-none transition focus:border-violet-400 focus:ring-2 focus:ring-violet-100 dark:border-slate-700 dark:bg-slate-800/90 dark:focus:border-violet-500"
+      >
+        {RADIUS_OPTIONS.map((option) => (
+          <option key={option.label} value={option.value === null ? "" : option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+      <span aria-hidden className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-slate-400">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </span>
+    </label>
+  );
+}
+
 export function StorytimeFinder() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -34,6 +76,7 @@ export function StorytimeFinder() {
   const [events, setEvents] = useState<StorytimeEvent[]>([]);
   const [libraryIdsWithoutFeed, setLibraryIdsWithoutFeed] = useState<string[]>([]);
   const [filters, setFilters] = useState<ActiveFilters>(NO_FILTERS);
+  const [radius, setRadius] = useState<Radius>(null);
 
   const handleSearch = useCallback(async (query: string) => {
     setIsLoading(true);
@@ -42,6 +85,9 @@ export function StorytimeFinder() {
       const location = await fetchJson<LocationMatch>(
         `/api/location?q=${encodeURIComponent(query)}`,
       );
+      // Fetch events for the home library and every returned nearby library
+      // (the API caps at 20 ids); the radius control then narrows the view
+      // client-side without another round-trip.
       const libraryIds = [
         location.homeLibrary.id,
         ...location.nearbyLibraries.map((entry) => entry.library.id),
@@ -54,6 +100,7 @@ export function StorytimeFinder() {
       setEvents(calendar.events);
       setLibraryIdsWithoutFeed(calendar.libraryIdsWithoutFeed);
       setFilters(NO_FILTERS);
+      setRadius(null);
     } catch (caught) {
       setMatch(null);
       setEvents([]);
@@ -68,31 +115,38 @@ export function StorytimeFinder() {
     }
   }, []);
 
-  const allLibraries = useMemo(
-    () =>
-      match
-        ? [
-            match.homeLibrary,
-            ...match.nearbyLibraries.map((entry) => entry.library),
-          ]
-        : [],
-    [match],
+  // Nearby libraries within the chosen radius (or the nearest five by default).
+  const nearbyInScope = useMemo(() => {
+    if (!match) return [];
+    if (radius === null) return match.nearbyLibraries.slice(0, 5);
+    return match.nearbyLibraries.filter((entry) => entry.distanceMiles <= radius);
+  }, [match, radius]);
+
+  const scopeLibraries = useMemo(
+    () => (match ? [match.homeLibrary, ...nearbyInScope.map((entry) => entry.library)] : []),
+    [match, nearbyInScope],
   );
 
-  const librariesById = useMemo(
-    () => new Map(allLibraries.map((library) => [library.id, library])),
-    [allLibraries],
-  );
+  const librariesById = useMemo(() => {
+    const all: Library[] = match
+      ? [match.homeLibrary, ...match.nearbyLibraries.map((entry) => entry.library)]
+      : [];
+    return new Map(all.map((library) => [library.id, library]));
+  }, [match]);
 
-  const visibleEvents = useMemo(
-    () =>
-      filterEvents(events, {
-        ageGroup: filters.ageGroup || undefined,
-        eventType: filters.eventType || undefined,
-        libraryIds: filters.libraryId ? [filters.libraryId] : undefined,
-      }),
-    [events, filters],
-  );
+  const scopeIds = useMemo(() => new Set(scopeLibraries.map((l) => l.id)), [scopeLibraries]);
+
+  const visibleEvents = useMemo(() => {
+    const inScopeSelected = filters.libraryId && scopeIds.has(filters.libraryId);
+    return filterEvents(events, {
+      ageGroup: filters.ageGroup || undefined,
+      eventType: filters.eventType || undefined,
+      libraryIds: inScopeSelected ? [filters.libraryId] : [...scopeIds],
+      ...dateRangeForPreset(filters.datePreset),
+    });
+  }, [events, filters, scopeIds]);
+
+  const missingFeedInScope = libraryIdsWithoutFeed.filter((id) => scopeIds.has(id));
 
   return (
     <div className="space-y-6">
@@ -123,31 +177,36 @@ export function StorytimeFinder() {
       {match && (
         <div className="grid gap-6 lg:grid-cols-[minmax(280px,340px)_1fr]">
           <aside className="space-y-4 lg:sticky lg:top-6 lg:self-start">
-            <LibraryResults match={match} />
-            <div className="rounded-2xl border border-slate-200/80 bg-white/70 p-4 backdrop-blur dark:border-slate-700 dark:bg-slate-800/70">
-              <h3 className="mb-2 px-1 text-sm font-semibold text-slate-700 dark:text-slate-300">
-                Filter events
-              </h3>
-              <EventFilterBar
-                libraries={allLibraries}
-                filters={filters}
-                onChange={setFilters}
-              />
-            </div>
+            <LibraryResults
+              homeLibrary={match.homeLibrary}
+              matchedCity={match.matchedCity}
+              matchedState={match.matchedState}
+              nearbyLibraries={nearbyInScope}
+              radiusControl={<RadiusControl value={radius} onChange={setRadius} />}
+            />
+            {/* House / AdSense slot lives here so widening the radius never
+                shifts it out of view. */}
             <AdSlot slot="finder-results" />
           </aside>
 
           <section aria-label="Upcoming events" className="space-y-3">
-            <div className="flex items-baseline justify-between px-1">
-              <h3 className="text-lg font-bold">Upcoming events</h3>
-              <span className="text-xs text-slate-500 dark:text-slate-400">
-                next 2 weeks · {visibleEvents.length} shown
-              </span>
+            <div className="sticky top-0 z-20 -mx-1 space-y-2 rounded-xl border border-slate-200/70 bg-white/85 px-3 py-3 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-950/85">
+              <div className="flex items-baseline justify-between px-0.5">
+                <h3 className="text-base font-bold">Upcoming events</h3>
+                <span className="text-xs text-slate-500 dark:text-slate-400">
+                  {visibleEvents.length} shown
+                </span>
+              </div>
+              <EventFilterBar
+                libraries={scopeLibraries}
+                filters={filters}
+                onChange={setFilters}
+              />
             </div>
-            {libraryIdsWithoutFeed.length > 0 && (
+            {missingFeedInScope.length > 0 && (
               <p className="rounded-xl border border-amber-200/70 bg-amber-50/80 px-3 py-2 text-xs text-amber-800 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-300">
                 No public calendar feed is connected yet for:{" "}
-                {libraryIdsWithoutFeed
+                {missingFeedInScope
                   .map((id) => librariesById.get(id)?.name ?? id)
                   .join(", ")}
                 . Check their websites for events.

@@ -66,4 +66,7 @@ export interface EventFilters {
   ageGroup?: AgeGroup;
   eventType?: EventType;
   libraryIds?: string[];
+  /** Inclusive local date bounds "YYYY-MM-DD"; compared against the event's start day. */
+  dateStart?: string;
+  dateEnd?: string;
 }

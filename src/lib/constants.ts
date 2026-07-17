@@ -21,4 +21,10 @@ export const AGE_GROUPS = Object.keys(AGE_GROUP_LABELS) as AgeGroup[];
 export const EVENT_TYPES = Object.keys(EVENT_TYPE_LABELS) as EventType[];
 
 export const NEARBY_LIBRARY_LIMIT = 5;
+/**
+ * How many nearby libraries the locator returns. The events API caps a
+ * request at 20 library ids (home + 19), so we return up to 19 and let the
+ * client widen the visible radius without a second round-trip.
+ */
+export const MAX_NEARBY_LIBRARIES = 19;
 export const DEFAULT_EVENT_RANGE_DAYS = 14;

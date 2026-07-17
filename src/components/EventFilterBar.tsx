@@ -1,12 +1,14 @@
 "use client";
 
 import { AGE_GROUP_LABELS, EVENT_TYPE_LABELS } from "@/lib/constants";
+import { DATE_PRESETS, type DatePresetKey } from "@/lib/datePresets";
 import type { AgeGroup, EventType, Library } from "@/lib/types";
 
 export interface ActiveFilters {
   ageGroup: AgeGroup | "";
   eventType: EventType | "";
   libraryId: string | "";
+  datePreset: DatePresetKey;
 }
 
 interface EventFilterBarProps {
@@ -16,7 +18,7 @@ interface EventFilterBarProps {
 }
 
 const selectClass =
-  "w-full appearance-none rounded-xl border border-slate-200 bg-white/90 py-2 pl-3 pr-8 text-sm font-medium shadow-sm outline-none backdrop-blur transition focus:border-violet-400 focus:ring-2 focus:ring-violet-100 dark:border-slate-700 dark:bg-slate-800/90 dark:focus:border-violet-500 dark:focus:ring-violet-500/20";
+  "w-full appearance-none rounded-xl border border-slate-200 bg-white/90 py-2 pl-3 pr-8 text-sm font-medium shadow-sm outline-none transition focus:border-violet-400 focus:ring-2 focus:ring-violet-100 dark:border-slate-700 dark:bg-slate-800/90 dark:focus:border-violet-500 dark:focus:ring-violet-500/20";
 
 function Chevron() {
   return (
@@ -31,6 +33,22 @@ function Chevron() {
   );
 }
 
+function Field({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <label className="relative block min-w-0 flex-1 sm:min-w-[9rem]">
+      <span className="sr-only">{label}</span>
+      {children}
+      <Chevron />
+    </label>
+  );
+}
+
 export function EventFilterBar({
   libraries,
   filters,
@@ -38,12 +56,27 @@ export function EventFilterBar({
 }: EventFilterBarProps) {
   return (
     <div
-      className="grid grid-cols-1 gap-2"
+      className="flex flex-wrap gap-2"
       role="group"
       aria-label="Event filters"
     >
-      <label className="relative block">
-        <span className="sr-only">Age group</span>
+      <Field label="When">
+        <select
+          className={selectClass}
+          value={filters.datePreset}
+          onChange={(event) =>
+            onChange({ ...filters, datePreset: event.target.value as DatePresetKey })
+          }
+        >
+          {DATE_PRESETS.map((preset) => (
+            <option key={preset.key} value={preset.key}>
+              {preset.label}
+            </option>
+          ))}
+        </select>
+      </Field>
+
+      <Field label="Age group">
         <select
           className={selectClass}
           value={filters.ageGroup}
@@ -58,11 +91,9 @@ export function EventFilterBar({
             </option>
           ))}
         </select>
-        <Chevron />
-      </label>
+      </Field>
 
-      <label className="relative block">
-        <span className="sr-only">Event type</span>
+      <Field label="Event type">
         <select
           className={selectClass}
           value={filters.eventType}
@@ -77,11 +108,9 @@ export function EventFilterBar({
             </option>
           ))}
         </select>
-        <Chevron />
-      </label>
+      </Field>
 
-      <label className="relative block">
-        <span className="sr-only">Library</span>
+      <Field label="Library">
         <select
           className={selectClass}
           value={filters.libraryId}
@@ -96,8 +125,7 @@ export function EventFilterBar({
             </option>
           ))}
         </select>
-        <Chevron />
-      </label>
+      </Field>
     </div>
   );
 }
