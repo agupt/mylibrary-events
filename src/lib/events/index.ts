@@ -72,6 +72,20 @@ function findLibraryById(id: string): Library | undefined {
   return librariesById.get(id);
 }
 
+let outletCountBySystem: Map<string, number> | null = null;
+
+/** How many IMLS outlets a system (FSCSKEY) has — 1 means no branch ambiguity. */
+function outletCountForSystem(systemKey: string): number {
+  if (outletCountBySystem === null) {
+    outletCountBySystem = new Map();
+    for (const library of getAllLibraries()) {
+      const key = library.id.split("-")[0];
+      outletCountBySystem.set(key, (outletCountBySystem.get(key) ?? 0) + 1);
+    }
+  }
+  return outletCountBySystem.get(systemKey) ?? 0;
+}
+
 /**
  * Routes each requested library to its system's vendor adapter
  * (BiblioCommons RSS or LibCal/generic iCal) and merges the results.
@@ -96,6 +110,7 @@ function createCompositeProvider(): EventProvider {
         feeds: activeFeedsByVendor("libcal"),
         fetchText,
         findLibraryById,
+        outletCountForSystem,
         persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("libcal"))),

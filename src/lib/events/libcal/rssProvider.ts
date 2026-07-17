@@ -10,6 +10,13 @@ export interface LibcalRssProviderDeps {
   feeds: Record<string, string>;
   fetchText: (url: string) => Promise<string>;
   findLibraryById: (id: string) => Library | undefined;
+  /**
+   * Total IMLS outlets in a system. Single-outlet systems have no branch
+   * ambiguity, so a departmental libcal:campus ("Youth Services") that
+   * matches no outlet name must NOT drop the event — it can only belong to
+   * the one outlet. Omitted → treated as multi-outlet (drop on mismatch).
+   */
+  outletCountForSystem?: (systemKey: string) => number;
   cacheTtlMs?: number;
   now?: () => number;
   persistDir?: string;
@@ -94,6 +101,10 @@ export function createLibcalRssProvider(deps: LibcalRssProviderDeps): EventProvi
           const mainOutlet = [...libraries].sort((a, b) =>
             a.id.localeCompare(b.id),
           )[0];
+          // Single-outlet systems put departments/rooms in libcal:campus
+          // ("Youth Services"), never a branch name — so a campus mismatch
+          // must not drop the event; it can only belong to the one outlet.
+          const isSingleOutlet = deps.outletCountForSystem?.(systemKey) === 1;
           // IMLS convention: FSCS sequence 002 is the system's central
           // outlet. LibCal often names it just "Central Library" or
           // "Main Library", which shares no words with the IMLS name
@@ -103,7 +114,8 @@ export function createLibcalRssProvider(deps: LibcalRssProviderDeps): EventProvi
           );
           return feedEvents
             // LibCal has no cancelled flag in RSS — staff prefix titles
-            .filter((event) => !/^\s*cancell?ed\b/i.test(event.title))
+            // with "CANCELLED"; internal programs with "STAFF ONLY".
+            .filter((event) => !/^\s*(cancell?ed|staff only)\b/i.test(event.title))
             .filter((event) => {
               const start = Date.parse(event.startTime);
               return start >= range.start.getTime() && start < range.end.getTime();
@@ -115,7 +127,7 @@ export function createLibcalRssProvider(deps: LibcalRssProviderDeps): EventProvi
                   ? centralOutlet
                   : undefined);
               const hasCampusData = event.campus.length > 0;
-              if (hasCampusData && !branch) {
+              if (hasCampusData && !branch && !isSingleOutlet) {
                 return null; // belongs to a branch the user didn't select
               }
               return toStorytimeEvent(event, (branch ?? mainOutlet).id);
