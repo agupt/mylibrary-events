@@ -501,10 +501,11 @@
   },
   "CA0143": {
     "vendor": "libcal",
-    "status": "detected",
-    "note": "sunnyvale.libcal.com — needs calendar id",
+    "status": "active",
+    "url": "https://sunnyvale.libcal.com/rss.php?m=month&cid=13025",
+    "note": "sunnyvale.libcal.com cid=13025 RSS month; ~35 upcoming kids events. BiblioCommons events feature is DISABLED here (gateway 403, catalog SPA events.enabled=false, /events/rss/all empty) — LibCal is the real source. [verified 2026-07-16]",
     "source": "verified",
-    "verifiedAt": "2026-07"
+    "verifiedAt": "2026-07-16"
   },
   "CA0152": {
     "vendor": "ical",

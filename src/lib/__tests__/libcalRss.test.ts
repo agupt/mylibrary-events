@@ -138,4 +138,69 @@ describe("createLibcalRssProvider", () => {
     const storytime = events.find((e) => e.id === "333");
     expect(storytime?.libraryId).toBe(central.id);
   });
+
+  // Single-outlet systems (e.g. Sunnyvale CA0143) tag events with a
+  // department in libcal:campus ("Youth Services"), never a branch name.
+  const SINGLE_OUTLET_RSS = `<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:libcal="https://www.springshare.com/libcal/">
+<channel>
+<title>Events - Sunnyvale Public Library</title>
+<item>
+<title>Baby Lapsit &#x26; Playtime</title>
+<link>https://sunnyvale.libcal.com/event/900</link>
+<libcal:eventid>900</libcal:eventid>
+<libcal:date>2026-07-16</libcal:date>
+<libcal:start>10:30:00</libcal:start>
+<libcal:end>12:00:00</libcal:end>
+<libcal:audience>Children</libcal:audience>
+<libcal:campus>Youth Services</libcal:campus>
+<category>Storytime</category>
+</item>
+<item>
+<title>STAFF ONLY: Sewing Party</title>
+<link>https://sunnyvale.libcal.com/event/901</link>
+<libcal:eventid>901</libcal:eventid>
+<libcal:date>2026-07-17</libcal:date>
+<libcal:start>12:00:00</libcal:start>
+<libcal:end>13:00:00</libcal:end>
+<category>Meeting</category>
+</item>
+</channel>
+</rss>`;
+
+  const SUNNYVALE: Library = {
+    ...RICE,
+    id: "CA0143-002",
+    name: "Sunnyvale Public Library",
+  };
+
+  function buildSingleOutletProvider() {
+    return createLibcalRssProvider({
+      feeds: { CA0143: "https://sunnyvale.libcal.com/rss.php?m=month&cid=13025" },
+      fetchText: vi.fn(async () => SINGLE_OUTLET_RSS),
+      findLibraryById: (id) => (id === SUNNYVALE.id ? SUNNYVALE : undefined),
+      outletCountForSystem: () => 1,
+    });
+  }
+
+  test("keeps departmental-campus events for single-outlet systems", async () => {
+    const events = await buildSingleOutletProvider().getEvents(
+      [SUNNYVALE.id],
+      RANGE,
+    );
+
+    const lapsit = events.find((e) => e.id === "900");
+    expect(lapsit).toBeDefined(); // not dropped despite "Youth Services" campus
+    expect(lapsit?.libraryId).toBe(SUNNYVALE.id);
+    expect(lapsit?.eventType).toBe("storytime");
+  });
+
+  test("drops STAFF ONLY internal events", async () => {
+    const events = await buildSingleOutletProvider().getEvents(
+      [SUNNYVALE.id],
+      RANGE,
+    );
+
+    expect(events.map((e) => e.title)).not.toContain("STAFF ONLY: Sewing Party");
+  });
 });
