@@ -435,10 +435,12 @@
     "source": "discovered"
   },
   "CA0125": {
-    "vendor": "libcal",
-    "status": "detected",
-    "note": "discovered: sccl.libcal.com — needs calendar id",
-    "source": "discovered"
+    "vendor": "civicplus",
+    "status": "active",
+    "url": "https://www.santaclaraca.gov/Home/Components/RssFeeds/RssFeed/View?id=12",
+    "note": "Santa Clara City Library — CivicPlus Library Events feed (id=12, found by Amool 2026-07-16); CENTRAL:/NORTHSIDE: branch prefixes",
+    "source": "verified",
+    "verifiedAt": "2026-07"
   },
   "CA0126": {
     "vendor": "bibliocommons",
@@ -516,6 +518,14 @@
     "url": "https://events.yolocountylibrary.org/rss.php?m=month&cid=21064",
     "note": "LibCal (Springshare) on events.yolocountylibrary.org, calendar id 21064 confirmed via body#calendar_21064; RSS month feed served 272 items. [sweep 2026-07-16, ~272 events]",
     "source": "discovered"
+  },
+  "CA0163": {
+    "vendor": "ical",
+    "status": "active",
+    "url": "https://benicialibrary.org/export-ics",
+    "note": "Benicia Public Library — Solspace Calendar ICS export (found by Amool 2026-07-16); recurring events show next occurrence (no RRULE expansion)",
+    "source": "verified",
+    "verifiedAt": "2026-07"
   },
   "CA0199": {
     "vendor": "libcal",

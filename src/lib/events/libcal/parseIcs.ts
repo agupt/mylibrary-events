@@ -11,6 +11,10 @@ export interface IcsEvent {
   endTime: string;
   /** True when the source used a DATE value (VALUE=DATE / all-day), so the UI shows "All day" instead of a midnight time. */
   isAllDay: boolean;
+  /** Raw RRULE ("FREQ=WEEKLY;BYDAY=TH;…"), if the event recurs. */
+  rrule?: string;
+  /** Excluded occurrence dates (EXDATE), each "YYYYMMDD…". */
+  exdates: string[];
 }
 
 /** RFC 5545 line unfolding: continuation lines start with space/tab. */
@@ -102,6 +106,11 @@ export function parseIcs(ics: string): IcsEvent[] {
             startTime: start.iso,
             endTime: (end ?? start).iso,
             isAllDay: start.isDateOnly,
+            rrule: current.RRULE,
+            exdates: (current.EXDATE ?? "")
+              .split(",")
+              .map((date) => date.trim())
+              .filter(Boolean),
           });
         }
       }

@@ -3,6 +3,7 @@ import { addressesMatch, namesOverlap } from "../nameMatch";
 import { classifyEventType, inferAgeGroupsFromText } from "../classify";
 import type { DateRange, EventProvider } from "../eventProvider";
 import { createFeedCache } from "../feedCache";
+import { expandRecurrence } from "../recurrence";
 import { parseIcs, type IcsEvent } from "./parseIcs";
 
 export interface IcsProviderDeps {
@@ -101,9 +102,30 @@ export function createIcsProvider(deps: IcsProviderDeps): EventProvider {
           const mainOutlet = [...libraries].sort((a, b) =>
             a.id.localeCompare(b.id),
           )[0];
-          const inRange = feedEvents.filter((event) => {
+          // Recurring events (weekly/monthly storytimes) are anchored at the
+          // series' original start — often years back — so expand each into
+          // its concrete occurrences within the window; non-recurring events
+          // pass through if their single start lands in range.
+          const inRange = feedEvents.flatMap((event) => {
+            if (event.rrule) {
+              return expandRecurrence(
+                event.startTime,
+                event.endTime,
+                event.rrule,
+                event.exdates,
+                range.start.getTime(),
+                range.end.getTime(),
+              ).map((occ) => ({
+                ...event,
+                startTime: occ.startTime,
+                endTime: occ.endTime,
+                uid: `${event.uid}:${occ.startTime.slice(0, 10)}`,
+              }));
+            }
             const start = Date.parse(event.startTime);
-            return start >= range.start.getTime() && start < range.end.getTime();
+            return start >= range.start.getTime() && start < range.end.getTime()
+              ? [event]
+              : [];
           });
           // Does this feed's LOCATION field carry branch names at all?
           // Single-building systems (Mountain View) put rooms there

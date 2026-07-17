@@ -57,6 +57,16 @@ describe("civicPlus parsing helpers", () => {
     expect(events[0].branchHint).toBe("Schaberg");
     expect(events[0].startTime).toBe("2026-07-22T10:30:00");
   });
+
+  test("extracts a CAPS: branch prefix (Santa Clara style)", () => {
+    const feed = FEED.replace(
+      "Toddler/Preschool Storytime @ Schaberg (07/22/2026 10:30 AM - 11:00 AM)",
+      "NORTHSIDE: Family Storytime (07/22/2026 10:30 AM - 11:00 AM)",
+    );
+    const events = parseCivicPlusFeed(feed);
+    expect(events[0].branchHint).toBe("NORTHSIDE");
+    expect(events[0].title).toBe("NORTHSIDE: Family Storytime");
+  });
 });
 
 describe("createCivicPlusProvider", () => {

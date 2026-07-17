@@ -60,14 +60,22 @@ export function civicPlusToFloatingIso(value: string): string | null {
   return `${y}-${pad(mo)}-${pad(d)}T${pad(hour)}:${min}:${sec}`;
 }
 
-/** "Toddler Storytime @ Schaberg (07/22/2026 10:30 AM - 11:00 AM)" → title + branch. */
+/**
+ * Extracts the display title and a branch hint from a CivicPlus event title.
+ * Two conventions seen in the wild: an "@ Branch" suffix (Redwood City) and a
+ * "BRANCH:" all-caps prefix (Santa Clara). An unmatched hint just falls back
+ * to the main outlet downstream, so detecting both is safe.
+ *   "Toddler Storytime @ Schaberg (07/22/2026 ...)" → branch "Schaberg"
+ *   "NORTHSIDE: Family Storytime (07/17/2026 ...)"   → branch "NORTHSIDE"
+ */
 function splitTitle(rawTitle: string): { title: string; branchHint: string } {
   // Drop the trailing "(MM/DD/YYYY ...)" date echo CivicPlus appends.
   const withoutDate = rawTitle.replace(/\s*\((?:\d{1,2}\/\d{1,2}\/\d{4})[^)]*\)\s*$/, "").trim();
-  const at = withoutDate.match(/\s+@\s+(.+)$/);
+  const atSuffix = withoutDate.match(/\s+@\s+(.+)$/);
+  const capsPrefix = withoutDate.match(/^([A-Z][A-Z]{2,}(?:\s[A-Z]+)*):\s+/);
   return {
     title: withoutDate,
-    branchHint: at ? at[1].trim() : "",
+    branchHint: atSuffix ? atSuffix[1].trim() : capsPrefix ? capsPrefix[1].trim() : "",
   };
 }
 
