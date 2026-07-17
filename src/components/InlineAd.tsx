@@ -8,16 +8,18 @@ import { AdSlot } from "./AdSlot";
  * page. This keeps Google's "ads need publisher content" policy satisfied and
  * reads as part of the flow rather than a sticky bar.
  *
- * While AdSense is unconfigured it cross-promotes the team's own app
- * (MyBlueBerry, a self-contained no-tracking creative); once
- * NEXT_PUBLIC_ADSENSE_CLIENT is set the same slot serves the AdSense unit.
+ * Until AdSense is actually approved and serving, this slot cross-promotes
+ * the team's own app (MyBlueBerry, a self-contained no-tracking creative).
+ * Flip NEXT_PUBLIC_ADSENSE_ACTIVE=1 once AdSense is live to serve its unit —
+ * a separate flag from NEXT_PUBLIC_ADSENSE_CLIENT (which is set for ads.txt
+ * verification long before ads actually serve, so it can't be the trigger).
  */
 
-const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+const ADSENSE_ACTIVE = process.env.NEXT_PUBLIC_ADSENSE_ACTIVE === "1";
 const HOUSE_AD_TITLE = "MyBlueBerry — a private baby tracker";
 
 export function InlineAd() {
-  if (ADSENSE_CLIENT) {
+  if (ADSENSE_ACTIVE) {
     return (
       <div className="my-2">
         <AdSlot slot="finder-inline" />
