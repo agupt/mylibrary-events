@@ -516,6 +516,14 @@
     "note": "via own-domain link on rivlib.net: rivlib.libcal.com cal 15516 \"Riverside County Library System LibCal: Events\" (300 events)",
     "source": "discovered"
   },
+  "CA0206": {
+    "vendor": "bibliocommons",
+    "status": "active",
+    "url": "https://pleasantonlibrary.bibliocommons.com/events/rss/all",
+    "note": "Pleasanton Public Library — BiblioCommons RSS (found by Amool 2026-07-16)",
+    "source": "verified",
+    "verifiedAt": "2026-07"
+  },
   "CA0210": {
     "vendor": "ical",
     "status": "active",
