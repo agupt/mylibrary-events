@@ -37,7 +37,7 @@ export function BlueberryAd() {
             className="block max-w-full rounded-2xl border-0 shadow-sm md:hidden"
           />
           <iframe
-            src="/ads/ad-728x90.html"
+            src="/ads/ad-728x90-v2.html"
             width={728}
             height={90}
             scrolling="no"
