@@ -8,6 +8,7 @@ export type FeedVendor =
   | "communico"
   | "bklyn"
   | "flp"
+  | "sfpl"
   | "snapshot";
 
 export interface FeedEntry {

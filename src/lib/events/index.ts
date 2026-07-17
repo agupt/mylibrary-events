@@ -7,6 +7,7 @@ import type { DateRange, EventProvider } from "./eventProvider";
 import { createCommunicoProvider } from "./communico/provider";
 import { createBklynProvider } from "./custom/bklynProvider";
 import { createFlpProvider } from "./custom/flpProvider";
+import { createSfplProvider } from "./custom/sfplProvider";
 import { createIcsProvider } from "./libcal/provider";
 import { createLibcalRssProvider } from "./libcal/rssProvider";
 import { createSnapshotProvider } from "./snapshot/provider";
@@ -111,6 +112,16 @@ function createCompositeProvider(): EventProvider {
         persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("flp"))),
+    },
+    {
+      // San Francisco Public Library's Drupal events AJAX endpoint
+      provider: createSfplProvider({
+        feeds: activeFeedsByVendor("sfpl"),
+        fetchText,
+        findLibraryById,
+        persistDir: PERSIST_DIR,
+      }),
+      systemKeys: new Set(Object.keys(activeFeedsByVendor("sfpl"))),
     },
     {
       // Bot-walled sites served from cron-scraped snapshots (NYPL)
