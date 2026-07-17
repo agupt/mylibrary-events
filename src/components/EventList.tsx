@@ -1,7 +1,9 @@
 "use client";
 
+import { Fragment } from "react";
 import { AGE_GROUP_LABELS, EVENT_TYPE_LABELS } from "@/lib/constants";
 import type { EventType, Library, StorytimeEvent } from "@/lib/types";
+import { InlineAd } from "./InlineAd";
 
 interface EventListProps {
   events: StorytimeEvent[];
@@ -57,8 +59,9 @@ export function EventList({ events, librariesById }: EventListProps) {
 
   return (
     <div className="space-y-6">
-      {sortedDays.map(([day, dayEvents]) => (
-        <section key={day} aria-label={dayFormatter.format(new Date(`${day}T12:00:00`))}>
+      {sortedDays.map(([day, dayEvents], dayIndex) => (
+        <Fragment key={day}>
+        <section aria-label={dayFormatter.format(new Date(`${day}T12:00:00`))}>
           <h4 className="mb-2 flex items-center gap-3 px-1 text-sm font-bold text-slate-800 dark:text-slate-200">
             {dayFormatter.format(new Date(`${day}T12:00:00`))}
             <span className="h-px flex-1 bg-gradient-to-r from-slate-200 to-transparent dark:from-slate-700" />
@@ -116,6 +119,8 @@ export function EventList({ events, librariesById }: EventListProps) {
             })}
           </ul>
         </section>
+        {dayIndex === 0 && <InlineAd />}
+        </Fragment>
       ))}
     </div>
   );

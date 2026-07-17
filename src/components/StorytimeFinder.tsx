@@ -5,7 +5,6 @@ import { MAX_LIBRARIES_PER_REQUEST } from "@/lib/constants";
 import { dateRangeForPreset } from "@/lib/datePresets";
 import { filterEvents } from "@/lib/filterEvents";
 import type { Library, LocationMatch, StorytimeEvent } from "@/lib/types";
-import { AdSlot } from "./AdSlot";
 import type { ActiveFilters } from "./EventFilterBar";
 import { EventFilterBar } from "./EventFilterBar";
 import { EventList } from "./EventList";
@@ -213,9 +212,6 @@ export function StorytimeFinder() {
                 }))
               }
             />
-            {/* House / AdSense slot lives here so widening the radius never
-                shifts it out of view. */}
-            <AdSlot slot="finder-results" />
           </aside>
 
           <section aria-label="Upcoming events" className="space-y-3">
