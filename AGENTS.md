@@ -85,6 +85,8 @@ Coverage is reported as a DECISION TREE (per Amool's direction): every system si
 - **NYPL (NY0778)**: needs-scraper. SSR + Imperva; `drupal.nypl.org` JSON:API is open but stale (2022) + beta test data — NOT the production source.
 - **Queens (NY0562)**: needs-scraper. Server-rendered behind F5 WAF ("Request Rejected" on API paths).
 - **Philadelphia (PA0385)**: needs-scraper. Cloudflare 403s all non-browser clients; clean URL taxonomy (`/calendar/age/<x>`, `/calendar/event/<id>`) once past CF.
+- **San Francisco (CA0114)**: SOLVED — adapter `src/lib/events/custom/sfplProvider.ts` (found by Amool, 2026-07-16). Drupal `views/ajax?view_name=events&date-end-after=MM/DD/YYYY&page=N` returns AJAX commands; the `insert` command's `data` is rendered teaser HTML (25/page). The `ajax_page_state[libraries]` token is REQUIRED (stripped → 500), scraped fresh from the `/events` page's inline `drupalSettings` per load. List times carry no AM/PM → library-hours heuristic (9–11 AM, 12–8 PM). Date from the `/events/YYYY/MM/DD/…` URL path; branch from `/locations/<slug>`; audience labels ("Babies, Toddlers or Preschoolers", "Elementary School Age") → age groups.
+- **San Jose (CA0115)** & **Hayward (CA0044)**: config-only. SJPL is BiblioCommons (`sjpl.bibliocommons.com/events/rss/all`); Hayward is LibraryCalendar iCal (`hayward.librarycalendar.com/events/feed/ical`, address-based branch attribution). Both use existing adapters — no code.
 
 Pattern for future metros: open the events page in Chrome DevTools, filter network to xhr/fetch, replicate the data call with curl, verify shape, then adapter (JSON API) or config (known vendor on odd subdomain) or needs-scraper (bot-walled SSR).
 
