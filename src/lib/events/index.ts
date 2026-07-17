@@ -9,6 +9,7 @@ import { createBklynProvider } from "./custom/bklynProvider";
 import { createFlpProvider } from "./custom/flpProvider";
 import { createSfplProvider } from "./custom/sfplProvider";
 import { createCivicPlusProvider } from "./custom/civicPlusProvider";
+import { createOpenCitiesProvider } from "./custom/openCitiesProvider";
 import { createIcsProvider } from "./libcal/provider";
 import { createLibcalRssProvider } from "./libcal/rssProvider";
 import { createSnapshotProvider } from "./snapshot/provider";
@@ -31,6 +32,29 @@ async function fetchText(
   });
   if (!response.ok) {
     throw new Error(`Feed request failed: HTTP ${response.status} for ${url}`);
+  }
+  return response.text();
+}
+
+/** POST JSON and return the response text (OpenCities calendar API). */
+async function postJson(url: string, body: unknown): Promise<string> {
+  const origin = new URL(url).origin;
+  const response = await fetch(url, {
+    method: "POST",
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+    headers: {
+      "content-type": "application/json; charset=utf-8",
+      accept: "application/json",
+      origin,
+      referer: `${origin}/`,
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent":
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/605.1.15",
+    },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) {
+    throw new Error(`POST failed: HTTP ${response.status} for ${url}`);
   }
   return response.text();
 }
@@ -133,6 +157,16 @@ function createCompositeProvider(): EventProvider {
         persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("civicplus"))),
+    },
+    {
+      // OpenCities municipal calendars (POST JSON API, children's calendar)
+      provider: createOpenCitiesProvider({
+        feeds: activeFeedsByVendor("opencities"),
+        postJson,
+        findLibraryById,
+        persistDir: PERSIST_DIR,
+      }),
+      systemKeys: new Set(Object.keys(activeFeedsByVendor("opencities"))),
     },
     {
       // Bot-walled sites served from cron-scraped snapshots (NYPL)

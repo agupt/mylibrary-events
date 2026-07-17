@@ -10,6 +10,7 @@ export type FeedVendor =
   | "flp"
   | "sfpl"
   | "civicplus"
+  | "opencities"
   | "snapshot";
 
 export interface FeedEntry {

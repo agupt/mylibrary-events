@@ -256,6 +256,14 @@
     "note": "via own-domain link on marinlibrary.org (514 items)",
     "source": "discovered"
   },
+  "CA0067": {
+    "vendor": "opencities",
+    "status": "active",
+    "url": "https://www.menlopark.gov/ocapi/calendars/getcalendaritems?calendars=1a422d67-171c-4689-a412-cad851aed437",
+    "note": "Menlo Park Public Library — OpenCities children calendar (found by Amool 2026-07-16); POST JSON, main-outlet attribution",
+    "source": "verified",
+    "verifiedAt": "2026-07"
+  },
   "CA0076": {
     "vendor": "libcal",
     "status": "active",
@@ -466,10 +474,12 @@
     "source": "discovered"
   },
   "CA0137": {
-    "vendor": "bibliocommons",
-    "status": "detected",
-    "note": "discovered run 1: Sonoma County Library (feed empty at probe time)",
-    "source": "discovered"
+    "vendor": "ical",
+    "status": "active",
+    "url": "https://events.sonomalibrary.org/events/feed/ical",
+    "note": "Sonoma County Library — LibraryCalendar iCal (found by Amool 2026-07-16)",
+    "source": "verified",
+    "verifiedAt": "2026-07"
   },
   "CA0143": {
     "vendor": "libcal",
