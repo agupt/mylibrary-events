@@ -272,6 +272,14 @@
     "source": "verified",
     "verifiedAt": "2026-07"
   },
+  "CA0073": {
+    "vendor": "govcal",
+    "status": "active",
+    "url": "https://calendar.countyofmonterey.gov/api/events/GetEventsByDay/CountyofMonterey?ppid=10171&label=MCFL&lat=36.6&lng=-121.6",
+    "note": "Monterey County Free Libraries — county GetEventsByDay API filtered to MCFL label (found by Amool 2026-07-16); branch from Name prefix",
+    "source": "verified",
+    "verifiedAt": "2026-07"
+  },
   "CA0076": {
     "vendor": "libcal",
     "status": "active",
