@@ -9,6 +9,7 @@ export type FeedVendor =
   | "bklyn"
   | "flp"
   | "sfpl"
+  | "civicplus"
   | "snapshot";
 
 export interface FeedEntry {

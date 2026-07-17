@@ -320,6 +320,14 @@
     "note": "communico attend site (57 events in next 14d at activation)",
     "source": "discovered"
   },
+  "CA0101": {
+    "vendor": "civicplus",
+    "status": "active",
+    "url": "https://www.redwoodcity.org/Home/Components/RssFeeds/RssFeed/View?id=4",
+    "note": "Redwood City Public Library — CivicPlus Library Feed (id=4, found by Amool 2026-07-16); structured eventStartDate, @-branch attribution",
+    "source": "verified",
+    "verifiedAt": "2026-07"
+  },
   "CA0102": {
     "vendor": "libcal",
     "status": "active",

@@ -8,6 +8,7 @@ import { createCommunicoProvider } from "./communico/provider";
 import { createBklynProvider } from "./custom/bklynProvider";
 import { createFlpProvider } from "./custom/flpProvider";
 import { createSfplProvider } from "./custom/sfplProvider";
+import { createCivicPlusProvider } from "./custom/civicPlusProvider";
 import { createIcsProvider } from "./libcal/provider";
 import { createLibcalRssProvider } from "./libcal/rssProvider";
 import { createSnapshotProvider } from "./snapshot/provider";
@@ -122,6 +123,16 @@ function createCompositeProvider(): EventProvider {
         persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("sfpl"))),
+    },
+    {
+      // CivicPlus municipal calendars (library-category RSS)
+      provider: createCivicPlusProvider({
+        feeds: activeFeedsByVendor("civicplus"),
+        fetchText,
+        findLibraryById,
+        persistDir: PERSIST_DIR,
+      }),
+      systemKeys: new Set(Object.keys(activeFeedsByVendor("civicplus"))),
     },
     {
       // Bot-walled sites served from cron-scraped snapshots (NYPL)
