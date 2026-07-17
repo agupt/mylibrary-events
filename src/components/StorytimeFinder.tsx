@@ -21,6 +21,9 @@ const NO_FILTERS: ActiveFilters = {
 
 const DEFAULT_RADIUS = 10;
 const RADIUS_OPTIONS = [5, 10, 25, 50] as const;
+// Bump when the /api/location response shape changes, to sidestep any
+// long-lived edge-cached copies of the old shape. (v2: deep nearby list.)
+const LOCATION_API_VERSION = "2";
 
 interface ApiEnvelope<T> {
   success: boolean;
@@ -85,7 +88,7 @@ export function StorytimeFinder() {
     setError(null);
     try {
       const location = await fetchJson<LocationMatch>(
-        `/api/location?q=${encodeURIComponent(query)}`,
+        `/api/location?q=${encodeURIComponent(query)}&v=${LOCATION_API_VERSION}`,
       );
       setMatch(location);
       setEvents([]);

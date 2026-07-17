@@ -33,5 +33,8 @@ export async function GET(request: Request) {
     );
   }
 
-  return apiSuccess(result.match, 86_400); // library geography changes ~annually
+  // Short edge TTL: the geography is static, but a longer cache means a deploy
+  // that changes the response shape (e.g. how many nearby libraries we return)
+  // keeps serving stale data for the whole window. 10 min self-heals fast.
+  return apiSuccess(result.match, 600);
 }
