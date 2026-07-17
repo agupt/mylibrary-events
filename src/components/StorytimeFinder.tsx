@@ -130,6 +130,7 @@ export function StorytimeFinder() {
     if (!match || scopeLibraries.length === 0) return;
     const ids = scopeLibraries.map((library) => library.id);
     const seq = (fetchSeq.current += 1);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- loading flag for a location/radius-driven refetch; cleared in finally()
     setIsLoadingEvents(true);
     fetchJson<{ events: StorytimeEvent[]; libraryIdsWithoutFeed: string[] }>(
       `/api/events?libraryIds=${ids.join(",")}`,
@@ -198,12 +199,19 @@ export function StorytimeFinder() {
 
       {match && (
         <div className="grid gap-6 lg:grid-cols-[minmax(280px,340px)_1fr]">
-          <aside className="space-y-4 lg:sticky lg:top-6 lg:self-start">
+          <aside className="space-y-4 lg:sticky lg:top-6 lg:max-h-[calc(100vh-3rem)] lg:self-start lg:overflow-y-auto lg:pr-1">
             <LibraryResults
               homeLibrary={match.homeLibrary}
               matchedCity={match.matchedCity}
               matchedState={match.matchedState}
               nearbyLibraries={nearbyInScope}
+              selectedLibraryId={filters.libraryId}
+              onSelectLibrary={(id) =>
+                setFilters((current) => ({
+                  ...current,
+                  libraryId: current.libraryId === id ? "" : id,
+                }))
+              }
             />
             {/* House / AdSense slot lives here so widening the radius never
                 shifts it out of view. */}

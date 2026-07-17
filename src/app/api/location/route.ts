@@ -33,8 +33,9 @@ export async function GET(request: Request) {
     );
   }
 
-  // Short edge TTL: the geography is static, but a longer cache means a deploy
-  // that changes the response shape (e.g. how many nearby libraries we return)
-  // keeps serving stale data for the whole window. 10 min self-heals fast.
-  return apiSuccess(result.match, 600);
+  // Geography is static and this response is radius-independent, so cache it
+  // aggressively (24h edge, ~4d stale-while-revalidate). Safe against
+  // response-shape changes because the client appends a version param
+  // (LOCATION_API_VERSION) that busts old-shape entries on deploy.
+  return apiSuccess(result.match, 86_400);
 }
