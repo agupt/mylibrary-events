@@ -1,3 +1,4 @@
+import { BlueberryAd } from "@/components/BlueberryAd";
 import { StorytimeFinder } from "@/components/StorytimeFinder";
 
 export default function Home() {
@@ -50,6 +51,7 @@ export default function Home() {
           </span>
         </div>
       </footer>
+      <BlueberryAd />
     </div>
   );
 }
