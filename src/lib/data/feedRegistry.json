@@ -265,10 +265,12 @@
     "verifiedAt": "2026-07"
   },
   "CA0077": {
-    "vendor": "bibliocommons",
-    "status": "detected",
-    "note": "own-domain link: napalibrary.bibliocommons.com (feed empty/unverified — possibly WAF)",
-    "source": "discovered"
+    "vendor": "communico",
+    "status": "active",
+    "url": "https://napalibrary.libnet.info",
+    "note": "Napa County Library — Communico on libnet.info hosted domain (found by Amool 2026-07-16)",
+    "source": "verified",
+    "verifiedAt": "2026-07"
   },
   "CA0079": {
     "vendor": "libcal",
