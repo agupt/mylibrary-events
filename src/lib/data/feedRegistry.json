@@ -2488,17 +2488,20 @@
     "source": "discovered"
   },
   "NV0008": {
-    "vendor": "bibliocommons",
+    "vendor": "communico",
     "status": "active",
-    "url": "https://lvccld.bibliocommons.com/events/rss/all",
-    "note": "via own-domain link on thelibrarydistrict.org (49 items)",
-    "source": "discovered"
+    "url": "https://events.thelibrarydistrict.org",
+    "note": "Las Vegas-Clark County Library District — Communico on events.thelibrarydistrict.org (found by Amool 2026-07-17; 843 events, replaces empty-location BiblioCommons feed)",
+    "source": "verified",
+    "verifiedAt": "2026-07"
   },
   "NV0012": {
-    "vendor": "libcal",
-    "status": "detected",
-    "note": "demoted, collision: henderson.libcal.com claimed by NC0039, NV0012 — needs manual confirmation",
-    "source": "discovered"
+    "vendor": "communico",
+    "status": "active",
+    "url": "https://henderson.libnet.info",
+    "note": "Henderson District Public Libraries — Communico on libnet.info (found by Amool 2026-07-17; supersedes false libcal collision)",
+    "source": "verified",
+    "verifiedAt": "2026-07"
   },
   "NV0025": {
     "vendor": "libcal",

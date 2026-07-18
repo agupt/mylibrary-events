@@ -65,13 +65,21 @@ export function createBiblioCommonsProvider(deps: BcProviderDeps): EventProvider
 
   return {
     async getEvents(libraryIds: string[], range: DateRange) {
+      // Group requested libraries by system so one feed serves all of a
+      // system's branches and we can pick a main outlet for events the feed
+      // can't pin to a branch.
+      const bySystem = new Map<string, Library[]>();
+      for (const libraryId of libraryIds) {
+        const library = deps.findLibraryById(libraryId);
+        if (!library) continue;
+        const systemKey = systemKeyOf(libraryId);
+        bySystem.set(systemKey, [...(bySystem.get(systemKey) ?? []), library]);
+      }
+
       const results = await Promise.all(
-        libraryIds.map(async (libraryId) => {
-          const feedUrl = deps.feeds[systemKeyOf(libraryId)];
-          const library = deps.findLibraryById(libraryId);
-          if (!feedUrl || !library) {
-            return [];
-          }
+        [...bySystem.entries()].map(async ([systemKey, libraries]) => {
+          const feedUrl = deps.feeds[systemKey];
+          if (!feedUrl) return [];
           let feedEvents: BcFeedEvent[];
           try {
             feedEvents = await getFeedEvents(feedUrl);
@@ -79,14 +87,27 @@ export function createBiblioCommonsProvider(deps: BcProviderDeps): EventProvider
             console.error(`Failed to load events feed ${feedUrl}`, error);
             return [];
           }
+          const mainOutlet = [...libraries].sort((a, b) =>
+            a.id.localeCompare(b.id),
+          )[0];
           return feedEvents
             .filter((event) => !event.isCancelled)
             .filter((event) => {
               const start = Date.parse(event.startTime);
               return start >= range.start.getTime() && start < range.end.getTime();
             })
-            .filter((event) => matchesLibrary(event, library))
-            .map((event) => toStorytimeEvent(event, libraryId))
+            .map((event) => {
+              const branch = libraries.find((library) =>
+                matchesLibrary(event, library),
+              );
+              // A located event at a branch the user didn't select is dropped;
+              // an event with NO location data (some feeds, e.g. LV-Clark
+              // County, leave bc:location empty) can't be pinned to a branch,
+              // so it goes to the main outlet rather than vanishing.
+              const hasLocation = Boolean(event.locationZip || event.locationName);
+              if (!branch && hasLocation) return null;
+              return toStorytimeEvent(event, (branch ?? mainOutlet).id);
+            })
             .filter((event): event is StorytimeEvent => event !== null);
         }),
       );
