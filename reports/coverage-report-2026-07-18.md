@@ -6,9 +6,9 @@ Data: IMLS PLS FY2022 (16,883 library outlets, 9,234 systems), GeoNames (40,979 
 
 | Status | Libraries | Share | Systems |
 |---|---|---|---|
-| Active (live events served) | 5,336 | 31.6% | 850 |
+| Active (live events served) | 5,357 | 31.7% | 851 |
 | Detected (vendor found, needs config) | 336 | 2.0% | 44 |
-| No coverage | 11,211 | 66.4% | 8340 |
+| No coverage | 11,190 | 66.3% | 8339 |
 
 ## Pipeline decision tree — where each system is stuck and who can unblock it
 
@@ -19,8 +19,8 @@ across all systems on that vendor.
 | Branch | Systems | Libraries | Next action |
 |---|---|---|---|
 | never-probed | 7,859 | 8,319 | Not yet examined (small system) — extend findDomains/detectPlatforms coverage |
-| serving | 850 | 5,336 | — (events flowing) |
-| no-platform-found | 434 | 2,596 | Domain read, no known vendor fingerprint — inspect site, identify platform or scope a site scraper |
+| serving | 851 | 5,357 | — (events flowing) |
+| no-platform-found | 433 | 2,575 | Domain read, no known vendor fingerprint — inspect site, identify platform or scope a site scraper |
 | site-unreachable | 54 | 322 | Confirm the domain is right / site is up |
 | feed-empty | 7 | 129 | Instance verified but feed has no items — check for a different public calendar |
 | feed-unverified | 11 | 66 | Re-verify feed (possible WAF block at probe time) |
@@ -40,7 +40,7 @@ claim is made about whether they publish calendars.
 
 | Vendor | Systems | Library outlets |
 |---|---|---|
-| ical | 392 | 1637 |
+| ical | 393 | 1658 |
 | communico | 210 | 1274 |
 | libcal | 208 | 1459 |
 | bibliocommons | 75 | 1039 |
@@ -55,13 +55,13 @@ claim is made about whether they publish calendars.
 
 ## Zip-code analysis (all 40,979 US zips)
 
-- Nearest library has an **active** feed: **13,286 zips (32.4%)**
+- Nearest library has an **active** feed: **13,335 zips (32.5%)**
 - Nearest library is on a **detected** platform: 812 (2.0%)
 - Distance to nearest library: median 2.1 mi, p90 10.0 mi, p99 25.4 mi, max 1816 mi
 - Every zip resolved to a nearest library: yes ✅
 - Analysis runtime: 250 ms (grid-indexed)
 
-## Active systems (850)
+## Active systems (851)
 
 | System | State | Outlets | Vendor |
 |---|---|---|---|
@@ -113,6 +113,7 @@ claim is made about whether they publish calendars.
 | Montgomery County Public Libraries (MD0016) | MD | 21 | communico |
 | Charlotte Mecklenburg Library (NC0045) | NC | 21 | bibliocommons |
 | Ocean County Library (NJ0252) | NJ | 21 | communico |
+| Nashville Public Library (TN0135) | TN | 21 | ical |
 | West Georgia Regional Library (GA0007) | GA | 20 | ical |
 | Kent District Library (MI0182) | MI | 20 | bibliocommons |
 | Dayton Metro Library (OH0063) | OH | 20 | bibliocommons |
@@ -985,7 +986,6 @@ claim is made about whether they publish calendars.
 | Enoch Pratt Free Library (MD0003) | MD | 22 | adapter-needed:localist |
 | Detroit Public Library (MI0083) | MI | 22 | no-platform-found |
 | Shreve Memorial Library (LA0054) | LA | 21 | no-platform-found |
-| Nashville Public Library (TN0135) | TN | 21 | no-platform-found |
 | Saint Louis County Library (MO0036) | MO | 20 | no-platform-found |
 | Central Mississippi Regional Library (MS0006) | MS | 20 | no-platform-found |
 | Genesee District Library (MI0123) | MI | 19 | no-platform-found |
@@ -997,3 +997,4 @@ claim is made about whether they publish calendars.
 | Middle Georgia Regional Library System (GA0004) | GA | 17 | no-platform-found |
 | Louisville Free Public Library (KY0053) | KY | 17 | site-unreachable |
 | Stockton-San Joaquin County Public Library (CA0142) | CA | 16 | no-platform-found |
+| Yakima Valley Regional Library (WA0070) | WA | 16 | site-unreachable |

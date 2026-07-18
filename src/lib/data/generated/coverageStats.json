@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-07-18T05:24:30.991Z",
+  "generatedAt": "2026-07-18T22:37:00.449Z",
   "libraries": {
     "total": 16883,
-    "active": 5336,
+    "active": 5357,
     "detected": 336,
-    "none": 11211
+    "none": 11190
   },
   "systems": {
     "total": 9234,
-    "active": 850,
+    "active": 851,
     "detected": 44,
-    "none": 8340
+    "none": 8339
   },
   "pipeline": [
     {
@@ -21,14 +21,14 @@
     },
     {
       "stage": "serving",
-      "systems": 850,
-      "libraries": 5336,
+      "systems": 851,
+      "libraries": 5357,
       "humanAction": "— (events flowing)"
     },
     {
       "stage": "no-platform-found",
-      "systems": 434,
-      "libraries": 2596,
+      "systems": 433,
+      "libraries": 2575,
       "humanAction": "Domain read, no known vendor fingerprint — inspect site, identify platform or scope a site scraper"
     },
     {
@@ -99,8 +99,8 @@
       "libraries": 1459
     },
     "ical": {
-      "systems": 392,
-      "libraries": 1637
+      "systems": 393,
+      "libraries": 1658
     },
     "communico": {
       "systems": 210,
@@ -523,10 +523,10 @@
     {
       "state": "TN",
       "libraries": 285,
-      "active": 62,
+      "active": 83,
       "detected": 0,
       "zips": 785,
-      "zipsNearActive": 171
+      "zipsNearActive": 220
     },
     {
       "state": "TX",
@@ -675,15 +675,6 @@
       "stage": "no-platform-found"
     },
     {
-      "systemKey": "TN0135",
-      "system": "Nashville Public Library",
-      "state": "TN",
-      "outlets": 21,
-      "status": "none",
-      "vendor": null,
-      "stage": "no-platform-found"
-    },
-    {
       "systemKey": "MO0036",
       "system": "Saint Louis County Library",
       "state": "MO",
@@ -781,12 +772,21 @@
       "status": "none",
       "vendor": null,
       "stage": "no-platform-found"
+    },
+    {
+      "systemKey": "WA0070",
+      "system": "Yakima Valley Regional Library",
+      "state": "WA",
+      "outlets": 16,
+      "status": "none",
+      "vendor": null,
+      "stage": "site-unreachable"
     }
   ],
   "zipAnalysis": {
     "total": 40979,
     "failures": 0,
-    "nearestIsActive": 13286,
+    "nearestIsActive": 13335,
     "nearestIsDetected": 812,
     "nearestDistanceMiles": {
       "median": 2.0860216177145445,

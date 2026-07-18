@@ -30,6 +30,14 @@ function locationMatches(event: IcsEvent, library: Library): boolean {
   );
 }
 
+/** A feed LOCATION naming the system's central library ("Main Library",
+ * "Central Library", "Downtown Library…"). IMLS names the central outlet after
+ * the system (e.g. "Nashville Public Library"), so it won't match by name —
+ * such events belong to the main outlet, not a dropped branch. */
+function isCentralLocation(location: string): boolean {
+  return /^\s*(main|central|downtown)\s+library\b/i.test(location);
+}
+
 function toStorytimeEvent(
   event: IcsEvent,
   libraryId: string,
@@ -160,6 +168,12 @@ export function createIcsProvider(deps: IcsProviderDeps): EventProvider {
                 locationMatches(event, library),
               );
               if (!branch && locationsAreBranches && event.location.length > 0) {
+                // "Main/Central Library" is the central outlet (named after the
+                // system in IMLS, so unmatched here) — keep it; other unmatched
+                // branches are ones the user didn't select, so drop them.
+                if (isCentralLocation(event.location)) {
+                  return toStorytimeEvent(event, mainOutlet.id);
+                }
                 return null;
               }
               return toStorytimeEvent(event, (branch ?? mainOutlet).id);

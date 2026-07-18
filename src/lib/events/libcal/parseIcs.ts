@@ -67,6 +67,37 @@ function parseIcsDate(value: string): IcsInstant | null {
   return null;
 }
 
+/**
+ * Adds an iCal DURATION (ISO 8601, e.g. "PT1H30M", "P1DT2H") to a start
+ * instant, preserving its floating-or-UTC form. Used when a VEVENT carries
+ * DURATION instead of DTEND (Bedework/Nashville do). Returns the start
+ * unchanged when there's no/invalid duration, or null when there's no start.
+ */
+function addDuration(
+  start: IcsInstant | null,
+  duration: string | undefined,
+): IcsInstant | null {
+  if (!start) return null;
+  if (!duration) return start;
+  const match = duration
+    .trim()
+    .match(/^P(?:(\d+)W)?(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?$/);
+  if (!match) return start;
+  const [, w, d, h, mi, s] = match.map((v) => Number(v ?? 0));
+  const seconds = w * 604800 + d * 86400 + h * 3600 + mi * 60 + s;
+  if (seconds === 0) return start;
+  // Treat the wall-clock digits as UTC for the arithmetic so DST never shifts a
+  // fixed-length duration; reattach the original floating/Z form afterward.
+  const hasZulu = start.iso.endsWith("Z");
+  const base = new Date(hasZulu ? start.iso : `${start.iso}Z`);
+  if (Number.isNaN(base.getTime())) return start;
+  const shifted = new Date(base.getTime() + seconds * 1000);
+  return {
+    iso: shifted.toISOString().slice(0, 19) + (hasZulu ? "Z" : ""),
+    isDateOnly: start.isDateOnly,
+  };
+}
+
 const MAX_DESCRIPTION_LENGTH = 280;
 
 /**
@@ -76,16 +107,22 @@ const MAX_DESCRIPTION_LENGTH = 280;
 export function parseIcs(ics: string): IcsEvent[] {
   const events: IcsEvent[] = [];
   let current: Record<string, string> | null = null;
+  // CATEGORIES may repeat across lines (Bedework emits one per tag); the flat
+  // record would keep only the last, so accumulate them separately.
+  let categories: string[] = [];
 
   for (const line of unfoldLines(ics)) {
     if (line === "BEGIN:VEVENT") {
       current = {};
+      categories = [];
       continue;
     }
     if (line === "END:VEVENT") {
       if (current) {
         const start = parseIcsDate(current.DTSTART ?? "");
-        const end = parseIcsDate(current.DTEND ?? current.DTSTART ?? "");
+        const end =
+          (current.DTEND ? parseIcsDate(current.DTEND) : null) ??
+          addDuration(start, current.DURATION);
         const title = unescapeText(current.SUMMARY ?? "").trim();
         if (start && title) {
           events.push({
@@ -96,10 +133,7 @@ export function parseIcs(ics: string): IcsEvent[] {
               .trim()
               .slice(0, MAX_DESCRIPTION_LENGTH),
             location: unescapeText(current.LOCATION ?? "").trim(),
-            categories: unescapeText(current.CATEGORIES ?? "")
-              .split(",")
-              .map((category) => category.trim())
-              .filter(Boolean),
+            categories,
             url: current.URL ?? "",
             startTime: start.iso,
             endTime: (end ?? start).iso,
@@ -113,6 +147,7 @@ export function parseIcs(ics: string): IcsEvent[] {
         }
       }
       current = null;
+      categories = [];
       continue;
     }
     if (current === null) {
@@ -124,7 +159,17 @@ export function parseIcs(ics: string): IcsEvent[] {
     }
     // "DTSTART;TZID=America/Los_Angeles" → property name "DTSTART"
     const name = line.slice(0, separator).split(";")[0].toUpperCase();
-    current[name] = line.slice(separator + 1);
+    const value = line.slice(separator + 1);
+    if (name === "CATEGORIES") {
+      for (const category of unescapeText(value)
+        .split(",")
+        .map((entry) => entry.trim())
+        .filter(Boolean)) {
+        categories.push(category);
+      }
+    } else {
+      current[name] = value;
+    }
   }
   return events;
 }

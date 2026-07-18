@@ -156,6 +156,48 @@ describe("createIcsProvider", () => {
     expect(events.map((e) => e.title)).toEqual(["Toddler Storytime"]);
   });
 
+  test("attributes a 'Main Library' location to the central outlet, not a drop", async () => {
+    const central: Library = {
+      ...MVPL,
+      id: "TN0135-003",
+      name: "Nashville Public Library",
+    };
+    const branch: Library = {
+      ...MVPL,
+      id: "TN0135-013",
+      name: "Hadley Park Branch Library",
+    };
+    const ics = [
+      "BEGIN:VCALENDAR",
+      "BEGIN:VEVENT",
+      "DTSTART:20260715T170000Z",
+      "UID:m-1",
+      "SUMMARY:Preschool Storytime",
+      "LOCATION:Main Library, Childrens Theatre, 2nd Floor",
+      "END:VEVENT",
+      "BEGIN:VEVENT",
+      "DTSTART:20260715T180000Z",
+      "UID:h-1",
+      "SUMMARY:Toddler Storytime",
+      "LOCATION:Hadley Park",
+      "END:VEVENT",
+      "END:VCALENDAR",
+    ].join("\r\n");
+    const provider = createIcsProvider({
+      feeds: { TN0135: "https://events.example.org/ical" },
+      fetchText: vi.fn(async () => ics),
+      findLibraryById: (id) =>
+        id === central.id ? central : id === branch.id ? branch : undefined,
+    });
+
+    const events = await provider.getEvents([central.id, branch.id], RANGE);
+    const byTitle = Object.fromEntries(events.map((e) => [e.title, e.libraryId]));
+    // "Main Library…" doesn't match "Nashville Public Library" by name, but is
+    // kept and attributed to central rather than dropped as an unknown branch.
+    expect(byTitle["Preschool Storytime"]).toBe("TN0135-003");
+    expect(byTitle["Toddler Storytime"]).toBe("TN0135-013");
+  });
+
   test("attributes unlocated events to the system's main outlet", async () => {
     const branch: Library = { ...MVPL, id: "CA0076-005", name: "North Branch" };
     const provider = createIcsProvider({
