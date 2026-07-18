@@ -18,6 +18,14 @@ import { createSnapshotProvider } from "./snapshot/provider";
 
 const FETCH_TIMEOUT_MS = 60_000; // slow vendors (LibraryCalendar ~46s) are tolerable: SWR serves stale instantly while refreshing
 
+// A browser User-Agent, not a self-identifying bot string. Communico's shared
+// libnet.info WAF (and other vendor WAFs) soft-block bot UAs — returning HTTP 200
+// with an empty/truncated event array rather than a 403 — which silently zeroed
+// out ~160 libnet.info systems in production while local curls (Mozilla UA) passed.
+// The vendors' own web UIs issue identical requests; matching their UA is the fix.
+const BROWSER_UA =
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/605.1.15";
+
 // Disk-persistent feed cache: survives restarts (cold start serves the
 // fresh disk copy) and outages (stale copy beats an empty page). On
 // serverless, point FEED_CACHE_DIR at /tmp.
@@ -30,7 +38,7 @@ async function fetchText(
 ): Promise<string> {
   const response = await fetch(url, {
     signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-    headers: headers ?? { "user-agent": "library-storytime/1.0 (events aggregator)" },
+    headers: headers ?? { "user-agent": BROWSER_UA },
   });
   if (!response.ok) {
     throw new Error(`Feed request failed: HTTP ${response.status} for ${url}`);
@@ -50,8 +58,7 @@ async function postJson(url: string, body: unknown): Promise<string> {
       origin,
       referer: `${origin}/`,
       "x-requested-with": "XMLHttpRequest",
-      "user-agent":
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/605.1.15",
+      "user-agent": BROWSER_UA,
     },
     body: JSON.stringify(body),
   });

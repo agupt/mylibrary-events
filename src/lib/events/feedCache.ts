@@ -8,7 +8,7 @@ export const DEFAULT_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
  * Disk entries store PARSED values, so parser changes must invalidate
  * them — bump this whenever any feed parser's output shape changes.
  */
-export const FEED_CACHE_VERSION = "v4-ics-rrule";
+export const FEED_CACHE_VERSION = "v5-browser-ua";
 
 export interface FeedCacheOptions<T> {
   load: (url: string) => Promise<T>;
