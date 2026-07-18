@@ -22,13 +22,15 @@ export const EVENT_TYPES = Object.keys(EVENT_TYPE_LABELS) as EventType[];
 
 export const NEARBY_LIBRARY_LIMIT = 5;
 /**
- * The locator returns every library within MAX_RADIUS_MILES (capped at
- * MAX_NEARBY_LIBRARIES) so the client's distance control can pull in events
- * from far-away libraries, not just the handful of nearest ones. The events
- * API request is bounded by MAX_LIBRARIES_PER_REQUEST (home + nearby).
+ * The locator returns every library within MAX_RADIUS_MILES plus ALL branches
+ * of the home library's system (which share one feed — nearly free), capped at
+ * MAX_NEARBY_LIBRARIES so the client's distance control can pull in far-away
+ * libraries. The events API request is bounded by MAX_LIBRARIES_PER_REQUEST
+ * (home + nearby); the cap accommodates large multi-branch systems since one
+ * feed covers the whole system regardless of how many branches are requested.
  */
 export const MAX_RADIUS_MILES = 60;
-export const MAX_NEARBY_LIBRARIES = 40;
-export const MAX_LIBRARIES_PER_REQUEST = 41;
+export const MAX_NEARBY_LIBRARIES = 60;
+export const MAX_LIBRARIES_PER_REQUEST = 61;
 export const DEFAULT_RADIUS_MILES = 10;
 export const DEFAULT_EVENT_RANGE_DAYS = 14;

@@ -150,6 +150,57 @@ describe("findLocation", () => {
     expect(distances).toEqual([...distances].sort((a, b) => a - b));
   });
 
+  test("always includes the home library's system branches, even past the radius", () => {
+    // Mirrors Raymond/Jackson-Hinds: a small home library whose sibling branch
+    // is far away (>60mi) must still be in scope — same system, one calendar —
+    // while an unrelated far library is excluded.
+    const raymond = library({
+      id: "MS0021-009",
+      name: "Raymond Public Library",
+      city: "Raymond",
+      state: "MS",
+      coordinates: { latitude: 32.2585, longitude: -90.4187 },
+    });
+    const willieMorris = library({
+      id: "MS0021-016",
+      name: "Willie Morris Library",
+      city: "Jackson",
+      state: "MS",
+      coordinates: { latitude: 33.5, longitude: -88.7 }, // ~130mi sibling branch
+    });
+    const otherFar = library({
+      id: "AL0001-002",
+      name: "Some Alabama Library",
+      city: "Birmingham",
+      state: "AL",
+      coordinates: { latitude: 33.5186, longitude: -86.8104 }, // ~230mi, other system
+    });
+    const localDeps: LocateDeps = {
+      getLibraries: () => [raymond, willieMorris, otherFar],
+      lookupZip: () => ({
+        coordinates: { latitude: 32.2585, longitude: -90.4187 },
+        city: "Raymond",
+        state: "MS",
+      }),
+      lookupCity: () => [],
+    };
+
+    const result = findLocation("39154", localDeps);
+    expect(result.status).toBe("ok");
+    if (result.status !== "ok") return;
+
+    const branch = result.match.nearbyLibraries.find(
+      (n) => n.library.id === "MS0021-016",
+    );
+    expect(branch).toBeDefined();
+    expect(branch?.isHomeSystem).toBe(true);
+    expect(branch?.distanceMiles).toBeGreaterThan(60); // beyond MAX_RADIUS_MILES
+    // The unrelated far library is not pulled in.
+    expect(
+      result.match.nearbyLibraries.map((n) => n.library.id),
+    ).not.toContain("AL0001-002");
+  });
+
   test("returns not-found for an unknown zip", () => {
     expect(findLocation("00000", deps).status).toBe("not-found");
   });

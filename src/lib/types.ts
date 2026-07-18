@@ -46,6 +46,10 @@ export interface StorytimeEvent {
 export interface LibraryDistance {
   library: Library;
   distanceMiles: number;
+  /** True when this branch belongs to the home library's system. Such branches
+   * share one event calendar with home and are always in scope, regardless of
+   * the user's chosen radius. */
+  isHomeSystem?: boolean;
 }
 
 export interface LocationMatch {

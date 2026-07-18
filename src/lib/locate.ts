@@ -7,6 +7,11 @@ import type { Coordinates, Library, LocationResult } from "./types";
 const ZIP_PATTERN = /^\d{5}$/;
 const MAX_AMBIGUOUS_OPTIONS = 8;
 
+/** IMLS system key (FSCSKEY) — the part of an outlet id before the sequence. */
+function systemKeyOf(libraryId: string): string {
+  return libraryId.split("-")[0];
+}
+
 export interface LocateDeps {
   getLibraries: () => Library[];
   lookupZip: (zip: string) => PlaceInfo | null;
@@ -58,16 +63,34 @@ function buildMatch(
         entry.library.state === place.state,
     )?.library ?? ranked[0].library;
 
-  // Every library within the max radius (capped), with distances, so the
-  // client's distance control can include far-away libraries — not just the
-  // nearest few — when the user widens the radius.
-  const nearbyLibraries = ranked
+  const homeSystemKey = systemKeyOf(homeLibrary.id);
+  const candidates = ranked.filter(
+    (entry) => entry.library.id !== homeLibrary.id,
+  );
+
+  // A library SYSTEM shares one event calendar pooled across its branches, so
+  // the home library's whole system is always in scope — a small-town home
+  // library (Raymond) still surfaces its system's events even when the busy
+  // branches sit past the radius (Jackson-Hinds branches are 14–22mi away).
+  const homeSystemBranches = candidates
+    .filter((entry) => systemKeyOf(entry.library.id) === homeSystemKey)
+    .map((entry) => ({ ...entry, isHomeSystem: true }));
+
+  // Other systems are distance-gated so the client's radius control can pull
+  // them in (or not); home-system branches ignore the radius.
+  const radiusNearby = candidates
     .filter(
       (entry) =>
-        entry.library.id !== homeLibrary.id &&
+        systemKeyOf(entry.library.id) !== homeSystemKey &&
         entry.distanceMiles <= MAX_RADIUS_MILES,
     )
-    .slice(0, MAX_NEARBY_LIBRARIES);
+    .map((entry) => ({ ...entry, isHomeSystem: false }));
+
+  // Home-system branches first so they survive the cap, then sort the kept set
+  // by distance for display.
+  const nearbyLibraries = [...homeSystemBranches, ...radiusNearby]
+    .slice(0, MAX_NEARBY_LIBRARIES)
+    .sort((a, b) => a.distanceMiles - b.distanceMiles);
 
   return {
     status: "ok",

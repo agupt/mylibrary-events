@@ -21,8 +21,9 @@ const NO_FILTERS: ActiveFilters = {
 const DEFAULT_RADIUS = 10;
 const RADIUS_OPTIONS = [5, 10, 25, 50] as const;
 // Bump when the /api/location response shape changes, to sidestep any
-// long-lived edge-cached copies of the old shape. (v2: deep nearby list.)
-const LOCATION_API_VERSION = "2";
+// long-lived edge-cached copies of the old shape. (v2: deep nearby list;
+// v3: isHomeSystem flag + whole home-system always in scope.)
+const LOCATION_API_VERSION = "3";
 
 interface ApiEnvelope<T> {
   success: boolean;
@@ -107,14 +108,15 @@ export function StorytimeFinder() {
     }
   }, []);
 
-  // Libraries within the chosen radius (home always included), bounded by the
-  // events API's request cap.
+  // Libraries within the chosen radius, plus home and every branch of home's
+  // system (they share one calendar, so they stay in scope regardless of the
+  // radius). Bounded by the events API's request cap.
   const scopeLibraries = useMemo(() => {
     if (!match) return [] as Library[];
-    const withinRadius = match.nearbyLibraries
-      .filter((entry) => entry.distanceMiles <= radius)
+    const inScope = match.nearbyLibraries
+      .filter((entry) => entry.isHomeSystem || entry.distanceMiles <= radius)
       .map((entry) => entry.library);
-    return [match.homeLibrary, ...withinRadius].slice(0, MAX_LIBRARIES_PER_REQUEST);
+    return [match.homeLibrary, ...inScope].slice(0, MAX_LIBRARIES_PER_REQUEST);
   }, [match, radius]);
 
   const nearbyInScope = useMemo(() => {
