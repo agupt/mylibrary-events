@@ -13,9 +13,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Library Storytime — free kids' events at your local library",
+  metadataBase: new URL("https://mylibrary-events.com"),
+  title: {
+    default: "Library Storytime — free kids' events at your local library",
+    template: "%s | Library Storytime",
+  },
   description:
     "Find storytimes, crafts, and STEM events for kids at US public libraries. Search by city or zip code — live calendars from 1,700+ branches.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: "Library Storytime",
+    url: "/",
+    title: "Library Storytime — free kids' events at your local library",
+    description:
+      "Find storytimes, crafts, and STEM events for kids at US public libraries.",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({

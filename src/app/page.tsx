@@ -1,8 +1,13 @@
+import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
+import { SiteFooter } from "@/components/SiteFooter";
 import { StorytimeFinder } from "@/components/StorytimeFinder";
+import { buildWebsiteNode } from "@/lib/seo/jsonLd";
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
+      <JsonLd data={buildWebsiteNode()} />
       <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-16 pt-14 sm:pt-20">
         <header className="mx-auto mb-10 max-w-2xl text-center">
           <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/70 px-4 py-1.5 text-xs font-medium text-violet-700 shadow-sm backdrop-blur dark:border-violet-800 dark:bg-slate-800/70 dark:text-violet-300">
@@ -21,35 +26,18 @@ export default function Home() {
           </p>
         </header>
         <StorytimeFinder />
+
+        <p className="mx-auto mt-10 max-w-xl text-center text-sm text-slate-500 dark:text-slate-400">
+          Prefer to browse?{" "}
+          <Link
+            href="/storytimes"
+            className="font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
+          >
+            Explore library storytimes by state and city →
+          </Link>
+        </p>
       </main>
-      <footer className="border-t border-slate-200/70 bg-white/60 py-6 backdrop-blur dark:border-slate-800 dark:bg-slate-900/60">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 text-xs text-slate-500 dark:text-slate-400">
-          <p>
-            Library data:{" "}
-            <a
-              href="https://www.imls.gov/research-evaluation/data-collection/public-libraries-survey"
-              className="underline-offset-2 hover:underline"
-            >
-              IMLS Public Libraries Survey
-            </a>{" "}
-            · Zip data: GeoNames · Events belong to their libraries.
-          </p>
-          <span className="flex items-center gap-4">
-            <a
-              href="/privacy"
-              className="font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
-            >
-              Privacy
-            </a>
-            <a
-              href="/status"
-              className="font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
-            >
-              Coverage status →
-            </a>
-          </span>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
