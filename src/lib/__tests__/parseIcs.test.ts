@@ -42,11 +42,11 @@ describe("parseIcs", () => {
     expect(storytime?.description).toContain("folded across two physical lines");
     expect(storytime?.location).toBe("Children's Room");
     expect(storytime?.categories).toEqual(["Storytime", "Kids"]);
-    // Floating library-local wall-clock (no zone), so the client renders the
-    // library's own time regardless of the viewer's timezone. A trailing "Z"
-    // in the source is kept as wall-clock, not converted.
-    expect(storytime?.startTime).toBe("2026-07-15T17:00:00");
-    expect(storytime?.endTime).toBe("2026-07-15T18:00:00");
+    // A trailing "Z" is a genuine UTC instant and is PRESERVED here; the ICS
+    // provider projects it into the library's own zone. (Stripping it to
+    // floating wall-clock shifted every event by the UTC offset.)
+    expect(storytime?.startTime).toBe("2026-07-15T17:00:00Z");
+    expect(storytime?.endTime).toBe("2026-07-15T18:00:00Z");
     expect(storytime?.isAllDay).toBe(false);
   });
 

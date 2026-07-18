@@ -57,6 +57,22 @@ describe("createIcsProvider", () => {
     expect(events[0].ageGroups).toEqual(["preschool"]);
   });
 
+  test("projects UTC feed times into the library's own timezone", async () => {
+    const provider = createIcsProvider({
+      feeds: { CA0076: "https://example.libcal.com/ical" },
+      fetchText: vi.fn(async () => ICS),
+      findLibraryById: (id) => (id === MVPL.id ? MVPL : undefined),
+    });
+
+    const events = await provider.getEvents([MVPL.id], RANGE);
+
+    // 17:00Z at a Mountain View (America/Los_Angeles) library is 10:00 PDT —
+    // a floating wall-clock with no zone, NOT the raw "17:00" or a "Z" instant.
+    expect(events[0].startTime).toBe("2026-07-15T10:00:00");
+    expect(events[0].endTime).toBe("2026-07-15T10:30:00");
+    expect(events[0].startTime).not.toMatch(/Z$/);
+  });
+
   test("returns empty for systems without a configured feed", async () => {
     const fetchText = vi.fn(async () => ICS);
     const provider = createIcsProvider({

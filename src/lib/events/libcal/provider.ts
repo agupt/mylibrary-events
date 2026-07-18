@@ -5,6 +5,7 @@ import type { DateRange, EventProvider } from "../eventProvider";
 import { createFeedCache } from "../feedCache";
 import { expandRecurrence } from "../recurrence";
 import { parseIcs, type IcsEvent } from "./parseIcs";
+import { localizeToWallClock, resolveTimeZone } from "../timeZone";
 
 export interface IcsProviderDeps {
   /** iCal feed URL by system key (works for LibCal and any ICS source). */
@@ -102,11 +103,28 @@ export function createIcsProvider(deps: IcsProviderDeps): EventProvider {
           const mainOutlet = [...libraries].sort((a, b) =>
             a.id.localeCompare(b.id),
           )[0];
+          // A feed may publish UTC times (trailing "Z"); project them into the
+          // library's own zone (all outlets of a system share it) so a 15:00Z
+          // storytime shows as 10:00 in Central, not 3 PM. Done BEFORE recurrence
+          // expansion so occurrences keep a fixed local time-of-day across DST.
+          const timeZone = resolveTimeZone(
+            mainOutlet.coordinates.latitude,
+            mainOutlet.coordinates.longitude,
+          );
+          const localized = feedEvents.map((event) => ({
+            ...event,
+            startTime: timeZone
+              ? localizeToWallClock(event.startTime, timeZone)
+              : event.startTime.replace(/Z$/, ""),
+            endTime: timeZone
+              ? localizeToWallClock(event.endTime, timeZone)
+              : event.endTime.replace(/Z$/, ""),
+          }));
           // Recurring events (weekly/monthly storytimes) are anchored at the
           // series' original start — often years back — so expand each into
           // its concrete occurrences within the window; non-recurring events
           // pass through if their single start lands in range.
-          const inRange = feedEvents.flatMap((event) => {
+          const inRange = localized.flatMap((event) => {
             if (event.rrule) {
               return expandRecurrence(
                 event.startTime,

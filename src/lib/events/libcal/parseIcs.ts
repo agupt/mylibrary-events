@@ -6,7 +6,7 @@ export interface IcsEvent {
   location: string;
   categories: string[];
   url: string;
-  /** Floating local wall-clock ISO (library's own timezone), no offset — e.g. "2026-07-16T14:00:00". Matches every other adapter so the client renders the library's wall-clock time regardless of the viewer's zone. */
+  /** Either a floating local wall-clock ISO ("2026-07-16T14:00:00") when the feed used a TZID/floating value, OR a UTC instant ending in "Z" ("2026-07-16T14:00:00Z") when the feed used UTC. The ICS provider localizes any "Z" time to the library's own timezone before display; every other adapter emits floating wall-clock. */
   startTime: string;
   endTime: string;
   /** True when the source used a DATE value (VALUE=DATE / all-day), so the UI shows "All day" instead of a midnight time. */
@@ -39,27 +39,25 @@ function unescapeText(value: string): string {
 }
 
 interface IcsInstant {
-  /** Floating wall-clock ISO with no zone, e.g. "2026-07-16T14:00:00". */
+  /** Floating wall-clock ISO ("2026-07-16T14:00:00"), OR a UTC instant with a trailing "Z" when the source used UTC. */
   iso: string;
   /** Source used a DATE value (all-day) rather than a DATE-TIME. */
   isDateOnly: boolean;
 }
 
 /**
- * Parses an iCal DATE-TIME into a floating wall-clock ISO (no zone). LibCal /
- * LibraryMarket / tribe_events export the library's own local time (as a
- * TZID or floating value); we keep the wall-clock digits and drop the zone so
- * the client shows the library's time regardless of the viewer's location —
- * the same contract every other adapter follows. A trailing "Z" is treated as
- * wall-clock too: our ICS sources are local library calendars, and shifting by
- * the viewer's UTC offset (the old behavior) was wrong for every non-UTC user.
- * All-day DATE values become midnight and are flagged via isDateOnly.
+ * Parses an iCal DATE-TIME. TZID/floating values ("…T140000") carry the
+ * library's own local wall-clock, so we keep the digits verbatim. UTC values
+ * ("…T140000Z") are a genuine instant — LibraryMarket/Drupal feeds publish in
+ * UTC — so we PRESERVE the "Z" and let the ICS provider project it into the
+ * library's timezone; stripping it (the old behavior) shifted every event by
+ * the library's UTC offset. All-day DATE values become midnight (isDateOnly).
  */
 function parseIcsDate(value: string): IcsInstant | null {
-  const dateTime = value.match(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z?$/);
+  const dateTime = value.match(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})(Z?)$/);
   if (dateTime) {
-    const [, y, mo, d, h, mi, s] = dateTime;
-    return { iso: `${y}-${mo}-${d}T${h}:${mi}:${s}`, isDateOnly: false };
+    const [, y, mo, d, h, mi, s, zulu] = dateTime;
+    return { iso: `${y}-${mo}-${d}T${h}:${mi}:${s}${zulu}`, isDateOnly: false };
   }
   const dateOnly = value.match(/^(\d{4})(\d{2})(\d{2})$/);
   if (dateOnly) {
