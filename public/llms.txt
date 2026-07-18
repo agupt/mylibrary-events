@@ -1,0 +1,14 @@
+# MyLibrary Events
+
+> Free search for kids' storytimes and events (storytime, crafts, STEM, music & movement, book clubs) at US public libraries. Enter a ZIP code or city and see live, upcoming events at the public libraries near you, filterable by age group, event type, date, and distance.
+
+All events are free. No account or login is required.
+
+## Key pages
+- [Home / search](https://mylibrary-events.com/): search by ZIP or city for nearby library kids' events.
+- [Browse by state](https://mylibrary-events.com/storytimes): index of every US state with active library event coverage, drilling down to city and individual library pages.
+- [Sitemap](https://mylibrary-events.com/sitemap.xml): all city and library landing pages.
+- [Privacy](https://mylibrary-events.com/privacy)
+
+## About the data
+Aggregates the public event calendars of hundreds of US public library systems (via BiblioCommons, LibCal, Communico, LibraryCalendar/iCal, and several custom municipal platforms) into one search. Library locations come from the IMLS Public Libraries Survey; event data is fetched live from each library's own public calendar. Coverage is US public libraries only and is continually expanding. Events belong to their libraries — always confirm details on the library's own website.
