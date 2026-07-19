@@ -13,6 +13,7 @@ export type FeedVendor =
   | "opencities"
   | "mylibrarydigital"
   | "govcal"
+  | "whofi"
   | "snapshot";
 
 export interface FeedEntry {

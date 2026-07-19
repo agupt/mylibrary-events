@@ -5549,6 +5549,14 @@
     "note": "own-domain link: austin.bibliocommons.com (feed empty/unverified — possibly WAF)",
     "source": "discovered"
   },
+  "TX0120": {
+    "vendor": "whofi",
+    "status": "active",
+    "url": "https://keller-tx.whofi.com/calendar/fetch_calendar_events",
+    "note": "Keller Public Library — whofi JSON calendar (found by Amool 2026-07-18); structured age labels, wall-clock local times, single outlet",
+    "source": "verified",
+    "verifiedAt": "2026-07"
+  },
   "TX0125": {
     "vendor": "ical",
     "status": "active",

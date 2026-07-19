@@ -12,6 +12,7 @@ import { createCivicPlusProvider } from "./custom/civicPlusProvider";
 import { createOpenCitiesProvider } from "./custom/openCitiesProvider";
 import { createMyLibraryDigitalProvider } from "./custom/myLibraryDigitalProvider";
 import { createGovCalProvider } from "./custom/govCalProvider";
+import { createWhofiProvider } from "./custom/whofiProvider";
 import { createIcsProvider } from "./libcal/provider";
 import { createLibcalRssProvider } from "./libcal/rssProvider";
 import { createSnapshotProvider } from "./snapshot/provider";
@@ -211,6 +212,16 @@ function createCompositeProvider(): EventProvider {
         persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("govcal"))),
+    },
+    {
+      // whofi per-library municipal calendars (structured age labels)
+      provider: createWhofiProvider({
+        feeds: activeFeedsByVendor("whofi"),
+        fetchText,
+        findLibraryById,
+        persistDir: PERSIST_DIR,
+      }),
+      systemKeys: new Set(Object.keys(activeFeedsByVendor("whofi"))),
     },
     {
       // Bot-walled sites served from cron-scraped snapshots (NYPL)
