@@ -14,6 +14,7 @@ export type FeedVendor =
   | "mylibrarydigital"
   | "govcal"
   | "whofi"
+  | "lapl"
   | "snapshot";
 
 export interface FeedEntry {

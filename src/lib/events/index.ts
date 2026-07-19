@@ -13,6 +13,7 @@ import { createOpenCitiesProvider } from "./custom/openCitiesProvider";
 import { createMyLibraryDigitalProvider } from "./custom/myLibraryDigitalProvider";
 import { createGovCalProvider } from "./custom/govCalProvider";
 import { createWhofiProvider } from "./custom/whofiProvider";
+import { createLaplProvider } from "./custom/laplProvider";
 import { createIcsProvider } from "./libcal/provider";
 import { createLibcalRssProvider } from "./libcal/rssProvider";
 import { createSnapshotProvider } from "./snapshot/provider";
@@ -222,6 +223,16 @@ function createCompositeProvider(): EventProvider {
         persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("whofi"))),
+    },
+    {
+      // Los Angeles Public Library — Drupal events HTML, per-audience search
+      provider: createLaplProvider({
+        feeds: activeFeedsByVendor("lapl"),
+        fetchText,
+        findLibraryById,
+        persistDir: PERSIST_DIR,
+      }),
+      systemKeys: new Set(Object.keys(activeFeedsByVendor("lapl"))),
     },
     {
       // Bot-walled sites served from cron-scraped snapshots (NYPL)

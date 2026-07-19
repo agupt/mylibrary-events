@@ -364,6 +364,14 @@
     "source": "verified",
     "verifiedAt": "2026-07"
   },
+  "CA0063": {
+    "vendor": "lapl",
+    "status": "active",
+    "url": "https://www.lapl.org/events/search?category=All&series=All&topic=All&language=All",
+    "note": "Los Angeles Public Library (73 branches) — Drupal events search HTML (curl found by Amool 2026-07-18); system-wide per-audience fetch (1555 Babies&Toddlers, 1556 Kids, 2976 All Ages), branch from teaser location. No JSON/ICS surface; teens excluded (no teen age group)",
+    "source": "verified",
+    "verifiedAt": "2026-07"
+  },
   "CA0065": {
     "vendor": "bibliocommons",
     "status": "active",
