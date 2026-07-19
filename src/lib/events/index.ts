@@ -14,6 +14,7 @@ import { createMyLibraryDigitalProvider } from "./custom/myLibraryDigitalProvide
 import { createGovCalProvider } from "./custom/govCalProvider";
 import { createWhofiProvider } from "./custom/whofiProvider";
 import { createLaplProvider } from "./custom/laplProvider";
+import { createEventsCalendarProvider } from "./custom/eventsCalendarProvider";
 import { createIcsProvider } from "./libcal/provider";
 import { createLibcalRssProvider } from "./libcal/rssProvider";
 import { createSnapshotProvider } from "./snapshot/provider";
@@ -233,6 +234,16 @@ function createCompositeProvider(): EventProvider {
         persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("lapl"))),
+    },
+    {
+      // eventscalendar.co broker → Google Calendar (color-coded audiences)
+      provider: createEventsCalendarProvider({
+        feeds: activeFeedsByVendor("eventscalendar"),
+        fetchText,
+        findLibraryById,
+        persistDir: PERSIST_DIR,
+      }),
+      systemKeys: new Set(Object.keys(activeFeedsByVendor("eventscalendar"))),
     },
     {
       // Bot-walled sites served from cron-scraped snapshots (NYPL)

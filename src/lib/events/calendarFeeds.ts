@@ -15,6 +15,7 @@ export type FeedVendor =
   | "govcal"
   | "whofi"
   | "lapl"
+  | "eventscalendar"
   | "snapshot";
 
 export interface FeedEntry {

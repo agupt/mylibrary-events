@@ -625,6 +625,14 @@
     "source": "verified",
     "verifiedAt": "2026-07-16"
   },
+  "CA0148": {
+    "vendor": "eventscalendar",
+    "status": "active",
+    "url": "https://broker.eventscalendar.co/api/google/events?user=user_JCkFAC4i3ZhT8BL4JERY8&project=proj_RJ0y1FgHVCXNYl6Ye107h&calendar=visaliaref%40gmail.com&options=undefined&kidColors=%23fbd75b",
+    "note": "Tulare County Free Library (Visalia HQ) — eventscalendar.co broker → Google Calendar (curl found by Amool 2026-07-18). No GCal audience metadata; kids inferred from event color per posted key: yellow #fbd75b = 'Children, Tweens, and Family' (kidColors config). Teen (purple) / adult (green) dropped by color",
+    "source": "verified",
+    "verifiedAt": "2026-07"
+  },
   "CA0152": {
     "vendor": "ical",
     "status": "active",
