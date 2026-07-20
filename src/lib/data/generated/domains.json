@@ -6322,5 +6322,605 @@
   "source": "web-search",
   "system": "Crook County Public Library System",
   "state": "WY"
+ },
+ "WY0021": {
+  "domain": "uinta.wyldcatalog.org",
+  "source": "web-search",
+  "system": "Uinta County Library System",
+  "state": "WY"
+ },
+ "AK0023": {
+  "domain": "fnsb.gov",
+  "source": "web-search",
+  "system": "Fairbanks North Star Borough Public Libraries",
+  "state": "AK"
+ },
+ "AK0047": {
+  "domain": "bristolbayboroughak.us",
+  "source": "web-search",
+  "system": "Martin Monsen Regional Library",
+  "state": "AK"
+ },
+ "AL0049": {
+  "domain": "alexandercityal.gov",
+  "source": "web-search",
+  "system": "Alexander City - Adelia Mcconnell Russell Library",
+  "state": "AL"
+ },
+ "AL0137": {
+  "domain": "northshelbylibrary.org",
+  "source": "web-search",
+  "system": "North Shelby Library",
+  "state": "AL"
+ },
+ "AL0154": {
+  "domain": "anniston.lib.al.us",
+  "source": "web-search",
+  "system": "Anniston - Calhoun County Public Library",
+  "state": "AL"
+ },
+ "AL0163": {
+  "domain": "ils.apls.state.al.us:10030",
+  "source": "web-search",
+  "system": "Choctaw County Public Library",
+  "state": "AL"
+ },
+ "AL0181": {
+  "domain": "aplsnew-web.apls.state.al.us:10123",
+  "source": "web-search",
+  "system": "Prichard Public Library",
+  "state": "AL"
+ },
+ "AL0182": {
+  "domain": "public-libraries.com",
+  "source": "web-search",
+  "system": "Washington County Public Library",
+  "state": "AL"
+ },
+ "AL0200": {
+  "domain": "chamberscountylibrary.org",
+  "source": "web-search",
+  "system": "Valley - H. Grady Bradshaw / Chambers County Library",
+  "state": "AL"
+ },
+ "AR0010": {
+  "domain": "library.arkansas.gov",
+  "source": "web-search",
+  "system": "Columbia County Library",
+  "state": "AR"
+ },
+ "AR0016": {
+  "domain": "nlrlibrary.org",
+  "source": "web-search",
+  "system": "North Little Rock Public Library System",
+  "state": "AR"
+ },
+ "AR0026": {
+  "domain": "ashcolib.com",
+  "source": "web-search",
+  "system": "Ashley County Library",
+  "state": "AR"
+ },
+ "AR0027": {
+  "domain": "library.arkansas.gov",
+  "source": "web-search",
+  "system": "W.A. Billingsley/Jackson County Library",
+  "state": "AR"
+ },
+ "AR0060": {
+  "domain": "clarkcountylibrary.ar.gov",
+  "source": "web-search",
+  "system": "Clark County Library",
+  "state": "AR"
+ },
+ "AR0061": {
+  "domain": "library.arkansas.gov",
+  "source": "web-search",
+  "system": "Lafayette County Library",
+  "state": "AR"
+ },
+ "AR0063": {
+  "domain": "library.arkansas.gov",
+  "source": "web-search",
+  "system": "Public Library Of Camden & Ouachita County",
+  "state": "AR"
+ },
+ "AR0064": {
+  "domain": "library.arkansas.gov",
+  "source": "web-search",
+  "system": "Calhoun County Library",
+  "state": "AR"
+ },
+ "AS0001": {
+  "domain": "feletibarstow.org",
+  "source": "web-search",
+  "system": "Feleti Barstow Public Library",
+  "state": "AS"
+ },
+ "AZ0029": {
+  "domain": "library.avondaleaz.gov",
+  "source": "web-search",
+  "system": "Avondale Public Library",
+  "state": "AZ"
+ },
+ "AZ0030": {
+  "domain": "buckeyeaz.gov",
+  "source": "web-search",
+  "system": "Buckeye Public Library",
+  "state": "AZ"
+ },
+ "AZ0088": {
+  "domain": "peoria.polarislibrary.com",
+  "source": "web-search",
+  "system": "Peoria Public Library System",
+  "state": "AZ"
+ },
+ "AZ0100": {
+  "domain": "library.navajo-nsn.gov",
+  "source": "web-search",
+  "system": "Navajo Nation Library",
+  "state": "AZ"
+ },
+ "AZ0118": {
+  "domain": "casagrandeaz.gov",
+  "source": "web-search",
+  "system": "Casa Grande Public Library",
+  "state": "AZ"
+ },
+ "AZ0155": {
+  "domain": "communitylibrarysedona.org",
+  "source": "web-search",
+  "system": "Sedona Public Library",
+  "state": "AZ"
+ },
+ "AZ0177": {
+  "domain": "lapaz.gov",
+  "source": "web-search",
+  "system": "La Paz County Services",
+  "state": "AZ"
+ },
+ "CA0004": {
+  "domain": "alpinecountyca.gov",
+  "source": "web-search",
+  "system": "Alpine County Library/Archives",
+  "state": "CA"
+ },
+ "CA0005": {
+  "domain": "altadenalibrary.org",
+  "source": "web-search",
+  "system": "Altadena Library District",
+  "state": "CA"
+ },
+ "CA0012": {
+  "domain": "beverlyhills.org",
+  "source": "web-search",
+  "system": "Beverly Hills Public Library",
+  "state": "CA"
+ },
+ "CA0013": {
+  "domain": "brawley-ca.gov",
+  "source": "web-search",
+  "system": "Brawley Public Library",
+  "state": "CA"
+ },
+ "CA0016": {
+  "domain": "burlingame.org",
+  "source": "web-search",
+  "system": "Burlingame Public Library",
+  "state": "CA"
+ },
+ "CA0019": {
+  "domain": "calexicolibrary.org",
+  "source": "web-search",
+  "system": "Camarena Memorial Public Library",
+  "state": "CA"
+ },
+ "CA0021": {
+  "domain": "ci.carmel.ca.us",
+  "source": "web-search",
+  "system": "Harrison Memorial Library",
+  "state": "CA"
+ },
+ "CA0024": {
+  "domain": "chld.org",
+  "source": "web-search",
+  "system": "Coalinga-Huron Library District",
+  "state": "CA"
+ },
+ "CA0025": {
+  "domain": "coltonca.gov",
+  "source": "web-search",
+  "system": "Colton Public Library",
+  "state": "CA"
+ },
+ "CA0032": {
+  "domain": "delnortecountylibrary.org",
+  "source": "web-search",
+  "system": "Del Norte County Library District",
+  "state": "CA"
+ },
+ "CA0035": {
+  "domain": "cityofelcentro.org",
+  "source": "web-search",
+  "system": "El Centro Public Library",
+  "state": "CA"
+ },
+ "CA0038": {
+  "domain": "escondido.gov",
+  "source": "web-search",
+  "system": "Escondido Public Library",
+  "state": "CA"
+ },
+ "CA0044": {
+  "domain": "hayward-ca.gov",
+  "source": "web-search",
+  "system": "Hayward Public Library",
+  "state": "CA"
+ },
+ "CA0049": {
+  "domain": "cityofinglewood.org",
+  "source": "web-search",
+  "system": "Inglewood Public Library",
+  "state": "CA"
+ },
+ "CA0060": {
+  "domain": "cityoflompoc.com",
+  "source": "web-search",
+  "system": "Lompoc Public Library",
+  "state": "CA"
+ },
+ "CA0067": {
+  "domain": "menlopark.gov",
+  "source": "web-search",
+  "system": "Menlo Park Public Library",
+  "state": "CA"
+ },
+ "CA0083": {
+  "domain": "ontarioca.gov",
+  "source": "web-search",
+  "system": "Ontario City Library",
+  "state": "CA"
+ },
+ "CA0090": {
+  "domain": "palmspringsca.gov",
+  "source": "web-search",
+  "system": "Palm Springs Public Library",
+  "state": "CA"
+ },
+ "CA0095": {
+  "domain": "prcity.com",
+  "source": "web-search",
+  "system": "Paso Robles City Library",
+  "state": "CA"
+ },
+ "CA0100": {
+  "domain": "library.redondo.org",
+  "source": "web-search",
+  "system": "Redondo Beach Public Library",
+  "state": "CA"
+ },
+ "CA0128": {
+  "domain": "sfscl.ent.sirsi.net",
+  "source": "web-search",
+  "system": "Santa Fe Springs City Library",
+  "state": "CA"
+ },
+ "CA0153": {
+  "domain": "watsonville.gov",
+  "source": "web-search",
+  "system": "Watsonville Public Library",
+  "state": "CA"
+ },
+ "CA0169": {
+  "domain": "tolibrary.org",
+  "source": "web-search",
+  "system": "Thousand Oaks Library",
+  "state": "CA"
+ },
+ "CA0194": {
+  "domain": "cityofrc.us",
+  "source": "web-search",
+  "system": "Rancho Cucamonga Public Library",
+  "state": "CA"
+ },
+ "CA0218": {
+  "domain": "cccpllib.org",
+  "source": "web-search",
+  "system": "Contra Costa County Public Law Library",
+  "state": "CA"
+ },
+ "CA0248": {
+  "domain": "sandiegolawlibrary.org",
+  "source": "web-search",
+  "system": "San Diego County Public Law Library",
+  "state": "CA"
+ },
+ "CA0253": {
+  "domain": "countylawlibrary.org",
+  "source": "web-search",
+  "system": "Santa Barbara County Law Library",
+  "state": "CA"
+ },
+ "CA0265": {
+  "domain": "tularecounty.ca.gov",
+  "source": "web-search",
+  "system": "Tulare County Public Law Library",
+  "state": "CA"
+ },
+ "CO0017": {
+  "domain": "canoncity.org",
+  "source": "web-search",
+  "system": "Canon City Public Library",
+  "state": "CO"
+ },
+ "CO0022": {
+  "domain": "costillacounty.gov",
+  "source": "web-search",
+  "system": "Costilla County Public Library",
+  "state": "CO"
+ },
+ "CO0052": {
+  "domain": "gunnisoncountylibraries.org",
+  "source": "web-search",
+  "system": "Gunnison County Library District",
+  "state": "CO"
+ },
+ "CO0064": {
+  "domain": "lvpl.org",
+  "source": "web-search",
+  "system": "La Veta Regional Library District",
+  "state": "CO"
+ },
+ "CO0090": {
+  "domain": "combinedcommunity.colibraries.org",
+  "source": "web-search",
+  "system": "Combined Community Library (Ordway)",
+  "state": "CO"
+ },
+ "CO0103": {
+  "domain": "southroutt.colibraries.org",
+  "source": "web-search",
+  "system": "South Routt Library District",
+  "state": "CO"
+ },
+ "CO0107": {
+  "domain": "steller.colibraries.org",
+  "source": "web-search",
+  "system": "Southern Teller County School/Public Lib Dist",
+  "state": "CO"
+ },
+ "CO0108": {
+  "domain": "nscld.colibraries.org",
+  "source": "web-search",
+  "system": "Northern Saguache County Library District",
+  "state": "CO"
+ },
+ "CO0130": {
+  "domain": "westminsterco.gov",
+  "source": "web-search",
+  "system": "Westminster Public Library",
+  "state": "CO"
+ },
+ "CO0132": {
+  "domain": "rampart.colibraries.org",
+  "source": "web-search",
+  "system": "Rampart Regional Library District",
+  "state": "CO"
+ },
+ "CO0147": {
+  "domain": "swlplibrarydistrict.org",
+  "source": "web-search",
+  "system": "Southwest La Plata Library District",
+  "state": "CO"
+ },
+ "CT0012": {
+  "domain": "bplct.org",
+  "source": "web-search",
+  "system": "Bloomfield Public Library",
+  "state": "CT"
+ },
+ "CT0018": {
+  "domain": "bristollib.com",
+  "source": "web-search",
+  "system": "Bristol Public Library",
+  "state": "CT"
+ },
+ "CT0042": {
+  "domain": "easthaddam.org",
+  "source": "web-search",
+  "system": "East Haddam Free Public Library",
+  "state": "CT"
+ },
+ "CT0052": {
+  "domain": "enfieldpubliclibrary.org",
+  "source": "web-search",
+  "system": "Enfield Public Library",
+  "state": "CT"
+ },
+ "CT0055": {
+  "domain": "fairfieldpubliclibrary.org",
+  "source": "web-search",
+  "system": "Fairfield Public Library",
+  "state": "CT"
+ },
+ "CT0057": {
+  "domain": "farmingtonlibraries.org",
+  "source": "web-search",
+  "system": "Farmington Libraries",
+  "state": "CT"
+ },
+ "CT0062": {
+  "domain": "granby-ct.gov",
+  "source": "web-search",
+  "system": "Granby Public Library",
+  "state": "CT"
+ },
+ "CT0081": {
+  "domain": "ledyardlibrary.org",
+  "source": "web-search",
+  "system": "Ledyard Public Libraries",
+  "state": "CT"
+ },
+ "CT0086": {
+  "domain": "manchesterct.gov",
+  "source": "web-search",
+  "system": "Manchester Public Library",
+  "state": "CT"
+ },
+ "CT0098": {
+  "domain": "newbritainlibrary.org",
+  "source": "web-search",
+  "system": "New Britain Public Library",
+  "state": "CT"
+ },
+ "CT0109": {
+  "domain": "nbranfordlibraries.org",
+  "source": "web-search",
+  "system": "North Branford Library Department",
+  "state": "CT"
+ },
+ "CT0114": {
+  "domain": "norwalkpl.org",
+  "source": "web-search",
+  "system": "Norwalk Public Library",
+  "state": "CT"
+ },
+ "CT0142": {
+  "domain": "sheltonlibrarysystem.org",
+  "source": "web-search",
+  "system": "Plumb Memorial Library",
+  "state": "CT"
+ },
+ "CT0160": {
+  "domain": "trumbull-ct.gov",
+  "source": "web-search",
+  "system": "Trumbull Library",
+  "state": "CT"
+ },
+ "CT0167": {
+  "domain": "bronsonlibrary.org",
+  "source": "web-search",
+  "system": "Silas Bronson Library",
+  "state": "CT"
+ },
+ "CT0169": {
+  "domain": "watertownlibrary.org",
+  "source": "web-search",
+  "system": "Watertown Library Association",
+  "state": "CT"
+ },
+ "CT0172": {
+  "domain": "westhavenlibrary.org",
+  "source": "web-search",
+  "system": "West Haven Public Library",
+  "state": "CT"
+ },
+ "CT0180": {
+  "domain": "willimanticlibrary.org",
+  "source": "web-search",
+  "system": "Willimantic Public Library",
+  "state": "CT"
+ },
+ "CT0182": {
+  "domain": "windsorlibrary.com",
+  "source": "web-search",
+  "system": "Windsor Public Library",
+  "state": "CT"
+ },
+ "DE0022": {
+  "domain": "wilmington.lib.de.us",
+  "source": "web-search",
+  "system": "Wilmington Institute Library",
+  "state": "DE"
+ },
+ "FL0029": {
+  "domain": "flaglerlibrary.org",
+  "source": "web-search",
+  "system": "Flagler County Public Library",
+  "state": "FL"
+ },
+ "FL0056": {
+  "domain": "myboca.us",
+  "source": "web-search",
+  "system": "Boca Raton Public Library",
+  "state": "FL"
+ },
+ "GA0015": {
+  "domain": "mccls.org",
+  "source": "web-search",
+  "system": "Moultrie-Colquitt County Library System",
+  "state": "GA"
+ },
+ "GA0020": {
+  "domain": "elbertlibrary.org",
+  "source": "web-search",
+  "system": "Elbert County Public Library System",
+  "state": "GA"
+ },
+ "GA0038": {
+  "domain": "peachpubliclibraries.org",
+  "source": "web-search",
+  "system": "Peach Public Libraries",
+  "state": "GA"
+ },
+ "GA0041": {
+  "domain": "sjrls.org",
+  "source": "web-search",
+  "system": "Screven-Jenkins Regional Library System",
+  "state": "GA"
+ },
+ "GA0067": {
+  "domain": "moglibraries.org",
+  "source": "web-search",
+  "system": "Marshes Of Glynn Libraries",
+  "state": "GA"
+ },
+ "IA0048": {
+  "domain": "storycity.lib.ia.us",
+  "source": "web-search",
+  "system": "Bertha Bartlett Public Library",
+  "state": "IA"
+ },
+ "IA0373": {
+  "domain": "crlibrary.org",
+  "source": "web-search",
+  "system": "Cedar Rapids Public Library",
+  "state": "IA"
+ },
+ "IA0473": {
+  "domain": "clintonpubliclibrary.us",
+  "source": "web-search",
+  "system": "Clinton Public Library",
+  "state": "IA"
+ },
+ "IA0571": {
+  "domain": "cityofclive.com",
+  "source": "web-search",
+  "system": "Clive Public Library",
+  "state": "IA"
+ },
+ "ID0003": {
+  "domain": "libraries.idaho.gov",
+  "source": "web-search",
+  "system": "Lost Rivers District",
+  "state": "ID"
+ },
+ "ID0067": {
+  "domain": "bearlake.lili.org",
+  "source": "web-search",
+  "system": "Bear Lake County District",
+  "state": "ID"
+ },
+ "ID0075": {
+  "domain": "ccfldatweippe.lili.org",
+  "source": "web-search",
+  "system": "Clearwater District",
+  "state": "ID"
+ },
+ "ID0084": {
+  "domain": "westbonnerlibrary.org",
+  "source": "web-search",
+  "system": "West Bonner District",
+  "state": "ID"
  }
 }

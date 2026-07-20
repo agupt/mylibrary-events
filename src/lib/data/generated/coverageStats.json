@@ -1,41 +1,47 @@
 {
-  "generatedAt": "2026-07-18T22:37:00.449Z",
+  "generatedAt": "2026-07-20T10:39:59.431Z",
   "libraries": {
     "total": 16883,
-    "active": 5357,
-    "detected": 336,
-    "none": 11190
+    "active": 5166,
+    "detected": 536,
+    "none": 11181
   },
   "systems": {
     "total": 9234,
-    "active": 851,
-    "detected": 44,
-    "none": 8339
+    "active": 818,
+    "detected": 71,
+    "none": 8345
   },
   "pipeline": [
     {
       "stage": "never-probed",
-      "systems": 7859,
-      "libraries": 8319,
+      "systems": 7778,
+      "libraries": 8147,
       "humanAction": "Not yet examined (small system) — extend findDomains/detectPlatforms coverage"
     },
     {
       "stage": "serving",
-      "systems": 851,
-      "libraries": 5357,
+      "systems": 818,
+      "libraries": 5166,
       "humanAction": "— (events flowing)"
     },
     {
       "stage": "no-platform-found",
-      "systems": 433,
-      "libraries": 2575,
+      "systems": 508,
+      "libraries": 2699,
       "humanAction": "Domain read, no known vendor fingerprint — inspect site, identify platform or scope a site scraper"
     },
     {
       "stage": "site-unreachable",
-      "systems": 54,
-      "libraries": 322,
+      "systems": 65,
+      "libraries": 359,
       "humanAction": "Confirm the domain is right / site is up"
+    },
+    {
+      "stage": "identity-collision",
+      "systems": 29,
+      "libraries": 214,
+      "humanAction": "Adjudicate which system owns the instance (same-named systems in different states)"
     },
     {
       "stage": "feed-empty",
@@ -51,8 +57,8 @@
     },
     {
       "stage": "calendar-id-needed",
-      "systems": 5,
-      "libraries": 36,
+      "systems": 8,
+      "libraries": 42,
       "humanAction": "Open the LibCal instance, pick the events calendar, add its id to the registry"
     },
     {
@@ -68,12 +74,6 @@
       "humanAction": "Build localist adapter (unlocks every system on it; worst case a scraper)"
     },
     {
-      "stage": "identity-collision",
-      "systems": 3,
-      "libraries": 15,
-      "humanAction": "Adjudicate which system owns the instance (same-named systems in different states)"
-    },
-    {
       "stage": "adapter-needed:evanced",
       "systems": 1,
       "libraries": 8,
@@ -84,35 +84,33 @@
       "systems": 1,
       "libraries": 3,
       "humanAction": "Build communico adapter (unlocks every system on it; worst case a scraper)"
-    },
-    {
-      "stage": "domain-unknown-probed",
-      "systems": 1,
-      "libraries": 3,
-      "humanAction": "Slug guessing failed and official website unknown — run findDomains for this system"
     }
   ],
-  "domainsKnown": 1054,
+  "domainsKnown": 1154,
   "byVendor": {
     "libcal": {
-      "systems": 208,
-      "libraries": 1459
+      "systems": 210,
+      "libraries": 1447
     },
     "ical": {
-      "systems": 393,
-      "libraries": 1658
+      "systems": 398,
+      "libraries": 1663
     },
     "communico": {
-      "systems": 210,
-      "libraries": 1274
+      "systems": 195,
+      "libraries": 1215
     },
     "bibliocommons": {
-      "systems": 75,
-      "libraries": 1039
+      "systems": 74,
+      "libraries": 1023
     },
     "mylibrarydigital": {
       "systems": 1,
       "libraries": 3
+    },
+    "lapl": {
+      "systems": 1,
+      "libraries": 73
     },
     "opencities": {
       "systems": 1,
@@ -130,6 +128,10 @@
       "systems": 1,
       "libraries": 28
     },
+    "eventscalendar": {
+      "systems": 1,
+      "libraries": 17
+    },
     "bklyn": {
       "systems": 1,
       "libraries": 60
@@ -141,6 +143,10 @@
     "flp": {
       "systems": 1,
       "libraries": 53
+    },
+    "whofi": {
+      "systems": 1,
+      "libraries": 1
     }
   },
   "byState": [
@@ -155,18 +161,18 @@
     {
       "state": "AL",
       "libraries": 293,
-      "active": 34,
+      "active": 36,
       "detected": 0,
       "zips": 811,
-      "zipsNearActive": 124
+      "zipsNearActive": 141
     },
     {
       "state": "AR",
       "libraries": 227,
-      "active": 56,
-      "detected": 0,
+      "active": 49,
+      "detected": 5,
       "zips": 706,
-      "zipsNearActive": 161
+      "zipsNearActive": 145
     },
     {
       "state": "AS",
@@ -179,34 +185,34 @@
     {
       "state": "AZ",
       "libraries": 223,
-      "active": 96,
-      "detected": 8,
+      "active": 88,
+      "detected": 18,
       "zips": 530,
-      "zipsNearActive": 270
+      "zipsNearActive": 253
     },
     {
       "state": "CA",
       "libraries": 1175,
-      "active": 621,
-      "detected": 56,
+      "active": 665,
+      "detected": 104,
       "zips": 2593,
-      "zipsNearActive": 1340
+      "zipsNearActive": 1460
     },
     {
       "state": "CO",
       "libraries": 269,
-      "active": 162,
-      "detected": 0,
+      "active": 158,
+      "detected": 5,
       "zips": 645,
-      "zipsNearActive": 376
+      "zipsNearActive": 368
     },
     {
       "state": "CT",
       "libraries": 234,
-      "active": 51,
+      "active": 57,
       "detected": 0,
       "zips": 429,
-      "zipsNearActive": 147
+      "zipsNearActive": 151
     },
     {
       "state": "DC",
@@ -220,25 +226,25 @@
       "state": "DE",
       "libraries": 33,
       "active": 0,
-      "detected": 0,
+      "detected": 3,
       "zips": 96,
       "zipsNearActive": 1
     },
     {
       "state": "FL",
       "libraries": 539,
-      "active": 380,
-      "detected": 8,
+      "active": 345,
+      "detected": 15,
       "zips": 1473,
-      "zipsNearActive": 1045
+      "zipsNearActive": 946
     },
     {
       "state": "GA",
       "libraries": 398,
-      "active": 213,
-      "detected": 3,
+      "active": 203,
+      "detected": 13,
       "zips": 952,
-      "zipsNearActive": 440
+      "zipsNearActive": 414
     },
     {
       "state": "GU",
@@ -259,34 +265,34 @@
     {
       "state": "IA",
       "libraries": 568,
-      "active": 31,
+      "active": 30,
       "detected": 0,
       "zips": 1055,
-      "zipsNearActive": 113
+      "zipsNearActive": 112
     },
     {
       "state": "ID",
       "libraries": 149,
-      "active": 19,
+      "active": 23,
       "detected": 7,
       "zips": 320,
-      "zipsNearActive": 42
+      "zipsNearActive": 49
     },
     {
       "state": "IL",
       "libraries": 773,
-      "active": 206,
+      "active": 200,
       "detected": 0,
       "zips": 1575,
-      "zipsNearActive": 344
+      "zipsNearActive": 329
     },
     {
       "state": "IN",
       "libraries": 428,
-      "active": 155,
-      "detected": 6,
+      "active": 150,
+      "detected": 11,
       "zips": 968,
-      "zipsNearActive": 368
+      "zipsNearActive": 357
     },
     {
       "state": "KS",
@@ -315,10 +321,10 @@
     {
       "state": "MA",
       "libraries": 458,
-      "active": 76,
+      "active": 75,
       "detected": 6,
       "zips": 685,
-      "zipsNearActive": 120
+      "zipsNearActive": 119
     },
     {
       "state": "MD",
@@ -350,7 +356,7 @@
       "active": 116,
       "detected": 44,
       "zips": 1159,
-      "zipsNearActive": 211
+      "zipsNearActive": 210
     },
     {
       "state": "MN",
@@ -363,10 +369,10 @@
     {
       "state": "MO",
       "libraries": 369,
-      "active": 124,
+      "active": 108,
       "detected": 44,
       "zips": 1157,
-      "zipsNearActive": 383
+      "zipsNearActive": 344
     },
     {
       "state": "MP",
@@ -379,10 +385,10 @@
     {
       "state": "MS",
       "libraries": 230,
-      "active": 34,
-      "detected": 0,
+      "active": 23,
+      "detected": 3,
       "zips": 531,
-      "zipsNearActive": 82
+      "zipsNearActive": 61
     },
     {
       "state": "MT",
@@ -395,10 +401,10 @@
     {
       "state": "NC",
       "libraries": 391,
-      "active": 158,
-      "detected": 45,
+      "active": 151,
+      "detected": 52,
       "zips": 1081,
-      "zipsNearActive": 426
+      "zipsNearActive": 411
     },
     {
       "state": "ND",
@@ -427,10 +433,10 @@
     {
       "state": "NJ",
       "libraries": 439,
-      "active": 157,
+      "active": 156,
       "detected": 0,
       "zips": 723,
-      "zipsNearActive": 302
+      "zipsNearActive": 300
     },
     {
       "state": "NM",
@@ -451,26 +457,26 @@
     {
       "state": "NY",
       "libraries": 1072,
-      "active": 270,
-      "detected": 0,
+      "active": 260,
+      "detected": 10,
       "zips": 2154,
-      "zipsNearActive": 493
+      "zipsNearActive": 472
     },
     {
       "state": "OH",
       "libraries": 721,
-      "active": 370,
-      "detected": 0,
+      "active": 343,
+      "detected": 6,
       "zips": 1416,
-      "zipsNearActive": 661
+      "zipsNearActive": 601
     },
     {
       "state": "OK",
       "libraries": 218,
-      "active": 83,
-      "detected": 0,
+      "active": 74,
+      "detected": 8,
       "zips": 765,
-      "zipsNearActive": 314
+      "zipsNearActive": 279
     },
     {
       "state": "OR",
@@ -507,10 +513,10 @@
     {
       "state": "SC",
       "libraries": 200,
-      "active": 108,
-      "detected": 8,
+      "active": 90,
+      "detected": 26,
       "zips": 534,
-      "zipsNearActive": 295
+      "zipsNearActive": 238
     },
     {
       "state": "SD",
@@ -523,34 +529,34 @@
     {
       "state": "TN",
       "libraries": 285,
-      "active": 83,
-      "detected": 0,
+      "active": 79,
+      "detected": 3,
       "zips": 785,
-      "zipsNearActive": 220
+      "zipsNearActive": 209
     },
     {
       "state": "TX",
       "libraries": 868,
-      "active": 183,
-      "detected": 52,
+      "active": 174,
+      "detected": 55,
       "zips": 2600,
-      "zipsNearActive": 578
+      "zipsNearActive": 549
     },
     {
       "state": "UT",
       "libraries": 124,
-      "active": 46,
-      "detected": 3,
+      "active": 49,
+      "detected": 0,
       "zips": 347,
-      "zipsNearActive": 118
+      "zipsNearActive": 126
     },
     {
       "state": "VA",
       "libraries": 364,
-      "active": 186,
-      "detected": 11,
+      "active": 167,
+      "detected": 21,
       "zips": 1214,
-      "zipsNearActive": 495
+      "zipsNearActive": 453
     },
     {
       "state": "VI",
@@ -571,10 +577,10 @@
     {
       "state": "WA",
       "libraries": 348,
-      "active": 262,
-      "detected": 0,
+      "active": 228,
+      "detected": 34,
       "zips": 716,
-      "zipsNearActive": 569
+      "zipsNearActive": 499
     },
     {
       "state": "WI",
@@ -587,10 +593,10 @@
     {
       "state": "WV",
       "libraries": 169,
-      "active": 40,
-      "detected": 0,
+      "active": 32,
+      "detected": 8,
       "zips": 851,
-      "zipsNearActive": 232
+      "zipsNearActive": 197
     },
     {
       "state": "WY",
@@ -602,15 +608,6 @@
     }
   ],
   "topUncoveredSystems": [
-    {
-      "systemKey": "CA0063",
-      "system": "Los Angeles Public Library",
-      "state": "CA",
-      "outlets": 73,
-      "status": "none",
-      "vendor": null,
-      "stage": "no-platform-found"
-    },
     {
       "systemKey": "NY0562",
       "system": "Queens Borough Public Library",
@@ -633,6 +630,15 @@
       "systemKey": "CA0051",
       "system": "Kern County Library",
       "state": "CA",
+      "outlets": 23,
+      "status": "none",
+      "vendor": null,
+      "stage": "no-platform-found"
+    },
+    {
+      "systemKey": "FL0259",
+      "system": "Pal Public Library Cooperative",
+      "state": "FL",
       "outlets": 23,
       "status": "none",
       "vendor": null,
@@ -693,6 +699,15 @@
       "stage": "no-platform-found"
     },
     {
+      "systemKey": "OH0215",
+      "system": "Toledo-Lucas County Public Library",
+      "state": "OH",
+      "outlets": 20,
+      "status": "none",
+      "vendor": null,
+      "stage": "no-platform-found"
+    },
+    {
       "systemKey": "MI0123",
       "system": "Genesee District Library",
       "state": "MI",
@@ -724,15 +739,6 @@
       "system": "Polk County Library Cooperative",
       "state": "FL",
       "outlets": 18,
-      "status": "none",
-      "vendor": null,
-      "stage": "no-platform-found"
-    },
-    {
-      "systemKey": "CA0148",
-      "system": "Tulare County Free Library",
-      "state": "CA",
-      "outlets": 17,
       "status": "none",
       "vendor": null,
       "stage": "no-platform-found"
@@ -774,26 +780,26 @@
       "stage": "no-platform-found"
     },
     {
-      "systemKey": "WA0070",
-      "system": "Yakima Valley Regional Library",
-      "state": "WA",
+      "systemKey": "MO0030",
+      "system": "City Of St. Louis Municipal Library District",
+      "state": "MO",
       "outlets": 16,
       "status": "none",
       "vendor": null,
-      "stage": "site-unreachable"
+      "stage": "no-platform-found"
     }
   ],
   "zipAnalysis": {
     "total": 40979,
     "failures": 0,
-    "nearestIsActive": 13335,
-    "nearestIsDetected": 812,
+    "nearestIsActive": 12859,
+    "nearestIsDetected": 1321,
     "nearestDistanceMiles": {
       "median": 2.0860216177145445,
       "p90": 9.968131461671662,
       "p99": 25.364223263245464,
       "max": 1815.9511109284065
     },
-    "elapsedMs": 250
+    "elapsedMs": 689
   }
 }
