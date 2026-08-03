@@ -183,21 +183,17 @@
   "domain": "sno-isle.org",
   "resolution": "already-active"
  },
- "NY0562": {
-  "domain": "queenslibrary.org",
+ "NC0063": {
+  "domain": "wake.gov",
   "resolution": "no-platform-found"
  },
- "CA0051": {
-  "domain": "kerncountylibrary.org",
+ "NY0562": {
+  "domain": "queenslibrary.org",
   "resolution": "no-platform-found"
  },
  "FL0003": {
   "domain": "jaxpubliclibrary.org",
   "resolution": "already-active"
- },
- "NC0063": {
-  "domain": "wake.gov",
-  "resolution": "no-platform-found"
  },
  "MD0016": {
   "domain": "montgomerycountymd.gov",
@@ -222,6 +218,10 @@
  "MI0182": {
   "domain": "kdl.org",
   "resolution": "already-active"
+ },
+ "CA0051": {
+  "domain": "kerncountylibrary.org",
+  "resolution": "no-platform-found"
  },
  "OH0063": {
   "domain": "daytonmetrolibrary.org",
@@ -275,18 +275,6 @@
   "domain": "slcl.org",
   "resolution": "no-platform-found"
  },
- "AL0108": {
-  "domain": "cobpl.org",
-  "resolution": "site-unreachable"
- },
- "CA0081": {
-  "domain": "oaklandlibrary.org",
-  "resolution": "already-active"
- },
- "FL0246": {
-  "domain": "pbclibrary.org",
-  "resolution": "already-active"
- },
  "MD0003": {
   "domain": "prattlibrary.org",
   "resolution": "adapter-needed:localist",
@@ -298,6 +286,18 @@
     "evidence": "localist-images"
    }
   ]
+ },
+ "CA0081": {
+  "domain": "oaklandlibrary.org",
+  "resolution": "already-active"
+ },
+ "FL0246": {
+  "domain": "pbclibrary.org",
+  "resolution": "already-active"
+ },
+ "AL0108": {
+  "domain": "cobpl.org",
+  "resolution": "site-unreachable"
  },
  "NM0002": {
   "domain": "abqlibrary.org",
@@ -319,16 +319,16 @@
   "domain": "tularecountylibrary.org",
   "resolution": "already-active"
  },
- "LA0054": {
-  "domain": "shreve-lib.org",
-  "resolution": "no-platform-found"
- },
  "MS0006": {
   "domain": "cmrls.lib.ms.us",
   "resolution": "no-platform-found"
  },
- "MI0123": {
-  "domain": "thegdl.org",
+ "LA0054": {
+  "domain": "shreve-lib.org",
+  "resolution": "no-platform-found"
+ },
+ "GA0004": {
+  "domain": "bibblib.org",
   "resolution": "no-platform-found"
  },
  "SC0009": {
@@ -339,8 +339,8 @@
   "domain": "countyofmonterey.gov",
   "resolution": "already-active"
  },
- "AZ0028": {
-  "domain": "mcldaz.org",
+ "FL0011": {
+  "domain": "brevardfl.gov:81",
   "resolution": "no-platform-found"
  },
  "CO0145": {
@@ -383,9 +383,9 @@
   "domain": "mypclc.org",
   "resolution": "no-platform-found"
  },
- "FL0011": {
-  "domain": "brevardfl.gov:81",
-  "resolution": "no-platform-found"
+ "KY0053": {
+  "domain": "lfpl.org",
+  "resolution": "site-unreachable"
  },
  "AZ0067": {
   "domain": "ycfld.gov",
@@ -403,16 +403,16 @@
   "domain": "ocls.org",
   "resolution": "already-active"
  },
- "KY0053": {
-  "domain": "lfpl.org",
+ "WA0070": {
+  "domain": "yvl.org",
   "resolution": "site-unreachable"
  },
  "LA0058": {
   "domain": "nolalibrary.org",
   "resolution": "already-active"
  },
- "GA0004": {
-  "domain": "bibblib.org",
+ "AZ0028": {
+  "domain": "mcldaz.org",
   "resolution": "no-platform-found"
  },
  "OH0248": {
@@ -427,9 +427,9 @@
   "domain": "jcls.org",
   "resolution": "already-active"
  },
- "WA0070": {
-  "domain": "yvl.org",
-  "resolution": "site-unreachable"
+ "CA0142": {
+  "domain": "ssjcpl.org",
+  "resolution": "no-platform-found"
  },
  "WA0058": {
   "domain": "fvrl.org",
@@ -459,16 +459,16 @@
   "domain": "jocolibrary.org",
   "resolution": "already-active"
  },
- "CA0142": {
-  "domain": "ssjcpl.org",
+ "NC0015": {
+  "domain": "sandhill.nccardinal.org",
   "resolution": "no-platform-found"
  },
  "MN0031": {
   "domain": "ecrlib.org",
   "resolution": "already-active"
  },
- "NC0015": {
-  "domain": "sandhill.nccardinal.org",
+ "AR0007": {
+  "domain": "library.arkansas.gov",
   "resolution": "no-platform-found"
  },
  "MS0021": {
@@ -479,28 +479,36 @@
   "domain": "omahalibrary.org",
   "resolution": "already-active"
  },
- "MS0013": {
-  "domain": "firstregional.org",
-  "resolution": "site-unreachable"
- },
  "CA0118": {
   "domain": "slocounty.ca.gov",
+  "resolution": "no-platform-found"
+ },
+ "AR0040": {
+  "domain": "libraryhours.org",
   "resolution": "no-platform-found"
  },
  "CA0120": {
   "domain": "smcl.org",
   "resolution": "already-active"
  },
- "AR0007": {
-  "domain": "library.arkansas.gov",
-  "resolution": "no-platform-found"
+ "LA0055": {
+  "domain": "ebrpl.com",
+  "resolution": "calendar-id-needed",
+  "vendor": "libcal",
+  "note": "libcal instance ebrpl.libcal.com linked from own site, no verifiable calendar found",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "ebrpl.libcal.com"
+   }
+  ]
  },
  "CA0152": {
   "domain": "library.venturacounty.gov",
   "resolution": "already-active"
  },
- "AR0040": {
-  "domain": "libraryhours.org",
+ "TX0030": {
+  "domain": "elpasolibrary.org",
   "resolution": "no-platform-found"
  },
  "MI0424": {
@@ -515,13 +523,13 @@
   "domain": "sppl.org",
   "resolution": "already-active"
  },
- "TX0030": {
-  "domain": "elpasolibrary.org",
-  "resolution": "no-platform-found"
- },
  "MI0175": {
   "domain": "myjdl.com",
   "resolution": "site-unreachable"
+ },
+ "MS0033": {
+  "domain": "midmisslib.com",
+  "resolution": "no-platform-found"
  },
  "NC0013": {
   "domain": "nwrl.org",
@@ -535,33 +543,21 @@
   "domain": "abbe-lib.org",
   "resolution": "already-active"
  },
- "MS0033": {
-  "domain": "midmisslib.com",
+ "CA0140": {
+  "domain": "stanislauslibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MS0035": {
+  "domain": "nereg.lib.ms.us",
+  "resolution": "no-platform-found"
+ },
+ "SD0154": {
+  "domain": "library.olc.edu",
   "resolution": "no-platform-found"
  },
  "WA0048": {
   "domain": "whitcolib.org",
   "resolution": "no-platform-found"
- },
- "SC0035": {
-  "domain": "richlandlibrary.com",
-  "resolution": "no-platform-found"
- },
- "LA0055": {
-  "domain": "ebrpl.com",
-  "resolution": "calendar-id-needed",
-  "vendor": "libcal",
-  "note": "libcal instance ebrpl.libcal.com linked from own site, no verifiable calendar found",
-  "platforms": [
-   {
-    "vendor": "libcal",
-    "evidence": "ebrpl.libcal.com"
-   },
-   {
-    "vendor": "evanced",
-    "evidence": "ebrpl.evanced.info"
-   }
-  ]
  },
  "TX0247": {
   "domain": "fortbendlibraries.gov",
@@ -571,17 +567,17 @@
   "domain": "mpl.org",
   "resolution": "already-active"
  },
- "MS0035": {
-  "domain": "nereg.lib.ms.us",
+ "SC0035": {
+  "domain": "richlandlibrary.com",
   "resolution": "no-platform-found"
  },
  "AR0081": {
   "domain": "library.arkansas.gov",
   "resolution": "no-platform-found"
  },
- "SD0154": {
-  "domain": "library.olc.edu",
-  "resolution": "site-unreachable"
+ "CA0061": {
+  "domain": "longbeach.gov",
+  "resolution": "no-platform-found"
  },
  "CA0001": {
   "domain": "aclibrary.org",
@@ -623,21 +619,35 @@
   "domain": "washoecountylibrary.us",
   "resolution": "already-active"
  },
- "CA0061": {
-  "domain": "longbeach.gov",
+ "SD0141": {
+  "domain": "siouxlandlib.org",
   "resolution": "no-platform-found"
+ },
+ "MS0013": {
+  "domain": "firstregional.org",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe_events"
+   }
+  ]
  },
  "OK0070": {
   "domain": "pioneerlibrarysystem.org",
   "resolution": "no-platform-found"
  },
- "SD0141": {
-  "domain": "siouxlandlib.org",
-  "resolution": "no-platform-found"
- },
- "TX0024": {
-  "domain": "mybcls.org",
-  "resolution": "no-platform-found"
+ "OR0027": {
+  "domain": "klamathlibrary.org",
+  "resolution": "calendar-id-needed",
+  "vendor": "libcal",
+  "note": "libcal instance klamathlibrary.libcal.com linked from own site, no verifiable calendar found",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "klamathlibrary.libcal.com"
+   }
+  ]
  },
  "VA0054": {
   "domain": "norfolkpubliclibrary.org",
@@ -655,17 +665,9 @@
   "domain": "countyofmerced.com",
   "resolution": "no-platform-found"
  },
- "OR0027": {
-  "domain": "klamathlibrary.org",
-  "resolution": "calendar-id-needed",
-  "vendor": "libcal",
-  "note": "libcal instance klamathlibrary.libcal.com linked from own site, no verifiable calendar found",
-  "platforms": [
-   {
-    "vendor": "libcal",
-    "evidence": "klamathlibrary.libcal.com"
-   }
-  ]
+ "WA0061": {
+  "domain": "midcolumbialibraries.org",
+  "resolution": "no-platform-found"
  },
  "CA0127": {
   "domain": "santacruzpl.org",
@@ -687,9 +689,9 @@
   "domain": "hcplonline.org",
   "resolution": "already-active"
  },
- "WA0061": {
-  "domain": "midcolumbialibraries.org",
-  "resolution": "no-platform-found"
+ "SC0021": {
+  "domain": "greenvillelibrary.org",
+  "resolution": "site-unreachable"
  },
  "MO0035": {
   "domain": "stchlibrary.org",
@@ -703,13 +705,21 @@
   "domain": "onlib.org",
   "resolution": "already-active"
  },
- "PR0032": {
-  "domain": "public-libraries.com",
+ "TX0024": {
+  "domain": "mybcls.org",
+  "resolution": "no-platform-found"
+ },
+ "NY0521": {
+  "domain": "roccitylibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "PR0053": {
+  "domain": "bibliotecacarolina.com",
   "resolution": "site-unreachable"
  },
- "SC0021": {
-  "domain": "greenvillelibrary.org",
-  "resolution": "site-unreachable"
+ "WA0066": {
+  "domain": "scld.org",
+  "resolution": "already-active"
  },
  "MI0321": {
   "domain": "stclaircountylibrary.org",
@@ -722,14 +732,6 @@
     "evidence": "sccl-mi.libcal.com"
    }
   ]
- },
- "WA0066": {
-  "domain": "scld.org",
-  "resolution": "already-active"
- },
- "CA0039": {
-  "domain": "humboldtgov.org",
-  "resolution": "no-platform-found"
  },
  "AL0187": {
   "domain": "mccpl.lib.al.us",
@@ -747,40 +749,40 @@
   "domain": "marinlibrary.org",
   "resolution": "already-active"
  },
- "NY0521": {
-  "domain": "roccitylibrary.org",
+ "CA0094": {
+  "domain": "cityofpasadena.net",
+  "resolution": "no-platform-found"
+ },
+ "PR0055": {
+  "domain": "libraryapi.dev",
   "resolution": "no-platform-found"
  },
  "AL0166": {
   "domain": "hmcpl.org",
   "resolution": "no-platform-found"
  },
- "PR0053": {
-  "domain": "bibliotecacarolina.com",
+ "DE0046": {
+  "domain": "dlc.lib.de.us",
   "resolution": "site-unreachable"
- },
- "CA0094": {
-  "domain": "cityofpasadena.net",
-  "resolution": "no-platform-found"
  },
  "GA0023": {
   "domain": "trrl.org",
   "resolution": "already-active"
  },
- "PR0055": {
-  "domain": "libraryapi.dev",
+ "CA0039": {
+  "domain": "humboldtgov.org",
   "resolution": "no-platform-found"
  },
  "IN0068": {
   "domain": "sjcpl.org",
   "resolution": "already-active"
  },
- "DE0046": {
-  "domain": "dlc.lib.de.us",
-  "resolution": "site-unreachable"
+ "PR0032": {
+  "domain": "public-libraries.com",
+  "resolution": "no-platform-found"
  },
- "GA0035": {
-  "domain": "azalealibraries.org",
+ "FL0020": {
+  "domain": "library.collier.gov",
   "resolution": "no-platform-found"
  },
  "MI0240": {
@@ -807,16 +809,16 @@
   "domain": "jclibrary.org",
   "resolution": "already-active"
  },
- "FL0020": {
-  "domain": "library.collier.gov",
-  "resolution": "no-platform-found"
+ "LA0051": {
+  "domain": "oplib.org",
+  "resolution": "site-unreachable"
  },
  "OH0039": {
   "domain": "starklibrary.org",
   "resolution": "already-active"
  },
- "LA0051": {
-  "domain": "oplib.org",
+ "NV0007": {
+  "domain": "eurekacountynv.gov",
   "resolution": "site-unreachable"
  },
  "SC0027": {
@@ -851,20 +853,20 @@
   "domain": "kcpls.org",
   "resolution": "already-active"
  },
- "NV0007": {
-  "domain": "eurekacountynv.gov",
-  "resolution": "site-unreachable"
+ "SC0022": {
+  "domain": "hcml.sc.gov",
+  "resolution": "no-platform-found"
  },
  "AL0186": {
   "domain": "mobilepubliclibrary.org",
   "resolution": "already-active"
  },
- "SC0022": {
-  "domain": "hcml.sc.gov",
+ "GA0035": {
+  "domain": "azalealibraries.org",
   "resolution": "no-platform-found"
  },
- "OH0018": {
-  "domain": "clermontlibrary.org",
+ "WY0008": {
+  "domain": "sweetwaterlibraries.com",
   "resolution": "no-platform-found"
  },
  "CA0009": {
@@ -879,12 +881,12 @@
   "domain": "solanolibrary.com",
   "resolution": "already-active"
  },
- "AR0002": {
-  "domain": "catalog.wcls.lib.ar.us",
+ "OH0018": {
+  "domain": "clermontlibrary.org",
   "resolution": "no-platform-found"
  },
- "WY0008": {
-  "domain": "sweetwaterlibraries.com",
+ "AR0002": {
+  "domain": "catalog.wcls.lib.ar.us",
   "resolution": "no-platform-found"
  },
  "FL0065": {
@@ -895,12 +897,12 @@
   "domain": "ccpl-fl.net",
   "resolution": "already-active"
  },
- "AR0019": {
-  "domain": "whitecountylibraries.org",
-  "resolution": "site-unreachable"
- },
  "FL0008": {
   "domain": "mywfpl.com",
+  "resolution": "no-platform-found"
+ },
+ "GA0042": {
+  "domain": "frrls.net",
   "resolution": "no-platform-found"
  },
  "LA0047": {
@@ -923,9 +925,17 @@
   "domain": "fcpl.org",
   "resolution": "already-active"
  },
- "CA0140": {
-  "domain": "stanislauslibrary.org",
-  "resolution": "site-unreachable"
+ "AR0019": {
+  "domain": "whitecountylibraries.org",
+  "resolution": "adapter-needed:assabet",
+  "vendor": "assabet",
+  "note": "evidence: assabetinteractive.com",
+  "platforms": [
+   {
+    "vendor": "assabet",
+    "evidence": "assabetinteractive.com"
+   }
+  ]
  },
  "MN0039": {
   "domain": "dakotacountymn.gov",
@@ -939,16 +949,16 @@
   "domain": "krls.org",
   "resolution": "already-active"
  },
- "GA0042": {
-  "domain": "frrls.net",
+ "FL0007": {
+  "domain": "srrlib.org",
   "resolution": "no-platform-found"
  },
  "MO0065": {
   "domain": "scenicregional.org",
   "resolution": "already-active"
  },
- "FL0007": {
-  "domain": "srrlib.org",
+ "MO0038": {
+  "domain": "blrlibrary.com",
   "resolution": "no-platform-found"
  },
  "IN0030": {
@@ -991,8 +1001,8 @@
   "domain": "yorklibraries.org",
   "resolution": "already-active"
  },
- "MO0038": {
-  "domain": "blrlibrary.com",
+ "MI0022": {
+  "domain": "sdl.michlibrary.org",
   "resolution": "no-platform-found"
  },
  "RI0053": {
@@ -1019,9 +1029,9 @@
   "domain": "rvalibrary.org",
   "resolution": "already-active"
  },
- "MI0022": {
-  "domain": "sdl.michlibrary.org",
-  "resolution": "site-unreachable"
+ "PR0029": {
+  "domain": "bibliotecaponce.wordpress.com",
+  "resolution": "no-platform-found"
  },
  "WA0060": {
   "domain": "krl.org",
@@ -1031,8 +1041,8 @@
   "domain": "browncountylibrary.org",
   "resolution": "already-active"
  },
- "PR0029": {
-  "domain": "bibliotecaponce.wordpress.com",
+ "VA0043": {
+  "domain": "lprlibrary.org",
   "resolution": "no-platform-found"
  },
  "WI0341": {
@@ -1059,16 +1069,16 @@
   "domain": "anaheim.net",
   "resolution": "already-active"
  },
- "MS0016": {
-  "domain": "harrison.lib.ms.us",
+ "WI0176": {
+  "domain": "madisonpubliclibrary.org",
   "resolution": "no-platform-found"
  },
  "CA0042": {
   "domain": "eglendalelac.org",
   "resolution": "already-active"
  },
- "WI0176": {
-  "domain": "madisonpubliclibrary.org",
+ "CA0018": {
+  "domain": "library.calaverasgov.us",
   "resolution": "no-platform-found"
  },
  "CA0103": {
@@ -1087,22 +1097,22 @@
   "domain": "pueblolibrary.org",
   "resolution": "already-active"
  },
- "CA0018": {
-  "domain": "library.calaverasgov.us",
-  "resolution": "no-platform-found"
- },
- "FL0093": {
-  "domain": "sarasotacountylibraries.org",
+ "VA0083": {
+  "domain": "blackwaterlib.org",
   "resolution": "no-platform-found",
   "platforms": [
    {
-    "vendor": "librarymarket",
-    "evidence": "scgovlibrary.librarymarket.com"
+    "vendor": "tribe",
+    "evidence": "tribe-events"
    }
   ]
  },
- "VA0043": {
-  "domain": "lprlibrary.org",
+ "MI0123": {
+  "domain": "thegdl.org",
+  "resolution": "no-platform-found"
+ },
+ "GA0010": {
+  "domain": "sequoyahregionallibrary.org",
   "resolution": "no-platform-found"
  },
  "FL0001": {
@@ -1113,37 +1123,43 @@
   "domain": "evpl.org",
   "resolution": "already-active"
  },
- "GA0010": {
-  "domain": "sequoyahregionallibrary.org",
+ "CA0097": {
+  "domain": "plumascounty.us",
   "resolution": "no-platform-found"
  },
  "LA0022": {
   "domain": "myipl.org",
   "resolution": "already-active"
  },
- "CA0097": {
-  "domain": "plumascounty.us",
-  "resolution": "no-platform-found"
- },
  "LA0032": {
   "domain": "avoyelles.lib.la.us",
+  "resolution": "site-unreachable"
+ },
+ "KS0088": {
+  "domain": "home.oct.net",
   "resolution": "site-unreachable"
  },
  "MD0007": {
   "domain": "library.carr.org",
   "resolution": "already-active"
  },
- "KS0088": {
-  "domain": "home.oct.net",
-  "resolution": "site-unreachable"
+ "ID0055": {
+  "domain": "prld.org",
+  "resolution": "no-platform-found"
  },
  "MI0131": {
   "domain": "grpl.org",
   "resolution": "already-active"
  },
- "ID0055": {
-  "domain": "prld.org",
-  "resolution": "no-platform-found"
+ "FL0093": {
+  "domain": "sarasotacountylibraries.org",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "librarymarket",
+    "evidence": "scgovlibrary.librarymarket.com"
+   }
+  ]
  },
  "MN0035": {
   "domain": "anokacountymn.gov",
@@ -1157,22 +1173,16 @@
   "domain": "trailslibrary.org",
   "resolution": "already-active"
  },
- "VA0083": {
-  "domain": "blackwaterlib.org",
-  "resolution": "no-platform-found",
-  "platforms": [
-   {
-    "vendor": "tribe",
-    "evidence": "tribe-events"
-   }
-  ]
+ "LA0041": {
+  "domain": "iberialibrary.org",
+  "resolution": "no-platform-found"
  },
  "MS0020": {
   "domain": "jgrls.org",
   "resolution": "already-active"
  },
- "LA0041": {
-  "domain": "iberialibrary.org",
+ "MS0009": {
+  "domain": "dixie.lib.ms.us",
   "resolution": "no-platform-found"
  },
  "NC0004": {
@@ -1191,8 +1201,8 @@
   "domain": "cumberlandcountync.gov",
   "resolution": "already-active"
  },
- "NC0035": {
-  "domain": "library.greensboro-nc.gov",
+ "MS0016": {
+  "domain": "harrison.lib.ms.us",
   "resolution": "no-platform-found"
  },
  "NC0007": {
@@ -1203,8 +1213,8 @@
   "domain": "bcls.lib.nj.us",
   "resolution": "already-active"
  },
- "MS0009": {
-  "domain": "dixie.lib.ms.us",
+ "NC0035": {
+  "domain": "library.greensboro-nc.gov",
   "resolution": "no-platform-found"
  },
  "NJ0100": {
@@ -1213,7 +1223,7 @@
  },
  "MO0126": {
   "domain": "dunklin-co.lib.mo.us",
-  "resolution": "site-unreachable"
+  "resolution": "no-platform-found"
  },
  "OK0007": {
   "domain": "southernoklibrarysystem.org",
@@ -1223,9 +1233,9 @@
   "domain": "dcls.org",
   "resolution": "already-active"
  },
- "NJ0083": {
-  "domain": "camdencountylibrary.org",
-  "resolution": "site-unreachable"
+ "OH0176": {
+  "domain": "mypcdl.org",
+  "resolution": "no-platform-found"
  },
  "UT0048": {
   "domain": "services.slcpl.org",
@@ -1251,24 +1261,24 @@
    }
   ]
  },
- "VA0040": {
-  "domain": "jmrl.org",
+ "NJ0083": {
+  "domain": "camdencountylibrary.org",
   "resolution": "no-platform-found"
  },
  "WA0068": {
   "domain": "tacomalibrary.org",
   "resolution": "already-active"
  },
- "OH0176": {
-  "domain": "mypcdl.org",
+ "MS0046": {
+  "domain": "tombigbee.lib.ms.us",
   "resolution": "no-platform-found"
  },
  "UT0022": {
   "domain": "lib.emerycounty.com",
   "resolution": "no-platform-found"
  },
- "MS0046": {
-  "domain": "tombigbee.lib.ms.us",
+ "VA0040": {
+  "domain": "jmrl.org",
   "resolution": "no-platform-found"
  },
  "WY0011": {
@@ -1287,8 +1297,8 @@
   "domain": "apachecountylibraries.com",
   "resolution": "no-platform-found"
  },
- "VA0069": {
-  "domain": "roanokeva.gov",
+ "CA0026": {
+  "domain": "countyofcolusaca.gov",
   "resolution": "no-platform-found"
  },
  "AR0012": {
@@ -1327,8 +1337,8 @@
   "domain": "mymanatee.org",
   "resolution": "already-active"
  },
- "AR0005": {
-  "domain": "midarklibrary.org",
+ "VA0069": {
+  "domain": "roanokeva.gov",
   "resolution": "no-platform-found"
  },
  "FL0150": {
@@ -1343,20 +1353,20 @@
   "domain": "negeorgialibraries.org",
   "resolution": "already-active"
  },
- "CA0026": {
-  "domain": "countyofcolusaca.gov",
+ "AR0005": {
+  "domain": "midarklibrary.org",
   "resolution": "no-platform-found"
  },
  "GA0036": {
   "domain": "cvlga.org",
   "resolution": "already-active"
  },
- "GA0033": {
-  "domain": "pinemtnlibrary.org",
+ "GA0046": {
+  "domain": "cprl.org",
   "resolution": "no-platform-found"
  },
- "CA0071": {
-  "domain": "monocolibraries.org",
+ "GA0033": {
+  "domain": "pinemtnlibrary.org",
   "resolution": "no-platform-found"
  },
  "ID0060": {
@@ -1375,8 +1385,8 @@
   "domain": "wichitalibrary.org",
   "resolution": "already-active"
  },
- "GA0046": {
-  "domain": "cprl.org",
+ "FL0092": {
+  "domain": "stlucieco.gov",
   "resolution": "no-platform-found"
  },
  "CA0053": {
@@ -1403,13 +1413,24 @@
   "domain": "library.lapeer.org",
   "resolution": "already-active"
  },
- "ID0120": {
-  "domain": "communitylibrary.net",
-  "resolution": "site-unreachable"
- },
  "LA0033": {
   "domain": "websterpl.org",
   "resolution": "no-platform-found"
+ },
+ "ID0120": {
+  "domain": "communitylibrary.net",
+  "resolution": "activated",
+  "vendor": "libcal",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "communitylibrary.libcal.com"
+   },
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
  },
  "MN0038": {
   "domain": "carverlib.org",
@@ -1423,8 +1444,8 @@
   "domain": "washcolib.org",
   "resolution": "already-active"
  },
- "FL0092": {
-  "domain": "stlucieco.gov",
+ "CA0071": {
+  "domain": "monocolibraries.org",
   "resolution": "no-platform-found"
  },
  "MO0040": {
@@ -1439,8 +1460,8 @@
   "domain": "missoulapubliclibrary.org",
   "resolution": "already-active"
  },
- "NC0001": {
-  "domain": "arlnc.libguides.com",
+ "MI0345": {
+  "domain": "vbdl.org",
   "resolution": "no-platform-found"
  },
  "MO0132": {
@@ -1455,8 +1476,8 @@
   "domain": "harnett.libguides.com",
   "resolution": "already-active"
  },
- "LA0039": {
-  "domain": "acadiaparishlibrary.org",
+ "NC0001": {
+  "domain": "arlnc.libguides.com",
   "resolution": "no-platform-found"
  },
  "NC0053": {
@@ -1475,12 +1496,12 @@
   "domain": "randolphlibrary.org",
   "resolution": "no-platform-found"
  },
- "OH0156": {
-  "domain": "myacpl.org",
-  "resolution": "no-platform-found"
- },
  "OH0131": {
   "domain": "wcplib.info",
+  "resolution": "no-platform-found"
+ },
+ "LA0039": {
+  "domain": "acadiaparishlibrary.org",
   "resolution": "no-platform-found"
  },
  "OH0245": {
@@ -1491,8 +1512,8 @@
   "domain": "greenelibrary.info",
   "resolution": "already-active"
  },
- "MS0048": {
-  "domain": "washington.lib.ms.us",
+ "OH0156": {
+  "domain": "myacpl.org",
   "resolution": "no-platform-found"
  },
  "PA0309": {
@@ -1511,8 +1532,8 @@
   "domain": "arlingtonlibrary.org",
   "resolution": "already-active"
  },
- "TX0443": {
-  "domain": "countylibrary.org",
+ "MS0048": {
+  "domain": "washington.lib.ms.us",
   "resolution": "no-platform-found"
  },
  "UT0019": {
@@ -1523,8 +1544,8 @@
   "domain": "alexlibraryva.org",
   "resolution": "already-active"
  },
- "OK0024": {
-  "domain": "wplibs.com",
+ "TX0443": {
+  "domain": "countylibrary.org",
   "resolution": "no-platform-found"
  },
  "VA0017": {
@@ -1539,44 +1560,44 @@
   "domain": "thelosc.org",
   "resolution": "already-active"
  },
- "VA0006": {
-  "domain": "augustacountylibrary.org",
-  "resolution": "site-unreachable"
- },
  "WV0078": {
   "domain": "fayette.lib.wv.us",
   "resolution": "already-active"
  },
- "AR0015": {
-  "domain": "library.arkansas.gov",
+ "VA0006": {
+  "domain": "augustacountylibrary.org",
   "resolution": "no-platform-found"
  },
- "OH0208": {
-  "domain": "steubenvillelibrary.org",
+ "AR0015": {
+  "domain": "library.arkansas.gov",
   "resolution": "no-platform-found"
  },
  "AR0020": {
   "domain": "library.arkansas.gov",
   "resolution": "no-platform-found"
  },
- "NC0023": {
-  "domain": "catawbacountync.gov",
+ "AR0048": {
+  "domain": "crawfordcountylib.org",
   "resolution": "no-platform-found"
  },
  "CA0017": {
   "domain": "buttecounty.net",
   "resolution": "already-active"
  },
+ "OH0208": {
+  "domain": "steubenvillelibrary.org",
+  "resolution": "no-platform-found"
+ },
  "CA0079": {
   "domain": "nevadacountyca.gov",
   "resolution": "already-active"
  },
- "AR0048": {
-  "domain": "crawfordcountylib.org",
+ "OK0024": {
+  "domain": "wplibs.com",
   "resolution": "no-platform-found"
  },
- "CA0050": {
-  "domain": "inyocounty.us",
+ "NC0023": {
+  "domain": "catawbacountync.gov",
   "resolution": "no-platform-found"
  },
  "CO0049": {
@@ -1591,8 +1612,8 @@
   "domain": "martin.fl.us",
   "resolution": "already-active"
  },
- "CA0123": {
-  "domain": "santa-ana.org",
+ "CA0050": {
+  "domain": "inyocounty.us",
   "resolution": "no-platform-found"
  },
  "FL0109": {
@@ -1627,8 +1648,8 @@
   "domain": "3riverslibrary.com",
   "resolution": "site-unreachable"
  },
- "GA0021": {
-  "domain": "shrls.org",
+ "CA0146": {
+  "domain": "library.torranceca.gov",
   "resolution": "no-platform-found"
  },
  "GA0039": {
@@ -1639,24 +1660,24 @@
   "domain": "lbrls.org",
   "resolution": "already-active"
  },
- "CA0146": {
-  "domain": "library.torranceca.gov",
+ "GA0021": {
+  "domain": "shrls.org",
   "resolution": "no-platform-found"
  },
  "GA0045": {
   "domain": "tcpls.org",
   "resolution": "already-active"
  },
- "GA0044": {
-  "domain": "krlibrary.org",
+ "CA0123": {
+  "domain": "santa-ana.org",
   "resolution": "no-platform-found"
  },
  "IA0027": {
   "domain": "dmpl.org",
   "resolution": "already-active"
  },
- "IA0356": {
-  "domain": "scottcountyiowa.gov",
+ "GA0044": {
+  "domain": "krlibrary.org",
   "resolution": "no-platform-found"
  },
  "IL0253": {
@@ -1665,11 +1686,11 @@
  },
  "IL0444": {
   "domain": "putnamcountylibrary.org",
-  "resolution": "site-unreachable"
+  "resolution": "no-platform-found"
  },
- "IN0027": {
-  "domain": "ecpl.org",
-  "resolution": "site-unreachable"
+ "IA0356": {
+  "domain": "scottcountyiowa.gov",
+  "resolution": "no-platform-found"
  },
  "IN0186": {
   "domain": "sullivan.lib.in.us",
@@ -1699,21 +1720,17 @@
   "domain": "cameron.lib.la.us",
   "resolution": "already-active"
  },
- "GA0032": {
-  "domain": "sgrl.org",
+ "LA0025": {
+  "domain": "evangelinelibrary.org",
   "resolution": "no-platform-found"
  },
  "LA0027": {
   "domain": "myscpl.org",
   "resolution": "already-active"
  },
- "LA0025": {
-  "domain": "evangelinelibrary.org",
-  "resolution": "no-platform-found"
- },
  "LA0036": {
   "domain": "vermilionparishlibrary.com",
-  "resolution": "site-unreachable"
+  "resolution": "no-platform-found"
  },
  "MD0001": {
   "domain": "alleganycountylibrary.info",
@@ -1727,17 +1744,17 @@
   "domain": "hclibrary.org",
   "resolution": "already-active"
  },
- "MI0039": {
-  "domain": "branchdistrictlibrary.org",
-  "resolution": "no-platform-found"
- },
  "LA0044": {
   "domain": "tangilibrary.com",
   "resolution": "site-unreachable"
  },
- "MI0213": {
-  "domain": "manisteelibrary.org",
-  "resolution": "site-unreachable"
+ "MI0039": {
+  "domain": "branchdistrictlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "GA0032": {
+  "domain": "sgrl.org",
+  "resolution": "no-platform-found"
  },
  "MO0095": {
   "domain": "ccld.us",
@@ -1747,56 +1764,56 @@
   "domain": "riversideregionallibrary.org",
   "resolution": "already-active"
  },
- "MI0195": {
-  "domain": "lenawee.lib.mi.us",
-  "resolution": "no-platform-found"
- },
  "MS0010": {
   "domain": "emrl.lib.ms.us",
   "resolution": "no-platform-found"
  },
- "MS0041": {
-  "domain": "pineforest.lib.ms.us",
+ "MI0195": {
+  "domain": "lenawee.lib.mi.us",
+  "resolution": "no-platform-found"
+ },
+ "NC0008": {
+  "domain": "fontanalib.org",
   "resolution": "no-platform-found"
  },
  "NC0025": {
   "domain": "ccplnc.weebly.com",
   "resolution": "no-platform-found"
  },
- "GA0066": {
-  "domain": "gchrl.org",
-  "resolution": "site-unreachable"
+ "MS0041": {
+  "domain": "pineforest.lib.ms.us",
+  "resolution": "no-platform-found"
  },
  "NC0039": {
   "domain": "hendersoncountync.gov",
   "resolution": "already-active"
  },
- "GU0001": {
-  "domain": "gpls.guam.gov",
+ "NC0029": {
+  "domain": "duplinnc.gov",
+  "resolution": "no-platform-found"
+ },
+ "MI0213": {
+  "domain": "manisteelibrary.org",
   "resolution": "no-platform-found"
  },
  "NC0059": {
   "domain": "stanlycountylibrary.org",
   "resolution": "no-platform-found"
  },
- "NC0066": {
-  "domain": "wilsoncountypubliclibrary.org",
-  "resolution": "no-platform-found"
- },
  "NJ0284": {
   "domain": "sussexcountylibrary.org",
   "resolution": "already-active"
  },
- "OH0021": {
-  "domain": "loganhockinglibrary.org",
+ "NC0066": {
+  "domain": "wilsoncountypubliclibrary.org",
   "resolution": "no-platform-found"
  },
  "OH0032": {
   "domain": "mywcpl.org",
   "resolution": "already-active"
  },
- "NC0041": {
-  "domain": "pljcs.org",
+ "OH0021": {
+  "domain": "loganhockinglibrary.org",
   "resolution": "no-platform-found"
  },
  "OH0125": {
@@ -1819,37 +1836,37 @@
   "domain": "lickingcountylibrary.org",
   "resolution": "already-active"
  },
- "NC0029": {
-  "domain": "duplinnc.gov",
+ "NC0041": {
+  "domain": "pljcs.org",
   "resolution": "no-platform-found"
  },
  "OH0203": {
   "domain": "shelbycountylibraries.org",
   "resolution": "already-active"
  },
+ "GA0066": {
+  "domain": "gchrl.org",
+  "resolution": "site-unreachable"
+ },
  "OH0121": {
   "domain": "limalibrary.com",
   "resolution": "no-platform-found"
  },
- "OH0221": {
-  "domain": "brumbacklib.org",
-  "resolution": "no-platform-found"
- },
- "OH0179": {
-  "domain": "mypccl.org",
+ "OH0226": {
+  "domain": "wtcpl.org",
   "resolution": "no-platform-found"
  },
  "OH0250": {
   "domain": "muskingumlibrary.org",
   "resolution": "already-active"
  },
- "MI0345": {
-  "domain": "vbdl.org",
-  "resolution": "site-unreachable"
- },
- "OH0225": {
-  "domain": "auglaizelibraries.org",
+ "GU0001": {
+  "domain": "gpls.guam.gov",
   "resolution": "no-platform-found"
+ },
+ "OR0087": {
+  "domain": "tillabook.org",
+  "resolution": "site-unreachable"
  },
  "OR0091": {
   "domain": "deschuteslibrary.org",
@@ -1871,12 +1888,12 @@
   "domain": "florencelibrary.org",
   "resolution": "already-active"
  },
- "OR0087": {
-  "domain": "tillabook.org",
-  "resolution": "site-unreachable"
- },
  "PA9037": {
   "domain": "discovery.fclspa.org",
+  "resolution": "site-unreachable"
+ },
+ "SC0033": {
+  "domain": "orangeburgcounty.org",
   "resolution": "site-unreachable"
  },
  "TN0062": {
@@ -1887,20 +1904,20 @@
   "domain": "beaumonttexas.gov",
   "resolution": "already-active"
  },
- "OH0226": {
-  "domain": "wtcpl.org",
-  "resolution": "site-unreachable"
+ "OH0225": {
+  "domain": "auglaizelibraries.org",
+  "resolution": "no-platform-found"
  },
  "VA0007": {
   "domain": "bplsonline.org",
   "resolution": "already-active"
  },
- "SC0033": {
-  "domain": "orangeburgcounty.org",
-  "resolution": "site-unreachable"
+ "TN0008": {
+  "domain": "wcpltn.org",
+  "resolution": "no-platform-found"
  },
- "VA0076": {
-  "domain": "countylib.org",
+ "TX0445": {
+  "domain": "corpuschristitx.gov",
   "resolution": "no-platform-found"
  },
  "WA0067": {
@@ -1911,45 +1928,45 @@
   "domain": "shawanolibrary.org",
   "resolution": "already-active"
  },
- "VA0070": {
-  "domain": "roanokecountyva.gov",
-  "resolution": "no-platform-found"
- },
  "WY0017": {
   "domain": "linclib.org",
   "resolution": "no-platform-found"
  },
- "TX0445": {
-  "domain": "corpuschristitx.gov",
+ "VA0070": {
+  "domain": "roanokecountyva.gov",
   "resolution": "no-platform-found"
  },
- "TN0008": {
-  "domain": "wcpltn.org",
+ "OH0221": {
+  "domain": "brumbacklib.org",
+  "resolution": "no-platform-found"
+ },
+ "VA0076": {
+  "domain": "countylib.org",
   "resolution": "no-platform-found"
  },
  "AR0004": {
   "domain": "library.arkansas.gov",
   "resolution": "no-platform-found"
  },
+ "OH0179": {
+  "domain": "mypccl.org",
+  "resolution": "no-platform-found"
+ },
  "AK0002": {
   "domain": "anchoragelibrary.org",
   "resolution": "no-platform-found"
  },
- "AL0199": {
-  "domain": "cullmanlib.org",
+ "AR0024": {
+  "domain": "library.arkansas.gov",
   "resolution": "no-platform-found"
- },
- "AR0008": {
-  "domain": "pineblufflibrary.org",
-  "resolution": "site-unreachable"
  },
  "AR0041": {
   "domain": "lclibraries.org",
   "resolution": "already-active"
  },
- "AR0024": {
-  "domain": "library.arkansas.gov",
-  "resolution": "no-platform-found"
+ "AR0008": {
+  "domain": "pineblufflibrary.org",
+  "resolution": "site-unreachable"
  },
  "AZ0050": {
   "domain": "pinal.gov",
@@ -1959,40 +1976,33 @@
   "domain": "flagstaffpubliclibrary.org",
   "resolution": "already-active"
  },
- "AR0023": {
-  "domain": "scottsebastianregionallibrary.com",
+ "AL0199": {
+  "domain": "cullmanlib.org",
   "resolution": "no-platform-found"
  },
  "CA0046": {
   "domain": "huntingtonbeachca.gov",
   "resolution": "already-active"
  },
+ "AR0023": {
+  "domain": "scottsebastianregionallibrary.com",
+  "resolution": "no-platform-found"
+ },
+ "CA0066": {
+  "domain": "mendolibrary.org",
+  "resolution": "no-platform-found"
+ },
  "CA0006": {
   "domain": "amadorcounty.gov",
   "resolution": "no-platform-found"
- },
- "CA0064": {
-  "domain": "maderacounty.com",
-  "resolution": "no-platform-found"
- },
- "AZ0107": {
-  "domain": "navajocountylibraries.org",
-  "resolution": "activated",
-  "vendor": "ical",
-  "platforms": [
-   {
-    "vendor": "tribe",
-    "evidence": "tribe-events"
-   }
-  ]
  },
  "CA0130": {
   "domain": "santamonica.gov",
   "resolution": "already-active"
  },
- "CA0129": {
-  "domain": "cityofsantamaria.org",
-  "resolution": "site-unreachable"
+ "CA0064": {
+  "domain": "maderacounty.com",
+  "resolution": "no-platform-found"
  },
  "CO0012": {
   "domain": "boulderlibrary.org",
@@ -2018,16 +2028,16 @@
   "domain": "citruslibraries.org",
   "resolution": "already-active"
  },
- "FL0023": {
-  "domain": "hialeahfl.gov",
-  "resolution": "site-unreachable"
- },
- "CA0066": {
-  "domain": "mendolibrary.org",
+ "AR0013": {
+  "domain": "mylibrarynow.org",
   "resolution": "no-platform-found"
  },
- "FL0036": {
-  "domain": "indianriver.gov",
+ "CA0129": {
+  "domain": "cityofsantamaria.org",
+  "resolution": "site-unreachable"
+ },
+ "FL0048": {
+  "domain": "keyslibraries.org",
   "resolution": "no-platform-found"
  },
  "FL0095": {
@@ -2042,8 +2052,8 @@
   "domain": "nassaureads.com",
   "resolution": "already-active"
  },
- "FL0048": {
-  "domain": "keyslibraries.org",
+ "FL0036": {
+  "domain": "indianriver.gov",
   "resolution": "no-platform-found"
  },
  "GA0019": {
@@ -2054,8 +2064,8 @@
   "domain": "mariposacounty.gov",
   "resolution": "no-platform-found"
  },
- "GA0053": {
-  "domain": "okrls.org",
+ "GA0034": {
+  "domain": "desototrail.org",
   "resolution": "no-platform-found"
  },
  "GA0054": {
@@ -2090,9 +2100,16 @@
   "domain": "pageafterpage.org",
   "resolution": "already-active"
  },
- "FL0019": {
-  "domain": "claycountygov.com",
-  "resolution": "no-platform-found"
+ "AZ0107": {
+  "domain": "navajocountylibraries.org",
+  "resolution": "activated",
+  "vendor": "ical",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
  },
  "IN0224": {
   "domain": "hcpl.lib.in.us",
@@ -2110,24 +2127,24 @@
   "domain": "pulaskilibrary.com",
   "resolution": "already-active"
  },
- "GA0034": {
-  "domain": "desototrail.org",
-  "resolution": "no-platform-found"
- },
  "GA0031": {
   "domain": "ocrl.org",
   "resolution": "no-platform-found"
  },
- "LA0002": {
-  "domain": "grantparishlibrary.org",
+ "GA0053": {
+  "domain": "okrls.org",
+  "resolution": "no-platform-found"
+ },
+ "FL0019": {
+  "domain": "claycountygov.com",
   "resolution": "no-platform-found"
  },
  "LA0005": {
   "domain": "winnlibrary.org",
   "resolution": "no-platform-found"
  },
- "LA0011": {
-  "domain": "assumptionlibrary.com",
+ "LA0002": {
+  "domain": "grantparishlibrary.org",
   "resolution": "no-platform-found"
  },
  "LA0020": {
@@ -2146,21 +2163,21 @@
   "domain": "libraries.state.ma.us",
   "resolution": "already-active"
  },
- "IN0217": {
-  "domain": "youseemore.com",
+ "LA0011": {
+  "domain": "assumptionlibrary.com",
   "resolution": "no-platform-found"
  },
  "MD0024": {
   "domain": "worcesterlibrary.org",
   "resolution": "already-active"
  },
+ "IN0217": {
+  "domain": "youseemore.com",
+  "resolution": "no-platform-found"
+ },
  "MI0012": {
   "domain": "aadl.org",
   "resolution": "no-platform-found"
- },
- "MD0012": {
-  "domain": "relib.net",
-  "resolution": "site-unreachable"
  },
  "LA0015": {
   "domain": "pointe-coupee.lib.la.us",
@@ -2170,21 +2187,23 @@
   "domain": "kpl.gov",
   "resolution": "site-unreachable"
  },
- "MI0279": {
-  "domain": "pidl.org",
+ "MD0012": {
+  "domain": "relib.net",
   "resolution": "site-unreachable"
  },
  "MI0348": {
   "domain": "crdl.org",
   "resolution": "already-active"
  },
- "MN0108": {
-  "domain": "watonwancountymn.gov",
-  "resolution": "no-platform-found"
- },
- "MN9030": {
-  "domain": "sibleycounty.gov",
-  "resolution": "no-platform-found"
+ "LA0017": {
+  "domain": "sabineparishlibrary.org",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe_events"
+   }
+  ]
  },
  "MO0059": {
   "domain": "nemolibrary.org",
@@ -2198,30 +2217,32 @@
   "domain": "reynoldscountylibrary.missouri.org",
   "resolution": "already-active"
  },
- "LA0017": {
-  "domain": "sabineparishlibrary.org",
-  "resolution": "no-platform-found",
-  "platforms": [
-   {
-    "vendor": "tribe",
-    "evidence": "tribe_events"
-   }
-  ]
- },
- "NC0008": {
-  "domain": "fontanalib.org",
-  "resolution": "site-unreachable"
- },
- "MS0008": {
-  "domain": "copjeflibrary.blogspot.com",
+ "MI0055": {
+  "domain": "cassdistrictlibrary.org",
   "resolution": "no-platform-found"
+ },
+ "MN0108": {
+  "domain": "watonwancountymn.gov",
+  "resolution": "no-platform-found"
+ },
+ "MO0164": {
+  "domain": "ocld.lib.mo.us",
+  "resolution": "site-unreachable"
  },
  "MS0014": {
   "domain": "hcls.info",
   "resolution": "already-active"
  },
- "MO0164": {
-  "domain": "ocld.lib.mo.us",
+ "MN9030": {
+  "domain": "sibleycounty.gov",
+  "resolution": "no-platform-found"
+ },
+ "MS0008": {
+  "domain": "copjeflibrary.blogspot.com",
+  "resolution": "site-unreachable"
+ },
+ "FL0023": {
+  "domain": "hialeahfl.gov",
   "resolution": "site-unreachable"
  },
  "MS0029": {
@@ -2232,9 +2253,25 @@
   "domain": "sunflower.lib.ms.us",
   "resolution": "no-platform-found"
  },
+ "NC0018": {
+  "domain": "brunswickcountync.gov",
+  "resolution": "already-active"
+ },
+ "NC0006": {
+  "domain": "mycprl.org",
+  "resolution": "no-platform-found"
+ },
  "MS0003": {
   "domain": "bolivar.lib.ms.us",
   "resolution": "no-platform-found"
+ },
+ "NC0027": {
+  "domain": "davidson.nccardinal.org",
+  "resolution": "no-platform-found"
+ },
+ "NC0046": {
+  "domain": "braswell-library.libguides.com",
+  "resolution": "already-active"
  },
  "MS0023": {
   "domain": "knrls.lib.ms.us",
@@ -2245,30 +2282,6 @@
     "evidence": "tribe-events"
    }
   ]
- },
- "NC0018": {
-  "domain": "brunswickcountync.gov",
-  "resolution": "already-active"
- },
- "NC0006": {
-  "domain": "mycprl.org",
-  "resolution": "no-platform-found"
- },
- "NC0027": {
-  "domain": "davidson.nccardinal.org",
-  "resolution": "no-platform-found"
- },
- "NC0021": {
-  "domain": "cabarruscounty.us",
-  "resolution": "no-platform-found"
- },
- "NC0046": {
-  "domain": "braswell-library.libguides.com",
-  "resolution": "already-active"
- },
- "NC0036": {
-  "domain": "halifaxnc.com",
-  "resolution": "no-platform-found"
  },
  "NC0113": {
   "domain": "carteretcountync.libguides.com",
@@ -2282,8 +2295,8 @@
   "domain": "warrenlib.org",
   "resolution": "already-active"
  },
- "NC0002": {
-  "domain": "arlibrary.org",
+ "NC0021": {
+  "domain": "cabarruscounty.us",
   "resolution": "no-platform-found"
  },
  "NY0794": {
@@ -2298,8 +2311,8 @@
   "domain": "highlandco.org",
   "resolution": "already-active"
  },
- "NV0015": {
-  "domain": "lyon-county.org",
+ "NC0036": {
+  "domain": "halifaxnc.com",
   "resolution": "no-platform-found"
  },
  "OH0116": {
@@ -2310,8 +2323,8 @@
   "domain": "midpointelibrary.org",
   "resolution": "already-active"
  },
- "OH0107": {
-  "domain": "briggslibrary.org",
+ "NC0050": {
+  "domain": "sheppardlibrary.org",
   "resolution": "no-platform-found"
  },
  "OH0189": {
@@ -2334,8 +2347,8 @@
   "domain": "cheltenhamlibraries.org",
   "resolution": "already-active"
  },
- "PR0012": {
-  "domain": "municipiohormiguerospr.com",
+ "NV0015": {
+  "domain": "lyon-county.org",
   "resolution": "no-platform-found"
  },
  "SC0003": {
@@ -2346,8 +2359,8 @@
   "domain": "beaufortcountylibrary.org",
   "resolution": "already-active"
  },
- "OH0161": {
-  "domain": "tusclibrary.org",
+ "PR0012": {
+  "domain": "municipiohormiguerospr.com",
   "resolution": "no-platform-found"
  },
  "SC0038": {
@@ -2366,66 +2379,60 @@
   "domain": "chattlibrary.org",
   "resolution": "already-active"
  },
- "TN8060": {
-  "domain": "sumnercountytn.gov",
-  "resolution": "no-platform-found"
- },
  "SC0012": {
   "domain": "cclssc.org",
+  "resolution": "no-platform-found"
+ },
+ "OH0107": {
+  "domain": "briggslibrary.org",
   "resolution": "no-platform-found"
  },
  "TX0228": {
   "domain": "plano.gov",
   "resolution": "already-active"
  },
- "TX0091": {
-  "domain": "youseemore.com",
+ "TN8060": {
+  "domain": "sumnercountytn.gov",
   "resolution": "no-platform-found"
  },
- "TX0447": {
-  "domain": "amarillolibrary.org",
+ "OH0161": {
+  "domain": "tusclibrary.org",
   "resolution": "no-platform-found"
  },
- "TX0412": {
-  "domain": "catalog.burnetcountylibrary.org",
+ "NC0002": {
+  "domain": "arlibrary.org",
   "resolution": "no-platform-found"
  },
  "UT0069": {
   "domain": "weberpl.lib.ut.us",
   "resolution": "no-platform-found"
  },
- "AR0013": {
-  "domain": "mylibrarynow.org",
-  "resolution": "site-unreachable"
+ "TX0447": {
+  "domain": "amarillolibrary.org",
+  "resolution": "no-platform-found"
  },
- "VA0008": {
-  "domain": "brrl.lib.va.us",
-  "resolution": "site-unreachable"
+ "TX0091": {
+  "domain": "youseemore.com",
+  "resolution": "no-platform-found"
  },
- "VA0060": {
-  "domain": "pcplib.org",
-  "resolution": "no-platform-found",
-  "platforms": [
-   {
-    "vendor": "tribe",
-    "evidence": "tribe-events"
-   }
-  ]
+ "TX0412": {
+  "domain": "catalog.burnetcountylibrary.org",
+  "resolution": "no-platform-found"
  },
  "VA0084": {
   "domain": "wcpl.net",
   "resolution": "already-active"
  },
- "UT0050": {
-  "domain": "sanjuancountyut.gov",
+ "VA0008": {
+  "domain": "brrl.lib.va.us",
   "resolution": "no-platform-found"
  },
  "VI0002": {
   "domain": "dpnr.vi.gov",
   "resolution": "already-active"
  },
- "WI0390": {
-  "domain": "lacrosselibrary.org",
+ "UT0050": {
+  "domain": "sanjuancountyut.gov",
   "resolution": "no-platform-found"
  },
  "WV0007": {
@@ -2436,12 +2443,12 @@
   "domain": "mympls.org",
   "resolution": "already-active"
  },
- "WV0096": {
-  "domain": "pocahontaslibrary.org",
+ "WI0390": {
+  "domain": "lacrosselibrary.org",
   "resolution": "no-platform-found"
  },
- "VA0087": {
-  "domain": "wythegrayson.lib.va.us",
+ "VA0060": {
+  "domain": "pcplib.org",
   "resolution": "no-platform-found",
   "platforms": [
    {
@@ -2470,60 +2477,66 @@
   "domain": "library.glendaleaz.gov",
   "resolution": "already-active"
  },
- "AZ0036": {
-  "domain": "scottsdalelibrary.org",
+ "WV0096": {
+  "domain": "pocahontaslibrary.org",
   "resolution": "no-platform-found"
  },
  "WY0010": {
   "domain": "bhcwylibrarysystem.org",
   "resolution": "no-platform-found"
  },
- "MI0049": {
-  "domain": "cadillaclibrary.org",
-  "resolution": "site-unreachable"
+ "AZ0036": {
+  "domain": "scottsdalelibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "AZ0065": {
+  "domain": "nogalesaz.gov",
+  "resolution": "no-platform-found"
+ },
+ "VA0071": {
+  "domain": "rrlib.net",
+  "resolution": "no-platform-found"
+ },
+ "VA0087": {
+  "domain": "wythegrayson.lib.va.us",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
  },
  "CA0027": {
   "domain": "cityofcommercepubliclibrary.org",
-  "resolution": "no-platform-found"
- },
- "MI0055": {
-  "domain": "cassdistrictlibrary.org",
-  "resolution": "site-unreachable"
- },
- "CA0031": {
-  "domain": "dalycity.org",
   "resolution": "no-platform-found"
  },
  "CA0077": {
   "domain": "napalibrary.gov",
   "resolution": "already-active"
  },
- "CA0070": {
-  "domain": "modoccountylibrary.org",
+ "CA0047": {
+  "domain": "library.imperialcounty.org",
   "resolution": "no-platform-found"
  },
  "CA0101": {
   "domain": "redwoodcity.org",
   "resolution": "already-active"
  },
- "CA0047": {
-  "domain": "library.imperialcounty.org",
+ "CA0080": {
+  "domain": "newportbeachlibrary.org",
   "resolution": "no-platform-found"
  },
  "CA0117": {
   "domain": "sanleandro.org",
   "resolution": "already-active"
  },
- "VA0071": {
-  "domain": "rrlib.net",
-  "resolution": "no-platform-found"
- },
  "CA0150": {
   "domain": "tuolumnecounty.ca.gov",
   "resolution": "site-unreachable"
  },
- "CA0110": {
-  "domain": "sbpl.org",
+ "CA0031": {
+  "domain": "dalycity.org",
   "resolution": "no-platform-found"
  },
  "CO0094": {
@@ -2554,8 +2567,8 @@
   "domain": "wcplfl.com",
   "resolution": "already-active"
  },
- "CA0080": {
-  "domain": "newportbeachlibrary.org",
+ "CA0110": {
+  "domain": "sbpl.org",
   "resolution": "no-platform-found"
  },
  "GA0049": {
@@ -2584,18 +2597,18 @@
  },
  "GA0056": {
   "domain": "leecountylibrary.org",
-  "resolution": "site-unreachable"
+  "resolution": "no-platform-found"
  },
- "ID0006": {
-  "domain": "adalib.org",
-  "resolution": "site-unreachable"
+ "IA0229": {
+  "domain": "woodburycounty.lib.ia.us",
+  "resolution": "no-platform-found"
  },
  "ID0061": {
   "domain": "mld.org",
   "resolution": "already-active"
  },
- "IA0229": {
-  "domain": "woodburycounty.lib.ia.us",
+ "CO0040": {
+  "domain": "pplibraries.org",
   "resolution": "no-platform-found"
  },
  "IL0457": {
@@ -2610,16 +2623,12 @@
   "domain": "warrenpl.org",
   "resolution": "already-active"
  },
- "CO0040": {
-  "domain": "pplibraries.org",
+ "GA0063": {
+  "domain": "coweta.ga.us",
   "resolution": "no-platform-found"
  },
  "IL0280": {
   "domain": "greaterwestcentral.org",
-  "resolution": "no-platform-found"
- },
- "IN0023": {
-  "domain": "boonvillelib.org",
   "resolution": "no-platform-found"
  },
  "IN0019": {
@@ -2628,10 +2637,14 @@
  },
  "IN0049": {
   "domain": "scpls.org",
-  "resolution": "site-unreachable"
+  "resolution": "no-platform-found"
  },
- "IN0104": {
-  "domain": "myfcpl.org",
+ "IN0023": {
+  "domain": "boonvillelib.org",
+  "resolution": "no-platform-found"
+ },
+ "IN0003": {
+  "domain": "jdcpl.us",
   "resolution": "no-platform-found"
  },
  "IN0138": {
@@ -2642,13 +2655,23 @@
   "domain": "floydlibrary.org",
   "resolution": "already-active"
  },
- "IN0003": {
-  "domain": "jdcpl.us",
+ "IN0104": {
+  "domain": "myfcpl.org",
   "resolution": "no-platform-found"
  },
  "KY0018": {
   "domain": "cc-pl.org",
   "resolution": "already-active"
+ },
+ "ID0006": {
+  "domain": "adalib.org",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
  },
  "IN0115": {
   "domain": "tcpl.lib.in.us",
@@ -2658,49 +2681,37 @@
   "domain": "elsegundolibrary.gov",
   "resolution": "no-platform-found"
  },
- "NC0050": {
-  "domain": "sheppardlibrary.org",
-  "resolution": "site-unreachable"
- },
- "KY0064": {
-  "domain": "lcld.org",
-  "resolution": "site-unreachable"
+ "LA0018": {
+  "domain": "desotoparishlibrary.org",
+  "resolution": "no-platform-found"
  },
  "LA0021": {
   "domain": "stjohnlib.com",
   "resolution": "already-active"
  },
- "LA0024": {
-  "domain": "jdplibrary.org",
+ "KS0258": {
+  "domain": "librarydistrict1.org",
+  "resolution": "no-platform-found"
+ },
+ "KY0064": {
+  "domain": "lcld.org",
   "resolution": "no-platform-found"
  },
  "LA0026": {
   "domain": "morehouseparishlibrary.com",
   "resolution": "no-platform-found"
  },
- "LA0030": {
-  "domain": "stmartinparishlibrary.org",
-  "resolution": "no-platform-found"
- },
- "LA0018": {
-  "domain": "desotoparishlibrary.org",
+ "LA0024": {
+  "domain": "jdplibrary.org",
   "resolution": "no-platform-found"
  },
  "LA0037": {
   "domain": "myapl.org",
   "resolution": "already-active"
  },
- "MA0240": {
-  "domain": "tcplquincy.org",
-  "resolution": "adapter-needed:assabet",
-  "vendor": "assabet",
-  "note": "evidence: assabetinteractive.com",
-  "platforms": [
-   {
-    "vendor": "assabet",
-    "evidence": "assabetinteractive.com"
-   }
-  ]
+ "CA0036": {
+  "domain": "eldoradolibrary.org",
+  "resolution": "no-platform-found"
  },
  "MD0005": {
   "domain": "calvertlibrary.info",
@@ -2722,16 +2733,24 @@
   "domain": "saginawlibrary.org",
   "resolution": "already-active"
  },
- "LA0035": {
-  "domain": "washingtonparishlibrary.info",
-  "resolution": "no-platform-found"
- },
- "MI0409": {
-  "domain": "alcona.lib.mi.us",
-  "resolution": "site-unreachable"
+ "MA0240": {
+  "domain": "tcplquincy.org",
+  "resolution": "adapter-needed:assabet",
+  "vendor": "assabet",
+  "note": "evidence: assabetinteractive.com",
+  "platforms": [
+   {
+    "vendor": "assabet",
+    "evidence": "assabetinteractive.com"
+   }
+  ]
  },
  "MI0356": {
   "domain": "warrenlibrary.net",
+  "resolution": "no-platform-found"
+ },
+ "LA0030": {
+  "domain": "stmartinparishlibrary.org",
   "resolution": "no-platform-found"
  },
  "MO0034": {
@@ -2742,13 +2761,13 @@
   "domain": "boonslickregionallibrary.com",
   "resolution": "already-active"
  },
- "MN0105": {
-  "domain": "martincountylibrary.org",
-  "resolution": "no-platform-found"
- },
- "MO0053": {
-  "domain": "little-dixie.lib.mo.us",
+ "MI0409": {
+  "domain": "alcona.lib.mi.us",
   "resolution": "site-unreachable"
+ },
+ "LA0035": {
+  "domain": "washingtonparishlibrary.info",
+  "resolution": "no-platform-found"
  },
  "MO0110": {
   "domain": "christiancountylibrary.org",
@@ -2758,13 +2777,13 @@
   "domain": "texascountylibrary.lib.mo.us",
   "resolution": "already-active"
  },
- "MO0060": {
-  "domain": "ozarkregional.org",
-  "resolution": "no-platform-found"
- },
- "MO0181": {
-  "domain": "polkcolibrary.org",
+ "MO0053": {
+  "domain": "little-dixie.lib.mo.us",
   "resolution": "site-unreachable"
+ },
+ "MN0105": {
+  "domain": "martincountylibrary.org",
+  "resolution": "no-platform-found"
  },
  "MO0227": {
   "domain": "sjpl.lib.mo.us",
@@ -2774,17 +2793,17 @@
   "domain": "llf.lib.ms.us",
   "resolution": "already-active"
  },
- "CA0036": {
-  "domain": "eldoradolibrary.org",
+ "MO0181": {
+  "domain": "polkcolibrary.org",
   "resolution": "site-unreachable"
  },
- "MS0028": {
-  "domain": "lowndeslibrary.com",
+ "MO0174": {
+  "domain": "heartland.lib.mo.us",
   "resolution": "no-platform-found"
  },
- "MS8001": {
-  "domain": "lamarcountylibrarysystem.org",
-  "resolution": "site-unreachable"
+ "MO0060": {
+  "domain": "ozarkregional.org",
+  "resolution": "no-platform-found"
  },
  "MT0039": {
   "domain": "lclibrary.org",
@@ -2794,13 +2813,21 @@
   "domain": "flatheadcountylibrary.org",
   "resolution": "already-active"
  },
- "MO0174": {
-  "domain": "heartland.lib.mo.us",
+ "MS8001": {
+  "domain": "lamarcountylibrarysystem.org",
   "resolution": "no-platform-found"
  },
- "AZ0065": {
-  "domain": "nogalesaz.gov",
+ "MI0049": {
+  "domain": "cadillaclibrary.org",
   "resolution": "site-unreachable"
+ },
+ "NC0011": {
+  "domain": "nrlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MS0028": {
+  "domain": "lowndeslibrary.com",
+  "resolution": "no-platform-found"
  },
  "MT0030": {
   "domain": "chouteaucountylibrary.net",
@@ -2810,32 +2837,24 @@
   "domain": "pettigrewlibraries.org",
   "resolution": "no-platform-found"
  },
- "NC0003": {
-  "domain": "yanceycountync.gov",
-  "resolution": "no-platform-found"
- },
- "NC0011": {
-  "domain": "nrlibrary.org",
-  "resolution": "no-platform-found"
- },
  "NC0047": {
   "domain": "libguides.nhcgov.com",
   "resolution": "already-active"
  },
- "NC0038": {
-  "domain": "haywoodlibrary.org",
+ "NC0003": {
+  "domain": "yanceycountync.gov",
   "resolution": "no-platform-found"
  },
  "NC0054": {
   "domain": "rcpl.libguides.com",
   "resolution": "no-platform-found"
  },
- "NC0048": {
-  "domain": "onslowcountync.gov",
+ "NC0038": {
+  "domain": "haywoodlibrary.org",
   "resolution": "no-platform-found"
  },
- "NC0055": {
-  "domain": "rowancountync.gov",
+ "NC0033": {
+  "domain": "franklincountync.gov",
   "resolution": "no-platform-found"
  },
  "NC0061": {
@@ -2866,9 +2885,9 @@
   "domain": "hendersonlibraries.com",
   "resolution": "already-active"
  },
- "GA0063": {
-  "domain": "coweta.ga.us",
-  "resolution": "site-unreachable"
+ "NC0055": {
+  "domain": "rowancountync.gov",
+  "resolution": "no-platform-found"
  },
  "NY0348": {
   "domain": "greatnecklibrary.org",
@@ -2878,12 +2897,12 @@
   "domain": "smithlib.org",
   "resolution": "already-active"
  },
- "OH0043": {
-  "domain": "mercerlibrary.org",
+ "NC0034": {
+  "domain": "granvillecounty.org",
   "resolution": "no-platform-found"
  },
- "NC0057": {
-  "domain": "sampsoncountync.gov",
+ "OH0043": {
+  "domain": "mercerlibrary.org",
   "resolution": "no-platform-found"
  },
  "OH0065": {
@@ -2894,8 +2913,8 @@
   "domain": "elyrialibrary.org",
   "resolution": "already-active"
  },
- "KS0258": {
-  "domain": "librarydistrict1.org",
+ "NC0048": {
+  "domain": "onslowcountync.gov",
   "resolution": "no-platform-found"
  },
  "OH0053": {
@@ -2910,13 +2929,17 @@
   "domain": "mentorpl.org",
   "resolution": "already-active"
  },
- "OH0153": {
-  "domain": "knox.net",
-  "resolution": "site-unreachable"
+ "NC0057": {
+  "domain": "sampsoncountync.gov",
+  "resolution": "no-platform-found"
  },
  "OH0129": {
   "domain": "adamscolibrary.org",
   "resolution": "no-platform-found"
+ },
+ "OH0153": {
+  "domain": "knox.net",
+  "resolution": "site-unreachable"
  },
  "OH0086": {
   "domain": "birchard.org",
@@ -2927,17 +2950,6 @@
    {
     "vendor": "libcal",
     "evidence": "birchard.libcal.com"
-   }
-  ]
- },
- "NY0027": {
-  "domain": "buffalolib.org",
-  "resolution": "activated",
-  "vendor": "libcal",
-  "platforms": [
-   {
-    "vendor": "libcal",
-    "evidence": "buffalolib.libcal.com"
    }
   ]
  },
@@ -2957,41 +2969,48 @@
   "domain": "cbcpubliclibrary.net",
   "resolution": "already-active"
  },
- "OR0014": {
-  "domain": "josephinelibrary.org",
-  "resolution": "no-platform-found"
+ "NY0027": {
+  "domain": "buffalolib.org",
+  "resolution": "activated",
+  "vendor": "libcal",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "buffalolib.libcal.com"
+   }
+  ]
  },
  "PA0237": {
   "domain": "snydercountylibraries.org",
   "resolution": "already-active"
  },
- "OH0241": {
-  "domain": "huroncolib.org",
+ "OR0031": {
+  "domain": "lakecountylibrary.org",
   "resolution": "no-platform-found"
  },
  "PA0269": {
   "domain": "osterhout.info",
   "resolution": "already-active"
  },
- "PA0262": {
-  "domain": "hazletonlibrary.org",
-  "resolution": "site-unreachable"
+ "OH0241": {
+  "domain": "huroncolib.org",
+  "resolution": "no-platform-found"
+ },
+ "OR0014": {
+  "domain": "josephinelibrary.org",
+  "resolution": "no-platform-found"
  },
  "PA0278": {
   "domain": "susqcolibrary.org",
   "resolution": "no-platform-found"
  },
- "OR0031": {
-  "domain": "lakecountylibrary.org",
-  "resolution": "no-platform-found"
- },
- "PA0205": {
-  "domain": "readingpubliclibrary.org",
-  "resolution": "no-platform-found"
- },
  "PR0030": {
   "domain": "cybo.com",
   "resolution": "site-unreachable"
+ },
+ "PR0031": {
+  "domain": "libraryapi.dev",
+  "resolution": "no-platform-found"
  },
  "PR0042": {
   "domain": "municipiodebayamon.com",
@@ -3001,16 +3020,16 @@
   "domain": "warwicklibrary.org",
   "resolution": "already-active"
  },
- "PR0031": {
-  "domain": "libraryapi.dev",
+ "PR0011": {
+  "domain": "fajardopr.org",
   "resolution": "no-platform-found"
  },
  "SC0020": {
   "domain": "gtcountysc.gov",
   "resolution": "already-active"
  },
- "PR0011": {
-  "domain": "fajardopr.org",
+ "PA0205": {
+  "domain": "readingpubliclibrary.org",
   "resolution": "no-platform-found"
  },
  "SC0034": {
@@ -3019,7 +3038,7 @@
  },
  "SC0015": {
   "domain": "darlington-lib.org",
-  "resolution": "site-unreachable"
+  "resolution": "no-platform-found"
  },
  "TN0108": {
   "domain": "pclibrary.org",
@@ -3029,12 +3048,12 @@
   "domain": "grantcountylibrary.com",
   "resolution": "no-platform-found"
  },
- "TX0002": {
-  "domain": "chambers.lib.tx.us",
+ "TX0045": {
+  "domain": "wilsoncountylibrary.org",
   "resolution": "no-platform-found"
  },
- "TX0058": {
-  "domain": "nmls.overdrive.com",
+ "TX0002": {
+  "domain": "chambers.lib.tx.us",
   "resolution": "no-platform-found"
  },
  "TX0141": {
@@ -3044,10 +3063,6 @@
  "TX0155": {
   "domain": "mylubbock.us",
   "resolution": "already-active"
- },
- "TX0045": {
-  "domain": "wilsoncountylibrary.org",
-  "resolution": "no-platform-found"
  },
  "SC0032": {
   "domain": "oconeelibrary.org",
@@ -3059,56 +3074,48 @@
    }
   ]
  },
- "TX0317": {
-  "domain": "waco-texas.com",
-  "resolution": "already-active"
- },
  "TX0213": {
   "domain": "panhandle.harringtonlc.org",
   "resolution": "no-platform-found"
  },
+ "TX0317": {
+  "domain": "waco-texas.com",
+  "resolution": "already-active"
+ },
  "TX0233": {
   "domain": "cclibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "TX0058": {
+  "domain": "nmls.overdrive.com",
   "resolution": "no-platform-found"
  },
  "TX0744": {
   "domain": "bibliotech.org",
   "resolution": "no-platform-found"
  },
+ "PA0262": {
+  "domain": "hazletonlibrary.org",
+  "resolution": "no-platform-found"
+ },
  "TX0408": {
   "domain": "bcslibrary.org",
   "resolution": "no-platform-found"
+ },
+ "CA0070": {
+  "domain": "modoccountylibrary.org",
+  "resolution": "site-unreachable"
  },
  "TX0326": {
   "domain": "whartonco.lib.tx.us",
   "resolution": "no-platform-found"
  },
- "VA0012": {
-  "domain": "campbellcountylibraries.org",
-  "resolution": "no-platform-found",
-  "platforms": [
-   {
-    "vendor": "tribe",
-    "evidence": "tribe-events"
-   }
-  ]
- },
  "VA0009": {
   "domain": "botetourtva.gov",
   "resolution": "no-platform-found"
  },
- "VA0013": {
-  "domain": "carolinelibrary.org",
-  "resolution": "no-platform-found",
-  "platforms": [
-   {
-    "vendor": "tribe",
-    "evidence": "tribe-events"
-   }
-  ]
- },
- "VA0016": {
-  "domain": "cclibrary.net",
+ "VA0012": {
+  "domain": "campbellcountylibraries.org",
   "resolution": "no-platform-found",
   "platforms": [
    {
@@ -3125,8 +3132,8 @@
   "domain": "portsmouthva.gov",
   "resolution": "already-active"
  },
- "VA0024": {
-  "domain": "espl.org",
+ "VA0016": {
+  "domain": "cclibrary.net",
   "resolution": "no-platform-found",
   "platforms": [
    {
@@ -3134,6 +3141,32 @@
     "evidence": "tribe-events"
    }
   ]
+ },
+ "VA0034": {
+  "domain": "hampton.gov",
+  "resolution": "no-platform-found"
+ },
+ "WA0041": {
+  "domain": "pocld.org",
+  "resolution": "already-active"
+ },
+ "VA0013": {
+  "domain": "carolinelibrary.org",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
+ },
+ "WA0053": {
+  "domain": "nols.org",
+  "resolution": "already-active"
+ },
+ "WI0148": {
+  "domain": "mykpl.info",
+  "resolution": "already-active"
  },
  "VA0081": {
   "domain": "tcplweb.org",
@@ -3145,48 +3178,32 @@
    }
   ]
  },
- "WA0041": {
-  "domain": "pocld.org",
-  "resolution": "already-active"
- },
  "VA8002": {
   "domain": "youseemore.com",
   "resolution": "no-platform-found"
  },
- "WA0053": {
-  "domain": "nols.org",
-  "resolution": "already-active"
- },
- "WI0148": {
-  "domain": "mykpl.info",
-  "resolution": "already-active"
- },
  "WI0309": {
   "domain": "portagelibrary.us",
-  "resolution": "site-unreachable"
- },
- "NC0033": {
-  "domain": "franklincountync.gov",
-  "resolution": "site-unreachable"
- },
- "NC0034": {
-  "domain": "granvillecounty.org",
   "resolution": "site-unreachable"
  },
  "WV0071": {
   "domain": "mcdowell.lib.wv.us",
   "resolution": "already-active"
  },
+ "WA0047": {
+  "domain": "wwcrld.org",
+  "resolution": "no-platform-found"
+ },
  "WV0005": {
   "domain": "cabe.ent.sirsi.net",
   "resolution": "no-platform-found"
  },
- "WV0053": {
-  "domain": "mbcpl.org",
-  "resolution": "site-unreachable"
- },
  "WV0077": {
   "domain": "bcplwv.org",
+  "resolution": "no-platform-found"
+ },
+ "WV0053": {
+  "domain": "mbcpl.org",
   "resolution": "no-platform-found"
  },
  "WV0079": {
@@ -3203,8 +3220,34 @@
    }
   ]
  },
- "WA0047": {
-  "domain": "wwcrld.org",
+ "WY0007": {
+  "domain": "library.wyo.gov",
+  "resolution": "no-platform-found"
+ },
+ "AL0158": {
+  "domain": "dhcls.org",
+  "resolution": "already-active"
+ },
+ "VA0024": {
+  "domain": "espl.org",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
+ },
+ "AL0162": {
+  "domain": "chiltonclantonlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "AL0197": {
+  "domain": "findglocal.com",
+  "resolution": "site-unreachable"
+ },
+ "AL0128": {
+  "domain": "shelbycounty-al.org",
   "resolution": "no-platform-found"
  },
  "AK0035": {
@@ -3216,36 +3259,6 @@
     "evidence": "tribe-events"
    }
   ]
- },
- "AL0158": {
-  "domain": "dhcls.org",
-  "resolution": "already-active"
- },
- "AL0162": {
-  "domain": "chiltonclantonlibrary.org",
-  "resolution": "no-platform-found"
- },
- "AL0128": {
-  "domain": "shelbycounty-al.org",
-  "resolution": "no-platform-found"
- },
- "AL0197": {
-  "domain": "findglocal.com",
-  "resolution": "site-unreachable"
- },
- "AL0117": {
-  "domain": "gadsdenlibrary.org",
-  "resolution": "no-platform-found",
-  "platforms": [
-   {
-    "vendor": "tribe",
-    "evidence": "tribe-events"
-   }
-  ]
- },
- "PR0027": {
-  "domain": "camuycity.pr.gov",
-  "resolution": "site-unreachable"
  },
  "AR0042": {
   "domain": "stuttgartpubliclibrary.org",
@@ -3265,8 +3278,8 @@
   "domain": "mesalibrary.org",
   "resolution": "already-active"
  },
- "AR0031": {
-  "domain": "lawrencecountylibrary.com",
+ "AR0062": {
+  "domain": "ouachitamountainsregionallibrary.com",
   "resolution": "no-platform-found"
  },
  "CA0002": {
@@ -3276,17 +3289,6 @@
  "CA0015": {
   "domain": "burbanklibrary.org",
   "resolution": "already-active"
- },
- "AL0196": {
-  "domain": "tuscaloosa-library.org",
-  "resolution": "activated",
-  "vendor": "ical",
-  "platforms": [
-   {
-    "vendor": "tribe",
-    "evidence": "tribe-events"
-   }
-  ]
  },
  "CA0020": {
   "domain": "library.carlsbadca.gov",
@@ -3323,6 +3325,17 @@
   "domain": "ci.richmond.ca.us",
   "resolution": "already-active"
  },
+ "AL0196": {
+  "domain": "tuscaloosa-library.org",
+  "resolution": "activated",
+  "vendor": "ical",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
+ },
  "CA0104": {
   "domain": "roseville.ca.gov",
   "resolution": "no-platform-found"
@@ -3331,8 +3344,8 @@
   "domain": "chulavistaca.gov",
   "resolution": "no-platform-found"
  },
- "AR0062": {
-  "domain": "ouachitamountainsregionallibrary.com",
+ "CA0121": {
+  "domain": "cityofsanmateo.org",
   "resolution": "no-platform-found"
  },
  "CA0125": {
@@ -3343,20 +3356,30 @@
   "domain": "shastalibraries.org",
   "resolution": "already-active"
  },
- "CA0121": {
-  "domain": "cityofsanmateo.org",
+ "AR0031": {
+  "domain": "lawrencecountylibrary.com",
   "resolution": "no-platform-found"
  },
- "CA0139": {
-  "domain": "ssfca.gov",
+ "CA0144": {
+  "domain": "sutter.gov",
   "resolution": "no-platform-found"
+ },
+ "AL0117": {
+  "domain": "gadsdenlibrary.org",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
  },
  "CA0145": {
   "domain": "tehamacountylibrary.org",
   "resolution": "no-platform-found"
  },
- "CA0144": {
-  "domain": "sutter.gov",
+ "CA0139": {
+  "domain": "ssfca.gov",
   "resolution": "no-platform-found"
  },
  "CA0155": {
@@ -3379,33 +3402,29 @@
   "domain": "rclawlibrary.org",
   "resolution": "no-platform-found"
  },
- "CA0230": {
-  "domain": "lalawlibrary.org",
+ "CA0147": {
+  "domain": "trinitycounty.org",
   "resolution": "no-platform-found"
- },
- "VA0034": {
-  "domain": "hampton.gov",
-  "resolution": "site-unreachable"
  },
  "CO0008": {
   "domain": "bacacountyco.gov",
   "resolution": "already-active"
  },
- "CA0271": {
-  "domain": "goletavalleylibrary.org",
+ "CA0230": {
+  "domain": "lalawlibrary.org",
   "resolution": "no-platform-found"
  },
- "CO0020": {
-  "domain": "conejos.colibraries.org",
+ "CO0024": {
+  "domain": "moffatcounty.colorado.gov",
+  "resolution": "no-platform-found"
+ },
+ "CA0271": {
+  "domain": "goletavalleylibrary.org",
   "resolution": "no-platform-found"
  },
  "CA0247": {
   "domain": "sblawlibrary.org",
   "resolution": "no-platform-found"
- },
- "WY0007": {
-  "domain": "library.wyo.gov",
-  "resolution": "site-unreachable"
  },
  "CO0046": {
   "domain": "poudrelibraries.org",
@@ -3443,25 +3462,37 @@
   "domain": "westhartfordlibrary.org",
   "resolution": "already-active"
  },
+ "PR0027": {
+  "domain": "camuycity.pr.gov",
+  "resolution": "site-unreachable"
+ },
  "CA0106": {
   "domain": "library.salinas.gov",
   "resolution": "no-platform-found"
  },
- "CO0039": {
-  "domain": "evld.org",
+ "CO0020": {
+  "domain": "conejos.colibraries.org",
   "resolution": "no-platform-found"
  },
  "FL0021": {
   "domain": "citylibrary.com",
   "resolution": "no-platform-found"
  },
- "CO0024": {
-  "domain": "moffatcounty.colorado.gov",
-  "resolution": "no-platform-found"
- },
  "FL0149": {
   "domain": "newriverlibrary.org",
   "resolution": "already-active"
+ },
+ "GA0002": {
+  "domain": "bartowlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "CO0035": {
+  "domain": "dc2j.ss11.sharpschool.com",
+  "resolution": "no-platform-found"
+ },
+ "FL0032": {
+  "domain": "hendrycl.insigniails.com",
+  "resolution": "site-unreachable"
  },
  "DE0030": {
   "domain": "sussexcounty.lib.de.us",
@@ -3474,18 +3505,6 @@
     "evidence": "delawarelibraries.libcal.com"
    }
   ]
- },
- "FL0032": {
-  "domain": "hendrycl.insigniails.com",
-  "resolution": "site-unreachable"
- },
- "GA0002": {
-  "domain": "bartowlibrary.org",
-  "resolution": "no-platform-found"
- },
- "CO0035": {
-  "domain": "dc2j.ss11.sharpschool.com",
-  "resolution": "no-platform-found"
  },
  "GA0016": {
   "domain": "swgrl.org",
@@ -3527,21 +3546,21 @@
   "domain": "newtonlibraries.org",
   "resolution": "no-platform-found"
  },
- "GA0030": {
-  "domain": "jeffersoncls.org",
+ "CO0039": {
+  "domain": "evld.org",
   "resolution": "no-platform-found"
  },
- "ID0062": {
-  "domain": "jcld.org",
+ "GA0030": {
+  "domain": "jeffersoncls.org",
   "resolution": "no-platform-found"
  },
  "IL0029": {
   "domain": "aurorapubliclibrary.org",
   "resolution": "already-active"
  },
- "ID0123": {
-  "domain": "fremont.lili.org",
-  "resolution": "site-unreachable"
+ "ID0062": {
+  "domain": "jcld.org",
+  "resolution": "no-platform-found"
  },
  "IL0197": {
   "domain": "gailborden.info",
@@ -3571,20 +3590,16 @@
   "domain": "schaumburglibrary.org",
   "resolution": "already-active"
  },
- "GA0051": {
-  "domain": "btrl.net",
-  "resolution": "no-platform-found"
+ "IL0139": {
+  "domain": "whiteoaklibrary.org",
+  "resolution": "site-unreachable"
  },
  "IN0022": {
   "domain": "ncplibraries.org",
   "resolution": "already-active"
  },
- "IL0139": {
-  "domain": "whiteoaklibrary.org",
-  "resolution": "site-unreachable"
- },
- "IL0018": {
-  "domain": "ahml.info",
+ "GA0051": {
+  "domain": "btrl.net",
   "resolution": "no-platform-found"
  },
  "IL0472": {
@@ -3596,6 +3611,10 @@
     "evidence": "tribe-events"
    }
   ]
+ },
+ "IN0015": {
+  "domain": "pikecountypubliclibrary.com",
+  "resolution": "no-platform-found"
  },
  "IN0069": {
   "domain": "mphpl.org",
@@ -3613,9 +3632,9 @@
   "domain": "myncpl.us",
   "resolution": "already-active"
  },
- "IN0038": {
-  "domain": "newton.lib.in.us",
-  "resolution": "site-unreachable"
+ "IL0018": {
+  "domain": "ahml.info",
+  "resolution": "no-platform-found"
  },
  "IN0128": {
   "domain": "khcpl.org",
@@ -3629,29 +3648,9 @@
   "domain": "myshelbylibrary.org",
   "resolution": "already-active"
  },
- "IN0015": {
-  "domain": "pikecountypubliclibrary.com",
-  "resolution": "no-platform-found"
- },
  "IN0156": {
   "domain": "elwood.lib.in.us",
   "resolution": "no-platform-found"
- },
- "IN0028": {
-  "domain": "garypubliclibrary.org",
-  "resolution": "no-platform-found"
- },
- "IN0241": {
-  "domain": "lowellpl.lib.in.us",
-  "resolution": "already-active"
- },
- "IN0236": {
-  "domain": "scott.lib.in.us",
-  "resolution": "site-unreachable"
- },
- "KY0010": {
-  "domain": "thebookplace.org",
-  "resolution": "already-active"
  },
  "IN0221": {
   "domain": "aurorapubliclibrary.org",
@@ -3669,20 +3668,40 @@
    }
   ]
  },
- "KY0013": {
-  "domain": "bcplibrary.org",
+ "IN0028": {
+  "domain": "garypubliclibrary.org",
   "resolution": "no-platform-found"
+ },
+ "IN0241": {
+  "domain": "lowellpl.lib.in.us",
+  "resolution": "already-active"
  },
  "IN0226": {
   "domain": "myjclibrary.org",
   "resolution": "site-unreachable"
  },
+ "KY0010": {
+  "domain": "thebookplace.org",
+  "resolution": "already-active"
+ },
+ "KY0013": {
+  "domain": "bcplibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "KY0042": {
+  "domain": "greenuplib.org",
+  "resolution": "no-platform-found"
+ },
+ "IN0126": {
+  "domain": "fulco.lib.in.us",
+  "resolution": "no-platform-found"
+ },
  "KY0056": {
   "domain": "kentonlibrary.org",
   "resolution": "already-active"
  },
- "IN0126": {
-  "domain": "fulco.lib.in.us",
+ "IN0038": {
+  "domain": "newton.lib.in.us",
   "resolution": "no-platform-found"
  },
  "KY0072": {
@@ -3693,8 +3712,8 @@
   "domain": "ncplky.org",
   "resolution": "already-active"
  },
- "KY0042": {
-  "domain": "greenuplib.org",
+ "IN0236": {
+  "domain": "scott.lib.in.us",
   "resolution": "no-platform-found"
  },
  "KS0212": {
@@ -3705,12 +3724,12 @@
   "domain": "oldhampl.org",
   "resolution": "no-platform-found"
  },
- "KY0108": {
-  "domain": "youseemore.com",
-  "resolution": "no-platform-found"
- },
  "LA0009": {
   "domain": "allen.lib.la.us",
+  "resolution": "no-platform-found"
+ },
+ "KY0108": {
+  "domain": "youseemore.com",
   "resolution": "no-platform-found"
  },
  "KY0067": {
@@ -3721,10 +3740,6 @@
   "domain": "richlandparishlibrary.org",
   "resolution": "no-platform-found"
  },
- "KY0045": {
-  "domain": "harlancountylibraries.org",
-  "resolution": "no-platform-found"
- },
  "LA0038": {
   "domain": "vernonparishlibrary.org",
   "resolution": "already-active"
@@ -3733,12 +3748,12 @@
   "domain": "concordialibrary.org",
   "resolution": "no-platform-found"
  },
- "LA0031": {
-  "domain": "audubonregional.net",
+ "KY0045": {
+  "domain": "harlancountylibraries.org",
   "resolution": "no-platform-found"
  },
- "LA0056": {
-  "domain": "catahoulaplibrary.org",
+ "LA0031": {
+  "domain": "audubonregional.net",
   "resolution": "no-platform-found"
  },
  "MA0046": {
@@ -3753,12 +3768,12 @@
   "domain": "falmouthpubliclibrary.org",
   "resolution": "site-unreachable"
  },
- "MA0008": {
-  "domain": "joneslibrary.org",
+ "LA0056": {
+  "domain": "catahoulaplibrary.org",
   "resolution": "no-platform-found"
  },
- "MA0044": {
-  "domain": "brocktonpubliclibrary.org",
+ "MA0008": {
+  "domain": "joneslibrary.org",
   "resolution": "no-platform-found"
  },
  "MA0313": {
@@ -3777,28 +3792,20 @@
   "domain": "stmalib.org",
   "resolution": "already-active"
  },
- "MA0191": {
-  "domain": "montaguepubliclibraries.org",
-  "resolution": "adapter-needed:assabet",
-  "vendor": "assabet",
-  "note": "evidence: assabetinteractive.com",
-  "platforms": [
-   {
-    "vendor": "assabet",
-    "evidence": "assabetinteractive.com"
-   }
-  ]
+ "MD0020": {
+  "domain": "somelibrary.org",
+  "resolution": "no-platform-found"
  },
  "MD0023": {
   "domain": "wicomicolibrary.org",
   "resolution": "already-active"
  },
- "MD0020": {
-  "domain": "somelibrary.org",
+ "MA0044": {
+  "domain": "brocktonpubliclibrary.org",
   "resolution": "no-platform-found"
  },
- "MA0271": {
-  "domain": "somervillepubliclibrary.org",
+ "MA0191": {
+  "domain": "montaguepubliclibraries.org",
   "resolution": "adapter-needed:assabet",
   "vendor": "assabet",
   "note": "evidence: assabetinteractive.com",
@@ -3813,16 +3820,8 @@
   "domain": "grossepointelibrary.org",
   "resolution": "already-active"
  },
- "MI0078": {
-  "domain": "dearbornlibrary.org",
-  "resolution": "no-platform-found"
- },
- "MI0200": {
-  "domain": "livoniapubliclibrary.org",
-  "resolution": "no-platform-found"
- },
- "MA0226": {
-  "domain": "peabodylibrary.org",
+ "MA0271": {
+  "domain": "somervillepubliclibrary.org",
   "resolution": "adapter-needed:assabet",
   "vendor": "assabet",
   "note": "evidence: assabetinteractive.com",
@@ -3833,8 +3832,12 @@
    }
   ]
  },
- "MI0085": {
-  "domain": "dcl-lib.org",
+ "MI0200": {
+  "domain": "livoniapubliclibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MI0078": {
+  "domain": "dearbornlibrary.org",
   "resolution": "no-platform-found"
  },
  "MI0258": {
@@ -3845,12 +3848,16 @@
   "domain": "tadl.org",
   "resolution": "already-active"
  },
+ "MI0085": {
+  "domain": "dcl-lib.org",
+  "resolution": "no-platform-found"
+ },
  "MI0397": {
   "domain": "cmpl.org",
   "resolution": "already-active"
  },
- "MN0013": {
-  "domain": "duluthlibrary.org",
+ "MI0253": {
+  "domain": "ogemawlibrary.org",
   "resolution": "no-platform-found"
  },
  "MN0055": {
@@ -3869,20 +3876,20 @@
   "domain": "stonecountylibrary.org",
   "resolution": "already-active"
  },
- "MI0253": {
-  "domain": "ogemawlibrary.org",
+ "MN0013": {
+  "domain": "duluthlibrary.org",
   "resolution": "no-platform-found"
  },
- "CA0147": {
-  "domain": "trinitycounty.org",
+ "MO0011": {
+  "domain": "wrightcounty.lib.mo.us",
   "resolution": "site-unreachable"
  },
  "MO0143": {
   "domain": "cartermo.ploud.net",
   "resolution": "already-active"
  },
- "MO0147": {
-  "domain": "jeffcolib.org",
+ "ID0123": {
+  "domain": "fremont.lili.org",
   "resolution": "site-unreachable"
  },
  "MO0173": {
@@ -3893,13 +3900,21 @@
   "domain": "pulaskicounty.lib.mo.us",
   "resolution": "already-active"
  },
- "MO0106": {
-  "domain": "mcdonaldcountylibrary.org",
-  "resolution": "no-platform-found"
+ "MO0147": {
+  "domain": "jeffcolib.org",
+  "resolution": "site-unreachable"
  },
- "MO0046": {
-  "domain": "youseemore.com",
-  "resolution": "no-platform-found"
+ "MA0226": {
+  "domain": "peabodylibrary.org",
+  "resolution": "adapter-needed:assabet",
+  "vendor": "assabet",
+  "note": "evidence: assabetinteractive.com",
+  "platforms": [
+   {
+    "vendor": "assabet",
+    "evidence": "assabetinteractive.com"
+   }
+  ]
  },
  "MI0377": {
   "domain": "ypsilibrary.org",
@@ -3911,36 +3926,40 @@
    }
   ]
  },
- "MO0234": {
-  "domain": "crawfordcountylibrarydistrict.org",
+ "MO0106": {
+  "domain": "mcdonaldcountylibrary.org",
   "resolution": "no-platform-found"
  },
  "MS0038": {
   "domain": "starkville.lib.ms.us",
   "resolution": "already-active"
  },
- "MS0031": {
-  "domain": "marshall.lib.ms.us",
+ "MO0046": {
+  "domain": "youseemore.com",
   "resolution": "no-platform-found"
  },
  "MS0043": {
   "domain": "smrl.lib.ms.us",
   "resolution": "no-platform-found"
  },
- "MS0036": {
-  "domain": "noxubee.lib.ms.us",
+ "MT0019": {
+  "domain": "glaciercountymt.gov",
   "resolution": "no-platform-found"
  },
  "MT0046": {
   "domain": "lincolncountymt.us",
   "resolution": "already-active"
  },
- "MT0019": {
-  "domain": "glaciercountymt.gov",
+ "MO0234": {
+  "domain": "crawfordcountylibrarydistrict.org",
   "resolution": "no-platform-found"
  },
- "MS0051": {
-  "domain": "ccls.lib.ms.us",
+ "MT0048": {
+  "domain": "mslservices.mt.gov",
+  "resolution": "no-platform-found"
+ },
+ "MS0031": {
+  "domain": "marshall.lib.ms.us",
   "resolution": "no-platform-found"
  },
  "MT0082": {
@@ -3949,15 +3968,11 @@
  },
  "MT0067": {
   "domain": "mineralcountylibrary.org",
-  "resolution": "site-unreachable"
- },
- "NC0017": {
-  "domain": "bladen.nccardinal.org",
   "resolution": "no-platform-found"
  },
- "MO0011": {
-  "domain": "wrightcounty.lib.mo.us",
-  "resolution": "site-unreachable"
+ "MS0051": {
+  "domain": "ccls.lib.ms.us",
+  "resolution": "no-platform-found"
  },
  "NC0022": {
   "domain": "ccpl.libguides.com",
@@ -3967,20 +3982,12 @@
   "domain": "iredell.lib.nc.us",
   "resolution": "already-active"
  },
- "NC0020": {
-  "domain": "bcpls.org",
-  "resolution": "site-unreachable"
+ "NC0017": {
+  "domain": "bladen.nccardinal.org",
+  "resolution": "no-platform-found"
  },
  "NC0043": {
   "domain": "madisoncountylibrary.net",
-  "resolution": "no-platform-found"
- },
- "NC0016": {
-  "domain": "alexanderlibrary.org",
-  "resolution": "no-platform-found"
- },
- "NC0056": {
-  "domain": "rutherfordcountylibrary.org",
   "resolution": "no-platform-found"
  },
  "NC0065": {
@@ -3991,12 +3998,20 @@
   "domain": "cnmilib.org",
   "resolution": "no-platform-found"
  },
- "ND0047": {
-  "domain": "lakotandlibrary.com",
+ "NC0056": {
+  "domain": "rutherfordcountylibrary.org",
   "resolution": "no-platform-found"
  },
- "ND0026": {
-  "domain": "fargond.gov",
+ "NC0016": {
+  "domain": "alexanderlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "NC0020": {
+  "domain": "bcpls.org",
+  "resolution": "no-platform-found"
+ },
+ "MS0036": {
+  "domain": "noxubee.lib.ms.us",
   "resolution": "no-platform-found"
  },
  "NJ0156": {
@@ -4007,20 +4022,28 @@
   "domain": "edisonpubliclibrary.org",
   "resolution": "already-active"
  },
- "NC0104": {
-  "domain": "chathamcountync.gov",
+ "ND0026": {
+  "domain": "fargond.gov",
   "resolution": "no-platform-found"
  },
- "NC0106": {
-  "domain": "mylincolnlibrary.org",
+ "ND0047": {
+  "domain": "lakotandlibrary.com",
   "resolution": "no-platform-found"
  },
  "NM0033": {
   "domain": "santafelibrary.org",
   "resolution": "already-active"
  },
+ "NC0104": {
+  "domain": "chathamcountync.gov",
+  "resolution": "no-platform-found"
+ },
  "NJ0243": {
   "domain": "parsippanylibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "NC0106": {
+  "domain": "mylincolnlibrary.org",
   "resolution": "no-platform-found"
  },
  "NM0022": {
@@ -4034,14 +4057,6 @@
     "evidence": "assabetinteractive.com"
    }
   ]
- },
- "NH0167": {
-  "domain": "concordnh.gov",
-  "resolution": "no-platform-found"
- },
- "NV0018": {
-  "domain": "cityofnorthlasvegas.com",
-  "resolution": "no-platform-found"
  },
  "NV0027": {
   "domain": "accessesmeralda.com",
@@ -4071,8 +4086,8 @@
   "domain": "wsplonline.org",
   "resolution": "already-active"
  },
- "NV0014": {
-  "domain": "lincolncountynv.org",
+ "NH0167": {
+  "domain": "concordnh.gov",
   "resolution": "no-platform-found"
  },
  "NY0359": {
@@ -4083,20 +4098,20 @@
   "domain": "wclibrary.info",
   "resolution": "already-active"
  },
- "OH0035": {
-  "domain": "harrison.lib.oh.us",
+ "NV0014": {
+  "domain": "lincolncountynv.org",
   "resolution": "no-platform-found"
  },
  "OH0100": {
   "domain": "lanepl.org",
   "resolution": "already-active"
  },
- "OH0064": {
-  "domain": "defiancelibrary.org",
-  "resolution": "site-unreachable"
+ "NV0018": {
+  "domain": "cityofnorthlasvegas.com",
+  "resolution": "no-platform-found"
  },
- "OH0037": {
-  "domain": "guernseycountylibrary.org",
+ "OH0035": {
+  "domain": "harrison.lib.oh.us",
   "resolution": "no-platform-found"
  },
  "OH0136": {
@@ -4119,9 +4134,9 @@
   "domain": "ualibrary.org",
   "resolution": "already-active"
  },
- "KY0109": {
-  "domain": "warrenpl.org",
-  "resolution": "site-unreachable"
+ "OH0037": {
+  "domain": "guernseycountylibrary.org",
+  "resolution": "no-platform-found"
  },
  "OR0005": {
   "domain": "eugene-or.gov",
@@ -4143,6 +4158,10 @@
   "domain": "otld.org",
   "resolution": "no-platform-found"
  },
+ "OH0064": {
+  "domain": "defiancelibrary.org",
+  "resolution": "no-platform-found"
+ },
  "OH0246": {
   "domain": "worthingtonlibraries.org",
   "resolution": "no-platform-found"
@@ -4158,10 +4177,6 @@
  "PA0383": {
   "domain": "udlibraries.org",
   "resolution": "site-unreachable"
- },
- "PR0050": {
-  "domain": "gobiernodecidra.com",
-  "resolution": "no-platform-found"
  },
  "RI0013": {
   "domain": "eastprovidenceri.gov",
@@ -4187,6 +4202,10 @@
   "domain": "kershawcountylibrary.org",
   "resolution": "already-active"
  },
+ "PR0061": {
+  "domain": "canovanas.pr",
+  "resolution": "site-unreachable"
+ },
  "SC0016": {
   "domain": "dillon.lib.sc.us",
   "resolution": "no-platform-found"
@@ -4198,16 +4217,6 @@
  "SC0029": {
   "domain": "marionsc.gov",
   "resolution": "no-platform-found"
- },
- "PR0061": {
-  "domain": "canovanas.pr",
-  "resolution": "no-platform-found",
-  "platforms": [
-   {
-    "vendor": "tribe",
-    "evidence": "tribe-events"
-   }
-  ]
  },
  "SC0039": {
   "domain": "mywcl.org",
@@ -4225,25 +4234,25 @@
   "domain": "sumtercountylibrary.org",
   "resolution": "no-platform-found"
  },
- "TN0071": {
-  "domain": "hawkinslibraries.org",
+ "PA0101": {
+  "domain": "oilregionlibraries.org",
   "resolution": "no-platform-found"
  },
- "TN0007": {
-  "domain": "cityofwaynesboro.org",
+ "TN0071": {
+  "domain": "hawkinslibraries.org",
   "resolution": "no-platform-found"
  },
  "TX0012": {
   "domain": "library.cityofdenton.com",
   "resolution": "already-active"
  },
- "PA0101": {
-  "domain": "oilregionlibraries.org",
+ "PR0050": {
+  "domain": "gobiernodecidra.com",
   "resolution": "no-platform-found"
  },
- "TX0021": {
-  "domain": "mocolib.net",
-  "resolution": "site-unreachable"
+ "TN0007": {
+  "domain": "cityofwaynesboro.org",
+  "resolution": "no-platform-found"
  },
  "TX0109": {
   "domain": "irvingtx.gov",
@@ -4253,12 +4262,12 @@
   "domain": "abilenetx.gov",
   "resolution": "already-active"
  },
+ "TX0021": {
+  "domain": "mocolib.net",
+  "resolution": "site-unreachable"
+ },
  "TN0076": {
   "domain": "sevierlibrary.org",
-  "resolution": "no-platform-found"
- },
- "TX0071": {
-  "domain": "gptx.org",
   "resolution": "no-platform-found"
  },
  "TX0262": {
@@ -4275,23 +4284,23 @@
  },
  "TX0183": {
   "domain": "wcl.ploud.net",
-  "resolution": "site-unreachable"
+  "resolution": "no-platform-found"
  },
  "TX0549": {
   "domain": "mcallenlibrary.net",
   "resolution": "already-active"
  },
- "NY0190": {
-  "domain": "sidneylibrary.org",
-  "resolution": "no-platform-found"
- },
  "TX0320": {
   "domain": "austincounty.ploud.net",
-  "resolution": "site-unreachable"
+  "resolution": "no-platform-found"
+ },
+ "TX0071": {
+  "domain": "gptx.org",
+  "resolution": "no-platform-found"
  },
  "TX0452": {
   "domain": "ccl.ploud.net",
-  "resolution": "site-unreachable"
+  "resolution": "no-platform-found"
  },
  "VA0035": {
   "domain": "handleyregional.org",
@@ -4305,20 +4314,20 @@
   "domain": "thesummitcountylibrary.org",
   "resolution": "no-platform-found"
  },
- "TX0686": {
-  "domain": "library.nuecescountytx.gov",
-  "resolution": "no-platform-found"
- },
  "VA0028": {
   "domain": "fauquierlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "TX0686": {
+  "domain": "library.nuecescountytx.gov",
   "resolution": "no-platform-found"
  },
  "VA0080": {
   "domain": "suffolkpubliclibrary.com",
   "resolution": "already-active"
  },
- "WA0020": {
-  "domain": "ritzvillelibrary.org",
+ "VA0077": {
+  "domain": "scplva.net",
   "resolution": "no-platform-found"
  },
  "WA0033": {
@@ -4329,9 +4338,9 @@
   "domain": "bellinghampubliclibrary.org",
   "resolution": "already-active"
  },
- "WI0009": {
-  "domain": "antigopl.org",
-  "resolution": "site-unreachable"
+ "WA0020": {
+  "domain": "ritzvillelibrary.org",
+  "resolution": "no-platform-found"
  },
  "WI0159": {
   "domain": "lacrosselibrary.org",
@@ -4340,6 +4349,14 @@
  "WI0315": {
   "domain": "superiorlibrary.org",
   "resolution": "already-active"
+ },
+ "WV0001": {
+  "domain": "rcplwv.org",
+  "resolution": "no-platform-found"
+ },
+ "WI0009": {
+  "domain": "antigopl.org",
+  "resolution": "site-unreachable"
  },
  "VA0056": {
   "domain": "ocplva.org",
@@ -4351,34 +4368,20 @@
    }
   ]
  },
- "SC8003": {
-  "domain": "abbevillecounty.org",
-  "resolution": "no-platform-found",
-  "platforms": [
-   {
-    "vendor": "tribe",
-    "evidence": "tribe-events"
-   }
-  ]
- },
- "VA0055": {
-  "domain": "nottlib.org",
-  "resolution": "no-platform-found"
- },
  "WV0020": {
   "domain": "parkwoodlib.com",
   "resolution": "already-active"
  },
- "WV0001": {
-  "domain": "rcplwv.org",
+ "NY0190": {
+  "domain": "sidneylibrary.org",
   "resolution": "no-platform-found"
  },
  "WV0008": {
   "domain": "wcpl.lib.wv.us",
   "resolution": "no-platform-found"
  },
- "WV0046": {
-  "domain": "librarycommission.wv.gov",
+ "VA0055": {
+  "domain": "nottlib.org",
   "resolution": "no-platform-found"
  },
  "WV0075": {
@@ -4393,16 +4396,16 @@
   "domain": "masoncounty.lib.wv.us",
   "resolution": "no-platform-found"
  },
- "WY0003": {
-  "domain": "fclsonline.org",
+ "WV0046": {
+  "domain": "librarycommission.wv.gov",
   "resolution": "no-platform-found"
  },
  "WY0004": {
   "domain": "lclsonline.org",
   "resolution": "already-active"
  },
- "WV0061": {
-  "domain": "moundsville.lib.wv.us",
+ "WV0014": {
+  "domain": "roanewvlib.com",
   "resolution": "no-platform-found"
  },
  "WY0005": {
@@ -4413,21 +4416,35 @@
   "domain": "crookcountylibrary.org",
   "resolution": "no-platform-found"
  },
- "MT0048": {
-  "domain": "mslservices.mt.gov",
-  "resolution": "site-unreachable"
+ "WV0061": {
+  "domain": "moundsville.lib.wv.us",
+  "resolution": "no-platform-found"
  },
  "WY0021": {
   "domain": "uinta.wyldcatalog.org",
   "resolution": "no-platform-found"
  },
- "AL0049": {
-  "domain": "alexandercityal.gov",
-  "resolution": "site-unreachable"
+ "WY0003": {
+  "domain": "fclsonline.org",
+  "resolution": "no-platform-found"
  },
  "AL0137": {
   "domain": "northshelbylibrary.org",
   "resolution": "already-active"
+ },
+ "AL0049": {
+  "domain": "alexandercityal.gov",
+  "resolution": "site-unreachable"
+ },
+ "SC8003": {
+  "domain": "abbevillecounty.org",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
  },
  "AK0047": {
   "domain": "bristolbayboroughak.us",
@@ -4435,30 +4452,22 @@
  },
  "AL0154": {
   "domain": "anniston.lib.al.us",
-  "resolution": "site-unreachable"
- },
- "AK0023": {
-  "domain": "fnsb.gov",
   "resolution": "no-platform-found"
  },
  "AL0181": {
   "domain": "aplsnew-web.apls.state.al.us:10123",
   "resolution": "no-platform-found"
  },
- "AL0163": {
-  "domain": "ils.apls.state.al.us:10030",
+ "AR0010": {
+  "domain": "library.arkansas.gov",
   "resolution": "no-platform-found"
- },
- "AL0182": {
-  "domain": "public-libraries.com",
-  "resolution": "site-unreachable"
  },
  "AR0016": {
   "domain": "nlrlibrary.org",
   "resolution": "already-active"
  },
- "AR0010": {
-  "domain": "library.arkansas.gov",
+ "AK0023": {
+  "domain": "fnsb.gov",
   "resolution": "no-platform-found"
  },
  "AR0027": {
@@ -4469,16 +4478,12 @@
   "domain": "clarkcountylibrary.ar.gov",
   "resolution": "no-platform-found"
  },
- "WY0001": {
-  "domain": "acplwy.org",
-  "resolution": "no-platform-found"
- },
- "AR0063": {
-  "domain": "library.arkansas.gov",
-  "resolution": "no-platform-found"
- },
  "AR0061": {
   "domain": "library.arkansas.gov",
+  "resolution": "no-platform-found"
+ },
+ "AL0163": {
+  "domain": "ils.apls.state.al.us:10030",
   "resolution": "no-platform-found"
  },
  "AR0064": {
@@ -4489,12 +4494,20 @@
   "domain": "ashcolib.com",
   "resolution": "no-platform-found"
  },
- "AS0001": {
-  "domain": "feletibarstow.org",
+ "AR0063": {
+  "domain": "library.arkansas.gov",
+  "resolution": "no-platform-found"
+ },
+ "AL0200": {
+  "domain": "chamberscountylibrary.org",
   "resolution": "no-platform-found"
  },
  "AZ0088": {
   "domain": "peoria.polarislibrary.com",
+  "resolution": "no-platform-found"
+ },
+ "AS0001": {
+  "domain": "feletibarstow.org",
   "resolution": "no-platform-found"
  },
  "AZ0030": {
@@ -4505,73 +4518,69 @@
   "domain": "library.avondaleaz.gov",
   "resolution": "no-platform-found"
  },
+ "AL0182": {
+  "domain": "public-libraries.com",
+  "resolution": "no-platform-found"
+ },
  "AZ0118": {
   "domain": "casagrandeaz.gov",
-  "resolution": "no-platform-found"
- },
- "AZ0177": {
-  "domain": "lapaz.gov",
-  "resolution": "no-platform-found"
- },
- "AL0200": {
-  "domain": "chamberscountylibrary.org",
   "resolution": "no-platform-found"
  },
  "CA0005": {
   "domain": "altadenalibrary.org",
   "resolution": "already-active"
  },
- "CA0004": {
-  "domain": "alpinecountyca.gov",
+ "WY0001": {
+  "domain": "acplwy.org",
   "resolution": "no-platform-found"
  },
- "CA0012": {
-  "domain": "beverlyhills.org",
+ "AZ0177": {
+  "domain": "lapaz.gov",
   "resolution": "no-platform-found"
  },
  "CA0013": {
   "domain": "brawley-ca.gov",
   "resolution": "no-platform-found"
  },
- "CA0019": {
-  "domain": "calexicolibrary.org",
+ "CA0004": {
+  "domain": "alpinecountyca.gov",
   "resolution": "no-platform-found"
  },
  "CA0021": {
   "domain": "ci.carmel.ca.us",
   "resolution": "no-platform-found"
  },
- "CA0016": {
-  "domain": "burlingame.org",
+ "CA0012": {
+  "domain": "beverlyhills.org",
   "resolution": "no-platform-found"
  },
- "CA0024": {
-  "domain": "chld.org",
+ "CA0019": {
+  "domain": "calexicolibrary.org",
   "resolution": "no-platform-found"
  },
  "CA0032": {
   "domain": "delnortecountylibrary.org",
   "resolution": "no-platform-found"
  },
- "AZ0100": {
-  "domain": "library.navajo-nsn.gov",
-  "resolution": "site-unreachable"
+ "CA0024": {
+  "domain": "chld.org",
+  "resolution": "no-platform-found"
  },
- "CA0025": {
-  "domain": "coltonca.gov",
+ "CA0016": {
+  "domain": "burlingame.org",
   "resolution": "no-platform-found"
  },
  "CA0044": {
   "domain": "hayward-ca.gov",
   "resolution": "already-active"
  },
+ "CA0025": {
+  "domain": "coltonca.gov",
+  "resolution": "no-platform-found"
+ },
  "CA0049": {
   "domain": "cityofinglewood.org",
   "resolution": "site-unreachable"
- },
- "CA0038": {
-  "domain": "escondido.gov",
-  "resolution": "no-platform-found"
  },
  "CA0067": {
   "domain": "menlopark.gov",
@@ -4581,96 +4590,131 @@
   "domain": "ontarioca.gov",
   "resolution": "no-platform-found"
  },
- "CA0060": {
-  "domain": "cityoflompoc.com",
+ "CA0035": {
+  "domain": "cityofelcentro.org",
   "resolution": "no-platform-found"
  },
- "CA0090": {
-  "domain": "palmspringsca.gov",
+ "CA0038": {
+  "domain": "escondido.gov",
   "resolution": "no-platform-found"
  },
  "CA0095": {
   "domain": "prcity.com",
-  "resolution": "no-platform-found"
+  "resolution": "site-unreachable"
  },
- "CA0100": {
-  "domain": "library.redondo.org",
-  "resolution": "no-platform-found"
+ "AZ0155": {
+  "domain": "communitylibrarysedona.org",
+  "resolution": "activated",
+  "vendor": "libcal",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "communitylibrarysedona.libcal.com"
+   }
+  ]
  },
- "CA0128": {
-  "domain": "sfscl.ent.sirsi.net",
+ "CA0060": {
+  "domain": "cityoflompoc.com",
   "resolution": "no-platform-found"
  },
  "CA0169": {
   "domain": "tolibrary.org",
   "resolution": "already-active"
  },
- "CA0194": {
-  "domain": "cityofrc.us",
+ "CA0090": {
+  "domain": "palmspringsca.gov",
   "resolution": "no-platform-found"
  },
- "CA0153": {
-  "domain": "watsonville.gov",
+ "CA0100": {
+  "domain": "library.redondo.org",
+  "resolution": "no-platform-found"
+ },
+ "CA0194": {
+  "domain": "cityofrc.us",
   "resolution": "no-platform-found"
  },
  "CA0248": {
   "domain": "sandiegolawlibrary.org",
   "resolution": "no-platform-found"
  },
- "CA0218": {
-  "domain": "cccpllib.org",
-  "resolution": "no-platform-found"
- },
  "CA0265": {
   "domain": "tularecounty.ca.gov",
   "resolution": "site-unreachable"
  },
- "CA0253": {
-  "domain": "countylawlibrary.org",
+ "CA0128": {
+  "domain": "sfscl.ent.sirsi.net",
   "resolution": "no-platform-found"
  },
  "CO0022": {
   "domain": "costillacounty.gov",
   "resolution": "site-unreachable"
  },
+ "CA0153": {
+  "domain": "watsonville.gov",
+  "resolution": "no-platform-found"
+ },
+ "CA0218": {
+  "domain": "cccpllib.org",
+  "resolution": "no-platform-found"
+ },
+ "CA0253": {
+  "domain": "countylawlibrary.org",
+  "resolution": "no-platform-found"
+ },
  "CO0017": {
   "domain": "canoncity.org",
   "resolution": "no-platform-found"
  },
- "CO0064": {
-  "domain": "lvpl.org",
-  "resolution": "no-platform-found"
- },
- "VA0077": {
-  "domain": "scplva.net",
+ "AZ0100": {
+  "domain": "library.navajo-nsn.gov",
   "resolution": "site-unreachable"
  },
- "CO0090": {
-  "domain": "combinedcommunity.colibraries.org",
+ "CO0064": {
+  "domain": "lvpl.org",
   "resolution": "no-platform-found"
  },
  "CO0103": {
   "domain": "southroutt.colibraries.org",
   "resolution": "no-platform-found"
  },
- "WV0014": {
-  "domain": "roanewvlib.com",
-  "resolution": "site-unreachable"
+ "CO0090": {
+  "domain": "combinedcommunity.colibraries.org",
+  "resolution": "no-platform-found"
+ },
+ "CO0130": {
+  "domain": "westminsterco.gov",
+  "resolution": "no-platform-found"
+ },
+ "CT0012": {
+  "domain": "bplct.org",
+  "resolution": "no-platform-found"
  },
  "CO0052": {
   "domain": "gunnisoncountylibraries.org",
-  "resolution": "site-unreachable"
- },
- "CO0107": {
-  "domain": "steller.colibraries.org",
-  "resolution": "no-platform-found"
+  "resolution": "calendar-id-needed",
+  "vendor": "libcal",
+  "note": "libcal instance gunnisoncountylibraries.libcal.com linked from own site, no verifiable calendar found",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "gunnisoncountylibraries.libcal.com"
+   }
+  ]
  },
  "CO0132": {
   "domain": "rampart.colibraries.org",
   "resolution": "no-platform-found"
  },
- "CT0012": {
-  "domain": "bplct.org",
+ "CO0107": {
+  "domain": "steller.colibraries.org",
+  "resolution": "no-platform-found"
+ },
+ "CT0055": {
+  "domain": "fairfieldpubliclibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "CT0052": {
+  "domain": "enfieldpubliclibrary.org",
   "resolution": "no-platform-found"
  },
  "CO0108": {
@@ -4691,14 +4735,6 @@
   "domain": "swlplibrarydistrict.org",
   "resolution": "no-platform-found"
  },
- "CT0055": {
-  "domain": "fairfieldpubliclibrary.org",
-  "resolution": "no-platform-found"
- },
- "CT0052": {
-  "domain": "enfieldpubliclibrary.org",
-  "resolution": "no-platform-found"
- },
  "CT0057": {
   "domain": "farmingtonlibraries.org",
   "resolution": "no-platform-found",
@@ -4709,18 +4745,6 @@
    }
   ]
  },
- "CT0081": {
-  "domain": "ledyardlibrary.org",
-  "resolution": "no-platform-found"
- },
- "CT0042": {
-  "domain": "easthaddam.org",
-  "resolution": "no-platform-found"
- },
- "CT0062": {
-  "domain": "granby-ct.gov",
-  "resolution": "no-platform-found"
- },
  "CT0109": {
   "domain": "nbranfordlibraries.org",
   "resolution": "already-active"
@@ -4729,48 +4753,64 @@
   "domain": "newbritainlibrary.org",
   "resolution": "no-platform-found"
  },
- "AZ0155": {
-  "domain": "communitylibrarysedona.org",
-  "resolution": "site-unreachable"
+ "CT0081": {
+  "domain": "ledyardlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "CT0062": {
+  "domain": "granby-ct.gov",
+  "resolution": "no-platform-found"
+ },
+ "CT0042": {
+  "domain": "easthaddam.org",
+  "resolution": "no-platform-found"
  },
  "CT0086": {
   "domain": "manchesterct.gov",
-  "resolution": "no-platform-found"
- },
- "CT0114": {
-  "domain": "norwalkpl.org",
-  "resolution": "no-platform-found"
- },
- "CT0142": {
-  "domain": "sheltonlibrarysystem.org",
-  "resolution": "no-platform-found"
- },
- "CT0160": {
-  "domain": "trumbull-ct.gov",
   "resolution": "no-platform-found"
  },
  "CT0167": {
   "domain": "bronsonlibrary.org",
   "resolution": "no-platform-found"
  },
+ "CT0114": {
+  "domain": "norwalkpl.org",
+  "resolution": "no-platform-found"
+ },
  "CT0182": {
   "domain": "windsorlibrary.com",
   "resolution": "already-active"
  },
- "CT0180": {
-  "domain": "willimanticlibrary.org",
-  "resolution": "no-platform-found"
- },
  "CT0169": {
   "domain": "watertownlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "CT0142": {
+  "domain": "sheltonlibrarysystem.org",
+  "resolution": "no-platform-found"
+ },
+ "CT0180": {
+  "domain": "willimanticlibrary.org",
   "resolution": "no-platform-found"
  },
  "FL0029": {
   "domain": "flaglerlibrary.org",
   "resolution": "no-platform-found"
  },
+ "CT0160": {
+  "domain": "trumbull-ct.gov",
+  "resolution": "no-platform-found"
+ },
+ "GA0020": {
+  "domain": "elbertlibrary.org",
+  "resolution": "no-platform-found"
+ },
  "GA0015": {
   "domain": "mccls.org",
+  "resolution": "no-platform-found"
+ },
+ "GA0067": {
+  "domain": "moglibraries.org",
   "resolution": "no-platform-found"
  },
  "CT0172": {
@@ -4784,8 +4824,16 @@
    }
   ]
  },
- "GA0020": {
-  "domain": "elbertlibrary.org",
+ "GA0041": {
+  "domain": "sjrls.org",
+  "resolution": "site-unreachable"
+ },
+ "IA0373": {
+  "domain": "crlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "FL0056": {
+  "domain": "myboca.us",
   "resolution": "no-platform-found"
  },
  "DE0022": {
@@ -4800,96 +4848,86 @@
    }
   ]
  },
- "GA0041": {
-  "domain": "sjrls.org",
-  "resolution": "site-unreachable"
- },
- "FL0056": {
-  "domain": "myboca.us",
-  "resolution": "no-platform-found"
- },
- "GA0067": {
-  "domain": "moglibraries.org",
-  "resolution": "no-platform-found"
- },
- "IA0373": {
-  "domain": "crlibrary.org",
-  "resolution": "no-platform-found"
- },
  "IA0048": {
   "domain": "storycity.lib.ia.us",
   "resolution": "no-platform-found"
- },
- "ID0003": {
-  "domain": "libraries.idaho.gov",
-  "resolution": "site-unreachable"
- },
- "ID0067": {
-  "domain": "bearlake.lili.org",
-  "resolution": "site-unreachable"
  },
  "IA0473": {
   "domain": "clintonpubliclibrary.us",
   "resolution": "no-platform-found"
  },
- "ID0075": {
-  "domain": "ccfldatweippe.lili.org",
-  "resolution": "site-unreachable"
- },
  "IA0571": {
   "domain": "cityofclive.com",
   "resolution": "no-platform-found"
- },
- "ID0097": {
-  "domain": "libraries.idaho.gov",
-  "resolution": "site-unreachable"
- },
- "CA0035": {
-  "domain": "cityofelcentro.org",
-  "resolution": "site-unreachable"
  },
  "GA0038": {
   "domain": "peachpubliclibraries.org",
   "resolution": "no-platform-found"
  },
- "IL0006": {
-  "domain": "aapld.org",
-  "resolution": "already-active"
+ "ID0003": {
+  "domain": "libraries.idaho.gov",
+  "resolution": "activated",
+  "vendor": "ical",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
  },
  "ID0084": {
   "domain": "westbonnerlibrary.org",
   "resolution": "no-platform-found"
  },
- "ID0106": {
-  "domain": "valleyofthetetonslibrary.org",
-  "resolution": "site-unreachable"
+ "ID0097": {
+  "domain": "libraries.idaho.gov",
+  "resolution": "activated",
+  "vendor": "ical",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
  },
- "ID0112": {
-  "domain": "bcfld.lili.org",
-  "resolution": "site-unreachable"
- },
- "IL0091": {
-  "domain": "champaign.org",
+ "IL0006": {
+  "domain": "aapld.org",
   "resolution": "already-active"
  },
  "IL0013": {
   "domain": "stinsonlibrary.org",
   "resolution": "no-platform-found"
  },
- "IL0116": {
-  "domain": "cooklib.org",
+ "ID0098": {
+  "domain": "ebonnerlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "IL0020": {
+  "domain": "pspld.com",
+  "resolution": "no-platform-found"
+ },
+ "IL0091": {
+  "domain": "champaign.org",
   "resolution": "already-active"
  },
  "IL0114": {
   "domain": "mvld.org",
   "resolution": "no-platform-found"
  },
+ "IL0116": {
+  "domain": "cooklib.org",
+  "resolution": "already-active"
+ },
+ "IL0038": {
+  "domain": "belleville.net",
+  "resolution": "no-platform-found"
+ },
  "IL0172": {
   "domain": "epl.org",
   "resolution": "already-active"
  },
- "IL0020": {
-  "domain": "pspld.com",
+ "IL0217": {
+  "domain": "smrld.org",
   "resolution": "no-platform-found"
  },
  "IL0255": {
@@ -4900,16 +4938,12 @@
   "domain": "jolietlibrary.org",
   "resolution": "already-active"
  },
- "IL0217": {
-  "domain": "smrld.org",
-  "resolution": "site-unreachable"
- },
  "IL0360": {
   "domain": "mppl.org",
   "resolution": "already-active"
  },
- "IL0038": {
-  "domain": "belleville.net",
+ "IL0383": {
+  "domain": "villageofnorriscity.com",
   "resolution": "no-platform-found"
  },
  "IL0387": {
@@ -4920,40 +4954,42 @@
   "domain": "oswego.lib.il.us",
   "resolution": "site-unreachable"
  },
- "IL0290": {
-  "domain": "lincolnpubliclibrary.org",
-  "resolution": "site-unreachable"
- },
- "IL0524": {
-  "domain": "trpld.org",
-  "resolution": "already-active"
- },
  "IL0437": {
   "domain": "pclib.org",
   "resolution": "no-platform-found"
- },
- "IL0564": {
-  "domain": "waukeganpl.org",
-  "resolution": "already-active"
  },
  "IL0461": {
   "domain": "rockislandlibrary.org",
   "resolution": "no-platform-found"
  },
- "IL0559": {
-  "domain": "washington.lib.il.us",
+ "IL0524": {
+  "domain": "trpld.org",
+  "resolution": "already-active"
+ },
+ "ID0067": {
+  "domain": "bearlake.lili.org",
   "resolution": "site-unreachable"
  },
- "IL0635": {
-  "domain": "aopld.org",
-  "resolution": "no-platform-found"
+ "IL0564": {
+  "domain": "waukeganpl.org",
+  "resolution": "already-active"
  },
- "ID0098": {
-  "domain": "ebonnerlibrary.org",
-  "resolution": "no-platform-found"
+ "ID0075": {
+  "domain": "ccfldatweippe.lili.org",
+  "resolution": "site-unreachable"
  },
- "IL0383": {
-  "domain": "villageofnorriscity.com",
+ "IL0290": {
+  "domain": "lincolnpubliclibrary.org",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
+ },
+ "IL0559": {
+  "domain": "washington.lib.il.us",
   "resolution": "site-unreachable"
  },
  "IL0590": {
@@ -4964,17 +5000,9 @@
   "domain": "fortbranchlibrary.com",
   "resolution": "no-platform-found"
  },
- "IN0052": {
-  "domain": "nappaneelibrary.org",
-  "resolution": "already-active"
- },
- "IN0009": {
-  "domain": "bicknell-vigo.lib.in.us",
-  "resolution": "site-unreachable"
- },
- "IN0086": {
-  "domain": "kendallvillelibrary.org",
-  "resolution": "already-active"
+ "IL0635": {
+  "domain": "aopld.org",
+  "resolution": "no-platform-found"
  },
  "IN0044": {
   "domain": "westchesterlibraries.org",
@@ -4988,6 +5016,22 @@
    }
   ]
  },
+ "IN0052": {
+  "domain": "nappaneelibrary.org",
+  "resolution": "already-active"
+ },
+ "IN0031": {
+  "domain": "crownpointlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "IN0086": {
+  "domain": "kendallvillelibrary.org",
+  "resolution": "already-active"
+ },
+ "IN0009": {
+  "domain": "bicknell-vigo.lib.in.us",
+  "resolution": "no-platform-found"
+ },
  "IN0100": {
   "domain": "delphilibrary.org",
   "resolution": "already-active"
@@ -4996,31 +5040,41 @@
   "domain": "in.gov",
   "resolution": "no-platform-found"
  },
- "IN0031": {
-  "domain": "crownpointlibrary.org",
-  "resolution": "no-platform-found"
+ "IN0080": {
+  "domain": "huntingtonpub.lib.in.us",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
  },
  "IN0090": {
   "domain": "wellscolibrary.org",
   "resolution": "no-platform-found"
  },
- "IN0123": {
-  "domain": "logan.lib.in.us",
-  "resolution": "site-unreachable"
+ "IN0013": {
+  "domain": "perrycountypl.org",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
  },
  "IN0132": {
   "domain": "tiptoncountylibrary.org",
   "resolution": "already-active"
  },
- "IN0109": {
-  "domain": "crawfordsvillelibrary.in.gov",
-  "resolution": "adapter-needed:assabet",
-  "vendor": "assabet",
-  "note": "evidence: assabetinteractive.com",
+ "IN0140": {
+  "domain": "fclibraries.org",
+  "resolution": "no-platform-found",
   "platforms": [
    {
-    "vendor": "assabet",
-    "evidence": "assabetinteractive.com"
+    "vendor": "tribe",
+    "evidence": "tribe-events"
    }
   ]
  },
@@ -5044,13 +5098,15 @@
   "domain": "carmelclaylibrary.org",
   "resolution": "already-active"
  },
- "IN0013": {
-  "domain": "perrycountypl.org",
-  "resolution": "no-platform-found",
+ "IN0109": {
+  "domain": "crawfordsvillelibrary.in.gov",
+  "resolution": "adapter-needed:assabet",
+  "vendor": "assabet",
+  "note": "evidence: assabetinteractive.com",
   "platforms": [
    {
-    "vendor": "tribe",
-    "evidence": "tribe-events"
+    "vendor": "assabet",
+    "evidence": "assabetinteractive.com"
    }
   ]
  },
@@ -5058,8 +5114,8 @@
   "domain": "hamiltoneastpl.org",
   "resolution": "already-active"
  },
- "IN0199": {
-  "domain": "hcplibrary.org",
+ "IN0123": {
+  "domain": "logan.lib.in.us",
   "resolution": "no-platform-found"
  },
  "IN0215": {
@@ -5070,13 +5126,27 @@
   "domain": "hnpl.lib.in.us",
   "resolution": "no-platform-found"
  },
- "IN0216": {
-  "domain": "browncountylibrary.info",
-  "resolution": "no-platform-found"
+ "IN0129": {
+  "domain": "greentownlib.org",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
  },
  "IN0220": {
   "domain": "lpld.lib.in.us",
   "resolution": "already-active"
+ },
+ "IN0199": {
+  "domain": "hcplibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "IN0216": {
+  "domain": "browncountylibrary.info",
+  "resolution": "no-platform-found"
  },
  "IN0218": {
   "domain": "jefflibrary.org",
@@ -5090,49 +5160,33 @@
    }
   ]
  },
- "IN0140": {
-  "domain": "fclibraries.org",
-  "resolution": "no-platform-found",
-  "platforms": [
-   {
-    "vendor": "tribe",
-    "evidence": "tribe-events"
-   }
-  ]
- },
- "IN0129": {
-  "domain": "greentownlib.org",
-  "resolution": "no-platform-found",
-  "platforms": [
-   {
-    "vendor": "tribe",
-    "evidence": "tribe-events"
-   }
-  ]
- },
  "IN0234": {
   "domain": "osgoodlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "IN0239": {
+  "domain": "lincolnheritage.lib.in.us",
   "resolution": "no-platform-found"
  },
  "KS0130": {
   "domain": "olathelibrary.org",
   "resolution": "already-active"
  },
- "IN0239": {
-  "domain": "lincolnheritage.lib.in.us",
+ "IN0248": {
+  "domain": "in.gov",
   "resolution": "no-platform-found"
  },
  "IN0244": {
   "domain": "greensburglibrary.org",
-  "resolution": "site-unreachable"
- },
- "CO0130": {
-  "domain": "westminsterco.gov",
-  "resolution": "site-unreachable"
- },
- "IN0248": {
-  "domain": "in.gov",
-  "resolution": "no-platform-found"
+  "resolution": "calendar-id-needed",
+  "vendor": "libcal",
+  "note": "libcal instance greensburglibrary.libcal.com linked from own site, no verifiable calendar found",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "greensburglibrary.libcal.com"
+   }
+  ]
  },
  "KS0299": {
   "domain": "cimarroncitylibrary.org",
@@ -5142,21 +5196,25 @@
   "domain": "bellcpl.org",
   "resolution": "no-platform-found"
  },
- "KY0016": {
-  "domain": "georgecoonpubliclibrary.com",
-  "resolution": "no-platform-found"
- },
  "KS0301": {
   "domain": "coldwater-wilmorelibrary.info",
   "resolution": "site-unreachable"
+ },
+ "KS0310": {
+  "domain": "mocolib.info",
+  "resolution": "site-unreachable"
+ },
+ "KY0016": {
+  "domain": "georgecoonpubliclibrary.com",
+  "resolution": "no-platform-found"
  },
  "KY0006": {
   "domain": "bathlibrary.org",
   "resolution": "no-platform-found"
  },
- "KS0310": {
-  "domain": "mocolib.info",
-  "resolution": "site-unreachable"
+ "KY0035": {
+  "domain": "fultoncounty.ky.gov",
+  "resolution": "no-platform-found"
  },
  "KY0009": {
   "domain": "bourbonlibrary.org",
@@ -5171,10 +5229,6 @@
  "KY0069": {
   "domain": "madisonlibrary.org",
   "resolution": "already-active"
- },
- "KY0035": {
-  "domain": "fultoncounty.ky.gov",
-  "resolution": "no-platform-found"
  },
  "KY0051": {
   "domain": "publiclibrary.org",
@@ -5191,9 +5245,9 @@
   "domain": "martincolibraries.com",
   "resolution": "no-platform-found"
  },
- "KY0112": {
-  "domain": "loc8nearme.com",
-  "resolution": "no-platform-found"
+ "KY0087": {
+  "domain": "ocplibrary.org",
+  "resolution": "site-unreachable"
  },
  "KY0054": {
   "domain": "jesspublib.org",
@@ -5205,53 +5259,16 @@
    }
   ]
  },
+ "KY0112": {
+  "domain": "loc8nearme.com",
+  "resolution": "no-platform-found"
+ },
  "KY0119": {
   "domain": "mcplib.org",
   "resolution": "already-active"
  },
  "KY0115": {
   "domain": "woodfordcountylibrary.org",
-  "resolution": "no-platform-found"
- },
- "KY0087": {
-  "domain": "ocplibrary.org",
-  "resolution": "no-platform-found",
-  "platforms": [
-   {
-    "vendor": "tribe",
-    "evidence": "tribe-events"
-   }
-  ]
- },
- "LA0003": {
-  "domain": "lasalle.lib.la.us",
-  "resolution": "no-platform-found"
- },
- "LA0004": {
-  "domain": "cplibrary.org",
-  "resolution": "no-platform-found"
- },
- "KY0803": {
-  "domain": "cartercountypubliclibrary.com",
-  "resolution": "no-platform-found"
- },
- "LA0006": {
-  "domain": "jacksonparishlib.org",
-  "resolution": "no-platform-found"
- },
- "LA0016": {
-  "domain": "franklinparishlibrary.org",
-  "resolution": "activated",
-  "vendor": "ical",
-  "platforms": [
-   {
-    "vendor": "tribe",
-    "evidence": "tribe-events"
-   }
-  ]
- },
- "LA0010": {
-  "domain": "stjamesla.com",
   "resolution": "no-platform-found"
  },
  "KY0082": {
@@ -5264,32 +5281,55 @@
    }
   ]
  },
- "LA0029": {
-  "domain": "youseemore.com",
+ "KY0803": {
+  "domain": "cartercountypubliclibrary.com",
   "resolution": "no-platform-found"
+ },
+ "LA0004": {
+  "domain": "cplibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "LA0003": {
+  "domain": "lasalle.lib.la.us",
+  "resolution": "no-platform-found"
+ },
+ "ID0106": {
+  "domain": "valleyofthetetonslibrary.org",
+  "resolution": "site-unreachable"
+ },
+ "LA0006": {
+  "domain": "jacksonparishlib.org",
+  "resolution": "no-platform-found"
+ },
+ "ID0112": {
+  "domain": "bcfld.lili.org",
+  "resolution": "site-unreachable"
+ },
+ "LA0016": {
+  "domain": "franklinparishlibrary.org",
+  "resolution": "activated",
+  "vendor": "ical",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
  },
  "MA0010": {
   "domain": "robbinslibrary.org",
   "resolution": "site-unreachable"
  },
- "LA0042": {
-  "domain": "mysbpl.org",
+ "LA0010": {
+  "domain": "stjamesla.com",
+  "resolution": "no-platform-found"
+ },
+ "LA0029": {
+  "domain": "youseemore.com",
   "resolution": "no-platform-found"
  },
  "MA0002": {
   "domain": "actonmemoriallibrary.org",
-  "resolution": "adapter-needed:assabet",
-  "vendor": "assabet",
-  "note": "evidence: assabetinteractive.com",
-  "platforms": [
-   {
-    "vendor": "assabet",
-    "evidence": "assabetinteractive.com"
-   }
-  ]
- },
- "MA0030": {
-  "domain": "beverlypubliclibrary.org",
   "resolution": "adapter-needed:assabet",
   "vendor": "assabet",
   "note": "evidence: assabetinteractive.com",
@@ -5315,12 +5355,24 @@
    }
   ]
  },
+ "MA0030": {
+  "domain": "beverlypubliclibrary.org",
+  "resolution": "adapter-needed:assabet",
+  "vendor": "assabet",
+  "note": "evidence: assabetinteractive.com",
+  "platforms": [
+   {
+    "vendor": "assabet",
+    "evidence": "assabetinteractive.com"
+   }
+  ]
+ },
  "MA0073": {
   "domain": "dedhamlibrary.com",
   "resolution": "already-active"
  },
- "MA0072": {
-  "domain": "dartmouthma.gov",
+ "LA0042": {
+  "domain": "mysbpl.org",
   "resolution": "no-platform-found"
  },
  "MA0067": {
@@ -5335,10 +5387,6 @@
    }
   ]
  },
- "MA0093": {
-  "domain": "everettpubliclibraries.org",
-  "resolution": "no-platform-found"
- },
  "MA0056": {
   "domain": "chelmsfordlibrary.org",
   "resolution": "activated",
@@ -5347,6 +5395,32 @@
    {
     "vendor": "libcal",
     "evidence": "chelmsfordlibrary.libcal.com"
+   }
+  ]
+ },
+ "MA0093": {
+  "domain": "everettpubliclibraries.org",
+  "resolution": "no-platform-found"
+ },
+ "MA0072": {
+  "domain": "dartmouthma.gov",
+  "resolution": "no-platform-found"
+ },
+ "MA0220": {
+  "domain": "orangelib.org",
+  "resolution": "no-platform-found"
+ },
+ "MA0236": {
+  "domain": "plymouthpubliclibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "KY0043": {
+  "domain": "hcplky.org",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
    }
   ]
  },
@@ -5362,9 +5436,60 @@
    }
   ]
  },
- "IN0080": {
-  "domain": "huntingtonpub.lib.in.us",
-  "resolution": "site-unreachable"
+ "MA0331": {
+  "domain": "westwoodlibrary.org",
+  "resolution": "already-active"
+ },
+ "MA0272": {
+  "domain": "southhadley.org",
+  "resolution": "no-platform-found"
+ },
+ "MA0307": {
+  "domain": "warehamfreelibrary.org",
+  "resolution": "adapter-needed:assabet",
+  "vendor": "assabet",
+  "note": "evidence: assabetinteractive.com",
+  "platforms": [
+   {
+    "vendor": "assabet",
+    "evidence": "assabetinteractive.com"
+   }
+  ]
+ },
+ "MA0336": {
+  "domain": "meekins-library.org",
+  "resolution": "activated",
+  "vendor": "ical",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe_events"
+   }
+  ]
+ },
+ "MA0377": {
+  "domain": "yarmouthlibraries.org",
+  "resolution": "no-platform-found"
+ },
+ "MD0010": {
+  "domain": "dorchesterlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MD0018": {
+  "domain": "qaclibrary.org",
+  "resolution": "activated",
+  "vendor": "communico",
+  "note": "evidence: 2fqacl-qaclibrary.libnet.info",
+  "platforms": [
+   {
+    "vendor": "communico",
+    "evidence": "2fqacl-qaclibrary.libnet.info"
+   }
+  ]
+ },
+ "MD0021": {
+  "domain": "tcfl.org",
+  "resolution": "no-platform-found"
  },
  "MA0113": {
   "domain": "libraries.state.ma.us",
@@ -5377,8 +5502,428 @@
    }
   ]
  },
+ "MA0159": {
+  "domain": "libraries.state.ma.us",
+  "resolution": "activated",
+  "vendor": "libcal",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "mblc.libcal.com"
+   }
+  ]
+ },
+ "MI0020": {
+  "domain": "barrytonlibrary.com",
+  "resolution": "site-unreachable"
+ },
+ "MI0074": {
+  "domain": "crawfordcolibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MI0105": {
+  "domain": "farmlib.org",
+  "resolution": "already-active"
+ },
+ "ME0199": {
+  "domain": "southportlandlibrary.com",
+  "resolution": "activated",
+  "vendor": "ical",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
+ },
+ "MA0332": {
+  "domain": "libraries.state.ma.us",
+  "resolution": "activated",
+  "vendor": "libcal",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "mblc.libcal.com"
+   }
+  ]
+ },
+ "MI0165": {
+  "domain": "ruthhughes.org",
+  "resolution": "no-platform-found"
+ },
+ "MI0127": {
+  "domain": "gcdl.org",
+  "resolution": "no-platform-found"
+ },
+ "MI0255": {
+  "domain": "orionlibrary.org",
+  "resolution": "already-active"
+ },
+ "MA0363": {
+  "domain": "libraries.state.ma.us",
+  "resolution": "activated",
+  "vendor": "libcal",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "mblc.libcal.com"
+   }
+  ]
+ },
+ "MI0371": {
+  "domain": "willardlibrary.org",
+  "resolution": "already-active"
+ },
+ "MI0125": {
+  "domain": "roscommonlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MI0257": {
+  "domain": "oscoda.lib.mi.us",
+  "resolution": "no-platform-found"
+ },
+ "MI0226": {
+  "domain": "menomineecountylibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MN0060": {
+  "domain": "nclibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MI0425": {
+  "domain": "dhlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MI0254": {
+  "domain": "ontonagonlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MO0044": {
+  "domain": "newtoncolib.org",
+  "resolution": "no-platform-found"
+ },
  "KY0033": {
   "domain": "fclib.org",
+  "resolution": "site-unreachable"
+ },
+ "MI0401": {
+  "domain": "masoncounty.lib.mi.us",
+  "resolution": "no-platform-found"
+ },
+ "MN0085": {
+  "domain": "owatonna.gov",
+  "resolution": "no-platform-found"
+ },
+ "MO0049": {
+  "domain": "daviesscountylibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MO0125": {
+  "domain": "poplarbluff.org",
+  "resolution": "already-active"
+ },
+ "MO0056": {
+  "domain": "missco.lib.mo.us",
+  "resolution": "no-platform-found"
+ },
+ "MI0430": {
+  "domain": "belleville.lib.mi.us",
+  "resolution": "calendar-id-needed",
+  "vendor": "libcal",
+  "note": "libcal instance belleville.libcal.com linked from own site, no verifiable calendar found",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "belleville.libcal.com"
+   }
+  ]
+ },
+ "MO0054": {
+  "domain": "livcolib.org",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
+ },
+ "MO0206": {
+  "domain": "rhcl.org",
+  "resolution": "already-active"
+ },
+ "MO0175": {
+  "domain": "mrrl.org",
+  "resolution": "no-platform-found"
+ },
+ "MO0138": {
+  "domain": "ripleyco.lib.mo.us",
+  "resolution": "no-platform-found"
+ },
+ "MO0088": {
+  "domain": "henrycolib.org",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe_events"
+   }
+  ]
+ },
+ "MS0012": {
+  "domain": "glpls.org",
+  "resolution": "no-platform-found"
+ },
+ "MS0017": {
+  "domain": "hattlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MS0025": {
+  "domain": "leeitawambalibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MS0022": {
+  "domain": "unioncountylibrary.com",
+  "resolution": "no-platform-found"
+ },
+ "MS0004": {
+  "domain": "carroll.lib.ms.us",
+  "resolution": "activated",
+  "vendor": "ical",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
+ },
+ "MO0190": {
+  "domain": "webstercountylibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MS0024": {
+  "domain": "laurel.lib.ms.us",
+  "resolution": "activated",
+  "vendor": "ical",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
+ },
+ "MS0052": {
+  "domain": "wcplibrary.com",
+  "resolution": "no-platform-found"
+ },
+ "MS8003": {
+  "domain": "choctaw.lib.ms.us",
+  "resolution": "no-platform-found"
+ },
+ "MS0039": {
+  "domain": "pearlriver.lib.ms.us",
+  "resolution": "activated",
+  "vendor": "ical",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
+ },
+ "MT0011": {
+  "domain": "co.silverbow.mt.us",
+  "resolution": "no-platform-found"
+ },
+ "MT0031": {
+  "domain": "glasgowlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MS0045": {
+  "domain": "tallahatchie.lib.ms.us",
+  "resolution": "no-platform-found"
+ },
+ "MT0032": {
+  "domain": "glendivelibrary.com",
+  "resolution": "no-platform-found"
+ },
+ "MT0065": {
+  "domain": "jbcountymt.gov",
+  "resolution": "no-platform-found"
+ },
+ "NC0028": {
+  "domain": "daviecountync.gov",
+  "resolution": "site-unreachable"
+ },
+ "NC0024": {
+  "domain": "clevelandcounty.com",
+  "resolution": "adapter-needed:localist",
+  "vendor": "localist",
+  "note": "evidence: clevelandcounty.enterprise.localist.com",
+  "platforms": [
+   {
+    "vendor": "localist",
+    "evidence": "clevelandcounty.enterprise.localist.com"
+   }
+  ]
+ },
+ "NC0042": {
+  "domain": "library.leecountync.gov",
+  "resolution": "activated",
+  "vendor": "libcal",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "leecountync.libcal.com"
+   }
+  ]
+ },
+ "NC0031": {
+  "domain": "chamber.tarborochamber.com",
+  "resolution": "no-platform-found"
+ },
+ "NC0049": {
+  "domain": "penderpubliclibrary.org",
+  "resolution": "already-active"
+ },
+ "MT0029": {
+  "domain": "rosebudcountymt.gov",
+  "resolution": "activated",
+  "vendor": "ical",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
+ },
+ "NC0079": {
+  "domain": "hickorync.gov",
+  "resolution": "already-active"
+ },
+ "NC0108": {
+  "domain": "orangecountync.gov",
+  "resolution": "already-active"
+ },
+ "MT0804": {
+  "domain": "northjeffersoncountylibrary.org",
+  "resolution": "no-platform-found",
+  "platforms": [
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
+ },
+ "MT0062": {
+  "domain": "toolecountylibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "ND0002": {
+  "domain": "jrvls.org",
+  "resolution": "no-platform-found"
+ },
+ "ND0018": {
+  "domain": "dickinsongov.com",
+  "resolution": "site-unreachable"
+ },
+ "ND0087": {
+  "domain": "co.ward.nd.us",
+  "resolution": "site-unreachable"
+ },
+ "NC0051": {
+  "domain": "polklibrary.org",
+  "resolution": "activated",
+  "vendor": "libcal",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "polklibrary.libcal.com"
+   },
+   {
+    "vendor": "tribe",
+    "evidence": "tribe-events"
+   }
+  ]
+ },
+ "ND0084": {
+  "domain": "vcbclibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "NE0276": {
+  "domain": "papillionpubliclibrary.org",
+  "resolution": "calendar-id-needed",
+  "vendor": "libcal",
+  "note": "libcal instance papillion.libcal.com linked from own site, no verifiable calendar found",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "papillion.libcal.com"
+   }
+  ]
+ },
+ "ND0012": {
+  "domain": "public-libraries.com",
+  "resolution": "no-platform-found"
+ },
+ "NC0044": {
+  "domain": "mcdowellpubliclibrary.org",
+  "resolution": "calendar-id-needed",
+  "vendor": "libcal",
+  "note": "libcal instance mcdowellpubliclibrary.libcal.com linked from own site, no verifiable calendar found",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "mcdowellpubliclibrary.libcal.com"
+   }
+  ]
+ },
+ "NH0019": {
+  "domain": "laconianh.gov",
+  "resolution": "no-platform-found"
+ },
+ "NE0104": {
+  "domain": "gretnapubliclibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "NJ0148": {
+  "domain": "hobokenlibrary.org",
+  "resolution": "already-active"
+ },
+ "NJ0151": {
+  "domain": "nbpl.org",
+  "resolution": "already-active"
+ },
+ "NJ0050": {
+  "domain": "paramuslibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "NJ0152": {
+  "domain": "secaucuslibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "NH0132": {
+  "domain": "walpoletownlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "NJ0121": {
+  "domain": "montclairlibrary.org",
+  "resolution": "calendar-id-needed",
+  "vendor": "libcal",
+  "note": "libcal instance bccls.libcal.com linked from own site, no verifiable calendar found",
+  "platforms": [
+   {
+    "vendor": "libcal",
+    "evidence": "bccls.libcal.com"
+   }
+  ]
+ },
+ "NH0035": {
+  "domain": "manchesterlibrary.org",
+  "resolution": "no-platform-found"
+ },
+ "MO0113": {
+  "domain": "mostclair.lib.mo.us",
   "resolution": "site-unreachable"
  },
  "CA0113": {
@@ -5489,6 +6034,30 @@
    }
   ]
  },
+ "IN0027": {
+  "domain": "ecpl.org",
+  "resolution": "feed-unverified",
+  "vendor": "bibliocommons",
+  "note": "slug ec from own-domain link",
+  "platforms": [
+   {
+    "vendor": "bibliocommons",
+    "evidence": "ec.bibliocommons.com"
+   }
+  ]
+ },
+ "MI0279": {
+  "domain": "pidl.org",
+  "resolution": "feed-unverified",
+  "vendor": "bibliocommons",
+  "note": "slug pidl from own-domain link",
+  "platforms": [
+   {
+    "vendor": "bibliocommons",
+    "evidence": "pidl.bibliocommons.com"
+   }
+  ]
+ },
  "CA0054": {
   "domain": "library.lakecountyca.gov",
   "resolution": "feed-empty",
@@ -5522,6 +6091,18 @@
    {
     "vendor": "bibliocommons",
     "evidence": "marinet.bibliocommons.com"
+   }
+  ]
+ },
+ "KY0109": {
+  "domain": "warrenpl.org",
+  "resolution": "feed-unverified",
+  "vendor": "bibliocommons",
+  "note": "slug wcpl from own-domain link",
+  "platforms": [
+   {
+    "vendor": "bibliocommons",
+    "evidence": "wcpl.bibliocommons.com"
    }
   ]
  },
@@ -5581,6 +6162,30 @@
    {
     "vendor": "bibliocommons",
     "evidence": "jeffcolibrary.bibliocommons.com"
+   }
+  ]
+ },
+ "MI0054": {
+  "domain": "carsoncity.michlibrary.org",
+  "resolution": "feed-empty",
+  "vendor": "bibliocommons",
+  "note": "slug carsoncity from own-domain link",
+  "platforms": [
+   {
+    "vendor": "bibliocommons",
+    "evidence": "carsoncity.bibliocommons.com"
+   }
+  ]
+ },
+ "MI0076": {
+  "domain": "crookedtree.ploud.net",
+  "resolution": "feed-unverified",
+  "vendor": "bibliocommons",
+  "note": "slug ctdl from own-domain link",
+  "platforms": [
+   {
+    "vendor": "bibliocommons",
+    "evidence": "ctdl.bibliocommons.com"
    }
   ]
  }
