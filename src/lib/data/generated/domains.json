@@ -8026,5 +8026,605 @@
   "source": "web-search",
   "system": "Secaucus Free Public Library",
   "state": "NJ"
+ },
+ "MA0148": {
+  "domain": "lawrencepl.org",
+  "source": "web-search",
+  "system": "Lawrence Public Library",
+  "state": "MA"
+ },
+ "MI0150": {
+  "domain": "herrickdl.org",
+  "source": "web-search",
+  "system": "Herrick District Library",
+  "state": "MI"
+ },
+ "MI0261": {
+  "domain": "mysdl.org",
+  "source": "web-search",
+  "system": "Shiawassee District Library",
+  "state": "MI"
+ },
+ "MI0276": {
+  "domain": "pldl.org",
+  "source": "web-search",
+  "system": "Portage Lake District Library",
+  "state": "MI"
+ },
+ "MI0294": {
+  "domain": "romeodistrictlibrary.org",
+  "source": "web-search",
+  "system": "Romeo District Library",
+  "state": "MI"
+ },
+ "MI0303": {
+  "domain": "saraclark.michlibrary.org",
+  "source": "web-search",
+  "system": "Saranac Public Library",
+  "state": "MI"
+ },
+ "MI0362": {
+  "domain": "wblib.org",
+  "source": "web-search",
+  "system": "West Bloomfield Township Public Library",
+  "state": "MI"
+ },
+ "MO0178": {
+  "domain": "cedarcountylibrary.org",
+  "source": "web-search",
+  "system": "Cedar County Library District",
+  "state": "MO"
+ },
+ "MS0001": {
+  "domain": "benton.lib.ms.us",
+  "source": "web-search",
+  "system": "Benton County Library",
+  "state": "MS"
+ },
+ "MS0002": {
+  "domain": "yalobusha.lib.ms.us",
+  "source": "web-search",
+  "system": "Yalobusha County Library",
+  "state": "MS"
+ },
+ "MT0007": {
+  "domain": "jeffersoncounty-mt.gov",
+  "source": "web-search",
+  "system": "Jefferson County Library - Boulder",
+  "state": "MT"
+ },
+ "NH0021": {
+  "domain": "leblibrary.com",
+  "source": "web-search",
+  "system": "Lebanon Public Library",
+  "state": "NH"
+ },
+ "NJ0003": {
+  "domain": "acfpl.org",
+  "source": "web-search",
+  "system": "Atlantic City Free Public Library",
+  "state": "NJ"
+ },
+ "NJ0119": {
+  "domain": "maplewoodlibrary.org",
+  "source": "web-search",
+  "system": "Maplewood Memorial Library",
+  "state": "NJ"
+ },
+ "NJ0150": {
+  "domain": "kearnylibrary.org",
+  "source": "web-search",
+  "system": "Kearny Public Library",
+  "state": "NJ"
+ },
+ "NJ0153": {
+  "domain": "uclibrary.org",
+  "source": "web-search",
+  "system": "Union City Public Library",
+  "state": "NJ"
+ },
+ "NJ0186": {
+  "domain": "piscatawaylibrary.org",
+  "source": "web-search",
+  "system": "Piscataway Public Library",
+  "state": "NJ"
+ },
+ "NJ0209": {
+  "domain": "longbranchlib.org",
+  "source": "web-search",
+  "system": "Long Branch Free Public Library",
+  "state": "NJ"
+ },
+ "NJ0248": {
+  "domain": "rtlibrary.org",
+  "source": "web-search",
+  "system": "Rockaway Township Free Public Library",
+  "state": "NJ"
+ },
+ "NJ0256": {
+  "domain": "cliftonpl.org",
+  "source": "web-search",
+  "system": "Clifton Public Library",
+  "state": "NJ"
+ },
+ "NJ0261": {
+  "domain": "passaicpubliclibrary.org",
+  "source": "web-search",
+  "system": "Passaic Public Library",
+  "state": "NJ"
+ },
+ "NJ0280": {
+  "domain": "franklintwp.org",
+  "source": "web-search",
+  "system": "Franklin Twp Public Library/Somerset",
+  "state": "NJ"
+ },
+ "NJ0304": {
+  "domain": "uplnj.org",
+  "source": "web-search",
+  "system": "Union Free Public Library",
+  "state": "NJ"
+ },
+ "NJ0315": {
+  "domain": "avalonfreelibrary.org",
+  "source": "web-search",
+  "system": "Avalon Free Public Library",
+  "state": "NJ"
+ },
+ "NM0005": {
+  "domain": "belen-nm.gov",
+  "source": "web-search",
+  "system": "Belen Public Library",
+  "state": "NM"
+ },
+ "NM0016": {
+  "domain": "ofpl.online",
+  "source": "web-search",
+  "system": "Octavia Fellin Public Library",
+  "state": "NM"
+ },
+ "NM0020": {
+  "domain": "cityofjal.us",
+  "source": "web-search",
+  "system": "Woolworth Community Library",
+  "state": "NM"
+ },
+ "NM0025": {
+  "domain": "losalamos.ent.sirsi.net",
+  "source": "web-search",
+  "system": "Los Alamos County Library System",
+  "state": "NM"
+ },
+ "NM0026": {
+  "domain": "loslunasnm.gov",
+  "source": "web-search",
+  "system": "Los Lunas Public Library",
+  "state": "NM"
+ },
+ "NM0030": {
+  "domain": "riopl.ci.rio-rancho.nm.us",
+  "source": "web-search",
+  "system": "Rio Rancho Public Library",
+  "state": "NM"
+ },
+ "NM0039": {
+  "domain": "torcnm.gov",
+  "source": "web-search",
+  "system": "Truth Or Consequences Public Library",
+  "state": "NM"
+ },
+ "NV0006": {
+  "domain": "library.douglascountynv.gov",
+  "source": "web-search",
+  "system": "Douglas County Public Library",
+  "state": "NV"
+ },
+ "NV0017": {
+  "domain": "mineralcountynv.us",
+  "source": "web-search",
+  "system": "Mineral County Library",
+  "state": "NV"
+ },
+ "NV0028": {
+  "domain": "svld.net",
+  "source": "web-search",
+  "system": "Smoky Valley Library District",
+  "state": "NV"
+ },
+ "NY0010": {
+  "domain": "buffalolib.org",
+  "source": "web-search",
+  "system": "Cheektowaga Public Library",
+  "state": "NY"
+ },
+ "NY0018": {
+  "domain": "buffalolib.org",
+  "source": "web-search",
+  "system": "Hamburg Public Library",
+  "state": "NY"
+ },
+ "NY0019": {
+  "domain": "buffalolib.org",
+  "source": "web-search",
+  "system": "Town Of Tonawanda Public Library",
+  "state": "NY"
+ },
+ "NY0041": {
+  "domain": "sni.org",
+  "source": "web-search",
+  "system": "Seneca Nation Library",
+  "state": "NY"
+ },
+ "NY0062": {
+  "domain": "stocktonlibraries.org",
+  "source": "web-search",
+  "system": "Mary E. Seymour Memorial Free Library",
+  "state": "NY"
+ },
+ "NY0178": {
+  "domain": "oxfordmemoriallibrary.org",
+  "source": "web-search",
+  "system": "Oxford Memorial Library",
+  "state": "NY"
+ },
+ "NY0208": {
+  "domain": "chathampubliclibrary.org",
+  "source": "web-search",
+  "system": "Chatham Public Library",
+  "state": "NY"
+ },
+ "NY0242": {
+  "domain": "catskillpubliclibrary.org",
+  "source": "web-search",
+  "system": "Catskill Public Library",
+  "state": "NY"
+ },
+ "NY0256": {
+  "domain": "highlandlibrary.org",
+  "source": "web-search",
+  "system": "Highland Public Library",
+  "state": "NY"
+ },
+ "NY0289": {
+  "domain": "sullivanfreelibrary.org",
+  "source": "web-search",
+  "system": "Sullivan Free Library",
+  "state": "NY"
+ },
+ "NY0363": {
+  "domain": "massapequalibrary.org",
+  "source": "web-search",
+  "system": "Massapequa Public Library",
+  "state": "NY"
+ },
+ "NY0378": {
+  "domain": "seaclifflibrary.org",
+  "source": "web-search",
+  "system": "Sea Cliff Village Library",
+  "state": "NY"
+ },
+ "NY0385": {
+  "domain": "westburylibrary.org",
+  "source": "web-search",
+  "system": "Westbury Memorial Public Library",
+  "state": "NY"
+ },
+ "NY0401": {
+  "domain": "niagarafallspubliclib.org",
+  "source": "web-search",
+  "system": "Niagara Falls Public Library",
+  "state": "NY"
+ },
+ "NY0467": {
+  "domain": "massenapubliclibrary.org",
+  "source": "web-search",
+  "system": "Massena Public Library",
+  "state": "NY"
+ },
+ "NY0514": {
+  "domain": "greecepubliclibrary.org",
+  "source": "web-search",
+  "system": "Greece Public Library",
+  "state": "NY"
+ },
+ "NY0523": {
+  "domain": "scottsvillelibrary.org",
+  "source": "web-search",
+  "system": "Scottsville Free Library",
+  "state": "NY"
+ },
+ "NY0575": {
+  "domain": "newburghlibrary.org",
+  "source": "web-search",
+  "system": "Newburgh Free Library",
+  "state": "NY"
+ },
+ "NY0583": {
+  "domain": "haverstrawlibrary.org",
+  "source": "web-search",
+  "system": "Haverstraw Kings Daughters Public Library",
+  "state": "NY"
+ },
+ "NY0619": {
+  "domain": "wrlis.org",
+  "source": "web-search",
+  "system": "Woman'S Round Lake Improvement Society",
+  "state": "NY"
+ },
+ "NY0654": {
+  "domain": "mcplibrary.org",
+  "source": "web-search",
+  "system": "Middle Country Public Library",
+  "state": "NY"
+ },
+ "NY0661": {
+  "domain": "hhhlibrary.org",
+  "source": "web-search",
+  "system": "Half Hollow Hills Community Public Library",
+  "state": "NY"
+ },
+ "NY0669": {
+  "domain": "myhpl.org",
+  "source": "web-search",
+  "system": "Huntington Public Library",
+  "state": "NY"
+ },
+ "NY0677": {
+  "domain": "northportny.gov",
+  "source": "web-search",
+  "system": "Northport Public Library",
+  "state": "NY"
+ },
+ "NY0678": {
+  "domain": "pmlib.org",
+  "source": "web-search",
+  "system": "Patchogue-Medford Library",
+  "state": "NY"
+ },
+ "NY0679": {
+  "domain": "portjefflibrary.org",
+  "source": "web-search",
+  "system": "Port Jefferson Free Library",
+  "state": "NY"
+ },
+ "NY0720": {
+  "domain": "thetroylibrary.org",
+  "source": "web-search",
+  "system": "Troy Public Library",
+  "state": "NY"
+ },
+ "NY0726": {
+  "domain": "northcastlelibrary.org",
+  "source": "web-search",
+  "system": "North Castle Public Library",
+  "state": "NY"
+ },
+ "NY0736": {
+  "domain": "harrisonpl.org",
+  "source": "web-search",
+  "system": "Harrison Public Library",
+  "state": "NY"
+ },
+ "NY0745": {
+  "domain": "nrpl.org",
+  "source": "web-search",
+  "system": "New Rochelle Public Library",
+  "state": "NY"
+ },
+ "NY0750": {
+  "domain": "mountpleasantlibrary.org",
+  "source": "web-search",
+  "system": "Mount Pleasant Public Library",
+  "state": "NY"
+ },
+ "NY0754": {
+  "domain": "ryelibrary.org",
+  "source": "web-search",
+  "system": "Rye Free Reading Room",
+  "state": "NY"
+ },
+ "NY0777": {
+  "domain": "woodburypubliclibrary.org",
+  "source": "web-search",
+  "system": "Woodbury Public Library",
+  "state": "NY"
+ },
+ "OH0005": {
+  "domain": "rodmanlibrary.com",
+  "source": "web-search",
+  "system": "Rodman Public Library",
+  "state": "OH"
+ },
+ "OH0012": {
+  "domain": "acdl.info",
+  "source": "web-search",
+  "system": "Ashtabula County District Library",
+  "state": "OH"
+ },
+ "OH0016": {
+  "domain": "barbertonlibrary.org",
+  "source": "web-search",
+  "system": "Barberton Public Library",
+  "state": "OH"
+ },
+ "OH0029": {
+  "domain": "wcdpl.org",
+  "source": "web-search",
+  "system": "Wood County District Public Library",
+  "state": "OH"
+ },
+ "OH0042": {
+  "domain": "carrolllibrary.org",
+  "source": "web-search",
+  "system": "Carroll County District Library",
+  "state": "OH"
+ },
+ "OH0050": {
+  "domain": "pickawaylib.org",
+  "source": "web-search",
+  "system": "Pickaway Cnty District Public Library",
+  "state": "OH"
+ },
+ "OH0059": {
+  "domain": "coshoctonlibrary.org",
+  "source": "web-search",
+  "system": "Coshocton County District Library",
+  "state": "OH"
+ },
+ "OH0061": {
+  "domain": "www2.youseemore.com",
+  "source": "web-search",
+  "system": "Crestline Public Library",
+  "state": "OH"
+ },
+ "OH0068": {
+  "domain": "claymontlibrary.org",
+  "source": "web-search",
+  "system": "Claymont School District Public Library",
+  "state": "OH"
+ },
+ "OH0069": {
+  "domain": "phlibraries.org",
+  "source": "web-search",
+  "system": "Patrick Henry School District Public Library",
+  "state": "OH"
+ },
+ "OH0070": {
+  "domain": "doverlibrary.org",
+  "source": "web-search",
+  "system": "Dover Public Library",
+  "state": "OH"
+ },
+ "OH0076": {
+  "domain": "harriselmorelibrary.org",
+  "source": "web-search",
+  "system": "Harris-Elmore Public Library",
+  "state": "OH"
+ },
+ "OH0081": {
+  "domain": "findlaylibrary.org",
+  "source": "web-search",
+  "system": "Findlay Hancock Cnty Dist Public Library",
+  "state": "OH"
+ },
+ "OH0085": {
+  "domain": "catalog.franklin.lib.oh.us",
+  "source": "web-search",
+  "system": "Franklin Public Library",
+  "state": "OH"
+ },
+ "OH0099": {
+  "domain": "swpl.org",
+  "source": "web-search",
+  "system": "Southwest Public Libraries",
+  "state": "OH"
+ },
+ "OH0115": {
+  "domain": "lakewoodpubliclibrary.org",
+  "source": "web-search",
+  "system": "Lakewood Public Library",
+  "state": "OH"
+ },
+ "OH0123": {
+  "domain": "loganhockinglibrary.org",
+  "source": "web-search",
+  "system": "Logan-Hocking County District Library",
+  "state": "OH"
+ },
+ "OH0134": {
+  "domain": "marysvillelib.org",
+  "source": "web-search",
+  "system": "Marysville Public Library",
+  "state": "OH"
+ },
+ "OH0139": {
+  "domain": "morgan.lib.oh.us",
+  "source": "web-search",
+  "system": "Kate Love Simpson-Morgan County Library",
+  "state": "OH"
+ },
+ "OH0145": {
+  "domain": "milan-berlin.lib.oh.us",
+  "source": "web-search",
+  "system": "Milan-Berlin Library District",
+  "state": "OH"
+ },
+ "OH0146": {
+  "domain": "holmeslibrary.org",
+  "source": "web-search",
+  "system": "Holmes County District Public Library",
+  "state": "OH"
+ },
+ "OH0154": {
+  "domain": "ridgemont.lib.oh.us",
+  "source": "web-search",
+  "system": "Ridgemont Public Library",
+  "state": "OH"
+ },
+ "OH0166": {
+  "domain": "mcklib.org",
+  "source": "web-search",
+  "system": "Mckinley Memorial Library",
+  "state": "OH"
+ },
+ "OH0181": {
+  "domain": "peninsulalibrary.org",
+  "source": "web-search",
+  "system": "Peninsula Library & Historical Society",
+  "state": "OH"
+ },
+ "OH0184": {
+  "domain": "pickeringtonlibrary.org",
+  "source": "web-search",
+  "system": "Pickerington Public Library",
+  "state": "OH"
+ },
+ "OH0197": {
+  "domain": "sabinalibrary.com",
+  "source": "web-search",
+  "system": "Sabina Public Library",
+  "state": "OH"
+ },
+ "OH0199": {
+  "domain": "sanduskylib.org",
+  "source": "web-search",
+  "system": "Sandusky Library",
+  "state": "OH"
+ },
+ "OH0200": {
+  "domain": "shakerlibrary.org",
+  "source": "web-search",
+  "system": "Shaker Heights Public Library",
+  "state": "OH"
+ },
+ "OH0207": {
+  "domain": "stparispubliclibrary.org",
+  "source": "web-search",
+  "system": "St. Paris Public Library",
+  "state": "OH"
+ },
+ "OH0220": {
+  "domain": "champaigncountylibrary.org",
+  "source": "web-search",
+  "system": "Champaign County Library",
+  "state": "OH"
+ },
+ "OH0231": {
+  "domain": "mlcook.lib.oh.us",
+  "source": "web-search",
+  "system": "Mary L. Cook Public Library",
+  "state": "OH"
+ },
+ "OH0239": {
+  "domain": "westonpl.org",
+  "source": "web-search",
+  "system": "Weston Public Library",
+  "state": "OH"
+ },
+ "OH0243": {
+  "domain": "wilmington.lib.oh.us",
+  "source": "web-search",
+  "system": "Wilmington Public Library Of Clinton County",
+  "state": "OH"
  }
 }
