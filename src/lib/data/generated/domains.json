@@ -8626,5 +8626,605 @@
   "source": "web-search",
   "system": "Wilmington Public Library Of Clinton County",
   "state": "OH"
+ },
+ "OK0002": {
+  "domain": "spls.ent.sirsi.net",
+  "source": "web-search",
+  "system": "Southern Prairie Library System",
+  "state": "OK"
+ },
+ "OK0031": {
+  "domain": "duncanlibrary.com",
+  "source": "web-search",
+  "system": "Duncan Public Library",
+  "state": "OK"
+ },
+ "OK0054": {
+  "domain": "lawtonok.gov",
+  "source": "web-search",
+  "system": "Lawton Public Library",
+  "state": "OK"
+ },
+ "OR0008": {
+  "domain": "siuslawlibrary.info",
+  "source": "web-search",
+  "system": "Siuslaw Public Library District",
+  "state": "OR"
+ },
+ "OR0019": {
+  "domain": "hillsboro-oregon.gov",
+  "source": "web-search",
+  "system": "Hillsboro Public Library",
+  "state": "OR"
+ },
+ "OR0069": {
+  "domain": "cityofsalem.net",
+  "source": "web-search",
+  "system": "Salem Public Library",
+  "state": "OR"
+ },
+ "OR0071": {
+  "domain": "ci.sandy.or.us",
+  "source": "web-search",
+  "system": "Sandy Public Library",
+  "state": "OR"
+ },
+ "OR0080": {
+  "domain": "beavertonlibrary.org",
+  "source": "web-search",
+  "system": "Beaverton City Library",
+  "state": "OR"
+ },
+ "OR0106": {
+  "domain": "albanypubliclibrary.org",
+  "source": "web-search",
+  "system": "Albany Public Library",
+  "state": "OR"
+ },
+ "OR0128": {
+  "domain": "library.cedarmill.org",
+  "source": "web-search",
+  "system": "Cedar Mill Community Library",
+  "state": "OR"
+ },
+ "PA0031": {
+  "domain": "ccmellorlibrary.org",
+  "source": "web-search",
+  "system": "C.C. Mellor Memorial Library",
+  "state": "PA"
+ },
+ "PA0040": {
+  "domain": "coopersiegelcommunitylibrary.org",
+  "source": "web-search",
+  "system": "Cooper-Siegel Community Library",
+  "state": "PA"
+ },
+ "PA0050": {
+  "domain": "wilkinsburglibrary.org",
+  "source": "web-search",
+  "system": "Wilkinsburg Public Library",
+  "state": "PA"
+ },
+ "PA0068": {
+  "domain": "clsv.net",
+  "source": "web-search",
+  "system": "Community Library Of The Shenango Valley",
+  "state": "PA"
+ },
+ "PA0104": {
+  "domain": "ghal.org",
+  "source": "web-search",
+  "system": "Greensburg Hempfield Area Lib",
+  "state": "PA"
+ },
+ "PA0108": {
+  "domain": "adamslib.org",
+  "source": "web-search",
+  "system": "Adams Memorial Library",
+  "state": "PA"
+ },
+ "PA0113": {
+  "domain": "peopleslibrary.org",
+  "source": "web-search",
+  "system": "Peoples Library",
+  "state": "PA"
+ },
+ "PA0120": {
+  "domain": "bedfordcountylibrary.com",
+  "source": "web-search",
+  "system": "Bedford Sys Admin Unit",
+  "state": "PA"
+ },
+ "PA0146": {
+  "domain": "somersetcolibrary.org",
+  "source": "web-search",
+  "system": "Somerset County Library",
+  "state": "PA"
+ },
+ "PA0168": {
+  "domain": "clearfieldcountylibrary.org",
+  "source": "web-search",
+  "system": "Clearfield County Public Library",
+  "state": "PA"
+ },
+ "PA0169": {
+  "domain": "rosslibrary.org",
+  "source": "web-search",
+  "system": "Annie Halenbake Ross Library",
+  "state": "PA"
+ },
+ "PA0170": {
+  "domain": "search.pa211.org",
+  "source": "web-search",
+  "system": "Fulton County Library",
+  "state": "PA"
+ },
+ "PA0174": {
+  "domain": "mifflincountylibrary.org",
+  "source": "web-search",
+  "system": "Mifflin County Library",
+  "state": "PA"
+ },
+ "PA0192": {
+  "domain": "lancasterpubliclibrary.org",
+  "source": "web-search",
+  "system": "Lancaster Public Library",
+  "state": "PA"
+ },
+ "PA0211": {
+  "domain": "berkslibraries.org",
+  "source": "web-search",
+  "system": "Spring Township Library",
+  "state": "PA"
+ },
+ "PA0214": {
+  "domain": "cumberlandcountylibraries.org",
+  "source": "web-search",
+  "system": "Cleve J. Fredricksen Library",
+  "state": "PA"
+ },
+ "PA0291": {
+  "domain": "bapl.org",
+  "source": "web-search",
+  "system": "Bethlehem Area Public Library",
+  "state": "PA"
+ },
+ "PA0292": {
+  "domain": "eastonpl.org",
+  "source": "web-search",
+  "system": "Easton Area Public Library",
+  "state": "PA"
+ },
+ "PA0297": {
+  "domain": "pikecountypubliclibrary.com",
+  "source": "web-search",
+  "system": "Pike County Public Library",
+  "state": "PA"
+ },
+ "PA0298": {
+  "domain": "dimmicklibrary.org",
+  "source": "web-search",
+  "system": "Dimmick Memorial Library",
+  "state": "PA"
+ },
+ "PA0318": {
+  "domain": "abingtonfreelibrary.org",
+  "source": "web-search",
+  "system": "Abington Twp Public Library",
+  "state": "PA"
+ },
+ "PA0319": {
+  "domain": "wvpl.org",
+  "source": "web-search",
+  "system": "Wissahickon Valley Pub Library",
+  "state": "PA"
+ },
+ "PA0344": {
+  "domain": "ccls.org",
+  "source": "web-search",
+  "system": "Chester County Library",
+  "state": "PA"
+ },
+ "PA0355": {
+  "domain": "tredyffrinlibraries.org",
+  "source": "web-search",
+  "system": "Tredyffrin Public Library",
+  "state": "PA"
+ },
+ "PA0525": {
+  "domain": "intercourselib.org",
+  "source": "web-search",
+  "system": "Intercourse Library",
+  "state": "PA"
+ },
+ "PA9005": {
+  "domain": "beaverlibraries.org",
+  "source": "web-search",
+  "system": "Beaver Sys Admin Unit",
+  "state": "PA"
+ },
+ "PR0010": {
+  "domain": "bibliotecamunicipalmorovis.blogspot.com",
+  "source": "web-search",
+  "system": "Morovis Electronic Municipal Library",
+  "state": "PR"
+ },
+ "PR0014": {
+  "domain": "findglocal.com",
+  "source": "web-search",
+  "system": "Loiza Public Municipal Library",
+  "state": "PR"
+ },
+ "PR0028": {
+  "domain": "csi.pr.gov",
+  "source": "web-search",
+  "system": "Patillas Public Library (Luis Manuel Santana Gaston)",
+  "state": "PR"
+ },
+ "PR0041": {
+  "domain": "altairguide.com",
+  "source": "web-search",
+  "system": "Barceloneta Municipal Library (Sixto Escobar)",
+  "state": "PR"
+ },
+ "PR0060": {
+  "domain": "public-libraries.com",
+  "source": "web-search",
+  "system": "MayagüEz Municipal Library",
+  "state": "PR"
+ },
+ "RI0007": {
+  "domain": "coventrylibrary.org",
+  "source": "web-search",
+  "system": "Coventry Public Library",
+  "state": "RI"
+ },
+ "RI0015": {
+  "domain": "fosterlibraries.org",
+  "source": "web-search",
+  "system": "Libraries Of Foster",
+  "state": "RI"
+ },
+ "RI0044": {
+  "domain": "tivertonlibrary.org",
+  "source": "web-search",
+  "system": "Tiverton Public Library",
+  "state": "RI"
+ },
+ "SC0010": {
+  "domain": "cherokeecountylibrary.org",
+  "source": "web-search",
+  "system": "Cherokee County Public Library",
+  "state": "SC"
+ },
+ "SC0017": {
+  "domain": "dorchesterlibrarysc.org",
+  "source": "web-search",
+  "system": "Dorchester County Library System",
+  "state": "SC"
+ },
+ "SC0025": {
+  "domain": "lcpl.org",
+  "source": "web-search",
+  "system": "Laurens County Library System",
+  "state": "SC"
+ },
+ "SC8001": {
+  "domain": "www1.youseemore.com",
+  "source": "web-search",
+  "system": "Newberry County Library System",
+  "state": "SC"
+ },
+ "SC8002": {
+  "domain": "saludalibrary.org",
+  "source": "web-search",
+  "system": "Saluda County Library System",
+  "state": "SC"
+ },
+ "SD0012": {
+  "domain": "moodycounty.yoursdlibrary.org",
+  "source": "web-search",
+  "system": "Moody County Resource Center",
+  "state": "SD"
+ },
+ "SD0098": {
+  "domain": "haakoncountypubliclibrary.yoursdlibrary.org",
+  "source": "web-search",
+  "system": "Haakon County Public Library",
+  "state": "SD"
+ },
+ "SD0117": {
+  "domain": "custercountylibrary.org",
+  "source": "web-search",
+  "system": "Custer County Library",
+  "state": "SD"
+ },
+ "TN0002": {
+  "domain": "hickmancountylibrary.net",
+  "source": "web-search",
+  "system": "Hickman County Public Library",
+  "state": "TN"
+ },
+ "TN0003": {
+  "domain": "lawcolibrary.org",
+  "source": "web-search",
+  "system": "Lawrence County Public Library",
+  "state": "TN"
+ },
+ "TN0005": {
+  "domain": "maurycounty-tn.gov",
+  "source": "web-search",
+  "system": "Maury County Public Library",
+  "state": "TN"
+ },
+ "TN0006": {
+  "domain": "perrycountylibrary.com",
+  "source": "web-search",
+  "system": "Perry County Public Library",
+  "state": "TN"
+ },
+ "TN0010": {
+  "domain": "marshallcountylibrary.org",
+  "source": "web-search",
+  "system": "Marshall County Memorial Library",
+  "state": "TN"
+ },
+ "TN0047": {
+  "domain": "clevelandlibrary.org",
+  "source": "web-search",
+  "system": "Cleveland Bradley County Public Library",
+  "state": "TN"
+ },
+ "TN0056": {
+  "domain": "cannoncountytn.gov",
+  "source": "web-search",
+  "system": "Cannon County Library System",
+  "state": "TN"
+ },
+ "TN0064": {
+  "domain": "youseemore.com",
+  "source": "web-search",
+  "system": "Lebanon-Wilson County Public Library",
+  "state": "TN"
+ },
+ "TN0080": {
+  "domain": "bentoncolibrary.org",
+  "source": "web-search",
+  "system": "Benton County Library",
+  "state": "TN"
+ },
+ "TN0099": {
+  "domain": "jmclibrary.org",
+  "source": "web-search",
+  "system": "Jackson-Madison County Library",
+  "state": "TN"
+ },
+ "TN0103": {
+  "domain": "dekalblibraries.net",
+  "source": "web-search",
+  "system": "Justin Potter Library",
+  "state": "TN"
+ },
+ "TN0105": {
+  "domain": "maconcountytn.gov",
+  "source": "web-search",
+  "system": "Macon County Public Library",
+  "state": "TN"
+ },
+ "TN0109": {
+  "domain": "smithcotn.com",
+  "source": "web-search",
+  "system": "Smith County Public Library",
+  "state": "TN"
+ },
+ "TN0124": {
+  "domain": "washingtoncountytn.org",
+  "source": "web-search",
+  "system": "Washington County Public Library",
+  "state": "TN"
+ },
+ "TN0129": {
+  "domain": "ggcpl.org",
+  "source": "web-search",
+  "system": "Greeneville-Greene County Public Library",
+  "state": "TN"
+ },
+ "TN0206": {
+  "domain": "germantown-tn.gov",
+  "source": "web-search",
+  "system": "Germantown Community Library",
+  "state": "TN"
+ },
+ "TX0047": {
+  "domain": "fcl.ploud.net",
+  "source": "web-search",
+  "system": "Floyd County Library",
+  "state": "TX"
+ },
+ "TX0061": {
+  "domain": "citylibrary.com",
+  "source": "web-search",
+  "system": "Live Oak County Library",
+  "state": "TX"
+ },
+ "TX0090": {
+  "domain": "co.waller.tx.us",
+  "source": "web-search",
+  "system": "Waller County Library",
+  "state": "TX"
+ },
+ "TX0124": {
+  "domain": "kermit.ploud.net",
+  "source": "web-search",
+  "system": "Winkler County Library",
+  "state": "TX"
+ },
+ "TX0125": {
+  "domain": "kerrvilletx.gov",
+  "source": "web-search",
+  "system": "Butt-Holdsworth Memorial Library",
+  "state": "TX"
+ },
+ "TX0127": {
+  "domain": "killeentexas.gov",
+  "source": "web-search",
+  "system": "Killeen City Library System",
+  "state": "TX"
+ },
+ "TX0152": {
+  "domain": "longviewtexas.gov",
+  "source": "web-search",
+  "system": "Longview Public Library",
+  "state": "TX"
+ },
+ "TX0171": {
+  "domain": "mckinneytexas.org",
+  "source": "web-search",
+  "system": "Mckinney Public Library System",
+  "state": "TX"
+ },
+ "TX0177": {
+  "domain": "cityofmesquite.com",
+  "source": "web-search",
+  "system": "Mesquite Public Library",
+  "state": "TX"
+ },
+ "TX0179": {
+  "domain": "co.midland.tx.us",
+  "source": "web-search",
+  "system": "Midland County Public Library",
+  "state": "TX"
+ },
+ "TX0195": {
+  "domain": "baycitytx.gov",
+  "source": "web-search",
+  "system": "Bay City Public Library",
+  "state": "TX"
+ },
+ "TX0199": {
+  "domain": "newbraunfels.gov",
+  "source": "web-search",
+  "system": "New Braunfels Public Library",
+  "state": "TX"
+ },
+ "TX0210": {
+  "domain": "palacioslibrary.net",
+  "source": "web-search",
+  "system": "Palacios Library Inc",
+  "state": "TX"
+ },
+ "TX0217": {
+  "domain": "pasadenalibrary.org",
+  "source": "web-search",
+  "system": "Pasadena Public Library",
+  "state": "TX"
+ },
+ "TX0221": {
+  "domain": "pharr-tx.gov",
+  "source": "web-search",
+  "system": "Pharr Memorial Library",
+  "state": "TX"
+ },
+ "TX0275": {
+  "domain": "gainescountylibrary.org",
+  "source": "web-search",
+  "system": "Gaines County Library",
+  "state": "TX"
+ },
+ "TX0370": {
+  "domain": "westbanklibrary.com",
+  "source": "web-search",
+  "system": "Westbank Community Library District",
+  "state": "TX"
+ },
+ "TX0402": {
+  "domain": "brownsvilletx.gov",
+  "source": "web-search",
+  "system": "Brownsville Public Library",
+  "state": "TX"
+ },
+ "TX0406": {
+  "domain": "youseemore.com",
+  "source": "web-search",
+  "system": "Alicia Salinas Public Library",
+  "state": "TX"
+ },
+ "TX0407": {
+  "domain": "brownwoodlibrary.com",
+  "source": "web-search",
+  "system": "Brownwood Community Library",
+  "state": "TX"
+ },
+ "TX0421": {
+  "domain": "cityofcarrollton.com",
+  "source": "web-search",
+  "system": "Carrollton Public Library",
+  "state": "TX"
+ },
+ "TX0449": {
+  "domain": "cityofcotulla.org",
+  "source": "web-search",
+  "system": "Alexander Memorial Library",
+  "state": "TX"
+ },
+ "TX0460": {
+  "domain": "newtoncountypubliclibrary.org",
+  "source": "web-search",
+  "system": "Newton County Public Library",
+  "state": "TX"
+ },
+ "TX0538": {
+  "domain": "friscolibrary.com",
+  "source": "web-search",
+  "system": "Frisco Public Library",
+  "state": "TX"
+ },
+ "TX0563": {
+  "domain": "rankin.ploud.net",
+  "source": "web-search",
+  "system": "Rankin Public Library",
+  "state": "TX"
+ },
+ "TX0717": {
+  "domain": "dvlibraries.org",
+  "source": "web-search",
+  "system": "East Travis Gateway Library District",
+  "state": "TX"
+ },
+ "UT0021": {
+  "domain": "duchesne.utah.gov",
+  "source": "web-search",
+  "system": "Duchesne County Library System",
+  "state": "UT"
+ },
+ "UT0024": {
+  "domain": "grandcountyutah.net",
+  "source": "web-search",
+  "system": "Grand County Public Library",
+  "state": "UT"
+ },
+ "UT0055": {
+  "domain": "library.uintah.gov",
+  "source": "web-search",
+  "system": "Uintah County Library",
+  "state": "UT"
+ },
+ "VA0002": {
+  "domain": "countyofamherst.com",
+  "source": "web-search",
+  "system": "Amherst County Public Library",
+  "state": "VA"
+ },
+ "VA0010": {
+  "domain": "bristol-library.org",
+  "source": "web-search",
+  "system": "Bristol Public Library",
+  "state": "VA"
+ },
+ "VA0030": {
+  "domain": "library.franklincountyva.gov",
+  "source": "web-search",
+  "system": "Franklin County Public Library",
+  "state": "VA"
  }
 }
