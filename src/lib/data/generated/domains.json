@@ -9226,5 +9226,605 @@
   "source": "web-search",
   "system": "Franklin County Public Library",
   "state": "VA"
+ },
+ "VA0031": {
+  "domain": "galaxcarroll.lib.va.us",
+  "source": "web-search",
+  "system": "Galax-Carroll Regional Library",
+  "state": "VA"
+ },
+ "VA0032": {
+  "domain": "gloucesterva.gov",
+  "source": "web-search",
+  "system": "Gloucester County Public Library",
+  "state": "VA"
+ },
+ "VA0033": {
+  "domain": "halifaxlibrary.org",
+  "source": "web-search",
+  "system": "Halifax County-South Boston Library System",
+  "state": "VA"
+ },
+ "VA0037": {
+  "domain": "heritagepubliclibrary.org",
+  "source": "web-search",
+  "system": "Heritage Public Library",
+  "state": "VA"
+ },
+ "VA0045": {
+  "domain": "lynchburgpubliclibrary.org",
+  "source": "web-search",
+  "system": "Lynchburg Public Library",
+  "state": "VA"
+ },
+ "VA0049": {
+  "domain": "meherrinlib.org",
+  "source": "web-search",
+  "system": "Meherrin Regional Library",
+  "state": "VA"
+ },
+ "VA0050": {
+  "domain": "yourmiddlesexlibrary.org",
+  "source": "web-search",
+  "system": "Middlesex County Public Library",
+  "state": "VA"
+ },
+ "VA0065": {
+  "domain": "pclibs.org",
+  "source": "web-search",
+  "system": "Pulaski County Library System",
+  "state": "VA"
+ },
+ "VA0073": {
+  "domain": "russell.lib.va.us",
+  "source": "web-search",
+  "system": "Russell County Public Library",
+  "state": "VA"
+ },
+ "VA0086": {
+  "domain": "wrl.org",
+  "source": "web-search",
+  "system": "Williamsburg Regional Library",
+  "state": "VA"
+ },
+ "VA0088": {
+  "domain": "yorkcounty.gov",
+  "source": "web-search",
+  "system": "York County Public Library",
+  "state": "VA"
+ },
+ "VA0091": {
+  "domain": "cvrl.net",
+  "source": "web-search",
+  "system": "Central Virginia Regional Library",
+  "state": "VA"
+ },
+ "VA8001": {
+  "domain": "lunenburglibraries.org",
+  "source": "web-search",
+  "system": "Lunenburg County Public Library System, Inc",
+  "state": "VA"
+ },
+ "VT0011": {
+  "domain": "aldrichpubliclibrary.org",
+  "source": "web-search",
+  "system": "Aldrich Public",
+  "state": "VT"
+ },
+ "VT0029": {
+  "domain": "fletcherfree.org",
+  "source": "web-search",
+  "system": "Fletcher Free",
+  "state": "VT"
+ },
+ "VT0092": {
+  "domain": "ilsleypubliclibrary.org",
+  "source": "web-search",
+  "system": "Ilsley Public",
+  "state": "VT"
+ },
+ "VT0198": {
+  "domain": "quecheeandwilderlibraries.com",
+  "source": "web-search",
+  "system": "Quechee",
+  "state": "VT"
+ },
+ "WA0051": {
+  "domain": "epls.org",
+  "source": "web-search",
+  "system": "Everett Public Library",
+  "state": "WA"
+ },
+ "WI0103": {
+  "domain": "fdlpl.org",
+  "source": "web-search",
+  "system": "Fond Du Lac Public Library",
+  "state": "WI"
+ },
+ "WI0142": {
+  "domain": "hedbergpubliclibrary.org",
+  "source": "web-search",
+  "system": "Hedberg Public Library",
+  "state": "WI"
+ },
+ "WI0165": {
+  "domain": "lancasterwisconsin.com",
+  "source": "web-search",
+  "system": "Schreiner Memorial Library",
+  "state": "WI"
+ },
+ "WI0192": {
+  "domain": "menomonielibrary.org",
+  "source": "web-search",
+  "system": "Menomonie Public Library",
+  "state": "WI"
+ },
+ "WI0283": {
+  "domain": "communitylib.org",
+  "source": "web-search",
+  "system": "Community Library",
+  "state": "WI"
+ },
+ "WI0297": {
+  "domain": "shullsburgwisconsin.org",
+  "source": "web-search",
+  "system": "Mccoy Public Library",
+  "state": "WI"
+ },
+ "WI0370": {
+  "domain": "oneida-nsn.gov",
+  "source": "web-search",
+  "system": "Oneida Community Library",
+  "state": "WI"
+ },
+ "WV0017": {
+  "domain": "doddridge.lib.wv.us",
+  "source": "web-search",
+  "system": "Doddridge County Public Library",
+  "state": "WV"
+ },
+ "WV0018": {
+  "domain": "ritchielibrary.org",
+  "source": "web-search",
+  "system": "Ritchie County Public Library",
+  "state": "WV"
+ },
+ "WV0030": {
+  "domain": "elkinslibrary.com",
+  "source": "web-search",
+  "system": "Elkins-Randolph Public Library",
+  "state": "WV"
+ },
+ "WV0048": {
+  "domain": "grantlib.polarislibrary.com",
+  "source": "web-search",
+  "system": "Grant County Public Library",
+  "state": "WV"
+ },
+ "WV0074": {
+  "domain": "jackson.park.lib.wv.us",
+  "source": "web-search",
+  "system": "Jackson County Public Library",
+  "state": "WV"
+ },
+ "WV0080": {
+  "domain": "brookecountylibs.org",
+  "source": "web-search",
+  "system": "Brooke County Public Library",
+  "state": "WV"
+ },
+ "WY0002": {
+  "domain": "campbellcountywy.gov",
+  "source": "web-search",
+  "system": "Campbell County Public Library System",
+  "state": "WY"
+ },
+ "WY0009": {
+  "domain": "natronacountylibrary.org",
+  "source": "web-search",
+  "system": "Natrona County Library System",
+  "state": "WY"
+ },
+ "WY0012": {
+  "domain": "yourccl.org",
+  "source": "web-search",
+  "system": "Converse County Library System",
+  "state": "WY"
+ },
+ "WY0016": {
+  "domain": "jclwyo.org",
+  "source": "web-search",
+  "system": "Johnson County Library System",
+  "state": "WY"
+ },
+ "WY0019": {
+  "domain": "sublettecountylibrary.org",
+  "source": "web-search",
+  "system": "Sublette County Library System",
+  "state": "WY"
+ },
+ "WY0020": {
+  "domain": "tclib.org",
+  "source": "web-search",
+  "system": "Teton County Library",
+  "state": "WY"
+ },
+ "WY0022": {
+  "domain": "washakiecountylibrary.com",
+  "source": "web-search",
+  "system": "Washakie County Library",
+  "state": "WY"
+ },
+ "WY0023": {
+  "domain": "westongov.com",
+  "source": "web-search",
+  "system": "Weston County Library System",
+  "state": "WY"
+ },
+ "AK0001": {
+  "domain": "public-libraries.com",
+  "source": "web-search",
+  "system": "Anchor Point Public Library",
+  "state": "AK"
+ },
+ "AK0003": {
+  "domain": "andersonlibrary.wixsite.com",
+  "source": "web-search",
+  "system": "Anderson Community Library",
+  "state": "AK"
+ },
+ "AK0006": {
+  "domain": "uaf.edu",
+  "source": "web-search",
+  "system": "Kuskokwim Consortium Library",
+  "state": "AK"
+ },
+ "AK0007": {
+  "domain": "matsu.gov",
+  "source": "web-search",
+  "system": "Big Lake Public Library",
+  "state": "AK"
+ },
+ "AK0008": {
+  "domain": "educationhq.org",
+  "source": "web-search",
+  "system": "Cantwell Community Library",
+  "state": "AK"
+ },
+ "AK0011": {
+  "domain": "alaska.educationbug.org",
+  "source": "web-search",
+  "system": "Chiniak Public Library",
+  "state": "AK"
+ },
+ "AK0014": {
+  "domain": "educationhq.org",
+  "source": "web-search",
+  "system": "Cold Bay Public Library",
+  "state": "AK"
+ },
+ "AK0015": {
+  "domain": "cooperlandinglibrary.com",
+  "source": "web-search",
+  "system": "Cooper Landing Community Library",
+  "state": "AK"
+ },
+ "AK0016": {
+  "domain": "cordovalibrary.org",
+  "source": "web-search",
+  "system": "Cordova Public Library",
+  "state": "AK"
+ },
+ "AK0017": {
+  "domain": "craigak.com",
+  "source": "web-search",
+  "system": "Craig Public Library",
+  "state": "AK"
+ },
+ "AK0019": {
+  "domain": "mydeltalibrary.com",
+  "source": "web-search",
+  "system": "Delta Community Library",
+  "state": "AK"
+ },
+ "AK0020": {
+  "domain": "dillinghamak.us",
+  "source": "web-search",
+  "system": "Dillingham Public Library",
+  "state": "AK"
+ },
+ "AK0021": {
+  "domain": "alaska.educationbug.org",
+  "source": "web-search",
+  "system": "Eagle Public Library",
+  "state": "AK"
+ },
+ "AK0025": {
+  "domain": "alaska.educationbug.org",
+  "source": "web-search",
+  "system": "Charles Evans Community/School Library",
+  "state": "AK"
+ },
+ "AK0027": {
+  "domain": "coppervalleylibrary.org",
+  "source": "web-search",
+  "system": "Copper Valley Community Library",
+  "state": "AK"
+ },
+ "AK0028": {
+  "domain": "gustavus-ak.gov",
+  "source": "web-search",
+  "system": "Gustavus Public Library",
+  "state": "AK"
+ },
+ "AK0029": {
+  "domain": "haineslibrary.org",
+  "source": "web-search",
+  "system": "Haines Borough Public Library",
+  "state": "AK"
+ },
+ "AK0030": {
+  "domain": "tvclibrary.org",
+  "source": "web-search",
+  "system": "Tri-Valley Community Library",
+  "state": "AK"
+ },
+ "AK0031": {
+  "domain": "hollisalaska.org",
+  "source": "web-search",
+  "system": "Hollis Public Library",
+  "state": "AK"
+ },
+ "AK0032": {
+  "domain": "cityofhomer-ak.gov",
+  "source": "web-search",
+  "system": "Homer Public Library",
+  "state": "AK"
+ },
+ "AK0033": {
+  "domain": "librarything.com",
+  "source": "web-search",
+  "system": "Hope Sunrise Community Library",
+  "state": "AK"
+ },
+ "AK0037": {
+  "domain": "educationhq.org",
+  "source": "web-search",
+  "system": "Kasilof Public Library",
+  "state": "AK"
+ },
+ "AK0038": {
+  "domain": "kenai.city",
+  "source": "web-search",
+  "system": "Kenai Community Library",
+  "state": "AK"
+ },
+ "AK0039": {
+  "domain": "ketchikanpubliclibrary.org",
+  "source": "web-search",
+  "system": "Ketchikan Public Library",
+  "state": "AK"
+ },
+ "AK0040": {
+  "domain": "city.kodiak.ak.us",
+  "source": "web-search",
+  "system": "Kodiak Public Library",
+  "state": "AK"
+ },
+ "AK0041": {
+  "domain": "anch.ent.sirsi.net",
+  "source": "web-search",
+  "system": "Chukchi Consortium Library",
+  "state": "AK"
+ },
+ "AK0044": {
+  "domain": "cityofmcgrath.org",
+  "source": "web-search",
+  "system": "Mcgrath Community Library",
+  "state": "AK"
+ },
+ "AK0046": {
+  "domain": "alaska.educationbug.org",
+  "source": "web-search",
+  "system": "Centennial Library",
+  "state": "AK"
+ },
+ "AK0048": {
+  "domain": "public-libraries.com",
+  "source": "web-search",
+  "system": "Nenana Public Library",
+  "state": "AK"
+ },
+ "AK0051": {
+  "domain": "ninilchiklibrary.org",
+  "source": "web-search",
+  "system": "Ninilchik Community Library",
+  "state": "AK"
+ },
+ "AK0052": {
+  "domain": "nomealaska.org",
+  "source": "web-search",
+  "system": "Kegoayah Kozga Library",
+  "state": "AK"
+ },
+ "AK0055": {
+  "domain": "palmerak.org",
+  "source": "web-search",
+  "system": "Palmer Public Library",
+  "state": "AK"
+ },
+ "AK0056": {
+  "domain": "alaska.org",
+  "source": "web-search",
+  "system": "Pelican Public Library",
+  "state": "AK"
+ },
+ "AK0057": {
+  "domain": "psglib.org",
+  "source": "web-search",
+  "system": "Petersburg Public Library",
+  "state": "AK"
+ },
+ "AK0058": {
+  "domain": "alaskahandbook.com",
+  "source": "web-search",
+  "system": "Jessie Wakefield Memorial Library",
+  "state": "AK"
+ },
+ "AK0064": {
+  "domain": "cityofseldovia.com",
+  "source": "web-search",
+  "system": "Seldovia Public Library",
+  "state": "AK"
+ },
+ "AK0065": {
+  "domain": "cityofseward.us",
+  "source": "web-search",
+  "system": "Seward Community Library And Museum",
+  "state": "AK"
+ },
+ "AK0067": {
+  "domain": "anch.ent.sirsi.net",
+  "source": "web-search",
+  "system": "Sitka Public Library",
+  "state": "AK"
+ },
+ "AK0068": {
+  "domain": "skagway.org",
+  "source": "web-search",
+  "system": "Skagway Public Library",
+  "state": "AK"
+ },
+ "AK0069": {
+  "domain": "soldotna.org",
+  "source": "web-search",
+  "system": "Joyce K. Carver Memorial Soldotna Public Library",
+  "state": "AK"
+ },
+ "AK0070": {
+  "domain": "libraries.matsugov.us",
+  "source": "web-search",
+  "system": "Sutton Public Library/Community Resource Center",
+  "state": "AK"
+ },
+ "AK0071": {
+  "domain": "yellowpages.com",
+  "source": "web-search",
+  "system": "Takotna Community Library",
+  "state": "AK"
+ },
+ "AK0072": {
+  "domain": "libraries.matsugov.us",
+  "source": "web-search",
+  "system": "Talkeetna Public Library",
+  "state": "AK"
+ },
+ "AK0073": {
+  "domain": "alaska.educationbug.org",
+  "source": "web-search",
+  "system": "Tanana Community/School Library",
+  "state": "AK"
+ },
+ "AK0074": {
+  "domain": "tenakeelibrary.org",
+  "source": "web-search",
+  "system": "Dermott O`Toole Memorial Library",
+  "state": "AK"
+ },
+ "AK0075": {
+  "domain": "tokak.us",
+  "source": "web-search",
+  "system": "Tok Community Library",
+  "state": "AK"
+ },
+ "AK0077": {
+  "domain": "valdezak.gov",
+  "source": "web-search",
+  "system": "Valdez Consortium Library",
+  "state": "AK"
+ },
+ "AK0078": {
+  "domain": "cityofwasilla.gov",
+  "source": "web-search",
+  "system": "Wasilla Public Library",
+  "state": "AK"
+ },
+ "AK0080": {
+  "domain": "libraries.matsugov.us",
+  "source": "web-search",
+  "system": "Willow Public Library",
+  "state": "AK"
+ },
+ "AK0081": {
+  "domain": "wrangell.com",
+  "source": "web-search",
+  "system": "Irene Ingle Public Library",
+  "state": "AK"
+ },
+ "AK0085": {
+  "domain": "public-libraries.com",
+  "source": "web-search",
+  "system": "Frances Kibble Kenny Lake Public Library",
+  "state": "AK"
+ },
+ "AK0099": {
+  "domain": "library.moosepassalaska.com",
+  "source": "web-search",
+  "system": "Moose Pass Public Library",
+  "state": "AK"
+ },
+ "AK0100": {
+  "domain": "usdata.now",
+  "source": "web-search",
+  "system": "Top Of The Kuskokwim Community/School Library",
+  "state": "AK"
+ },
+ "AK0102": {
+  "domain": "citylibrary.com",
+  "source": "web-search",
+  "system": "Egegik Village Library",
+  "state": "AK"
+ },
+ "AK0103": {
+  "domain": "libraries.matsugov.us",
+  "source": "web-search",
+  "system": "Trapper Creek Public Library",
+  "state": "AK"
+ },
+ "AK0104": {
+  "domain": "alaska.educationbug.org",
+  "source": "web-search",
+  "system": "Holy Cross Community/School Library",
+  "state": "AK"
+ },
+ "AK0113": {
+  "domain": "alaskahandbook.com",
+  "source": "web-search",
+  "system": "Ouzinkie Tribal Media Center",
+  "state": "AK"
+ },
+ "AK0115": {
+  "domain": "unalaska.gov",
+  "source": "web-search",
+  "system": "Unalaska Public Library",
+  "state": "AK"
+ },
+ "AK0116": {
+  "domain": "yellowpages.com",
+  "source": "web-search",
+  "system": "Aniak Public Library",
+  "state": "AK"
+ },
+ "AK0117": {
+  "domain": "alaskahandbook.com",
+  "source": "web-search",
+  "system": "Hyder Public Library",
+  "state": "AK"
+ },
+ "AK0120": {
+  "domain": "alaska.educationbug.org",
+  "source": "web-search",
+  "system": "Innoko River Community/School And Tribal Library",
+  "state": "AK"
  }
 }
