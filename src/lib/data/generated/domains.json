@@ -9826,5 +9826,605 @@
   "source": "web-search",
   "system": "Innoko River Community/School And Tribal Library",
   "state": "AK"
+ },
+ "AK0121": {
+  "domain": "alaska.educationbug.org",
+  "source": "web-search",
+  "system": "Blackwell Community/School Library",
+  "state": "AK"
+ },
+ "AK0122": {
+  "domain": "sosou.de",
+  "source": "web-search",
+  "system": "David Louis Community/School Library",
+  "state": "AK"
+ },
+ "AK0124": {
+  "domain": "alaskahandbook.com",
+  "source": "web-search",
+  "system": "Lake Minchumina Community Library",
+  "state": "AK"
+ },
+ "AK0126": {
+  "domain": "igiugig.com",
+  "source": "web-search",
+  "system": "Igiugig Tribal Library",
+  "state": "AK"
+ },
+ "AK0127": {
+  "domain": "ccalaska.com",
+  "source": "web-search",
+  "system": "Coffman Cove Community Library",
+  "state": "AK"
+ },
+ "AK0130": {
+  "domain": "thornebaylibrary.wixsite.com",
+  "source": "web-search",
+  "system": "Thorne Bay Public Library",
+  "state": "AK"
+ },
+ "AK0134": {
+  "domain": "cityofwhalepass.com",
+  "source": "web-search",
+  "system": "Whale Pass Community Library",
+  "state": "AK"
+ },
+ "AK0137": {
+  "domain": "klukwanlibrary.org",
+  "source": "web-search",
+  "system": "Klukwan Community/School Library",
+  "state": "AK"
+ },
+ "AK0139": {
+  "domain": "aklib.net",
+  "source": "web-search",
+  "system": "Samuel B. Foss Library",
+  "state": "AK"
+ },
+ "AK0140": {
+  "domain": "ednabayalaska.net",
+  "source": "web-search",
+  "system": "Edna Bay Community Library",
+  "state": "AK"
+ },
+ "AL0001": {
+  "domain": "youseemore.com",
+  "source": "web-search",
+  "system": "Carl Elliott Regional Library System",
+  "state": "AL"
+ },
+ "AL0002": {
+  "domain": "findglocal.com",
+  "source": "web-search",
+  "system": "Arley Public Library",
+  "state": "AL"
+ },
+ "AL0005": {
+  "domain": "townofdoublesprings.municipalimpact.com",
+  "source": "web-search",
+  "system": "Double Springs Public Library",
+  "state": "AL"
+ },
+ "AL0006": {
+  "domain": "findglocal.com",
+  "source": "web-search",
+  "system": "Haleyville Public Library",
+  "state": "AL"
+ },
+ "AL0007": {
+  "domain": "jaspercity.com",
+  "source": "web-search",
+  "system": "Jasper Public Library",
+  "state": "AL"
+ },
+ "AL0009": {
+  "domain": "youseemore.com",
+  "source": "web-search",
+  "system": "Sumiton Public Library",
+  "state": "AL"
+ },
+ "AL0010": {
+  "domain": "cheaharegionallibrary.org",
+  "source": "web-search",
+  "system": "Cheaha Regional Library",
+  "state": "AL"
+ },
+ "AL0011": {
+  "domain": "roanokealabama.org",
+  "source": "web-search",
+  "system": "Roanoke - Annie L. Awbrey Public Library",
+  "state": "AL"
+ },
+ "AL0012": {
+  "domain": "cityofashlandal.com",
+  "source": "web-search",
+  "system": "Ashland City Public Library",
+  "state": "AL"
+ },
+ "AL0013": {
+  "domain": "bbcomerlibrary.net",
+  "source": "web-search",
+  "system": "Sylacauga - B. B. Comer Memorial Library",
+  "state": "AL"
+ },
+ "AL0014": {
+  "domain": "cherokeecountypubliclibrary.org",
+  "source": "web-search",
+  "system": "Cherokee County Public Library",
+  "state": "AL"
+ },
+ "AL0015": {
+  "domain": "childersburg.org",
+  "source": "web-search",
+  "system": "Childersburg - Earle A. Rainwater Memorial Library",
+  "state": "AL"
+ },
+ "AL0016": {
+  "domain": "lincolnalabama.com",
+  "source": "web-search",
+  "system": "Lincoln Public Library",
+  "state": "AL"
+ },
+ "AL0017": {
+  "domain": "cityoflinevilleal.com",
+  "source": "web-search",
+  "system": "Lineville Public Library",
+  "state": "AL"
+ },
+ "AL0018": {
+  "domain": "llmorganlibrary.com",
+  "source": "web-search",
+  "system": "Heflin - Lucile L. Morgan Public Library",
+  "state": "AL"
+ },
+ "AL0019": {
+  "domain": "oxfordpl.org",
+  "source": "web-search",
+  "system": "Oxford Public Library",
+  "state": "AL"
+ },
+ "AL0020": {
+  "domain": "talladegalibrary.com",
+  "source": "web-search",
+  "system": "Talladega - Armstrong-Osborne Public Library",
+  "state": "AL"
+ },
+ "AL0022": {
+  "domain": "abbevillelibrary.org",
+  "source": "web-search",
+  "system": "Abbeville Memorial Library",
+  "state": "AL"
+ },
+ "AL0024": {
+  "domain": "headlandlibrary.org",
+  "source": "web-search",
+  "system": "Headland - Blanche R. Solomon Memorial Library",
+  "state": "AL"
+ },
+ "AL0025": {
+  "domain": "tupperlightfootbrundidgelib.org",
+  "source": "web-search",
+  "system": "Brundidge - Tupper Lightfoot Memorial Library",
+  "state": "AL"
+ },
+ "AL0026": {
+  "domain": "ozarklibrary.com",
+  "source": "web-search",
+  "system": "Ozark - Dale County Public Library",
+  "state": "AL"
+ },
+ "AL0029": {
+  "domain": "alabama.educationbug.org",
+  "source": "web-search",
+  "system": "Clio - Elton B. Stephens Library",
+  "state": "AL"
+ },
+ "AL0030": {
+  "domain": "louisvillealabama.gov",
+  "source": "web-search",
+  "system": "Louisville Public Library",
+  "state": "AL"
+ },
+ "AL0031": {
+  "domain": "chamberofcommerce.com",
+  "source": "web-search",
+  "system": "Midland City - Mary Berry Brown Memorial Library",
+  "state": "AL"
+ },
+ "AL0032": {
+  "domain": "ils.apls.state.al.us:10031",
+  "source": "web-search",
+  "system": "Newton Public Library",
+  "state": "AL"
+ },
+ "AL0033": {
+  "domain": "claytonaltownlibrary.com",
+  "source": "web-search",
+  "system": "Clayton - Town And County Public Library",
+  "state": "AL"
+ },
+ "AL0034": {
+  "domain": "troycitylibrary.org",
+  "source": "web-search",
+  "system": "Troy Public Library",
+  "state": "AL"
+ },
+ "AL0035": {
+  "domain": "ils.apls.state.al.us:10059",
+  "source": "web-search",
+  "system": "Union Springs Public Library",
+  "state": "AL"
+ },
+ "AL0037": {
+  "domain": "cityofandalusia.com",
+  "source": "web-search",
+  "system": "Andalusia Public Library",
+  "state": "AL"
+ },
+ "AL0038": {
+  "domain": "townofbrantley.org",
+  "source": "web-search",
+  "system": "Brantley Public Library",
+  "state": "AL"
+ },
+ "AL0039": {
+  "domain": "elbapubliclibrary.com",
+  "source": "web-search",
+  "system": "Elba Public Library",
+  "state": "AL"
+ },
+ "AL0040": {
+  "domain": "genevaal.gov",
+  "source": "web-search",
+  "system": "Geneva - Emma Knox Kenan Library",
+  "state": "AL"
+ },
+ "AL0041": {
+  "domain": "enterpriselibrary.org",
+  "source": "web-search",
+  "system": "Enterprise Public Library",
+  "state": "AL"
+ },
+ "AL0042": {
+  "domain": "floralapubliclibrary.com",
+  "source": "web-search",
+  "system": "Florala Public Library",
+  "state": "AL"
+ },
+ "AL0043": {
+  "domain": "hartfordpubliclibrary.org",
+  "source": "web-search",
+  "system": "Hartford - Mcgregor-Mckinney Public Library",
+  "state": "AL"
+ },
+ "AL0044": {
+  "domain": "luvernepubliclibrary.com",
+  "source": "web-search",
+  "system": "Luverne Public Library",
+  "state": "AL"
+ },
+ "AL0045": {
+  "domain": "opplibrary.com",
+  "source": "web-search",
+  "system": "Opp Public Library",
+  "state": "AL"
+ },
+ "AL0046": {
+  "domain": "cityofsamson.com",
+  "source": "web-search",
+  "system": "Samson Public Library",
+  "state": "AL"
+ },
+ "AL0047": {
+  "domain": "ils.apls.state.al.us:10035",
+  "source": "web-search",
+  "system": "Slocomb Public Library",
+  "state": "AL"
+ },
+ "AL0048": {
+  "domain": "horseshoebendlibrary.org",
+  "source": "web-search",
+  "system": "Horseshoe Bend Regional Library",
+  "state": "AL"
+ },
+ "AL0050": {
+  "domain": "dadevillepubliclibrary.com",
+  "source": "web-search",
+  "system": "Dadeville Public Library",
+  "state": "AL"
+ },
+ "AL0051": {
+  "domain": "ils.apls.state.al.us:10041",
+  "source": "web-search",
+  "system": "Goodwater Public Library",
+  "state": "AL"
+ },
+ "AL0052": {
+  "domain": "auburnal.gov",
+  "source": "web-search",
+  "system": "Auburn Public Library",
+  "state": "AL"
+ },
+ "AL0053": {
+  "domain": "opelika-al.gov",
+  "source": "web-search",
+  "system": "Opelika Public Library",
+  "state": "AL"
+ },
+ "AL0054": {
+  "domain": "cityofmillbrook.org",
+  "source": "web-search",
+  "system": "Millbrook Public Library",
+  "state": "AL"
+ },
+ "AL0055": {
+  "domain": "rockfordpubliclibrary.org",
+  "source": "web-search",
+  "system": "Rockford Public Library",
+  "state": "AL"
+ },
+ "AL0056": {
+  "domain": "tallasseeal.gov",
+  "source": "web-search",
+  "system": "Tallassee Community Public Library",
+  "state": "AL"
+ },
+ "AL0057": {
+  "domain": "wetumpkalibrary.com",
+  "source": "web-search",
+  "system": "Wetumpka Public Library",
+  "state": "AL"
+ },
+ "AL0059": {
+  "domain": "flpl.org",
+  "source": "web-search",
+  "system": "Florence - Lauderdale Public Library",
+  "state": "AL"
+ },
+ "AL0060": {
+  "domain": "cityoftuscumbia.org",
+  "source": "web-search",
+  "system": "Tuscumbia - Helen Keller Public Library",
+  "state": "AL"
+ },
+ "AL0061": {
+  "domain": "ils.apls.state.al.us:10056",
+  "source": "web-search",
+  "system": "Leighton Public Library",
+  "state": "AL"
+ },
+ "AL0062": {
+  "domain": "www1.youseemore.com",
+  "source": "web-search",
+  "system": "Muscle Shoals Public Library",
+  "state": "AL"
+ },
+ "AL0063": {
+  "domain": "rogersvillelibrary.org",
+  "source": "web-search",
+  "system": "Rogersville Public Library",
+  "state": "AL"
+ },
+ "AL0064": {
+  "domain": "sheffieldalabama.net",
+  "source": "web-search",
+  "system": "Sheffield Public Library",
+  "state": "AL"
+ },
+ "AL0065": {
+  "domain": "northwestregional.net",
+  "source": "web-search",
+  "system": "Northwest Regional Library",
+  "state": "AL"
+ },
+ "AL0066": {
+  "domain": "northwestregional.net",
+  "source": "web-search",
+  "system": "Hamilton - Clyde Nix Public Library",
+  "state": "AL"
+ },
+ "AL0067": {
+  "domain": "northwestregional.net",
+  "source": "web-search",
+  "system": "Kennedy Public Library",
+  "state": "AL"
+ },
+ "AL0068": {
+  "domain": "guinal.org",
+  "source": "web-search",
+  "system": "Guin - Mchs Community Library",
+  "state": "AL"
+ },
+ "AL0069": {
+  "domain": "northwestregional.net",
+  "source": "web-search",
+  "system": "Millport Public Library",
+  "state": "AL"
+ },
+ "AL0070": {
+  "domain": "russellvillepubliclibrary.com",
+  "source": "web-search",
+  "system": "Russellville Public Library",
+  "state": "AL"
+ },
+ "AL0071": {
+  "domain": "northwestregional.net",
+  "source": "web-search",
+  "system": "Sulligent Public Library",
+  "state": "AL"
+ },
+ "AL0072": {
+  "domain": "northwestregional.net",
+  "source": "web-search",
+  "system": "Vernon - Mary Wallace Cobb Memorial Library",
+  "state": "AL"
+ },
+ "AL0073": {
+  "domain": "northwestregional.net",
+  "source": "web-search",
+  "system": "Red Bay - Weatherford Public Library",
+  "state": "AL"
+ },
+ "AL0074": {
+  "domain": "winfieldpubliclibrary.com",
+  "source": "web-search",
+  "system": "Winfield Public Library",
+  "state": "AL"
+ },
+ "AL0076": {
+  "domain": "alcpl.org",
+  "source": "web-search",
+  "system": "Athens - Limestone Public Library",
+  "state": "AL"
+ },
+ "AL0077": {
+  "domain": "mydpl.org",
+  "source": "web-search",
+  "system": "Decatur Public Library",
+  "state": "AL"
+ },
+ "AL0078": {
+  "domain": "hartselle.org",
+  "source": "web-search",
+  "system": "Hartselle - William Bradford Huie Library Of Hartselle",
+  "state": "AL"
+ },
+ "AL0079": {
+  "domain": "lawrencecpl.org",
+  "source": "web-search",
+  "system": "Lawrence County Public Library",
+  "state": "AL"
+ },
+ "AL0080": {
+  "domain": "baldwincountyal.gov",
+  "source": "web-search",
+  "system": "Baldwin County Library Cooperative",
+  "state": "AL"
+ },
+ "AL0081": {
+  "domain": "daphneal.com",
+  "source": "web-search",
+  "system": "Daphne Public Library",
+  "state": "AL"
+ },
+ "AL0082": {
+  "domain": "fairhopelibrary.org",
+  "source": "web-search",
+  "system": "Fairhope Public Library",
+  "state": "AL"
+ },
+ "AL0083": {
+  "domain": "foleylibrary.org",
+  "source": "web-search",
+  "system": "Foley Public Library",
+  "state": "AL"
+ },
+ "AL0084": {
+  "domain": "bayminette.gov",
+  "source": "web-search",
+  "system": "Bay Minette Public Library",
+  "state": "AL"
+ },
+ "AL0085": {
+  "domain": "cityofloxley.com",
+  "source": "web-search",
+  "system": "Loxley Public Library",
+  "state": "AL"
+ },
+ "AL0086": {
+  "domain": "alabama.educationbug.org",
+  "source": "web-search",
+  "system": "Oscar Johnson Memorial Library",
+  "state": "AL"
+ },
+ "AL0087": {
+  "domain": "robertsdale.org",
+  "source": "web-search",
+  "system": "Robertsdale Public Library",
+  "state": "AL"
+ },
+ "AL0088": {
+  "domain": "gulfshoresal.gov",
+  "source": "web-search",
+  "system": "Gulf Shores - Thomas B. Norton Public Library",
+  "state": "AL"
+ },
+ "AL0090": {
+  "domain": "adamsville.lib.al.us",
+  "source": "web-search",
+  "system": "Adamsville Public Library",
+  "state": "AL"
+ },
+ "AL0091": {
+  "domain": "bessemerlibrary.com",
+  "source": "web-search",
+  "system": "Bessemer Public Library",
+  "state": "AL"
+ },
+ "AL0092": {
+  "domain": "oneallibrary.org",
+  "source": "web-search",
+  "system": "Mountain Brook - Emmet O`Neal Library",
+  "state": "AL"
+ },
+ "AL0093": {
+  "domain": "fairfield.lib.al.us",
+  "source": "web-search",
+  "system": "Fairfield - Walter J. Hanna Memorial Library",
+  "state": "AL"
+ },
+ "AL0094": {
+  "domain": "fultondale.com",
+  "source": "web-search",
+  "system": "Fultondale Public Library",
+  "state": "AL"
+ },
+ "AL0095": {
+  "domain": "gardendale.gov",
+  "source": "web-search",
+  "system": "Gardendale - Martha Moore Public Library",
+  "state": "AL"
+ },
+ "AL0096": {
+  "domain": "graysville.lib.al.us",
+  "source": "web-search",
+  "system": "Graysville Public Library",
+  "state": "AL"
+ },
+ "AL0097": {
+  "domain": "homewoodpubliclibrary.org",
+  "source": "web-search",
+  "system": "Homewood Public Library",
+  "state": "AL"
+ },
+ "AL0098": {
+  "domain": "hooverlibrary.org",
+  "source": "web-search",
+  "system": "Hoover Public Library",
+  "state": "AL"
+ },
+ "AL0099": {
+  "domain": "hueytownlibrary.org",
+  "source": "web-search",
+  "system": "Hueytown Public Library",
+  "state": "AL"
+ },
+ "AL0100": {
+  "domain": "irondalelibrary.org",
+  "source": "web-search",
+  "system": "Irondale Public Library",
+  "state": "AL"
+ },
+ "AL0101": {
+  "domain": "leedslibrary.info",
+  "source": "web-search",
+  "system": "Leeds - Jane Culbreth Library",
+  "state": "AL"
+ },
+ "AL0102": {
+  "domain": "midfield.lib.al.us",
+  "source": "web-search",
+  "system": "Midfield Public Library",
+  "state": "AL"
  }
 }
