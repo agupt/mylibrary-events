@@ -10426,5 +10426,605 @@
   "source": "web-search",
   "system": "Midfield Public Library",
   "state": "AL"
+ },
+ "AL0103": {
+  "domain": "cityofpg.com",
+  "source": "web-search",
+  "system": "Pleasant Grove Public Library",
+  "state": "AL"
+ },
+ "AL0104": {
+  "domain": "tarrant.lib.al.us",
+  "source": "web-search",
+  "system": "Tarrant Public Library",
+  "state": "AL"
+ },
+ "AL0105": {
+  "domain": "trussvillelibrary.com",
+  "source": "web-search",
+  "system": "Trussville Public Library",
+  "state": "AL"
+ },
+ "AL0106": {
+  "domain": "vestavialibrary.org",
+  "source": "web-search",
+  "system": "Vestavia Hills Library In The Forest",
+  "state": "AL"
+ },
+ "AL0107": {
+  "domain": "warriorpubliclibrary.org",
+  "source": "web-search",
+  "system": "Warrior Public Library",
+  "state": "AL"
+ },
+ "AL0109": {
+  "domain": "dekalbcountypubliclibrary.wordpress.com",
+  "source": "web-search",
+  "system": "Fort Payne - Dekalb County Public Library",
+  "state": "AL"
+ },
+ "AL0110": {
+  "domain": "collinsvillealabama.net",
+  "source": "web-search",
+  "system": "Collinsville Public Library",
+  "state": "AL"
+ },
+ "AL0111": {
+  "domain": "townofgeraldineal.com",
+  "source": "web-search",
+  "system": "Geraldine Public Library",
+  "state": "AL"
+ },
+ "AL0112": {
+  "domain": "rainsvillepubliclibrary.com",
+  "source": "web-search",
+  "system": "Rainsville Public Library",
+  "state": "AL"
+ },
+ "AL0113": {
+  "domain": "escambiacountylibrary.com",
+  "source": "web-search",
+  "system": "Escambia County Cooperative Library System",
+  "state": "AL"
+ },
+ "AL0114": {
+  "domain": "atmorepubliclibrary.com",
+  "source": "web-search",
+  "system": "Atmore Public",
+  "state": "AL"
+ },
+ "AL0115": {
+  "domain": "cityofbrewton.org",
+  "source": "web-search",
+  "system": "Brewton Public Library",
+  "state": "AL"
+ },
+ "AL0116": {
+  "domain": "flomatonal.gov",
+  "source": "web-search",
+  "system": "Flomaton Public Library",
+  "state": "AL"
+ },
+ "AL0118": {
+  "domain": "attallacity.org",
+  "source": "web-search",
+  "system": "Attalla - Etowah County Public Library",
+  "state": "AL"
+ },
+ "AL0119": {
+  "domain": "rbclibrary.org",
+  "source": "web-search",
+  "system": "Rainbow City Public Library",
+  "state": "AL"
+ },
+ "AL0121": {
+  "domain": "demopolislibrary.org",
+  "source": "web-search",
+  "system": "Demopolis Public Library",
+  "state": "AL"
+ },
+ "AL0122": {
+  "domain": "demopolislibrary.org",
+  "source": "web-search",
+  "system": "Marengo County Public Library",
+  "state": "AL"
+ },
+ "AL0124": {
+  "domain": "arabpubliclibrary.com",
+  "source": "web-search",
+  "system": "Arab Public Library",
+  "state": "AL"
+ },
+ "AL0125": {
+  "domain": "cityofboaz.org",
+  "source": "web-search",
+  "system": "Boaz Public Library",
+  "state": "AL"
+ },
+ "AL0126": {
+  "domain": "guntersvilleal.org",
+  "source": "web-search",
+  "system": "Guntersville Public Library",
+  "state": "AL"
+ },
+ "AL0127": {
+  "domain": "cityofalbertville.com",
+  "source": "web-search",
+  "system": "Albertville Public Library",
+  "state": "AL"
+ },
+ "AL0129": {
+  "domain": "cityofalabaster.com",
+  "source": "web-search",
+  "system": "Alabaster - Albert L. Scott Library",
+  "state": "AL"
+ },
+ "AL0130": {
+  "domain": "cityofcalera.org",
+  "source": "web-search",
+  "system": "Calera Public Library",
+  "state": "AL"
+ },
+ "AL0131": {
+  "domain": "columbianapubliclibrary.com",
+  "source": "web-search",
+  "system": "Columbiana Public Library",
+  "state": "AL"
+ },
+ "AL0132": {
+  "domain": "cityofhelena.org",
+  "source": "web-search",
+  "system": "Helena - Jane B. Holmes Public Library",
+  "state": "AL"
+ },
+ "AL0133": {
+  "domain": "cityofvincental.com",
+  "source": "web-search",
+  "system": "Vincent - Lallouise F. Mcgraw Library",
+  "state": "AL"
+ },
+ "AL0134": {
+  "domain": "parnellmemoriallibrary.org",
+  "source": "web-search",
+  "system": "Montevallo - Parnell Memorial Library",
+  "state": "AL"
+ },
+ "AL0135": {
+  "domain": "pelhamlibraryal.gov",
+  "source": "web-search",
+  "system": "Pelham Public Library",
+  "state": "AL"
+ },
+ "AL0136": {
+  "domain": "shelbycounty-al.org",
+  "source": "web-search",
+  "system": "Wilsonville - Vernice Stoudenmire Library",
+  "state": "AL"
+ },
+ "AL0140": {
+  "domain": "pickenslibrary.com",
+  "source": "web-search",
+  "system": "Aliceville Public Library",
+  "state": "AL"
+ },
+ "AL0141": {
+  "domain": "pickenslibrary.com",
+  "source": "web-search",
+  "system": "Carrollton Public Library",
+  "state": "AL"
+ },
+ "AL0142": {
+  "domain": "pickenslibrary.com",
+  "source": "web-search",
+  "system": "Gordo - Ruth Holliman Memorial Public Library",
+  "state": "AL"
+ },
+ "AL0143": {
+  "domain": "pickenslibrary.com",
+  "source": "web-search",
+  "system": "Reform Public Library",
+  "state": "AL"
+ },
+ "AL0145": {
+  "domain": "aplsnew-web.apls.state.al.us:10121",
+  "source": "web-search",
+  "system": "Mccain Memorial Public Library",
+  "state": "AL"
+ },
+ "AL0146": {
+  "domain": "moodyalabama.gov",
+  "source": "web-search",
+  "system": "Moody - Doris Stanley Memorial Library",
+  "state": "AL"
+ },
+ "AL0147": {
+  "domain": "odenlib.org",
+  "source": "web-search",
+  "system": "Odenville Public Library",
+  "state": "AL"
+ },
+ "AL0148": {
+  "domain": "pellcitylibrary.com",
+  "source": "web-search",
+  "system": "Pell City Public Library",
+  "state": "AL"
+ },
+ "AL0151": {
+  "domain": "ils.apls.state.al.us:10020",
+  "source": "web-search",
+  "system": "York - Hightower Memorial Library",
+  "state": "AL"
+ },
+ "AL0152": {
+  "domain": "rptlibrary.org",
+  "source": "web-search",
+  "system": "Livingston - Ruby Pickens Tartt Public Library",
+  "state": "AL"
+ },
+ "AL0155": {
+  "domain": "jacksonvillepubliclibrary.org",
+  "source": "web-search",
+  "system": "Jacksonville Public Library",
+  "state": "AL"
+ },
+ "AL0156": {
+  "domain": "piedmontcity.org",
+  "source": "web-search",
+  "system": "Piedmont Public Library",
+  "state": "AL"
+ },
+ "AL0157": {
+  "domain": "alabama.educationbug.org",
+  "source": "web-search",
+  "system": "Akron Public Library",
+  "state": "AL"
+ },
+ "AL0159": {
+  "domain": "blountsvillepubliclibrary.info",
+  "source": "web-search",
+  "system": "Blountsville Public Library",
+  "state": "AL"
+ },
+ "AL0160": {
+  "domain": "aplsnew-web.apls.state.al.us:10124",
+  "source": "web-search",
+  "system": "Cherokee Public Library",
+  "state": "AL"
+ },
+ "AL0161": {
+  "domain": "brentcentlib.com",
+  "source": "web-search",
+  "system": "Brent - Centreville Public Library",
+  "state": "AL"
+ },
+ "AL0164": {
+  "domain": "cityofcitronelle.com",
+  "source": "web-search",
+  "system": "Citronelle Memorial Library",
+  "state": "AL"
+ },
+ "AL0165": {
+  "domain": "findglocal.com",
+  "source": "web-search",
+  "system": "Grove Hill Public Library",
+  "state": "AL"
+ },
+ "AL0167": {
+  "domain": "alabama.educationbug.org",
+  "source": "web-search",
+  "system": "Eutaw - James C. Poole Jr. Memorial Library",
+  "state": "AL"
+ },
+ "AL0168": {
+  "domain": "greenville-bcpl.org",
+  "source": "web-search",
+  "system": "Greenville - Butler County Public Library",
+  "state": "AL"
+ },
+ "AL0169": {
+  "domain": "hcplgreensboro.org",
+  "source": "web-search",
+  "system": "Hale County Library",
+  "state": "AL"
+ },
+ "AL0170": {
+  "domain": "inapullensmallwoodmemoriallibrary.com",
+  "source": "web-search",
+  "system": "Chickasaw - Ina Pullen Smallwood Memorial Library",
+  "state": "AL"
+ },
+ "AL0171": {
+  "domain": "whitesmithlibrary.org",
+  "source": "web-search",
+  "system": "Jackson - White Smith Memorial Library",
+  "state": "AL"
+ },
+ "AL0172": {
+  "domain": "aplsnew-web.apls.state.al.us:10138",
+  "source": "web-search",
+  "system": "Marion - Perry County Public Library",
+  "state": "AL"
+ },
+ "AL0173": {
+  "domain": "townofwoodville.net",
+  "source": "web-search",
+  "system": "Woodville Public Library",
+  "state": "AL"
+ },
+ "AL0174": {
+  "domain": "cityofbayoulabatre.com",
+  "source": "web-search",
+  "system": "City Of Bayou La Batre Public Library",
+  "state": "AL"
+ },
+ "AL0175": {
+  "domain": "scottsborolibrary.org",
+  "source": "web-search",
+  "system": "Scottsboro Public Library",
+  "state": "AL"
+ },
+ "AL0176": {
+  "domain": "oneontapubliclibrary.org",
+  "source": "web-search",
+  "system": "Oneonta Public Library",
+  "state": "AL"
+ },
+ "AL0177": {
+  "domain": "thomasvillepubliclibrary.org",
+  "source": "web-search",
+  "system": "Thomasville Public Library",
+  "state": "AL"
+ },
+ "AL0178": {
+  "domain": "mctpl.us",
+  "source": "web-search",
+  "system": "Macon County - Tuskegee Public Library",
+  "state": "AL"
+ },
+ "AL0179": {
+  "domain": "moundvillealabama.com",
+  "source": "web-search",
+  "system": "Moundville Public Library",
+  "state": "AL"
+ },
+ "AL0180": {
+  "domain": "uniontownal.com",
+  "source": "web-search",
+  "system": "Uniontown Public Library",
+  "state": "AL"
+ },
+ "AL0184": {
+  "domain": "evergreenal.org",
+  "source": "web-search",
+  "system": "Evergreen Public Library",
+  "state": "AL"
+ },
+ "AL0188": {
+  "domain": "ils.apls.state.al.us:10048",
+  "source": "web-search",
+  "system": "White Hall Public Library",
+  "state": "AL"
+ },
+ "AL0189": {
+  "domain": "aplsnew-web.apls.state.al.us:10127",
+  "source": "web-search",
+  "system": "Stevenson Public Library",
+  "state": "AL"
+ },
+ "AL0190": {
+  "domain": "townofkillen.org",
+  "source": "web-search",
+  "system": "Killen Public Library",
+  "state": "AL"
+ },
+ "AL0191": {
+  "domain": "chamberofcommerce.com",
+  "source": "web-search",
+  "system": "Lexington - Burchell Campbell Memorial Library",
+  "state": "AL"
+ },
+ "AL0193": {
+  "domain": "fayetteal.org",
+  "source": "web-search",
+  "system": "Fayette County Memorial Library",
+  "state": "AL"
+ },
+ "AL0194": {
+  "domain": "phenixcitylibrary.com",
+  "source": "web-search",
+  "system": "Phenix City - Russell County Public Library",
+  "state": "AL"
+ },
+ "AL0195": {
+  "domain": "selmalibrary.org",
+  "source": "web-search",
+  "system": "Selma - Dallas County Public Library",
+  "state": "AL"
+ },
+ "AL0198": {
+  "domain": "moncolib.org",
+  "source": "web-search",
+  "system": "Monroe County Public Library",
+  "state": "AL"
+ },
+ "AL0203": {
+  "domain": "hokesbluffpubliclibrary.org",
+  "source": "web-search",
+  "system": "Hokes Bluff Public Library",
+  "state": "AL"
+ },
+ "AL0204": {
+  "domain": "townofragland.org",
+  "source": "web-search",
+  "system": "Ragland Public Library",
+  "state": "AL"
+ },
+ "AL0206": {
+  "domain": "lowndes-al.gov",
+  "source": "web-search",
+  "system": "Hayneville - Lowndes County Public Library",
+  "state": "AL"
+ },
+ "AL0208": {
+  "domain": "reciprocard.com",
+  "source": "web-search",
+  "system": "Ider Public Library",
+  "state": "AL"
+ },
+ "AL0209": {
+  "domain": "findglocal.com",
+  "source": "web-search",
+  "system": "Eufaula Carnegie Library",
+  "state": "AL"
+ },
+ "AL0210": {
+  "domain": "grantpubliclibrary.com",
+  "source": "web-search",
+  "system": "Grant Public Library",
+  "state": "AL"
+ },
+ "AL0211": {
+  "domain": "dalevilleal.com",
+  "source": "web-search",
+  "system": "Daleville Public Library",
+  "state": "AL"
+ },
+ "AL0216": {
+  "domain": "ils.apls.state.al.us:10028",
+  "source": "web-search",
+  "system": "Courtland Public Library",
+  "state": "AL"
+ },
+ "AL0217": {
+  "domain": "ils.apls.state.al.us:10040",
+  "source": "web-search",
+  "system": "Eva Public Library",
+  "state": "AL"
+ },
+ "AL0218": {
+  "domain": "crossvillepubliclibrary.com",
+  "source": "web-search",
+  "system": "Crossville Public Library",
+  "state": "AL"
+ },
+ "AL0219": {
+  "domain": "findglocal.com",
+  "source": "web-search",
+  "system": "Walnut Grove - Westside Public Library",
+  "state": "AL"
+ },
+ "AL0222": {
+  "domain": "orangebeachlibrary.gov",
+  "source": "web-search",
+  "system": "Orange Beach Public Library",
+  "state": "AL"
+ },
+ "AL0223": {
+  "domain": "satsumalibrary.com",
+  "source": "web-search",
+  "system": "Satsuma Public Library",
+  "state": "AL"
+ },
+ "AL0225": {
+  "domain": "falkvillepubliclibrary.us",
+  "source": "web-search",
+  "system": "Falkville Public Library",
+  "state": "AL"
+ },
+ "AL0226": {
+  "domain": "cityofspringville.com",
+  "source": "web-search",
+  "system": "Springville Public Library",
+  "state": "AL"
+ },
+ "AL0227": {
+  "domain": "findglocal.com",
+  "source": "web-search",
+  "system": "Bridgeport - Lena Cagle Public Library",
+  "state": "AL"
+ },
+ "AL0229": {
+  "domain": "alabama.educationbug.org",
+  "source": "web-search",
+  "system": "West Blocton Public Library",
+  "state": "AL"
+ },
+ "AL0231": {
+  "domain": "carbonhillalabama.com",
+  "source": "web-search",
+  "system": "Carbon Hill City Library",
+  "state": "AL"
+ },
+ "AL0238": {
+  "domain": "townofohatchee.com",
+  "source": "web-search",
+  "system": "Ohatchee Public Library",
+  "state": "AL"
+ },
+ "AL0239": {
+  "domain": "somervillelibrary.org",
+  "source": "web-search",
+  "system": "Somerville Public Library",
+  "state": "AL"
+ },
+ "AL0240": {
+  "domain": "cityofchelsea.com",
+  "source": "web-search",
+  "system": "Chelsea Public Library",
+  "state": "AL"
+ },
+ "AL0241": {
+  "domain": "ils.apls.state.al.us:10034",
+  "source": "web-search",
+  "system": "Dutton Public Library",
+  "state": "AL"
+ },
+ "AL0242": {
+  "domain": "fortdeposital.gov",
+  "source": "web-search",
+  "system": "Fort Deposit Public Library",
+  "state": "AL"
+ },
+ "AL0243": {
+  "domain": "summerdalelibrary.com",
+  "source": "web-search",
+  "system": "Summerdale - Marjorie Younce Snook Public Library",
+  "state": "AL"
+ },
+ "AL0244": {
+  "domain": "main.d1o7e556q4duxw.amplifyapp.com",
+  "source": "web-search",
+  "system": "Clay Public Library",
+  "state": "AL"
+ },
+ "AL0245": {
+  "domain": "townofeclectic.com",
+  "source": "web-search",
+  "system": "Eclectic Public Library",
+  "state": "AL"
+ },
+ "AL0246": {
+  "domain": "hobsoncitylibrary.org",
+  "source": "web-search",
+  "system": "Hobson City Public Library",
+  "state": "AL"
+ },
+ "AL0247": {
+  "domain": "munfordalabama.com",
+  "source": "web-search",
+  "system": "Munford Public Library",
+  "state": "AL"
+ },
+ "AL0248": {
+  "domain": "cityofsouthside.com",
+  "source": "web-search",
+  "system": "Southside Public Library",
+  "state": "AL"
+ },
+ "AL0249": {
+  "domain": "steele.ploud.net",
+  "source": "web-search",
+  "system": "Steele Public Library",
+  "state": "AL"
  }
 }
