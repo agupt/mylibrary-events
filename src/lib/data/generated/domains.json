@@ -11026,5 +11026,527 @@
   "source": "web-search",
   "system": "Steele Public Library",
   "state": "AL"
+ },
+ "AL0250": {
+  "domain": "pinsonlibrary.com",
+  "source": "web-search",
+  "system": "Pinson Public Library",
+  "state": "AL"
+ },
+ "AL0251": {
+  "domain": "glencoelibrary.org",
+  "source": "web-search",
+  "system": "Glencoe Public Library",
+  "state": "AL"
+ },
+ "AL0252": {
+  "domain": "townofmagnoliasprings.org",
+  "source": "web-search",
+  "system": "Magnolia Springs Public Library",
+  "state": "AL"
+ },
+ "AL0253": {
+  "domain": "towncreekpubliclibrary.com",
+  "source": "web-search",
+  "system": "Town Creek Public Library",
+  "state": "AL"
+ },
+ "AL0254": {
+  "domain": "jclc.org",
+  "source": "web-search",
+  "system": "Jefferson County Library Cooperative",
+  "state": "AL"
+ },
+ "AL0256": {
+  "domain": "pickenslibrary.com",
+  "source": "web-search",
+  "system": "Pickens County Cooperative Library",
+  "state": "AL"
+ },
+ "AL0257": {
+  "domain": "cityofhenagar.com",
+  "source": "web-search",
+  "system": "R.L. Hadden Memorial Library",
+  "state": "AL"
+ },
+ "AL8004": {
+  "domain": "public-libraries.com",
+  "source": "web-search",
+  "system": "Mt. Vernon Public Library",
+  "state": "AL"
+ },
+ "AL8007": {
+  "domain": "findglocal.com",
+  "source": "web-search",
+  "system": "Linda Duran Public Library",
+  "state": "AL"
+ },
+ "AL8008": {
+  "domain": "alabama.educationbug.org",
+  "source": "web-search",
+  "system": "Sardis City Public Library",
+  "state": "AL"
+ },
+ "AL8009": {
+  "domain": "woodstockcommunitylibrary.com",
+  "source": "web-search",
+  "system": "Woodstock Community Library",
+  "state": "AL"
+ },
+ "AL8010": {
+  "domain": "newbernlibrary.org",
+  "source": "web-search",
+  "system": "Newbern Public Library",
+  "state": "AL"
+ },
+ "AL8011": {
+  "domain": "spanishfortpubliclibrary.org",
+  "source": "web-search",
+  "system": "Spanish Fort Public Library",
+  "state": "AL"
+ },
+ "AL8012": {
+  "domain": "townofelberta.com",
+  "source": "web-search",
+  "system": "Elberta Public Library",
+  "state": "AL"
+ },
+ "AL8013": {
+  "domain": "centerpointlibrary.org",
+  "source": "web-search",
+  "system": "Center Point Public Library",
+  "state": "AL"
+ },
+ "AR0003": {
+  "domain": "marcolibrary.org",
+  "source": "web-search",
+  "system": "Marion County Library",
+  "state": "AR"
+ },
+ "AR0006": {
+  "domain": "garlandcounty.org",
+  "source": "web-search",
+  "system": "Garland County Library",
+  "state": "AR"
+ },
+ "AR0025": {
+  "domain": "westmemphisar.gov",
+  "source": "web-search",
+  "system": "West Memphis Public Library",
+  "state": "AR"
+ },
+ "AR0028": {
+  "domain": "library.arkansas.gov",
+  "source": "web-search",
+  "system": "Texarkana Public Library",
+  "state": "AR"
+ },
+ "AR0030": {
+  "domain": "conwaycountylibrary.org",
+  "source": "web-search",
+  "system": "Conway County Library",
+  "state": "AR"
+ },
+ "AR0037": {
+  "domain": "forrestcitylibrary.gov",
+  "source": "web-search",
+  "system": "Forrest City Public Library",
+  "state": "AR"
+ },
+ "AR0038": {
+  "domain": "bentonvillelibrary.org",
+  "source": "web-search",
+  "system": "Bentonville Public Library",
+  "state": "AR"
+ },
+ "AR0039": {
+  "domain": "baxtercountylibrary.org",
+  "source": "web-search",
+  "system": "Baxter County Library",
+  "state": "AR"
+ },
+ "AR0043": {
+  "domain": "cityoftrumannar.gov",
+  "source": "web-search",
+  "system": "Trumann Public Library",
+  "state": "AR"
+ },
+ "AR0044": {
+  "domain": "library.bellavistaar.gov",
+  "source": "web-search",
+  "system": "Bella Vista Public Library",
+  "state": "AR"
+ },
+ "AR0047": {
+  "domain": "rogerspubliclibrary.org",
+  "source": "web-search",
+  "system": "Rogers Public Library",
+  "state": "AR"
+ },
+ "AR0050": {
+  "domain": "boonecountylibrary.org",
+  "source": "web-search",
+  "system": "Boone County Library",
+  "state": "AR"
+ },
+ "AR0051": {
+  "domain": "newtoncountylibrary.org",
+  "source": "web-search",
+  "system": "Newton County",
+  "state": "AR"
+ },
+ "AR0066": {
+  "domain": "faylib.org",
+  "source": "web-search",
+  "system": "Fayetteville Public Library",
+  "state": "AR"
+ },
+ "AR0068": {
+  "domain": "pearidgepubliclibrary.org",
+  "source": "web-search",
+  "system": "Pea Ridge Community Library",
+  "state": "AR"
+ },
+ "AR0069": {
+  "domain": "gravettelibrary.org",
+  "source": "web-search",
+  "system": "Gravette Public Library",
+  "state": "AR"
+ },
+ "AR0070": {
+  "domain": "library.arkansas.gov",
+  "source": "web-search",
+  "system": "Jim G. Ferguson Searcy County Library",
+  "state": "AR"
+ },
+ "AR0071": {
+  "domain": "fairfieldbaylibrary.com",
+  "source": "web-search",
+  "system": "Fairfield Bay Library, Incorporated",
+  "state": "AR"
+ },
+ "AR0076": {
+  "domain": "hempcolib.org",
+  "source": "web-search",
+  "system": "Hempstead County Library",
+  "state": "AR"
+ },
+ "AR0077": {
+  "domain": "gentrypubliclibrary.com",
+  "source": "web-search",
+  "system": "Gentry Public Library",
+  "state": "AR"
+ },
+ "AR0078": {
+  "domain": "library.arkansas.gov",
+  "source": "web-search",
+  "system": "Iva Jane Peek Library Hq",
+  "state": "AR"
+ },
+ "AR0079": {
+  "domain": "siloamsprings.gov",
+  "source": "web-search",
+  "system": "Siloam Springs Public Library",
+  "state": "AR"
+ },
+ "AR0080": {
+  "domain": "library.arkansas.gov",
+  "source": "web-search",
+  "system": "Sulphur Springs Public Library Hq",
+  "state": "AR"
+ },
+ "AR0082": {
+  "domain": "indcolib.com",
+  "source": "web-search",
+  "system": "Independence County Library",
+  "state": "AR"
+ },
+ "AZ0025": {
+  "domain": "cliftonaz.com",
+  "source": "web-search",
+  "system": "Clifton Public Library",
+  "state": "AZ"
+ },
+ "AZ0026": {
+  "domain": "cityofsafford.us",
+  "source": "web-search",
+  "system": "Safford City-Graham County Library",
+  "state": "AZ"
+ },
+ "AZ0027": {
+  "domain": "townofparkeraz.com",
+  "source": "web-search",
+  "system": "Parker Public Library",
+  "state": "AZ"
+ },
+ "AZ0038": {
+  "domain": "tempepubliclibrary.org",
+  "source": "web-search",
+  "system": "Tempe Public Library",
+  "state": "AZ"
+ },
+ "AZ0039": {
+  "domain": "tollesonlibrary.org",
+  "source": "web-search",
+  "system": "Tolleson Public Library",
+  "state": "AZ"
+ },
+ "AZ0040": {
+  "domain": "wickenburgaz.gov",
+  "source": "web-search",
+  "system": "Wickenburg Public Library",
+  "state": "AZ"
+ },
+ "AZ0066": {
+  "domain": "patagoniapubliclibrary.org",
+  "source": "web-search",
+  "system": "Patagonia Public Library",
+  "state": "AZ"
+ },
+ "AZ0092": {
+  "domain": "youngtownaz.org",
+  "source": "web-search",
+  "system": "Youngtown Public Library",
+  "state": "AZ"
+ },
+ "AZ0102": {
+  "domain": "gcldaz.org",
+  "source": "web-search",
+  "system": "Gila County Library District",
+  "state": "AZ"
+ },
+ "AZ0103": {
+  "domain": "crit-nsn.gov",
+  "source": "web-search",
+  "system": "Colorado River Indian Tribes Library/Archives",
+  "state": "AZ"
+ },
+ "AZ0104": {
+  "domain": "ci.quartzsite.az.us",
+  "source": "web-search",
+  "system": "Quartzsite Public Library",
+  "state": "AZ"
+ },
+ "AZ0106": {
+  "domain": "library.pima.gov",
+  "source": "web-search",
+  "system": "Pima Public Library",
+  "state": "AZ"
+ },
+ "AZ0110": {
+  "domain": "bensonaz.gov",
+  "source": "web-search",
+  "system": "Benson Public Library",
+  "state": "AZ"
+ },
+ "AZ0112": {
+  "domain": "douglasaz.gov",
+  "source": "web-search",
+  "system": "Douglas Public Library",
+  "state": "AZ"
+ },
+ "AZ0113": {
+  "domain": "huachucacityaz.gov",
+  "source": "web-search",
+  "system": "Huachuca City Public Library",
+  "state": "AZ"
+ },
+ "AZ0114": {
+  "domain": "sierravistaaz.gov",
+  "source": "web-search",
+  "system": "Sierra Vista Public Library",
+  "state": "AZ"
+ },
+ "AZ0115": {
+  "domain": "cochiselibrary.org",
+  "source": "web-search",
+  "system": "Tombstone City Library",
+  "state": "AZ"
+ },
+ "AZ0116": {
+  "domain": "willcox.az.gov",
+  "source": "web-search",
+  "system": "Elsie S. Hogan Community Library",
+  "state": "AZ"
+ },
+ "AZ0122": {
+  "domain": "azlibrary.gov",
+  "source": "web-search",
+  "system": "Cocopah Tribal Library",
+  "state": "AZ"
+ },
+ "AZ0123": {
+  "domain": "srpmic-nsn.gov",
+  "source": "web-search",
+  "system": "Salt River Tribal Library",
+  "state": "AZ"
+ },
+ "AZ0124": {
+  "domain": "gcldaz.org",
+  "source": "web-search",
+  "system": "Globe Public Library",
+  "state": "AZ"
+ },
+ "AZ0125": {
+  "domain": "gcldaz.org",
+  "source": "web-search",
+  "system": "Hayden Public Library",
+  "state": "AZ"
+ },
+ "AZ0126": {
+  "domain": "gcldaz.org",
+  "source": "web-search",
+  "system": "Miami Memorial Library",
+  "state": "AZ"
+ },
+ "AZ0127": {
+  "domain": "paysonaz.gov",
+  "source": "web-search",
+  "system": "Payson Public Library",
+  "state": "AZ"
+ },
+ "AZ0128": {
+  "domain": "azlibrary.gov",
+  "source": "web-search",
+  "system": "Isabelle Hunt Memorial Public Library",
+  "state": "AZ"
+ },
+ "AZ0129": {
+  "domain": "gcldaz.org",
+  "source": "web-search",
+  "system": "San Carlos Public Library",
+  "state": "AZ"
+ },
+ "AZ0130": {
+  "domain": "gcldaz.org",
+  "source": "web-search",
+  "system": "Tonto Basin Public Library",
+  "state": "AZ"
+ },
+ "AZ0134": {
+  "domain": "eloyaz.gov",
+  "source": "web-search",
+  "system": "Eloy Santa Cruz Library",
+  "state": "AZ"
+ },
+ "AZ0135": {
+  "domain": "florenceaz.gov",
+  "source": "web-search",
+  "system": "Florence Community Library",
+  "state": "AZ"
+ },
+ "AZ0136": {
+  "domain": "public-libraries.com",
+  "source": "web-search",
+  "system": "Kearny Public Library",
+  "state": "AZ"
+ },
+ "AZ0137": {
+  "domain": "mammothaz.gov",
+  "source": "web-search",
+  "system": "Mammoth Public Library",
+  "state": "AZ"
+ },
+ "AZ0138": {
+  "domain": "maricopa-az.gov",
+  "source": "web-search",
+  "system": "Maricopa Library & Cultural Center",
+  "state": "AZ"
+ },
+ "AZ0141": {
+  "domain": "superior-arizona.com",
+  "source": "web-search",
+  "system": "Superior Public Library",
+  "state": "AZ"
+ },
+ "AZ0145": {
+  "domain": "public-libraries.com",
+  "source": "web-search",
+  "system": "Camp Verde Community Library",
+  "state": "AZ"
+ },
+ "AZ0146": {
+  "domain": "chinovalleyaz.gov",
+  "source": "web-search",
+  "system": "Chino Valley Public Library",
+  "state": "AZ"
+ },
+ "AZ0150": {
+  "domain": "cottonwoodaz.gov",
+  "source": "web-search",
+  "system": "Cottonwood Public Library",
+  "state": "AZ"
+ },
+ "AZ0152": {
+  "domain": "jerome.az.gov",
+  "source": "web-search",
+  "system": "Jerome Public Library",
+  "state": "AZ"
+ },
+ "AZ0154": {
+  "domain": "prescottvalley-az.gov",
+  "source": "web-search",
+  "system": "Prescott Valley Public Library",
+  "state": "AZ"
+ },
+ "AZ0158": {
+  "domain": "library.prescott-az.gov",
+  "source": "web-search",
+  "system": "Prescott Public Library",
+  "state": "AZ"
+ },
+ "AZ0163": {
+  "domain": "navajocountylibraries.org",
+  "source": "web-search",
+  "system": "Snowflake-Taylor Public Library",
+  "state": "AZ"
+ },
+ "AZ0164": {
+  "domain": "winslowaz.gov",
+  "source": "web-search",
+  "system": "Winslow Public Library",
+  "state": "AZ"
+ },
+ "AZ0165": {
+  "domain": "fredoniaaz.gov",
+  "source": "web-search",
+  "system": "Fredonia Public Library",
+  "state": "AZ"
+ },
+ "AZ0167": {
+  "domain": "pagepubliclibrary.org",
+  "source": "web-search",
+  "system": "Page Public Library",
+  "state": "AZ"
+ },
+ "AZ0168": {
+  "domain": "williamspubliclibrary.org",
+  "source": "web-search",
+  "system": "Williams Public Library",
+  "state": "AZ"
+ },
+ "AZ0173": {
+  "domain": "azlibrary.gov",
+  "source": "web-search",
+  "system": "The Edward Mcelwain Memorial Library",
+  "state": "AZ"
+ },
+ "AZ0174": {
+  "domain": "azlibrary.gov",
+  "source": "web-search",
+  "system": "Kaibab Paiute Tribal Library",
+  "state": "AZ"
+ },
+ "AZ0175": {
+  "domain": "ftmcdowelltriballibrary.org",
+  "source": "web-search",
+  "system": "Ft. Mcdowell Yavapai Nation Tribal Library",
+  "state": "AZ"
+ },
+ "AZ0176": {
+  "domain": "azlibrary.gov",
+  "source": "web-search",
+  "system": "Ira H. Hayes Memorial Library",
+  "state": "AZ"
  }
 }
