@@ -11548,5 +11548,605 @@
   "source": "web-search",
   "system": "Ira H. Hayes Memorial Library",
   "state": "AZ"
+ },
+ "AZ0084": {
+  "domain": "greenleelibraries.org",
+  "source": "web-search",
+  "system": "Duncan Public Library",
+  "state": "AZ"
+ },
+ "AZ0086": {
+  "domain": "dfla.org",
+  "source": "web-search",
+  "system": "Desert Foothills Library",
+  "state": "AZ"
+ },
+ "AZ0111": {
+  "domain": "bisbeeaz.gov",
+  "source": "web-search",
+  "system": "Copper Queen Library",
+  "state": "AZ"
+ },
+ "AZ0117": {
+  "domain": "ajpl.org",
+  "source": "web-search",
+  "system": "Apache Junction Public Library",
+  "state": "AZ"
+ },
+ "AZ0119": {
+  "domain": "azlibrary.gov",
+  "source": "web-search",
+  "system": "Venito Garcia Library And Archives",
+  "state": "AZ"
+ },
+ "AZ0131": {
+  "domain": "gcldaz.org",
+  "source": "web-search",
+  "system": "Young Public Library",
+  "state": "AZ"
+ },
+ "AZ0133": {
+  "domain": "coolidgeaz.com",
+  "source": "web-search",
+  "system": "Coolidge Public Library",
+  "state": "AZ"
+ },
+ "AZ0160": {
+  "domain": "holbrookaz.gov",
+  "source": "web-search",
+  "system": "Holbrook Public Library",
+  "state": "AZ"
+ },
+ "AZ0161": {
+  "domain": "pinetoplakesideaz.gov",
+  "source": "web-search",
+  "system": "Pinetop-Lakeside Public Library",
+  "state": "AZ"
+ },
+ "AZ0162": {
+  "domain": "showlowaz.gov",
+  "source": "web-search",
+  "system": "Show Low Public Library",
+  "state": "AZ"
+ },
+ "AZ0178": {
+  "domain": "fortmojaveindiantribe.com",
+  "source": "web-search",
+  "system": "Ava Ich Asiit Tribal Library",
+  "state": "AZ"
+ },
+ "AZ0179": {
+  "domain": "pascuayaqui-nsn.gov",
+  "source": "web-search",
+  "system": "Dr. Fernando Escalante Tribal Library",
+  "state": "AZ"
+ },
+ "AZ0180": {
+  "domain": "azlibrary.gov",
+  "source": "web-search",
+  "system": "Yavapai-Prescott Tribal Library",
+  "state": "AZ"
+ },
+ "AZ0182": {
+  "domain": "public-libraries.com",
+  "source": "web-search",
+  "system": "Ak-Chin Indian Community Library",
+  "state": "AZ"
+ },
+ "AZ0183": {
+  "domain": "azlibrary.gov",
+  "source": "web-search",
+  "system": "San Lucy Library",
+  "state": "AZ"
+ },
+ "AZ0184": {
+  "domain": "azlibrary.gov",
+  "source": "web-search",
+  "system": "San Xavier Learning Center Library",
+  "state": "AZ"
+ },
+ "CA0003": {
+  "domain": "alhambralibrary.org",
+  "source": "web-search",
+  "system": "Alhambra Civic Center Library",
+  "state": "CA"
+ },
+ "CA0008": {
+  "domain": "arcadiaca.gov",
+  "source": "web-search",
+  "system": "Arcadia Public Library",
+  "state": "CA"
+ },
+ "CA0010": {
+  "domain": "azusaca.gov",
+  "source": "web-search",
+  "system": "Azusa City Library",
+  "state": "CA"
+ },
+ "CA0014": {
+  "domain": "buenaparklibrary.org",
+  "source": "web-search",
+  "system": "Buena Park Library District",
+  "state": "CA"
+ },
+ "CA0022": {
+  "domain": "library.cerritos.gov",
+  "source": "web-search",
+  "system": "Cerritos Public Library",
+  "state": "CA"
+ },
+ "CA0029": {
+  "domain": "coronaca.gov",
+  "source": "web-search",
+  "system": "Corona Public Library",
+  "state": "CA"
+ },
+ "CA0030": {
+  "domain": "covinaca.gov",
+  "source": "web-search",
+  "system": "Covina Public Library",
+  "state": "CA"
+ },
+ "CA0034": {
+  "domain": "downeylibrary.org",
+  "source": "web-search",
+  "system": "Downey City Library",
+  "state": "CA"
+ },
+ "CA0041": {
+  "domain": "fullertonlibrary.org",
+  "source": "web-search",
+  "system": "Fullerton Public Library",
+  "state": "CA"
+ },
+ "CA0043": {
+  "domain": "cityofglendora.gov",
+  "source": "web-search",
+  "system": "Glendora Library & Cultural Center",
+  "state": "CA"
+ },
+ "CA0045": {
+  "domain": "hemetca.gov",
+  "source": "web-search",
+  "system": "Hemet Public Library",
+  "state": "CA"
+ },
+ "CA0048": {
+  "domain": "imperial.ca.gov",
+  "source": "web-search",
+  "system": "Imperial Public Library",
+  "state": "CA"
+ },
+ "CA0055": {
+  "domain": "larkspur.ca.gov",
+  "source": "web-search",
+  "system": "Larkspur Public Library",
+  "state": "CA"
+ },
+ "CA0057": {
+  "domain": "libraryatlincoln.org",
+  "source": "web-search",
+  "system": "Lincoln Public Library",
+  "state": "CA"
+ },
+ "CA0059": {
+  "domain": "library.lodi.gov",
+  "source": "web-search",
+  "system": "Lodi Public Library",
+  "state": "CA"
+ },
+ "CA0069": {
+  "domain": "millvalleylibrary.gov",
+  "source": "web-search",
+  "system": "Mill Valley Public Library",
+  "state": "CA"
+ },
+ "CA0072": {
+  "domain": "monroviaca.gov",
+  "source": "web-search",
+  "system": "Monrovia Public Library",
+  "state": "CA"
+ },
+ "CA0074": {
+  "domain": "montereylibrary.org",
+  "source": "web-search",
+  "system": "Monterey Public Library",
+  "state": "CA"
+ },
+ "CA0075": {
+  "domain": "library.montereypark.ca.gov",
+  "source": "web-search",
+  "system": "Monterey Park Bruggemeyer Library",
+  "state": "CA"
+ },
+ "CA0078": {
+  "domain": "nationalcityca.gov",
+  "source": "web-search",
+  "system": "National City Public Library",
+  "state": "CA"
+ },
+ "CA0086": {
+  "domain": "orlandfreelibrary.org",
+  "source": "web-search",
+  "system": "Orland Free Library",
+  "state": "CA"
+ },
+ "CA0088": {
+  "domain": "pacificgrovelibrary.org",
+  "source": "web-search",
+  "system": "Pacific Grove Public Library",
+  "state": "CA"
+ },
+ "CA0089": {
+  "domain": "cityofpalmdaleca.gov",
+  "source": "web-search",
+  "system": "Palmdale City Library",
+  "state": "CA"
+ },
+ "CA0093": {
+  "domain": "pvld.org",
+  "source": "web-search",
+  "system": "Palo Verde Valley Library District",
+  "state": "CA"
+ },
+ "CA0096": {
+  "domain": "placentialibrarydistrict.ca.gov",
+  "source": "web-search",
+  "system": "Placentia Library District",
+  "state": "CA"
+ },
+ "CA0098": {
+  "domain": "pomonaca.gov",
+  "source": "web-search",
+  "system": "Pomona Public Library",
+  "state": "CA"
+ },
+ "CA0099": {
+  "domain": "ci.porterville.ca.us",
+  "source": "web-search",
+  "system": "Porterville Public Library",
+  "state": "CA"
+ },
+ "CA0107": {
+  "domain": "sananselmo.gov",
+  "source": "web-search",
+  "system": "San Anselmo Public Library",
+  "state": "CA"
+ },
+ "CA0108": {
+  "domain": "sbcfl.org",
+  "source": "web-search",
+  "system": "San Benito County Free Library",
+  "state": "CA"
+ },
+ "CA0111": {
+  "domain": "sanbruno.ca.gov",
+  "source": "web-search",
+  "system": "San Bruno Public Library",
+  "state": "CA"
+ },
+ "CA0116": {
+  "domain": "san-juan-bautista.ca.us",
+  "source": "web-search",
+  "system": "San Juan Bautista City Library",
+  "state": "CA"
+ },
+ "CA0119": {
+  "domain": "sanmarinoca.gov",
+  "source": "web-search",
+  "system": "Crowell Public Library",
+  "state": "CA"
+ },
+ "CA0131": {
+  "domain": "blanchardlibrary.org",
+  "source": "web-search",
+  "system": "Blanchard/Santa Paula Public Library District",
+  "state": "CA"
+ },
+ "CA0132": {
+  "domain": "sausalitolibrary.org",
+  "source": "web-search",
+  "system": "Sausalito Public Library",
+  "state": "CA"
+ },
+ "CA0134": {
+  "domain": "sierramadreca.gov",
+  "source": "web-search",
+  "system": "Sierra Madre Public Library",
+  "state": "CA"
+ },
+ "CA0138": {
+  "domain": "southpasadenaca.gov",
+  "source": "web-search",
+  "system": "South Pasadena Public Library",
+  "state": "CA"
+ },
+ "CA0141": {
+  "domain": "shpl.org",
+  "source": "web-search",
+  "system": "St. Helena Public Library",
+  "state": "CA"
+ },
+ "CA0149": {
+  "domain": "tulare.ca.gov",
+  "source": "web-search",
+  "system": "Tulare Public Library",
+  "state": "CA"
+ },
+ "CA0151": {
+  "domain": "ci.upland.ca.us",
+  "source": "web-search",
+  "system": "Upland Public Library",
+  "state": "CA"
+ },
+ "CA0156": {
+  "domain": "woodlandpubliclibrary.com",
+  "source": "web-search",
+  "system": "Woodland Public Library",
+  "state": "CA"
+ },
+ "CA0158": {
+  "domain": "ylpl.org",
+  "source": "web-search",
+  "system": "Yorba Linda Public Library",
+  "state": "CA"
+ },
+ "CA0159": {
+  "domain": "yuba.gov",
+  "source": "web-search",
+  "system": "Yuba County Library",
+  "state": "CA"
+ },
+ "CA0160": {
+  "domain": "coronadolibrary.org",
+  "source": "web-search",
+  "system": "Coronado Public Library",
+  "state": "CA"
+ },
+ "CA0161": {
+  "domain": "irwindaleca.gov",
+  "source": "web-search",
+  "system": "Irwindale Public Library",
+  "state": "CA"
+ },
+ "CA0163": {
+  "domain": "benicialibrary.org",
+  "source": "web-search",
+  "system": "Benicia Public Library",
+  "state": "CA"
+ },
+ "CA0164": {
+  "domain": "losgatosca.gov",
+  "source": "web-search",
+  "system": "Los Gatos Library",
+  "state": "CA"
+ },
+ "CA0165": {
+  "domain": "akspl.org",
+  "source": "web-search",
+  "system": "A. K. Smiley Public Library",
+  "state": "CA"
+ },
+ "CA0166": {
+  "domain": "cityofsignalhill.org",
+  "source": "web-search",
+  "system": "Signal Hill Public Library",
+  "state": "CA"
+ },
+ "CA0167": {
+  "domain": "banninglibraryca.gov",
+  "source": "web-search",
+  "system": "Banning Library District",
+  "state": "CA"
+ },
+ "CA0168": {
+  "domain": "mybld.org",
+  "source": "web-search",
+  "system": "Beaumont Library District",
+  "state": "CA"
+ },
+ "CA0193": {
+  "domain": "library.folsom.ca.us",
+  "source": "web-search",
+  "system": "Folsom Public Library",
+  "state": "CA"
+ },
+ "CA0195": {
+  "domain": "lassenlibrary.org",
+  "source": "web-search",
+  "system": "Lassen Library District",
+  "state": "CA"
+ },
+ "CA0196": {
+  "domain": "ranchomiragelibrary.org",
+  "source": "web-search",
+  "system": "Rancho Mirage Public Library",
+  "state": "CA"
+ },
+ "CA0197": {
+  "domain": "beltiblibrary.org",
+  "source": "web-search",
+  "system": "Belvedere-Tiburon Library",
+  "state": "CA"
+ },
+ "CA0198": {
+  "domain": "missionviejo.gov",
+  "source": "web-search",
+  "system": "Mission Viejo Library",
+  "state": "CA"
+ },
+ "CA0201": {
+  "domain": "cityofcalabasas.com",
+  "source": "web-search",
+  "system": "Calabasas City Library",
+  "state": "CA"
+ },
+ "CA0202": {
+  "domain": "murrietaca.gov",
+  "source": "web-search",
+  "system": "Murrieta Public Library",
+  "state": "CA"
+ },
+ "CA0206": {
+  "domain": "cityofpleasantonca.gov",
+  "source": "web-search",
+  "system": "Pleasanton Public Library",
+  "state": "CA"
+ },
+ "CA0207": {
+  "domain": "victorvilleca.gov",
+  "source": "web-search",
+  "system": "Victorville City Library",
+  "state": "CA"
+ },
+ "CA0208": {
+  "domain": "moorparkca.gov",
+  "source": "web-search",
+  "system": "Moorpark City Library",
+  "state": "CA"
+ },
+ "CA0209": {
+  "domain": "camarillolibrary.org",
+  "source": "web-search",
+  "system": "Camarillo Public Library",
+  "state": "CA"
+ },
+ "CA0211": {
+  "domain": "simivalleylibrary.org",
+  "source": "web-search",
+  "system": "Simi Valley Public Library",
+  "state": "CA"
+ },
+ "CA0212": {
+  "domain": "lawlibrary.alamedacountyca.gov",
+  "source": "web-search",
+  "system": "Bernard E. Witkin Alameda County Law Library",
+  "state": "CA"
+ },
+ "CA0215": {
+  "domain": "buttecountylawlibrary.org",
+  "source": "web-search",
+  "system": "Butte County Public Law Library",
+  "state": "CA"
+ },
+ "CA0216": {
+  "domain": "library.calaverasgov.us",
+  "source": "web-search",
+  "system": "Calaveras County Law Library",
+  "state": "CA"
+ },
+ "CA0220": {
+  "domain": "eldoradocountylawlibrary.org",
+  "source": "web-search",
+  "system": "El Dorado County Law Library",
+  "state": "CA"
+ },
+ "CA0221": {
+  "domain": "fresnolawlibrary.org",
+  "source": "web-search",
+  "system": "Fresno County Public Law Library",
+  "state": "CA"
+ },
+ "CA0223": {
+  "domain": "publiclawlibrary.info",
+  "source": "web-search",
+  "system": "Humboldt County Law Library",
+  "state": "CA"
+ },
+ "CA0224": {
+  "domain": "imperialcourt.org",
+  "source": "web-search",
+  "system": "Imperial County Law Library",
+  "state": "CA"
+ },
+ "CA0226": {
+  "domain": "kclawlib.org",
+  "source": "web-search",
+  "system": "Kern County Law Library",
+  "state": "CA"
+ },
+ "CA0228": {
+  "domain": "lakecountyca.gov",
+  "source": "web-search",
+  "system": "Lake County Law Library",
+  "state": "CA"
+ },
+ "CA0231": {
+  "domain": "maderacounty.com",
+  "source": "web-search",
+  "system": "Madera County Law Library",
+  "state": "CA"
+ },
+ "CA0232": {
+  "domain": "marincountylawlibrary.org",
+  "source": "web-search",
+  "system": "Marin County Law Library",
+  "state": "CA"
+ },
+ "CA0234": {
+  "domain": "mendocinocounty.gov",
+  "source": "web-search",
+  "system": "Mendocino County Law Library",
+  "state": "CA"
+ },
+ "CA0240": {
+  "domain": "nevada.courts.ca.gov",
+  "source": "web-search",
+  "system": "Nevada County Law Library",
+  "state": "CA"
+ },
+ "CA0241": {
+  "domain": "ocpll.org",
+  "source": "web-search",
+  "system": "Orange County Public Law Library",
+  "state": "CA"
+ },
+ "CA0242": {
+  "domain": "placerlaw.org",
+  "source": "web-search",
+  "system": "Sparks Law Library Of Placer County",
+  "state": "CA"
+ },
+ "CA0245": {
+  "domain": "saclaw.org",
+  "source": "web-search",
+  "system": "Sacramento County Public Law Library",
+  "state": "CA"
+ },
+ "CA0249": {
+  "domain": "sf.gov",
+  "source": "web-search",
+  "system": "San Francisco Law Library",
+  "state": "CA"
+ },
+ "CA0250": {
+  "domain": "sjclawlibrary.org",
+  "source": "web-search",
+  "system": "San Joaquin County Law Library",
+  "state": "CA"
+ },
+ "CA0251": {
+  "domain": "slocll.org",
+  "source": "web-search",
+  "system": "San Luis Obispo County Law Library",
+  "state": "CA"
+ },
+ "CA0252": {
+  "domain": "smclawlibrary.org",
+  "source": "web-search",
+  "system": "San Mateo County Law Library",
+  "state": "CA"
+ },
+ "CA0254": {
+  "domain": "sccll.org",
+  "source": "web-search",
+  "system": "Santa Clara County Law Library",
+  "state": "CA"
+ },
+ "CA0255": {
+  "domain": "sclawlib.org",
+  "source": "web-search",
+  "system": "Santa Cruz County Law Library",
+  "state": "CA"
  }
 }
