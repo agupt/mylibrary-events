@@ -12148,5 +12148,605 @@
   "source": "web-search",
   "system": "Santa Cruz County Law Library",
   "state": "CA"
+ },
+ "CA0256": {
+  "domain": "shastacounty.gov",
+  "source": "web-search",
+  "system": "Shasta County Public Law Library",
+  "state": "CA"
+ },
+ "CA0259": {
+  "domain": "solanolibrary.gov",
+  "source": "web-search",
+  "system": "Solano County Law Library",
+  "state": "CA"
+ },
+ "CA0260": {
+  "domain": "sonomacounty.gov",
+  "source": "web-search",
+  "system": "Sonoma County Public Law Library",
+  "state": "CA"
+ },
+ "CA0261": {
+  "domain": "stanlaw.org",
+  "source": "web-search",
+  "system": "Stanislaus County Law Library",
+  "state": "CA"
+ },
+ "CA0267": {
+  "domain": "library.venturacounty.gov",
+  "source": "web-search",
+  "system": "Ventura County Law Library",
+  "state": "CA"
+ },
+ "CA0268": {
+  "domain": "yololawlibrary.org",
+  "source": "web-search",
+  "system": "Yolo County Law Library",
+  "state": "CA"
+ },
+ "CA0270": {
+  "domain": "loomislibrary.org",
+  "source": "web-search",
+  "system": "Loomis Library & Community Learning Center",
+  "state": "CA"
+ },
+ "CA0272": {
+  "domain": "shafterlearning.com",
+  "source": "web-search",
+  "system": "Shafter Library",
+  "state": "CA"
+ },
+ "CO0003": {
+  "domain": "akron.colibraries.org",
+  "source": "web-search",
+  "system": "Akron Public Library",
+  "state": "CO"
+ },
+ "CO0004": {
+  "domain": "alamosalibrary.org",
+  "source": "web-search",
+  "system": "Alamosa Public Library",
+  "state": "CO"
+ },
+ "CO0006": {
+  "domain": "pagosalibrary.org",
+  "source": "web-search",
+  "system": "Upper San Juan Library District",
+  "state": "CO"
+ },
+ "CO0009": {
+  "domain": "basaltlibrary.org",
+  "source": "web-search",
+  "system": "Basalt Regional Library District",
+  "state": "CO"
+ },
+ "CO0010": {
+  "domain": "prlibrary.org",
+  "source": "web-search",
+  "system": "Pine River Public Library District/Bayfield",
+  "state": "CO"
+ },
+ "CO0011": {
+  "domain": "berthoudcommunitylibrary.org",
+  "source": "web-search",
+  "system": "Berthoud Community Library District",
+  "state": "CO"
+ },
+ "CO0013": {
+  "domain": "broomfield.org",
+  "source": "web-search",
+  "system": "Broomfield/Eisenhower Public Library",
+  "state": "CO"
+ },
+ "CO0014": {
+  "domain": "emcld.org",
+  "source": "web-search",
+  "system": "East Morgan County Library District/Brush",
+  "state": "CO"
+ },
+ "CO0015": {
+  "domain": "buenavistalibrary.org",
+  "source": "web-search",
+  "system": "Northern Chaffee County Library District (Buena Vista)",
+  "state": "CO"
+ },
+ "CO0016": {
+  "domain": "burlingtoncolo.com",
+  "source": "web-search",
+  "system": "Burlington Public Library",
+  "state": "CO"
+ },
+ "CO0021": {
+  "domain": "cortezco.gov",
+  "source": "web-search",
+  "system": "Cortez Public Library",
+  "state": "CO"
+ },
+ "CO0026": {
+  "domain": "westcusterlibrary.org",
+  "source": "web-search",
+  "system": "West Custer County Library District",
+  "state": "CO"
+ },
+ "CO0036": {
+  "domain": "doloreslibrary.org",
+  "source": "web-search",
+  "system": "Dolores Library District/Montezuma County",
+  "state": "CO"
+ },
+ "CO0038": {
+  "domain": "durangoco.gov",
+  "source": "web-search",
+  "system": "Durango Public Library",
+  "state": "CO"
+ },
+ "CO0041": {
+  "domain": "englewoodco.gov",
+  "source": "web-search",
+  "system": "Englewood Public Library",
+  "state": "CO"
+ },
+ "CO0042": {
+  "domain": "estesvalleylibrary.org",
+  "source": "web-search",
+  "system": "Estes Valley Public Library District",
+  "state": "CO"
+ },
+ "CO0045": {
+  "domain": "jcfld.org",
+  "source": "web-search",
+  "system": "John C. Fremont Library District (Florence)",
+  "state": "CO"
+ },
+ "CO0047": {
+  "domain": "cityoffortmorgan.com",
+  "source": "web-search",
+  "system": "Fort Morgan Public Library",
+  "state": "CO"
+ },
+ "CO0048": {
+  "domain": "fowlercolorado.com",
+  "source": "web-search",
+  "system": "Fowler Public Library",
+  "state": "CO"
+ },
+ "CO0050": {
+  "domain": "gilpinlibrary.org",
+  "source": "web-search",
+  "system": "Gilpin County Library District",
+  "state": "CO"
+ },
+ "CO0053": {
+  "domain": "haxtun.colibraries.org",
+  "source": "web-search",
+  "system": "Haxtun Public Library",
+  "state": "CO"
+ },
+ "CO0054": {
+  "domain": "haydenpubliclibrary.org",
+  "source": "web-search",
+  "system": "West Routt Library District/Hayden",
+  "state": "CO"
+ },
+ "CO0055": {
+  "domain": "townofhollyco.gov",
+  "source": "web-search",
+  "system": "Holly Public Library",
+  "state": "CO"
+ },
+ "CO0056": {
+  "domain": "heginbotham.colibraries.org",
+  "source": "web-search",
+  "system": "Holyoke/Heginbotham Library",
+  "state": "CO"
+ },
+ "CO0057": {
+  "domain": "spld.org",
+  "source": "web-search",
+  "system": "Spanish Peaks Library District",
+  "state": "CO"
+ },
+ "CO0058": {
+  "domain": "lincolncounty.colibraries.org",
+  "source": "web-search",
+  "system": "Hugo Public Library",
+  "state": "CO"
+ },
+ "CO0059": {
+  "domain": "jacksoncounty.colorado.gov",
+  "source": "web-search",
+  "system": "Jackson County Public Library",
+  "state": "CO"
+ },
+ "CO0061": {
+  "domain": "julesburg.colibraries.org",
+  "source": "web-search",
+  "system": "Julesburg Public Library",
+  "state": "CO"
+ },
+ "CO0062": {
+  "domain": "kiowacounty.colibraries.org",
+  "source": "web-search",
+  "system": "Kiowa County Public Library District",
+  "state": "CO"
+ },
+ "CO0063": {
+  "domain": "lajunta.colibraries.org",
+  "source": "web-search",
+  "system": "La Junta/Woodruff Memorial Library",
+  "state": "CO"
+ },
+ "CO0065": {
+  "domain": "lafayetteco.gov",
+  "source": "web-search",
+  "system": "Lafayette Public Library",
+  "state": "CO"
+ },
+ "CO0066": {
+  "domain": "lakecitypubliclibrary.com",
+  "source": "web-search",
+  "system": "Hinsdale Library District/Lake City",
+  "state": "CO"
+ },
+ "CO0067": {
+  "domain": "lakecountypubliclibrary.org",
+  "source": "web-search",
+  "system": "Lake County Public Library",
+  "state": "CO"
+ },
+ "CO0068": {
+  "domain": "lamarlibrary.colibraries.org",
+  "source": "web-search",
+  "system": "Lamar Public Library",
+  "state": "CO"
+ },
+ "CO0069": {
+  "domain": "labclibrary.com",
+  "source": "web-search",
+  "system": "Las Animas-Bent County Library District",
+  "state": "CO"
+ },
+ "CO0070": {
+  "domain": "lincolncounty.colibraries.org",
+  "source": "web-search",
+  "system": "Limon Memorial Library",
+  "state": "CO"
+ },
+ "CO0072": {
+  "domain": "library.littletonco.gov",
+  "source": "web-search",
+  "system": "Littleton/Bemis Public Library",
+  "state": "CO"
+ },
+ "CO0073": {
+  "domain": "longmontcolorado.gov",
+  "source": "web-search",
+  "system": "Longmont Public Library",
+  "state": "CO"
+ },
+ "CO0074": {
+  "domain": "louisvilleco.gov",
+  "source": "web-search",
+  "system": "Louisville Public Library",
+  "state": "CO"
+ },
+ "CO0075": {
+  "domain": "lovelandpubliclibrary.org",
+  "source": "web-search",
+  "system": "Loveland Public Library",
+  "state": "CO"
+ },
+ "CO0077": {
+  "domain": "lyons.colibraries.org",
+  "source": "web-search",
+  "system": "Lyons Regional Library District",
+  "state": "CO"
+ },
+ "CO0078": {
+  "domain": "mancoslibrary.org",
+  "source": "web-search",
+  "system": "Mancos Library District",
+  "state": "CO"
+ },
+ "CO0081": {
+  "domain": "meekerlibrary.specialdistrict.org",
+  "source": "web-search",
+  "system": "Meeker Regional Library District",
+  "state": "CO"
+ },
+ "CO0083": {
+  "domain": "mineralcountycolorado.com",
+  "source": "web-search",
+  "system": "Mineral County School/Regional Public Library",
+  "state": "CO"
+ },
+ "CO0087": {
+  "domain": "loneconelibrary.org",
+  "source": "web-search",
+  "system": "Lone Cone Library District (Norwood)",
+  "state": "CO"
+ },
+ "CO0088": {
+  "domain": "nuclapl.colibraries.org",
+  "source": "web-search",
+  "system": "Nucla Public Library",
+  "state": "CO"
+ },
+ "CO0092": {
+  "domain": "ouray.colibraries.org",
+  "source": "web-search",
+  "system": "Ouray Library District",
+  "state": "CO"
+ },
+ "CO0095": {
+  "domain": "penrose.colibraries.org",
+  "source": "web-search",
+  "system": "Penrose Community Library District",
+  "state": "CO"
+ },
+ "CO0098": {
+  "domain": "pitcolib.org",
+  "source": "web-search",
+  "system": "Pitkin County Library",
+  "state": "CO"
+ },
+ "CO0100": {
+  "domain": "discoverrangely.com",
+  "source": "web-search",
+  "system": "Rangely Regional Library District",
+  "state": "CO"
+ },
+ "CO0102": {
+  "domain": "rockyford.colibraries.org",
+  "source": "web-search",
+  "system": "Rocky Ford Public Library",
+  "state": "CO"
+ },
+ "CO0109": {
+  "domain": "salidalibrary.org",
+  "source": "web-search",
+  "system": "Southern Chaffee County Regional Lib Dist/Salida",
+  "state": "CO"
+ },
+ "CO0110": {
+  "domain": "securitypubliclibrary.org",
+  "source": "web-search",
+  "system": "Security Public Library",
+  "state": "CO"
+ },
+ "CO0111": {
+  "domain": "silverton.colibraries.org",
+  "source": "web-search",
+  "system": "Silverton Public Library",
+  "state": "CO"
+ },
+ "CO0112": {
+  "domain": "steamboatlibrary.org",
+  "source": "web-search",
+  "system": "East Routt Library District",
+  "state": "CO"
+ },
+ "CO0113": {
+  "domain": "sterlingcolo.com",
+  "source": "web-search",
+  "system": "Sterling Public Library",
+  "state": "CO"
+ },
+ "CO0114": {
+  "domain": "stratton.colibraries.org",
+  "source": "web-search",
+  "system": "Stratton Public Library",
+  "state": "CO"
+ },
+ "CO0116": {
+  "domain": "lawhelp.colorado.gov",
+  "source": "web-search",
+  "system": "Swink School/Public Library",
+  "state": "CO"
+ },
+ "CO0117": {
+  "domain": "telluridelibrary.org",
+  "source": "web-search",
+  "system": "San Miguel Library District # 1 (Telluride)",
+  "state": "CO"
+ },
+ "CO0118": {
+  "domain": "trinidadpubliclibrary.org",
+  "source": "web-search",
+  "system": "Trinidad Carnegie Public Library",
+  "state": "CO"
+ },
+ "CO0119": {
+  "domain": "vaillibrary.com",
+  "source": "web-search",
+  "system": "Vail Public Library",
+  "state": "CO"
+ },
+ "CO0129": {
+  "domain": "wellington.colibraries.org",
+  "source": "web-search",
+  "system": "Wellington Public Library",
+  "state": "CO"
+ },
+ "CO0131": {
+  "domain": "clearviewlibrary.org",
+  "source": "web-search",
+  "system": "Clearview Library District",
+  "state": "CO"
+ },
+ "CO0133": {
+  "domain": "cityofwray.org",
+  "source": "web-search",
+  "system": "Wray Public Library",
+  "state": "CO"
+ },
+ "CO0134": {
+  "domain": "yuma.colibraries.org",
+  "source": "web-search",
+  "system": "Yuma Public Library",
+  "state": "CO"
+ },
+ "CO0141": {
+  "domain": "ignaciolibrary.org",
+  "source": "web-search",
+  "system": "Ignacio Community Library District",
+  "state": "CO"
+ },
+ "CO9014": {
+  "domain": "flagler.colibraries.org",
+  "source": "web-search",
+  "system": "Flagler Community Library",
+  "state": "CO"
+ },
+ "CO9015": {
+  "domain": "flemingcolorado.us",
+  "source": "web-search",
+  "system": "Fleming Community Library (School/Public)",
+  "state": "CO"
+ },
+ "CO9016": {
+  "domain": "redfeather.colibraries.org",
+  "source": "web-search",
+  "system": "Red Feather Mountain Library District",
+  "state": "CO"
+ },
+ "CO9017": {
+  "domain": "eccld.org",
+  "source": "web-search",
+  "system": "East Cheyenne County Library District",
+  "state": "CO"
+ },
+ "CO9018": {
+  "domain": "ridgwaycolibrary.org",
+  "source": "web-search",
+  "system": "Ridgway Public Library District",
+  "state": "CO"
+ },
+ "CO9019": {
+  "domain": "aguilartownlibrary.com",
+  "source": "web-search",
+  "system": "Aguilar Public Library",
+  "state": "CO"
+ },
+ "CO9023": {
+  "domain": "wetmore.colibraries.org",
+  "source": "web-search",
+  "system": "Wetmore Community Library",
+  "state": "CO"
+ },
+ "CO9025": {
+  "domain": "nederland.colibraries.org",
+  "source": "web-search",
+  "system": "Boulder County Nederland Community Library District",
+  "state": "CO"
+ },
+ "CT0001": {
+  "domain": "andoverconnecticut.org",
+  "source": "web-search",
+  "system": "Andover Public Library",
+  "state": "CT"
+ },
+ "CT0002": {
+  "domain": "ansonialibrary.org",
+  "source": "web-search",
+  "system": "Ansonia Library",
+  "state": "CT"
+ },
+ "CT0003": {
+  "domain": "babcocklibrary.org",
+  "source": "web-search",
+  "system": "Babcock Library",
+  "state": "CT"
+ },
+ "CT0004": {
+  "domain": "avonctlibrary.info",
+  "source": "web-search",
+  "system": "Avon Free Public Library",
+  "state": "CT"
+ },
+ "CT0005": {
+  "domain": "beaconfallslibrary.org",
+  "source": "web-search",
+  "system": "Beacon Falls Public Library",
+  "state": "CT"
+ },
+ "CT0006": {
+  "domain": "berlinpeck.org",
+  "source": "web-search",
+  "system": "East Berlin Library Association",
+  "state": "CT"
+ },
+ "CT0007": {
+  "domain": "berlinpeck.org",
+  "source": "web-search",
+  "system": "Berlin-Peck Memorial Library",
+  "state": "CT"
+ },
+ "CT0008": {
+  "domain": "berlinpeck.org",
+  "source": "web-search",
+  "system": "Berlin Free Library Association",
+  "state": "CT"
+ },
+ "CT0009": {
+  "domain": "bethanylibrary.org",
+  "source": "web-search",
+  "system": "Clark Memorial Library",
+  "state": "CT"
+ },
+ "CT0010": {
+  "domain": "bethellibrary.org",
+  "source": "web-search",
+  "system": "Bethel Public Library",
+  "state": "CT"
+ },
+ "CT0011": {
+  "domain": "bethlehemlibraryct.org",
+  "source": "web-search",
+  "system": "Bethlehem Public Library",
+  "state": "CT"
+ },
+ "CT0013": {
+  "domain": "boltonct.gov",
+  "source": "web-search",
+  "system": "Bentley Memorial Library",
+  "state": "CT"
+ },
+ "CT0014": {
+  "domain": "blackstonelibrary.org",
+  "source": "web-search",
+  "system": "James Blackstone Memorial Library",
+  "state": "CT"
+ },
+ "CT0015": {
+  "domain": "wwml.org",
+  "source": "web-search",
+  "system": "Willoughby Wallace Memorial Library",
+  "state": "CT"
+ },
+ "CT0017": {
+  "domain": "burnhamlibrary.org",
+  "source": "web-search",
+  "system": "Burnham Library",
+  "state": "CT"
+ },
+ "CT0019": {
+  "domain": "brookfieldlibrary.org",
+  "source": "web-search",
+  "system": "Brookfield Library",
+  "state": "CT"
+ },
+ "CT0020": {
+  "domain": "brooklyntownlibrary.org",
+  "source": "web-search",
+  "system": "Brooklyn Town Library Association",
+  "state": "CT"
+ },
+ "CT0021": {
+  "domain": "burlingtonctlibrary.org",
+  "source": "web-search",
+  "system": "Burlington Public Library",
+  "state": "CT"
  }
 }
