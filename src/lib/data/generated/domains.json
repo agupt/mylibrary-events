@@ -12748,5 +12748,605 @@
   "source": "web-search",
   "system": "Burlington Public Library",
   "state": "CT"
+ },
+ "CT0022": {
+  "domain": "huntlibrary.org",
+  "source": "web-search",
+  "system": "David M. Hunt Library",
+  "state": "CT"
+ },
+ "CT0023": {
+  "domain": "canterburylibrary.org",
+  "source": "web-search",
+  "system": "Canterbury Public Library",
+  "state": "CT"
+ },
+ "CT0024": {
+  "domain": "cantonpubliclibrary.org",
+  "source": "web-search",
+  "system": "Canton Public Library",
+  "state": "CT"
+ },
+ "CT0025": {
+  "domain": "chaplinpubliclibrary.org",
+  "source": "web-search",
+  "system": "Chaplin Public Library",
+  "state": "CT"
+ },
+ "CT0026": {
+  "domain": "chesterctlibrary.com",
+  "source": "web-search",
+  "system": "Chester Public Library",
+  "state": "CT"
+ },
+ "CT0027": {
+  "domain": "events.hchlibrary.org",
+  "source": "web-search",
+  "system": "Henry Carter Hull Library",
+  "state": "CT"
+ },
+ "CT0028": {
+  "domain": "colchesterct.gov",
+  "source": "web-search",
+  "system": "Cragin Memorial Library",
+  "state": "CT"
+ },
+ "CT0029": {
+  "domain": "columbiactlibrary.org",
+  "source": "web-search",
+  "system": "Saxton B. Little Free Library",
+  "state": "CT"
+ },
+ "CT0030": {
+  "domain": "cornwalllibrary.org",
+  "source": "web-search",
+  "system": "Cornwall Library Association",
+  "state": "CT"
+ },
+ "CT0032": {
+  "domain": "cromwellct.gov",
+  "source": "web-search",
+  "system": "Cromwell Belden Public Library",
+  "state": "CT"
+ },
+ "CT0033": {
+  "domain": "danburylibrary.org",
+  "source": "web-search",
+  "system": "Danbury Public Library",
+  "state": "CT"
+ },
+ "CT0034": {
+  "domain": "thelongridgelibrary.org",
+  "source": "web-search",
+  "system": "Long Ridge Library",
+  "state": "CT"
+ },
+ "CT0035": {
+  "domain": "darienlibrary.org",
+  "source": "web-search",
+  "system": "Darien Library",
+  "state": "CT"
+ },
+ "CT0036": {
+  "domain": "deepriverlibrary.ca",
+  "source": "web-search",
+  "system": "Deep River Public Library",
+  "state": "CT"
+ },
+ "CT0037": {
+  "domain": "derbynecklibrary.org",
+  "source": "web-search",
+  "system": "Derby Neck Library",
+  "state": "CT"
+ },
+ "CT0038": {
+  "domain": "derbypubliclibrary.org",
+  "source": "web-search",
+  "system": "Derby Public Library",
+  "state": "CT"
+ },
+ "CT0039": {
+  "domain": "durhamlibrary.org",
+  "source": "web-search",
+  "system": "Durham Public Library",
+  "state": "CT"
+ },
+ "CT0040": {
+  "domain": "egpl.org",
+  "source": "web-search",
+  "system": "East Granby Public Library",
+  "state": "CT"
+ },
+ "CT0043": {
+  "domain": "easthamptonpubliclibrary.org",
+  "source": "web-search",
+  "system": "East Hampton Public Library",
+  "state": "CT"
+ },
+ "CT0044": {
+  "domain": "middlehaddamlibrary.com",
+  "source": "web-search",
+  "system": "Middle Haddam Public Library",
+  "state": "CT"
+ },
+ "CT0045": {
+  "domain": "easthartfordct.gov",
+  "source": "web-search",
+  "system": "East Hartford Public Library",
+  "state": "CT"
+ },
+ "CT0046": {
+  "domain": "hagamanlibrary.org",
+  "source": "web-search",
+  "system": "Hagaman Memorial Library",
+  "state": "CT"
+ },
+ "CT0047": {
+  "domain": "eastlymepubliclibrary.org",
+  "source": "web-search",
+  "system": "East Lyme Public Library",
+  "state": "CT"
+ },
+ "CT0048": {
+  "domain": "eastonlibrary.org",
+  "source": "web-search",
+  "system": "Easton Public Library",
+  "state": "CT"
+ },
+ "CT0049": {
+  "domain": "bblib.org",
+  "source": "web-search",
+  "system": "Broad Brook Library",
+  "state": "CT"
+ },
+ "CT0050": {
+  "domain": "warehousepointlibrary.info",
+  "source": "web-search",
+  "system": "Library Association Of Warehouse Point",
+  "state": "CT"
+ },
+ "CT0051": {
+  "domain": "library.ellington-ct.gov",
+  "source": "web-search",
+  "system": "Hall Memorial Library",
+  "state": "CT"
+ },
+ "CT0053": {
+  "domain": "youressexlibrary.org",
+  "source": "web-search",
+  "system": "Essex Library Association",
+  "state": "CT"
+ },
+ "CT0054": {
+  "domain": "ivorytonlibrary.org",
+  "source": "web-search",
+  "system": "Ivoryton Library Association",
+  "state": "CT"
+ },
+ "CT0056": {
+  "domain": "pequotlibrary.org",
+  "source": "web-search",
+  "system": "Pequot Library Association",
+  "state": "CT"
+ },
+ "CT0058": {
+  "domain": "glastonburyct.gov",
+  "source": "web-search",
+  "system": "East Glastonbury Public Library",
+  "state": "CT"
+ },
+ "CT0059": {
+  "domain": "wtmlib.info",
+  "source": "web-search",
+  "system": "Welles-Turner Memorial Library",
+  "state": "CT"
+ },
+ "CT0060": {
+  "domain": "southglastonburypubliclibrary.org",
+  "source": "web-search",
+  "system": "South Glastonbury Public Library",
+  "state": "CT"
+ },
+ "CT0061": {
+  "domain": "goshenpublib.org",
+  "source": "web-search",
+  "system": "Goshen Public Library",
+  "state": "CT"
+ },
+ "CT0064": {
+  "domain": "perrotlibrary.org",
+  "source": "web-search",
+  "system": "Perrot Memorial Library",
+  "state": "CT"
+ },
+ "CT0066": {
+  "domain": "slaterlibraryct.org",
+  "source": "web-search",
+  "system": "Slater Library",
+  "state": "CT"
+ },
+ "CT0067": {
+  "domain": "billmemorial.org",
+  "source": "web-search",
+  "system": "Bill Memorial Library",
+  "state": "CT"
+ },
+ "CT0068": {
+  "domain": "groton-ct.gov",
+  "source": "web-search",
+  "system": "Groton Public Library",
+  "state": "CT"
+ },
+ "CT0069": {
+  "domain": "mysticnoanklibrary.org",
+  "source": "web-search",
+  "system": "Mystic & Noank Library",
+  "state": "CT"
+ },
+ "CT0070": {
+  "domain": "guilfordfreelibrary.org",
+  "source": "web-search",
+  "system": "Guilford Free Library",
+  "state": "CT"
+ },
+ "CT0071": {
+  "domain": "brainerdlibrary.org",
+  "source": "web-search",
+  "system": "Brainerd Memorial Library",
+  "state": "CT"
+ },
+ "CT0075": {
+  "domain": "harwintonlibrary.org",
+  "source": "web-search",
+  "system": "Harwinton Public Library",
+  "state": "CT"
+ },
+ "CT0076": {
+  "domain": "douglaslibrary.org",
+  "source": "web-search",
+  "system": "Douglas Library Of Hebron",
+  "state": "CT"
+ },
+ "CT0077": {
+  "domain": "kentmemoriallibrary.org",
+  "source": "web-search",
+  "system": "Kent Library Association",
+  "state": "CT"
+ },
+ "CT0078": {
+  "domain": "killinglypl.org",
+  "source": "web-search",
+  "system": "Killingly Public Library",
+  "state": "CT"
+ },
+ "CT0079": {
+  "domain": "killingworthlibrary.org",
+  "source": "web-search",
+  "system": "Killingworth Library",
+  "state": "CT"
+ },
+ "CT0080": {
+  "domain": "lebanonctlibrary.org",
+  "source": "web-search",
+  "system": "Jonathan Trumbull Library",
+  "state": "CT"
+ },
+ "CT0082": {
+  "domain": "gilbertlibrary.org",
+  "source": "web-search",
+  "system": "Gilbert Library",
+  "state": "CT"
+ },
+ "CT0083": {
+  "domain": "owlibrary.org",
+  "source": "web-search",
+  "system": "Oliver Wolcott Library",
+  "state": "CT"
+ },
+ "CT0084": {
+  "domain": "lymepl.org",
+  "source": "web-search",
+  "system": "Lyme Public Library",
+  "state": "CT"
+ },
+ "CT0085": {
+  "domain": "scrantonlibrary.org",
+  "source": "web-search",
+  "system": "E.C. Scranton Memorial Library",
+  "state": "CT"
+ },
+ "CT0088": {
+  "domain": "richmondlibrary.info",
+  "source": "web-search",
+  "system": "Richmond Memorial Library",
+  "state": "CT"
+ },
+ "CT0089": {
+  "domain": "meridenlibrary.org",
+  "source": "web-search",
+  "system": "Meriden Public Library",
+  "state": "CT"
+ },
+ "CT0090": {
+  "domain": "middleburypubliclibrary.org",
+  "source": "web-search",
+  "system": "Middlebury Public Library",
+  "state": "CT"
+ },
+ "CT0091": {
+  "domain": "leviecoe.com",
+  "source": "web-search",
+  "system": "Levi E. Coe Library",
+  "state": "CT"
+ },
+ "CT0092": {
+  "domain": "russelllibrary.org",
+  "source": "web-search",
+  "system": "Russell Library",
+  "state": "CT"
+ },
+ "CT0093": {
+  "domain": "milfordct.us",
+  "source": "web-search",
+  "system": "Milford Public Library",
+  "state": "CT"
+ },
+ "CT0094": {
+  "domain": "ewml.org",
+  "source": "web-search",
+  "system": "Edith Wheeler Memorial Library",
+  "state": "CT"
+ },
+ "CT0095": {
+  "domain": "easthartfordct.gov",
+  "source": "web-search",
+  "system": "Raymond Library",
+  "state": "CT"
+ },
+ "CT0096": {
+  "domain": "morrispubliclibrary.net",
+  "source": "web-search",
+  "system": "Morris Public Library",
+  "state": "CT"
+ },
+ "CT0097": {
+  "domain": "whittemorelibrary.org",
+  "source": "web-search",
+  "system": "Howard Whittemore Memorial Library",
+  "state": "CT"
+ },
+ "CT0099": {
+  "domain": "newcanaanlibrary.org",
+  "source": "web-search",
+  "system": "New Canaan Library",
+  "state": "CT"
+ },
+ "CT0100": {
+  "domain": "newfairfieldlibrary.org",
+  "source": "web-search",
+  "system": "New Fairfield Free Public Library",
+  "state": "CT"
+ },
+ "CT0101": {
+  "domain": "bakervillelibrary.org",
+  "source": "web-search",
+  "system": "Bakerville Library, Inc.",
+  "state": "CT"
+ },
+ "CT0102": {
+  "domain": "beekleylibrary.org",
+  "source": "web-search",
+  "system": "Licia & Mason Beekley Community Library",
+  "state": "CT"
+ },
+ "CT0104": {
+  "domain": "newingtonct.gov",
+  "source": "web-search",
+  "system": "Lucy Robbins Welles Library",
+  "state": "CT"
+ },
+ "CT0105": {
+  "domain": "plnl.org",
+  "source": "web-search",
+  "system": "Public Library Of New London",
+  "state": "CT"
+ },
+ "CT0106": {
+  "domain": "newmilfordlibrary.org",
+  "source": "web-search",
+  "system": "New Milford Public Library",
+  "state": "CT"
+ },
+ "CT0107": {
+  "domain": "chboothlibrary.org",
+  "source": "web-search",
+  "system": "Cyrenius H. Booth Library",
+  "state": "CT"
+ },
+ "CT0108": {
+  "domain": "norfolklibrary.org",
+  "source": "web-search",
+  "system": "Norfolk Library",
+  "state": "CT"
+ },
+ "CT0110": {
+  "domain": "douglaslibrary.org",
+  "source": "web-search",
+  "system": "Douglas Library",
+  "state": "CT"
+ },
+ "CT0111": {
+  "domain": "northhavenlibrary.net",
+  "source": "web-search",
+  "system": "North Haven Memorial Library",
+  "state": "CT"
+ },
+ "CT0112": {
+  "domain": "wheelerlibrary.org",
+  "source": "web-search",
+  "system": "Wheeler Library",
+  "state": "CT"
+ },
+ "CT0113": {
+  "domain": "eastnorwalklibrary.org",
+  "source": "web-search",
+  "system": "East Norwalk Library",
+  "state": "CT"
+ },
+ "CT0115": {
+  "domain": "rowayton.org",
+  "source": "web-search",
+  "system": "Rowayton Library",
+  "state": "CT"
+ },
+ "CT0116": {
+  "domain": "otislibrarynorwich.org",
+  "source": "web-search",
+  "system": "Otis Library",
+  "state": "CT"
+ },
+ "CT0117": {
+  "domain": "oldlymelibrary.org",
+  "source": "web-search",
+  "system": "Phoebe Griffin Noyes Library",
+  "state": "CT"
+ },
+ "CT0118": {
+  "domain": "actonlibrary.org",
+  "source": "web-search",
+  "system": "Acton Public Library",
+  "state": "CT"
+ },
+ "CT0119": {
+  "domain": "casememoriallibrary.org",
+  "source": "web-search",
+  "system": "Case Memorial Library",
+  "state": "CT"
+ },
+ "CT0120": {
+  "domain": "oxfordlib.org",
+  "source": "web-search",
+  "system": "Oxford Public Library",
+  "state": "CT"
+ },
+ "CT0121": {
+  "domain": "plainfieldct.org",
+  "source": "web-search",
+  "system": "Aldrich Free Public Library",
+  "state": "CT"
+ },
+ "CT0124": {
+  "domain": "plainvillect.com",
+  "source": "web-search",
+  "system": "Plainville Public Library",
+  "state": "CT"
+ },
+ "CT0126": {
+  "domain": "terryvillepl.info",
+  "source": "web-search",
+  "system": "Terryville Public Library",
+  "state": "CT"
+ },
+ "CT0127": {
+  "domain": "pomfretlibrary.org",
+  "source": "web-search",
+  "system": "Pomfret Public Library",
+  "state": "CT"
+ },
+ "CT0128": {
+  "domain": "theabingtonsociallibrary.org",
+  "source": "web-search",
+  "system": "Abington Social Library",
+  "state": "CT"
+ },
+ "CT0129": {
+  "domain": "portlandlibraryct.org",
+  "source": "web-search",
+  "system": "Portland Public Library",
+  "state": "CT"
+ },
+ "CT0130": {
+  "domain": "prestonpubliclibrary.org",
+  "source": "web-search",
+  "system": "Preston Public Library",
+  "state": "CT"
+ },
+ "CT0131": {
+  "domain": "prospectpubliclibrary.weebly.com",
+  "source": "web-search",
+  "system": "Prospect Public Library",
+  "state": "CT"
+ },
+ "CT0132": {
+  "domain": "putnamct.us",
+  "source": "web-search",
+  "system": "Putnam Public Library",
+  "state": "CT"
+ },
+ "CT0133": {
+  "domain": "reddingct.gov",
+  "source": "web-search",
+  "system": "Mark Twain Library",
+  "state": "CT"
+ },
+ "CT0134": {
+  "domain": "ridgefieldlibrary.org",
+  "source": "web-search",
+  "system": "Ridgefield Library",
+  "state": "CT"
+ },
+ "CT0135": {
+  "domain": "rhctlibrary.org",
+  "source": "web-search",
+  "system": "Cora J. Belden Library",
+  "state": "CT"
+ },
+ "CT0136": {
+  "domain": "minormemoriallibrary.org",
+  "source": "web-search",
+  "system": "Minor Memorial Library",
+  "state": "CT"
+ },
+ "CT0137": {
+  "domain": "salemct.gov",
+  "source": "web-search",
+  "system": "Salem Free Public Library",
+  "state": "CT"
+ },
+ "CT0138": {
+  "domain": "scovillelibrary.org",
+  "source": "web-search",
+  "system": "Scoville Memorial Library",
+  "state": "CT"
+ },
+ "CT0139": {
+  "domain": "scotlandpubliclibrary.org",
+  "source": "web-search",
+  "system": "Scotland Public Library",
+  "state": "CT"
+ },
+ "CT0140": {
+  "domain": "seymourpubliclibrary.org",
+  "source": "web-search",
+  "system": "Seymour Public Library",
+  "state": "CT"
+ },
+ "CT0141": {
+  "domain": "hotchkisslibraryofsharon.org",
+  "source": "web-search",
+  "system": "Hotchkiss Library Of Sharon",
+  "state": "CT"
+ },
+ "CT0143": {
+  "domain": "shermanlibrary.org",
+  "source": "web-search",
+  "system": "Sherman Library Assn.",
+  "state": "CT"
+ },
+ "CT0144": {
+  "domain": "simsburylibrary.info",
+  "source": "web-search",
+  "system": "Simsbury Public Library",
+  "state": "CT"
  }
 }
