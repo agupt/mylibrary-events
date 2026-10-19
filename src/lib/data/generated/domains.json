@@ -13348,5 +13348,527 @@
   "source": "web-search",
   "system": "Simsbury Public Library",
   "state": "CT"
+ },
+ "CT0145": {
+  "domain": "somerspubliclibrary.org",
+  "source": "web-search",
+  "system": "Somers Public Library",
+  "state": "CT"
+ },
+ "CT0146": {
+  "domain": "southburylibrary.org",
+  "source": "web-search",
+  "system": "Southbury Public Library",
+  "state": "CT"
+ },
+ "CT0147": {
+  "domain": "southingtonlibrary.org",
+  "source": "web-search",
+  "system": "Southington Public Library",
+  "state": "CT"
+ },
+ "CT0148": {
+  "domain": "southwindsorlibrary.org",
+  "source": "web-search",
+  "system": "South Windsor Public Library",
+  "state": "CT"
+ },
+ "CT0149": {
+  "domain": "cityofspraguepubliclibrary.com",
+  "source": "web-search",
+  "system": "Sprague Public Library",
+  "state": "CT"
+ },
+ "CT0152": {
+  "domain": "sterlingct.gov",
+  "source": "web-search",
+  "system": "Sterling Public Library",
+  "state": "CT"
+ },
+ "CT0153": {
+  "domain": "stoningtonfreelibrary.org",
+  "source": "web-search",
+  "system": "Stonington Free Library",
+  "state": "CT"
+ },
+ "CT0154": {
+  "domain": "stratfordlibrary.org",
+  "source": "web-search",
+  "system": "Stratford Library Association",
+  "state": "CT"
+ },
+ "CT0155": {
+  "domain": "kentmemoriallibrary.org",
+  "source": "web-search",
+  "system": "Kent Memorial Library",
+  "state": "CT"
+ },
+ "CT0156": {
+  "domain": "thomastonlibrary.org",
+  "source": "web-search",
+  "system": "Thomaston Public Library",
+  "state": "CT"
+ },
+ "CT0157": {
+  "domain": "thompsonpubliclibrary.org",
+  "source": "web-search",
+  "system": "Thompson Public Library",
+  "state": "CT"
+ },
+ "CT0158": {
+  "domain": "tollandct.gov",
+  "source": "web-search",
+  "system": "Tolland Public Library",
+  "state": "CT"
+ },
+ "CT0159": {
+  "domain": "torringtonlibrary.org",
+  "source": "web-search",
+  "system": "Torrington Library",
+  "state": "CT"
+ },
+ "CT0161": {
+  "domain": "unionctfreepubliclibrary.org",
+  "source": "web-search",
+  "system": "Union Free Public Library",
+  "state": "CT"
+ },
+ "CT0162": {
+  "domain": "rockvillepubliclibrary.org",
+  "source": "web-search",
+  "system": "Rockville Public Library, Inc.",
+  "state": "CT"
+ },
+ "CT0164": {
+  "domain": "wallingfordlibrary.org",
+  "source": "web-search",
+  "system": "Wallingford Public Library",
+  "state": "CT"
+ },
+ "CT0166": {
+  "domain": "gunnlibrary.org",
+  "source": "web-search",
+  "system": "Gunn Memorial Library",
+  "state": "CT"
+ },
+ "CT0168": {
+  "domain": "waterfordct.gov",
+  "source": "web-search",
+  "system": "Waterford Public Library",
+  "state": "CT"
+ },
+ "CT0170": {
+  "domain": "westbrookct.us",
+  "source": "web-search",
+  "system": "Westbrook Public Library",
+  "state": "CT"
+ },
+ "CT0173": {
+  "domain": "westonpubliclibrary.org",
+  "source": "web-search",
+  "system": "Weston Public Library",
+  "state": "CT"
+ },
+ "CT0174": {
+  "domain": "westportlibrary.org",
+  "source": "web-search",
+  "system": "Westport Library",
+  "state": "CT"
+ },
+ "CT0175": {
+  "domain": "wethersfieldlibrary.org",
+  "source": "web-search",
+  "system": "Wethersfield Public Library",
+  "state": "CT"
+ },
+ "CT0176": {
+  "domain": "willingtonpubliclibrary.org",
+  "source": "web-search",
+  "system": "Willington Public Library",
+  "state": "CT"
+ },
+ "CT0177": {
+  "domain": "wiltonlibrary.org",
+  "source": "web-search",
+  "system": "Wilton Library Association",
+  "state": "CT"
+ },
+ "CT0178": {
+  "domain": "beardsleylibrary.org",
+  "source": "web-search",
+  "system": "Beardsley & Memorial Library",
+  "state": "CT"
+ },
+ "CT0179": {
+  "domain": "guilfordsmith.blog",
+  "source": "web-search",
+  "system": "Guilford Smith Memorial Library, Inc.",
+  "state": "CT"
+ },
+ "CT0183": {
+  "domain": "windsorlockslibrary.org",
+  "source": "web-search",
+  "system": "Windsor Locks Public Library",
+  "state": "CT"
+ },
+ "CT0184": {
+  "domain": "wolcottlibrary.org",
+  "source": "web-search",
+  "system": "Wolcott Public Library",
+  "state": "CT"
+ },
+ "CT0185": {
+  "domain": "woodbridgetownlibrary.org",
+  "source": "web-search",
+  "system": "Woodbridge Town Library",
+  "state": "CT"
+ },
+ "CT0186": {
+  "domain": "woodburylibraryct.org",
+  "source": "web-search",
+  "system": "Woodbury Public Library",
+  "state": "CT"
+ },
+ "CT0187": {
+  "domain": "woodstockct.gov",
+  "source": "web-search",
+  "system": "North Woodstock Library",
+  "state": "CT"
+ },
+ "CT0188": {
+  "domain": "woodstockct.gov",
+  "source": "web-search",
+  "system": "Howard W. Bracken Memorial Library",
+  "state": "CT"
+ },
+ "CT0189": {
+  "domain": "woodstockct.gov",
+  "source": "web-search",
+  "system": "May Memorial Library",
+  "state": "CT"
+ },
+ "CT0190": {
+  "domain": "westwoodstocklibrary.org",
+  "source": "web-search",
+  "system": "West Woodstock Library Association",
+  "state": "CT"
+ },
+ "CT0191": {
+  "domain": "cheshirelibrary.org",
+  "source": "web-search",
+  "system": "Cheshire Public Library",
+  "state": "CT"
+ },
+ "CT0192": {
+  "domain": "coventrypl.org",
+  "source": "web-search",
+  "system": "Booth & Dimock Memorial Library",
+  "state": "CT"
+ },
+ "CT0193": {
+  "domain": "eastfordct.gov",
+  "source": "web-search",
+  "system": "Eastford Public Library",
+  "state": "CT"
+ },
+ "CT0199": {
+  "domain": "woodmemoriallibraryandmuseum.org",
+  "source": "web-search",
+  "system": "Wood Memorial Library And Museum",
+  "state": "CT"
+ },
+ "CT0200": {
+  "domain": "calvertlibrary.org",
+  "source": "web-search",
+  "system": "Janet Carlson Calvert Library",
+  "state": "CT"
+ },
+ "DE0002": {
+  "domain": "frankford.lib.de.us",
+  "source": "web-search",
+  "system": "Frankford Public Library",
+  "state": "DE"
+ },
+ "DE0003": {
+  "domain": "georgetown.lib.de.us",
+  "source": "web-search",
+  "system": "Georgetown Public Library",
+  "state": "DE"
+ },
+ "DE0005": {
+  "domain": "harrington.lib.de.us",
+  "source": "web-search",
+  "system": "Harrington Public Library",
+  "state": "DE"
+ },
+ "DE0009": {
+  "domain": "laurel.lib.de.us",
+  "source": "web-search",
+  "system": "Laurel Public Library",
+  "state": "DE"
+ },
+ "DE0010": {
+  "domain": "lewes.lib.de.us",
+  "source": "web-search",
+  "system": "Lewes Public Library",
+  "state": "DE"
+ },
+ "DE0013": {
+  "domain": "millsboro.lib.de.us",
+  "source": "web-search",
+  "system": "Millsboro Public Library",
+  "state": "DE"
+ },
+ "DE0017": {
+  "domain": "rehoboth.lib.de.us",
+  "source": "web-search",
+  "system": "Rehoboth Beach Public Library",
+  "state": "DE"
+ },
+ "DE0018": {
+  "domain": "seaford.lib.de.us",
+  "source": "web-search",
+  "system": "Seaford District Library",
+  "state": "DE"
+ },
+ "DE0019": {
+  "domain": "selbyvillelibrary.org",
+  "source": "web-search",
+  "system": "Selbyville Public Library",
+  "state": "DE"
+ },
+ "DE0020": {
+  "domain": "duckcreek.lib.de.us",
+  "source": "web-search",
+  "system": "Smyrna Public Library",
+  "state": "DE"
+ },
+ "DE0023": {
+  "domain": "bridgevillelibrary.com",
+  "source": "web-search",
+  "system": "Bridgeville Public Library",
+  "state": "DE"
+ },
+ "DE0026": {
+  "domain": "corbitcalloway.lib.de.us",
+  "source": "web-search",
+  "system": "Corbit-Calloway Memorial Library",
+  "state": "DE"
+ },
+ "DE0027": {
+  "domain": "delawarecity.lib.de.us",
+  "source": "web-search",
+  "system": "Delaware City Public Library",
+  "state": "DE"
+ },
+ "DE0028": {
+  "domain": "delmar.lib.de.us",
+  "source": "web-search",
+  "system": "Delmar Public Library",
+  "state": "DE"
+ },
+ "DE0029": {
+  "domain": "dover.lib.de.us",
+  "source": "web-search",
+  "system": "Dover Public Library",
+  "state": "DE"
+ },
+ "DE0032": {
+  "domain": "kentcountyde.gov",
+  "source": "web-search",
+  "system": "Kent County Public Library",
+  "state": "DE"
+ },
+ "FL0013": {
+  "domain": "lighthousepointlibrary.com",
+  "source": "web-search",
+  "system": "Doreen Gauthier Lighthouse Point Library",
+  "state": "FL"
+ },
+ "FL0014": {
+  "domain": "oaklandparkfl.gov",
+  "source": "web-search",
+  "system": "Ethel M. Gordon Oakland Park Library",
+  "state": "FL"
+ },
+ "FL0016": {
+  "domain": "wiltonmanors.gov",
+  "source": "web-search",
+  "system": "Richard C. Sullivan Public Library Of Wilton Manors",
+  "state": "FL"
+ },
+ "FL0022": {
+  "domain": "msvfl.gov",
+  "source": "web-search",
+  "system": "Brockway Memorial Library",
+  "state": "FL"
+ },
+ "FL0024": {
+  "domain": "nmblib.libnet.info",
+  "source": "web-search",
+  "system": "North Miami Beach Public Library",
+  "state": "FL"
+ },
+ "FL0028": {
+  "domain": "cityofflaglerbeach.com",
+  "source": "web-search",
+  "system": "Flagler Beach Public Library",
+  "state": "FL"
+ },
+ "FL0041": {
+  "domain": "fmb.lib.fl.us",
+  "source": "web-search",
+  "system": "Fort Myers Beach Public Library",
+  "state": "FL"
+ },
+ "FL0043": {
+  "domain": "sanlib.org",
+  "source": "web-search",
+  "system": "Sanibel Public Library",
+  "state": "FL"
+ },
+ "FL0053": {
+  "domain": "maitlandpubliclibrary.org",
+  "source": "web-search",
+  "system": "Maitland Public Library",
+  "state": "FL"
+ },
+ "FL0054": {
+  "domain": "winterparklibrary.org",
+  "source": "web-search",
+  "system": "Winter Park Public Library",
+  "state": "FL"
+ },
+ "FL0058": {
+  "domain": "village-npb.org",
+  "source": "web-search",
+  "system": "North Palm Beach Public Library",
+  "state": "FL"
+ },
+ "FL0064": {
+  "domain": "nprlibrary.org",
+  "source": "web-search",
+  "system": "New Port Richey Public Library",
+  "state": "FL"
+ },
+ "FL0094": {
+  "domain": "public-libraries.com",
+  "source": "web-search",
+  "system": "Altamonte Springs City Library",
+  "state": "FL"
+ },
+ "FL0103": {
+  "domain": "northmiamifl.gov",
+  "source": "web-search",
+  "system": "North Miami Public Library",
+  "state": "FL"
+ },
+ "FL0118": {
+  "domain": "citruslibraries.org",
+  "source": "web-search",
+  "system": "Citrus Springs Memorial Library",
+  "state": "FL"
+ },
+ "FL0133": {
+  "domain": "highlandbeach.us",
+  "source": "web-search",
+  "system": "Highland Beach Library",
+  "state": "FL"
+ },
+ "FL0240": {
+  "domain": "cityofparkland.org",
+  "source": "web-search",
+  "system": "Parkland Library",
+  "state": "FL"
+ },
+ "FL0247": {
+  "domain": "boynton-beach.org",
+  "source": "web-search",
+  "system": "Boynton Beach City Library",
+  "state": "FL"
+ },
+ "FL0248": {
+  "domain": "delraylibrary.org",
+  "source": "web-search",
+  "system": "Delray Beach Library",
+  "state": "FL"
+ },
+ "FL0249": {
+  "domain": "lakeparkflorida.gov",
+  "source": "web-search",
+  "system": "Lake Park Public Library",
+  "state": "FL"
+ },
+ "FL0250": {
+  "domain": "lakeworthbeachfl.gov",
+  "source": "web-search",
+  "system": "Lake Worth Beach Public Library",
+  "state": "FL"
+ },
+ "FL0251": {
+  "domain": "lantanalibrary.org",
+  "source": "web-search",
+  "system": "Lantana Public Library",
+  "state": "FL"
+ },
+ "FL0252": {
+  "domain": "vpsfl.org",
+  "source": "web-search",
+  "system": "Palm Springs Public Library",
+  "state": "FL"
+ },
+ "FL0253": {
+  "domain": "rivierabch.com",
+  "source": "web-search",
+  "system": "Riviera Beach Public Library",
+  "state": "FL"
+ },
+ "FL0254": {
+  "domain": "wpb.org",
+  "source": "web-search",
+  "system": "Mandel Public Library Of West Palm Beach",
+  "state": "FL"
+ },
+ "FL8002": {
+  "domain": "apalachicolalibrary.com",
+  "source": "web-search",
+  "system": "Apalachicola Margaret Key Library",
+  "state": "FL"
+ },
+ "FL8010": {
+  "domain": "cybrarium.org",
+  "source": "web-search",
+  "system": "Homestead Cybrarium",
+  "state": "FL"
+ },
+ "GA0005": {
+  "domain": "brooks.public.lib.ga.us",
+  "source": "web-search",
+  "system": "Brooks County Public Library",
+  "state": "GA"
+ },
+ "GA0024": {
+  "domain": "rmlibrary.org",
+  "source": "web-search",
+  "system": "Roddenbery Memorial Library",
+  "state": "GA"
+ },
+ "GA0028": {
+  "domain": "hartcountylibrary.com",
+  "source": "web-search",
+  "system": "Hart County Library System",
+  "state": "GA"
+ },
+ "GA0040": {
+  "domain": "conyersrockdalelibrary.org",
+  "source": "web-search",
+  "system": "Conyers-Rockdale Library System",
+  "state": "GA"
+ },
+ "GA0064": {
+  "domain": "catoosacountylibrary.org",
+  "source": "web-search",
+  "system": "Catoosa County Library",
+  "state": "GA"
  }
 }
