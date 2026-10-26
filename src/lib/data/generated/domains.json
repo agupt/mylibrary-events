@@ -13870,5 +13870,605 @@
   "source": "web-search",
   "system": "Catoosa County Library",
   "state": "GA"
+ },
+ "CT0150": {
+  "domain": "staffordct.gov",
+  "source": "web-search",
+  "system": "Stafford Library",
+  "state": "CT"
+ },
+ "CT0163": {
+  "domain": "voluntownlibrary.com",
+  "source": "web-search",
+  "system": "Voluntown Public Library",
+  "state": "CT"
+ },
+ "CT0165": {
+  "domain": "warrenctlibrary.org",
+  "source": "web-search",
+  "system": "Warren Public Library",
+  "state": "CT"
+ },
+ "CT0181": {
+  "domain": "thewindhamfreelibrary.org",
+  "source": "web-search",
+  "system": "Windham Free Library",
+  "state": "CT"
+ },
+ "CT0194": {
+  "domain": "fletchermemoriallibrary.org",
+  "source": "web-search",
+  "system": "Fletcher Memorial Library",
+  "state": "CT"
+ },
+ "CT0195": {
+  "domain": "hartlandct.org",
+  "source": "web-search",
+  "system": "Hartland Public Library",
+  "state": "CT"
+ },
+ "DE0011": {
+  "domain": "milford.lib.de.us",
+  "source": "web-search",
+  "system": "Milford Public Library",
+  "state": "DE"
+ },
+ "DE0015": {
+  "domain": "newcastlelibrary.lib.de.us",
+  "source": "web-search",
+  "system": "New Castle Public Library",
+  "state": "DE"
+ },
+ "FL0256": {
+  "domain": "indian-rocks-beach.com",
+  "source": "web-search",
+  "system": "Indian Rocks Beach Library",
+  "state": "FL"
+ },
+ "FL0257": {
+  "domain": "plantation.org",
+  "source": "web-search",
+  "system": "Helen B. Hoffman Plantation Library",
+  "state": "FL"
+ },
+ "GA0065": {
+  "domain": "worthlib.org",
+  "source": "web-search",
+  "system": "Worth County Library System",
+  "state": "GA"
+ },
+ "IA0002": {
+  "domain": "ottumwapubliclibrary.org",
+  "source": "web-search",
+  "system": "Ottumwa Public Library",
+  "state": "IA"
+ },
+ "IA0003": {
+  "domain": "agency.lib.ia.us",
+  "source": "web-search",
+  "system": "Agency Public Library",
+  "state": "IA"
+ },
+ "IA0004": {
+  "domain": "albia.lib.ia.us",
+  "source": "web-search",
+  "system": "Carnegie-Evans Public Library",
+  "state": "IA"
+ },
+ "IA0005": {
+  "domain": "public-libraries.com",
+  "source": "web-search",
+  "system": "Allerton Public Library",
+  "state": "IA"
+ },
+ "IA0006": {
+  "domain": "bloomfield.lib.ia.us",
+  "source": "web-search",
+  "system": "Bloomfield Public Library",
+  "state": "IA"
+ },
+ "IA0007": {
+  "domain": "drakelibrary.org",
+  "source": "web-search",
+  "system": "Drake Public Library",
+  "state": "IA"
+ },
+ "IA0008": {
+  "domain": "chariton.lib.ia.us",
+  "source": "web-search",
+  "system": "Chariton Free Public Library",
+  "state": "IA"
+ },
+ "IA0009": {
+  "domain": "corydon.lib.ia.us",
+  "source": "web-search",
+  "system": "Karl Miles Lecompte Memorial Library",
+  "state": "IA"
+ },
+ "IA0010": {
+  "domain": "creston.lib.ia.us",
+  "source": "web-search",
+  "system": "Matilda J. Gibson Memorial Library",
+  "state": "IA"
+ },
+ "IA0011": {
+  "domain": "eldon.lib.ia.us",
+  "source": "web-search",
+  "system": "Eldon Public Library",
+  "state": "IA"
+ },
+ "IA0012": {
+  "domain": "fairfield.lib.ia.us",
+  "source": "web-search",
+  "system": "Fairfield Public Library",
+  "state": "IA"
+ },
+ "IA0013": {
+  "domain": "public-libraries.com",
+  "source": "web-search",
+  "system": "Garden Grove Public Library",
+  "state": "IA"
+ },
+ "IA0014": {
+  "domain": "hedrick.lib.ia.us",
+  "source": "web-search",
+  "system": "Hedrick Public Library",
+  "state": "IA"
+ },
+ "IA0015": {
+  "domain": "humeston.lib.ia.us",
+  "source": "web-search",
+  "system": "Humeston Public Library",
+  "state": "IA"
+ },
+ "IA0016": {
+  "domain": "keota.lib.ia.us",
+  "source": "web-search",
+  "system": "Wilson Memorial Library",
+  "state": "IA"
+ },
+ "IA0017": {
+  "domain": "lamonilibrary.org",
+  "source": "web-search",
+  "system": "Lamoni Public Library",
+  "state": "IA"
+ },
+ "IA0018": {
+  "domain": "leon.lib.ia.us",
+  "source": "web-search",
+  "system": "Leon Public Library",
+  "state": "IA"
+ },
+ "IA0019": {
+  "domain": "moravia.lib.ia.us",
+  "source": "web-search",
+  "system": "Moravia Public Library",
+  "state": "IA"
+ },
+ "IA0020": {
+  "domain": "moulton.lib.ia.us",
+  "source": "web-search",
+  "system": "Garrett Memorial Library",
+  "state": "IA"
+ },
+ "IA0021": {
+  "domain": "mtayr.lib.ia.us",
+  "source": "web-search",
+  "system": "Mount Ayr Public Library",
+  "state": "IA"
+ },
+ "IA0023": {
+  "domain": "osceolapl.org",
+  "source": "web-search",
+  "system": "Osceola Public Library",
+  "state": "IA"
+ },
+ "IA0024": {
+  "domain": "oskaloosalibrary.org",
+  "source": "web-search",
+  "system": "Oskaloosa Public Library",
+  "state": "IA"
+ },
+ "IA0025": {
+  "domain": "richland.lib.ia.us",
+  "source": "web-search",
+  "system": "Richland Public Library",
+  "state": "IA"
+ },
+ "IA0026": {
+  "domain": "seymour.ploud.net",
+  "source": "web-search",
+  "system": "Seymour Community Library",
+  "state": "IA"
+ },
+ "IA0028": {
+  "domain": "dallascenter.lib.ia.us",
+  "source": "web-search",
+  "system": "Roy R. Estle Memorial Library",
+  "state": "IA"
+ },
+ "IA0029": {
+  "domain": "dexter.lib.ia.us",
+  "source": "web-search",
+  "system": "Dexter Public Library",
+  "state": "IA"
+ },
+ "IA0030": {
+  "domain": "grangeriowa.org",
+  "source": "web-search",
+  "system": "Granger Public Library",
+  "state": "IA"
+ },
+ "IA0031": {
+  "domain": "linden.lib.ia.us",
+  "source": "web-search",
+  "system": "Linden Public Library",
+  "state": "IA"
+ },
+ "IA0032": {
+  "domain": "minburn.lib.ia.us",
+  "source": "web-search",
+  "system": "Minburn Public Library",
+  "state": "IA"
+ },
+ "IA0033": {
+  "domain": "perry.lib.ia.us",
+  "source": "web-search",
+  "system": "Perry Public Library",
+  "state": "IA"
+ },
+ "IA0035": {
+  "domain": "vanmeter.lib.ia.us",
+  "source": "web-search",
+  "system": "Van Meter Public Library",
+  "state": "IA"
+ },
+ "IA0036": {
+  "domain": "waukeepubliclibrary.org",
+  "source": "web-search",
+  "system": "Waukee Public Library",
+  "state": "IA"
+ },
+ "IA0037": {
+  "domain": "woodward.lib.ia.us",
+  "source": "web-search",
+  "system": "Woodward Public Library",
+  "state": "IA"
+ },
+ "IA0038": {
+  "domain": "earlham.lib.ia.us",
+  "source": "web-search",
+  "system": "Earlham Public Library",
+  "state": "IA"
+ },
+ "IA0039": {
+  "domain": "truro.lib.ia.us",
+  "source": "web-search",
+  "system": "Truro Public Library",
+  "state": "IA"
+ },
+ "IA0040": {
+  "domain": "wintersetlibrary.org",
+  "source": "web-search",
+  "system": "Winterset Public Library",
+  "state": "IA"
+ },
+ "IA0041": {
+  "domain": "amespubliclibrary.org",
+  "source": "web-search",
+  "system": "Ames Public Library",
+  "state": "IA"
+ },
+ "IA0042": {
+  "domain": "cambridge.lib.ia.us",
+  "source": "web-search",
+  "system": "Cambridge Memorial Library",
+  "state": "IA"
+ },
+ "IA0043": {
+  "domain": "collins.lib.ia.us",
+  "source": "web-search",
+  "system": "Collins Public Library",
+  "state": "IA"
+ },
+ "IA0044": {
+  "domain": "adel.lib.ia.us",
+  "source": "web-search",
+  "system": "Adel Public Library",
+  "state": "IA"
+ },
+ "IA0045": {
+  "domain": "colo.lib.ia.us",
+  "source": "web-search",
+  "system": "Colo Public Library",
+  "state": "IA"
+ },
+ "IA0046": {
+  "domain": "maxwell.lib.ia.us",
+  "source": "web-search",
+  "system": "Maxwell Public Library",
+  "state": "IA"
+ },
+ "IA0047": {
+  "domain": "nevada.lib.ia.us",
+  "source": "web-search",
+  "system": "Nevada Public Library",
+  "state": "IA"
+ },
+ "IA0049": {
+  "domain": "roland.lib.ia.us",
+  "source": "web-search",
+  "system": "Roland Public Library",
+  "state": "IA"
+ },
+ "IA0050": {
+  "domain": "zearing.lib.ia.us",
+  "source": "web-search",
+  "system": "Zearing Public Library",
+  "state": "IA"
+ },
+ "IA0051": {
+  "domain": "slaterlibrary.org",
+  "source": "web-search",
+  "system": "Slater Public Library",
+  "state": "IA"
+ },
+ "IA0052": {
+  "domain": "icpl.org",
+  "source": "web-search",
+  "system": "Iowa City Public Library",
+  "state": "IA"
+ },
+ "IA0053": {
+  "domain": "coralvillepubliclibrary.org",
+  "source": "web-search",
+  "system": "Coralville Public Library",
+  "state": "IA"
+ },
+ "IA0054": {
+  "domain": "oxford.lib.ia.us",
+  "source": "web-search",
+  "system": "Oxford Public Library",
+  "state": "IA"
+ },
+ "IA0055": {
+  "domain": "solon.lib.ia.us",
+  "source": "web-search",
+  "system": "Solon Public Library",
+  "state": "IA"
+ },
+ "IA0056": {
+  "domain": "marengo.lib.ia.us",
+  "source": "web-search",
+  "system": "Marengo Public Library",
+  "state": "IA"
+ },
+ "IA0057": {
+  "domain": "northenglish.lib.ia.us",
+  "source": "web-search",
+  "system": "North English Public Library",
+  "state": "IA"
+ },
+ "IA0059": {
+  "domain": "williamsburg.lib.ia.us",
+  "source": "web-search",
+  "system": "Williamsburg Public Library",
+  "state": "IA"
+ },
+ "IA0060": {
+  "domain": "brooklyn.lib.ia.us",
+  "source": "web-search",
+  "system": "Brooklyn Public Library",
+  "state": "IA"
+ },
+ "IA0061": {
+  "domain": "drakelibrary.org",
+  "source": "web-search",
+  "system": "Drake Community Library",
+  "state": "IA"
+ },
+ "IA0062": {
+  "domain": "montezuma.lib.ia.us",
+  "source": "web-search",
+  "system": "Montezuma Public Library",
+  "state": "IA"
+ },
+ "IA0063": {
+  "domain": "coggonpubliclibrary.org",
+  "source": "web-search",
+  "system": "Coggon Public Library",
+  "state": "IA"
+ },
+ "IA0064": {
+  "domain": "kalona.lib.ia.us",
+  "source": "web-search",
+  "system": "Kalona Public Library",
+  "state": "IA"
+ },
+ "IA0065": {
+  "domain": "washington.lib.ia.us",
+  "source": "web-search",
+  "system": "Washington Free Public Library",
+  "state": "IA"
+ },
+ "IA0066": {
+  "domain": "wellmanlibrary.org",
+  "source": "web-search",
+  "system": "Wellman-Scofield Public Library",
+  "state": "IA"
+ },
+ "IA0067": {
+  "domain": "columbusjct.lib.ia.us",
+  "source": "web-search",
+  "system": "Columbus Junction Public Library",
+  "state": "IA"
+ },
+ "IA0068": {
+  "domain": "letts.lib.ia.us",
+  "source": "web-search",
+  "system": "Letts Public Library",
+  "state": "IA"
+ },
+ "IA0069": {
+  "domain": "morningsun.lib.ia.us",
+  "source": "web-search",
+  "system": "Mellinger Memorial Public Library",
+  "state": "IA"
+ },
+ "IA0070": {
+  "domain": "wapello.lib.ia.us",
+  "source": "web-search",
+  "system": "Keck Memorial Library",
+  "state": "IA"
+ },
+ "IA0071": {
+  "domain": "musserpubliclibrary.org",
+  "source": "web-search",
+  "system": "Musser Public Library",
+  "state": "IA"
+ },
+ "IA0072": {
+  "domain": "wlpl.org",
+  "source": "web-search",
+  "system": "West Liberty Public Library",
+  "state": "IA"
+ },
+ "IA0073": {
+  "domain": "swaledale.lib.ia.us",
+  "source": "web-search",
+  "system": "Swaledale Public Library",
+  "state": "IA"
+ },
+ "IA0074": {
+  "domain": "colesburg.lib.ia.us",
+  "source": "web-search",
+  "system": "Colesburg Public Library",
+  "state": "IA"
+ },
+ "IA0075": {
+  "domain": "northlibertylibrary.org",
+  "source": "web-search",
+  "system": "North Liberty Community Library",
+  "state": "IA"
+ },
+ "IA0076": {
+  "domain": "mcpl.org",
+  "source": "web-search",
+  "system": "Mason City Public Library",
+  "state": "IA"
+ },
+ "IA0077": {
+  "domain": "cllibrary.org",
+  "source": "web-search",
+  "system": "Clear Lake Public Library",
+  "state": "IA"
+ },
+ "IA0078": {
+  "domain": "meserveylibrary.wixsite.com",
+  "source": "web-search",
+  "system": "Meservey Public Library",
+  "state": "IA"
+ },
+ "IA0079": {
+  "domain": "rockwellcity.lib.ia.us",
+  "source": "web-search",
+  "system": "Rockwell Public Library",
+  "state": "IA"
+ },
+ "IA0080": {
+  "domain": "cityofthorntonia.com",
+  "source": "web-search",
+  "system": "Thornton Public Library",
+  "state": "IA"
+ },
+ "IA0081": {
+  "domain": "ackley.lib.ia.us",
+  "source": "web-search",
+  "system": "Ackley Public Library",
+  "state": "IA"
+ },
+ "IA0082": {
+  "domain": "alexander.lib.ia.us",
+  "source": "web-search",
+  "system": "Alexander Public Library",
+  "state": "IA"
+ },
+ "IA0083": {
+  "domain": "dows.lib.ia.us",
+  "source": "web-search",
+  "system": "Dows Community Library",
+  "state": "IA"
+ },
+ "IA0084": {
+  "domain": "venturaiowa.com",
+  "source": "web-search",
+  "system": "Ventura Public Library",
+  "state": "IA"
+ },
+ "IA0085": {
+  "domain": "hampton.lib.ia.us",
+  "source": "web-search",
+  "system": "Hampton Public Library",
+  "state": "IA"
+ },
+ "IA0086": {
+  "domain": "sheffield.lib.ia.us",
+  "source": "web-search",
+  "system": "Sheffield Public Library",
+  "state": "IA"
+ },
+ "IA0087": {
+  "domain": "ellsworth.lib.ia.us",
+  "source": "web-search",
+  "system": "Ellsworth Public Library",
+  "state": "IA"
+ },
+ "IA0088": {
+  "domain": "jewell.lib.ia.us",
+  "source": "web-search",
+  "system": "Montgomery Memorial Library",
+  "state": "IA"
+ },
+ "IA0089": {
+  "domain": "stanhope.lib.ia.us",
+  "source": "web-search",
+  "system": "Stanhope Public Library",
+  "state": "IA"
+ },
+ "IA0090": {
+  "domain": "stratfordiowa.com",
+  "source": "web-search",
+  "system": "Stratford Public Library",
+  "state": "IA"
+ },
+ "IA0091": {
+  "domain": "kylib.org",
+  "source": "web-search",
+  "system": "Kendall Young Library",
+  "state": "IA"
+ },
+ "IA0092": {
+  "domain": "williams.lib.ia.us",
+  "source": "web-search",
+  "system": "Williams Public Library",
+  "state": "IA"
+ },
+ "IA0093": {
+  "domain": "brittpubliclibrary.com",
+  "source": "web-search",
+  "system": "Britt Public Library",
+  "state": "IA"
+ },
+ "IA0094": {
+  "domain": "corwith.lib.ia.us",
+  "source": "web-search",
+  "system": "Corwith Public Library",
+  "state": "IA"
+ },
+ "IA0095": {
+  "domain": "garnerlibrary.com",
+  "source": "web-search",
+  "system": "Garner Public Library",
+  "state": "IA"
  }
 }
