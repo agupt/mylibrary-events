@@ -1,46 +1,46 @@
 {
-  "generatedAt": "2026-10-26T14:53:32.298Z",
+  "generatedAt": "2026-11-02T17:48:04.068Z",
   "libraries": {
     "total": 16883,
-    "active": 5290,
-    "detected": 642,
-    "none": 10951
+    "active": 5312,
+    "detected": 631,
+    "none": 10940
   },
   "systems": {
     "total": 9234,
-    "active": 924,
-    "detected": 117,
-    "none": 8193
+    "active": 926,
+    "detected": 121,
+    "none": 8187
   },
   "pipeline": [
     {
       "stage": "never-probed",
-      "systems": 6612,
-      "libraries": 6612,
+      "systems": 6530,
+      "libraries": 6530,
       "humanAction": "Not yet examined (small system) — extend findDomains/detectPlatforms coverage"
     },
     {
       "stage": "serving",
-      "systems": 924,
-      "libraries": 5290,
+      "systems": 926,
+      "libraries": 5312,
       "humanAction": "— (events flowing)"
     },
     {
       "stage": "no-platform-found",
-      "systems": 1325,
-      "libraries": 3692,
+      "systems": 1395,
+      "libraries": 3760,
       "humanAction": "Domain read, no known vendor fingerprint — inspect site, identify platform or scope a site scraper"
     },
     {
       "stage": "site-unreachable",
-      "systems": 229,
-      "libraries": 663,
+      "systems": 237,
+      "libraries": 668,
       "humanAction": "Confirm the domain is right / site is up"
     },
     {
       "stage": "identity-collision",
-      "systems": 40,
-      "libraries": 264,
+      "systems": 37,
+      "libraries": 244,
       "humanAction": "Adjudicate which system owns the instance (same-named systems in different states)"
     },
     {
@@ -51,8 +51,8 @@
     },
     {
       "stage": "calendar-id-needed",
-      "systems": 47,
-      "libraries": 78,
+      "systems": 51,
+      "libraries": 84,
       "humanAction": "Open the LibCal instance, pick the events calendar, add its id to the registry"
     },
     {
@@ -84,17 +84,23 @@
       "systems": 1,
       "libraries": 3,
       "humanAction": "Build communico adapter (unlocks every system on it; worst case a scraper)"
+    },
+    {
+      "stage": "adapter-needed:eventkeeper",
+      "systems": 1,
+      "libraries": 1,
+      "humanAction": "Build eventkeeper adapter (unlocks every system on it; worst case a scraper)"
     }
   ],
-  "domainsKnown": 2412,
+  "domainsKnown": 2500,
   "byVendor": {
     "libcal": {
-      "systems": 279,
-      "libraries": 1561
+      "systems": 281,
+      "libraries": 1565
     },
     "ical": {
-      "systems": 457,
-      "libraries": 1742
+      "systems": 461,
+      "libraries": 1749
     },
     "communico": {
       "systems": 200,
@@ -164,7 +170,7 @@
       "active": 46,
       "detected": 3,
       "zips": 811,
-      "zipsNearActive": 170
+      "zipsNearActive": 168
     },
     {
       "state": "AR",
@@ -193,26 +199,26 @@
     {
       "state": "CA",
       "libraries": 1175,
-      "active": 673,
-      "detected": 111,
+      "active": 674,
+      "detected": 110,
       "zips": 2593,
-      "zipsNearActive": 1480
+      "zipsNearActive": 1476
     },
     {
       "state": "CO",
       "libraries": 269,
-      "active": 156,
-      "detected": 19,
+      "active": 157,
+      "detected": 18,
       "zips": 645,
-      "zipsNearActive": 370
+      "zipsNearActive": 373
     },
     {
       "state": "CT",
       "libraries": 234,
-      "active": 81,
-      "detected": 6,
+      "active": 80,
+      "detected": 8,
       "zips": 429,
-      "zipsNearActive": 193
+      "zipsNearActive": 192
     },
     {
       "state": "DC",
@@ -225,26 +231,26 @@
     {
       "state": "DE",
       "libraries": 33,
-      "active": 0,
-      "detected": 1,
+      "active": 1,
+      "detected": 6,
       "zips": 96,
-      "zipsNearActive": 1
+      "zipsNearActive": 3
     },
     {
       "state": "FL",
       "libraries": 539,
-      "active": 347,
+      "active": 348,
       "detected": 15,
       "zips": 1473,
-      "zipsNearActive": 953
+      "zipsNearActive": 958
     },
     {
       "state": "GA",
       "libraries": 398,
-      "active": 204,
+      "active": 198,
       "detected": 13,
       "zips": 952,
-      "zipsNearActive": 417
+      "zipsNearActive": 401
     },
     {
       "state": "GU",
@@ -265,18 +271,18 @@
     {
       "state": "IA",
       "libraries": 568,
-      "active": 32,
+      "active": 35,
       "detected": 1,
       "zips": 1055,
-      "zipsNearActive": 114
+      "zipsNearActive": 120
     },
     {
       "state": "ID",
       "libraries": 149,
-      "active": 23,
-      "detected": 11,
+      "active": 21,
+      "detected": 13,
       "zips": 320,
-      "zipsNearActive": 49
+      "zipsNearActive": 45
     },
     {
       "state": "IL",
@@ -289,10 +295,10 @@
     {
       "state": "IN",
       "libraries": 428,
-      "active": 154,
-      "detected": 15,
+      "active": 156,
+      "detected": 13,
       "zips": 968,
-      "zipsNearActive": 358
+      "zipsNearActive": 366
     },
     {
       "state": "KS",
@@ -385,10 +391,10 @@
     {
       "state": "MS",
       "libraries": 230,
-      "active": 29,
+      "active": 37,
       "detected": 3,
       "zips": 531,
-      "zipsNearActive": 77
+      "zipsNearActive": 91
     },
     {
       "state": "MT",
@@ -457,10 +463,10 @@
     {
       "state": "NY",
       "libraries": 1072,
-      "active": 270,
-      "detected": 16,
+      "active": 277,
+      "detected": 9,
       "zips": 2154,
-      "zipsNearActive": 496
+      "zipsNearActive": 515
     },
     {
       "state": "OH",
@@ -513,10 +519,10 @@
     {
       "state": "SC",
       "libraries": 200,
-      "active": 94,
-      "detected": 26,
+      "active": 103,
+      "detected": 17,
       "zips": 534,
-      "zipsNearActive": 247
+      "zipsNearActive": 264
     },
     {
       "state": "SD",
@@ -545,10 +551,10 @@
     {
       "state": "UT",
       "libraries": 124,
-      "active": 51,
+      "active": 49,
       "detected": 0,
       "zips": 347,
-      "zipsNearActive": 142
+      "zipsNearActive": 126
     },
     {
       "state": "VA",
@@ -792,14 +798,14 @@
   "zipAnalysis": {
     "total": 40979,
     "failures": 0,
-    "nearestIsActive": 13173,
-    "nearestIsDetected": 1592,
+    "nearestIsActive": 13204,
+    "nearestIsDetected": 1573,
     "nearestDistanceMiles": {
       "median": 2.0860216177145445,
       "p90": 9.968131461671662,
       "p99": 25.364223263245464,
       "max": 1815.9511109284065
     },
-    "elapsedMs": 507
+    "elapsedMs": 693
   }
 }
