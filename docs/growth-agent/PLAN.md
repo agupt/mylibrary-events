@@ -197,7 +197,9 @@ reason for skipping is written here).
 | 2026-11-23 | Mystery shopper + M1 are the first outward signals | Proposed | Widest coverage per dollar; names competitors |
 | 2026-11-23 | Verifier ships with the doer, not later | Proposed | Avoid an open loop |
 | 2026-11-23 | Orchestration: **GitHub-native** (Issues/PRs as gates + scheduled Claude Code routines / Actions) vs **Paperclip** | **Pending Amool** | GitHub-native keeps state in repo (P2), no new service; Paperclip offers built-in budgets/governance and is familiar. Phases 0–1 are the same either way, so this can be decided before Phase 2. |
-| 2026-11-23 | Analytics vendor: Cloudflare Web Analytics vs Plausible vs Umami | **Pending Amool** | S9 needs custom events. Check whether CF Web Analytics supports them before choosing it; Plausible/Umami do. |
+| 2026-11-23 | Analytics vendor: **PostHog Cloud (US)**, cookieless, autocapture off, anonymous events only, server-side events for S2–S4 | **Decided (Amool)** | Usage-based (1M events/mo free, no card). The agent must read via API: Umami Hobby and Plausible below Business have no API, and CF Web Analytics has no custom events (S9). Server-side events keep search counters in the same store (no new datastore). Load after interactive; S7 watches the perf cost. |
+| 2026-11-23 | Privacy: cookieless analytics, aggregate counters, feedback stored without IP, PII scrubbed before LLM | **Approved (Amool)** | Plain-language privacy page update ships with Phase 0. |
+| 2026-11-23 | GSC is a **Domain** property (`sc-domain:mylibrary-events.com`); sitemap shows Success; read-only service account + Bing API key in GH secrets | **Done (Amool)** | Unblocks F1–F5. AdSense API (S11) needs OAuth, not a service account; handle in Phase 1. |
 
 ## 6. Open questions (blocking where noted)
 
