@@ -9,6 +9,10 @@ COPY . .
 # runtime secret. It is a public id — it ships in page source and /ads.txt.
 ARG NEXT_PUBLIC_ADSENSE_CLIENT
 ENV NEXT_PUBLIC_ADSENSE_CLIENT=$NEXT_PUBLIC_ADSENSE_CLIENT
+# PostHog project token (public, write-only ingestion key). Inlined into both
+# the client bundle and the proxy at build time; unset = analytics off.
+ARG NEXT_PUBLIC_POSTHOG_TOKEN
+ENV NEXT_PUBLIC_POSTHOG_TOKEN=$NEXT_PUBLIC_POSTHOG_TOKEN
 RUN npm run build
 
 # Runtime stage — Next standalone output (~150MB image)

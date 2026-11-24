@@ -30,15 +30,15 @@ Triggers below are **drafts**. They become real thresholds in `signals.yml`
 
 | ID | Signal & description | Metric(s) | Source | Cadence | Draft trigger | Status · Phase |
 |---|---|---|---|---|---|---|
-| S1 | **Traffic volume** — are people using the site, and which page types carry it (home, city, library, state, status). | Visits, pageviews, unique visitors per page group | Web analytics beacon (vendor TBD — PLAN §Open questions) | daily | Visits WoW −25% beyond seasonal baseline (see M1) | needs-setup · 0 |
-| S2 | **Search usage** — how people search; ambiguous-city rate shows where location UX hurts. | Searches/day, zip-vs-city split, `ambiguous` rate, 404 rate | Aggregate counter in `/api/locate` route | daily | Ambiguous+404 > 15% of searches | needs-setup · 0 |
-| S3 | **Search miss** — users landing on a home system with no feed. The highest-value coverage signal: real demand naming the exact library to add. | Misses per FSCSKEY (from `libraryIdsWithoutFeed`) | Aggregate counter in events API route | daily | ≥20 misses / 14d on one system → `/add-library` candidate | needs-setup · 0 |
-| S4 | **Zero-event result** — feed is active but returns 0 kid events in the window. Either broken feed or a truly quiet library; both matter. | Searches with active feed and 0 events, per FSCSKEY | Events API route | daily | Same system 0-events ≥3 consecutive days | needs-setup · 0 |
+| S1 | **Traffic volume** — are people using the site, and which page types carry it (home, city, library, state, status). | Visits, pageviews, unique visitors per page group | PostHog `$pageview` (cookieless, `history_change`) | daily | Visits WoW −25% beyond seasonal baseline (see M1) | needs-setup · 0 |
+| S2 | **Search usage** — how people search; ambiguous-city rate shows where location UX hurts. | Searches/day, zip-vs-city split, `ambiguous` rate, 404 rate | PostHog `search_performed` {query_kind, outcome, home_system} — client-side (CF caches `/api/location` 24h, so a server counter only sees misses) | daily | Ambiguous+404 > 15% of searches | built · 0 (deploy pending) |
+| S3 | **Search miss** — users landing on a home system with no feed. The highest-value coverage signal: real demand naming the exact library to add. | Misses per FSCSKEY (from `libraryIdsWithoutFeed`) | PostHog `search_results.systems_without_feed` — client-side, once per search | daily | ≥20 misses / 14d on one system → `/add-library` candidate | built · 0 (deploy pending) |
+| S4 | **Zero-event result** — feed is active but returns 0 kid events in the window. Either broken feed or a truly quiet library; both matter. | Searches with active feed and 0 events, per FSCSKEY | PostHog `search_results.zero_event_systems` — client-side, once per search | daily | Same system 0-events ≥3 consecutive days | built · 0 (deploy pending) |
 | S5 | **Feed health** — per active system, is the vendor feed reachable and producing a normal volume. | `feedReachable`, event count vs trailing 4-wk median | `/api/libraries/<id>/analysis`, coverage harness | daily | Count −70% vs median, or unreachable 2 consecutive days | available · 1 |
 | S6 | **Field Core Web Vitals** — real-user speed; a Google ranking input. | LCP, INP, CLS at p75, mobile & desktop | CrUX API (needs traffic threshold); analytics RUM if vendor supports | weekly | LCP p75 > 2.5s or INP p75 > 200ms | needs-setup · 1 |
 | S7 | **Lab performance** — regression catcher before field data notices. | Lighthouse perf/SEO/a11y scores on 5 representative URLs | Lighthouse CI in GitHub Actions | weekly + per deploy | Any score −10 vs last run | needs-build · 1 |
 | S8 | **Server health** — errors and slow vendor fetches degrade UX and crawl budget. | 5xx rate, p95 latency of `/api/events`, cold-fetch time | Fly.io metrics (Prometheus endpoint) | daily | 5xx > 1% or p95 > 8s | available · 1 |
-| S9 | **Engagement** — did the visit succeed? Outbound click to a library event is the "job done" moment. | Outbound event clicks / search, filter usage, return-visitor rate | Analytics custom events (vendor must support them) | daily | Clicks/search −30% WoW | needs-setup · 0 |
+| S9 | **Engagement** — did the visit succeed? Outbound click to a library event is the "job done" moment. | Outbound event clicks / search, filter usage, return-visitor rate | PostHog `outbound_click` (library website link), `filter_changed` | daily | Clicks/search −30% WoW | needs-setup · 0 |
 | S10 | **Coverage reach** — supply side of the product. | ZIP reach %, active systems, decision-tree branch counts | `generated/coverageStats.json` (existing harness) | weekly | Reach drops, or a branch grows >10% | available · 1 |
 | S11 | **Revenue** — AdSense health; sustainability of the site. | RPM, ad impressions, policy warnings | AdSense Management API | weekly | RPM −30% or any policy notice | needs-setup · 1 |
 
@@ -51,11 +51,11 @@ Triggers below are **drafts**. They become real thresholds in `signals.yml`
 | F3 | **CTR anomaly** — we rank but nobody clicks: title/snippet/rich-result problem. | Actual CTR vs expected CTR for position | GSC API (derived) | weekly | CTR < 50% of expected at position ≤5 | needs-setup · 1 |
 | F4 | **Index coverage** — the 6.6k SEO pages only help if indexed. | Indexed vs submitted (sitemap), crawl errors | GSC API (sitemaps + URL inspection sample) | weekly | Indexed/submitted < 70% | needs-setup · 1 |
 | F5 | **Bing performance** — Bing's index feeds Copilot, ChatGPT search, DuckDuckGo: an AEO proxy. | Impressions, clicks, crawl errors | Bing Webmaster Tools API | weekly | Same as F1 | needs-setup · 0 |
-| F6 | **AI crawler activity** — are answer engines reading us at all. | Hits by GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, etc. on `llms.txt` + landing pages | App-level UA counter (Next middleware; CF log access depends on plan) | weekly | A major bot drops to 0 for 2 weeks | needs-build · 0 |
+| F6 | **AI crawler activity** — are answer engines reading us at all. | Hits by GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, etc. on `llms.txt` + landing pages | `src/proxy.ts` UA match → PostHog `ai_bot_hits` {bot, hits, paths} aggregated per bot per minute (HTML is not CF-cached, origin sees every hit) | weekly | A major bot drops to 0 for 2 weeks | built · 0 (deploy pending) |
 | F7 | **AI referrals** — answer engines sending users to us. | Visits referred by chatgpt.com, perplexity.ai, copilot, gemini, claude.ai | Analytics referrers | daily | Trend signal (no threshold) | needs-setup · 0 |
 | F8 | **Referrers & links** — who points people at us (Reddit, library sites, parent blogs). | Referring domains, new referrers | Analytics referrers. Backlinks: no GSC API → paid tool | weekly | New referrer with ≥20 visits | needs-setup · 0 (backlinks: paid) |
 | F9 | **Answer-engine citation share** — when a parent asks an AI for storytime, are we cited. | % of mystery-shopper probes citing us, per engine | Mystery shopper (PLAN §Roles) | weekly | Citation share −50% vs 4-wk avg | needs-build · 1b |
-| F10 | **Direct user feedback** — users telling us what's missing, in their words. | "Didn't find what you needed?" submissions, tagged | New feedback box on no-result / no-feed states | continuous | Any submission → triaged weekly | needs-build · 0 |
+| F10 | **Direct user feedback** — users telling us what's missing, in their words. | "Didn't find what you needed?" submissions, tagged | `FeedbackBox` on no-location / no-feed / no-events states → PostHog `feedback_submitted` (PII-scrubbed client-side) | continuous | Any submission → triaged weekly | built · 0 (deploy pending) |
 
 ## W — World
 
@@ -81,6 +81,7 @@ Recorded so silence here is never read as "no signal":
 - **Google AI Overviews** — not checkable without scraping Google (ToS). F9/W3 cover API-accessible engines only.
 - **Backlinks** — GSC has no links API; only paid tools (Ahrefs-class). F8 covers referrers only.
 - **Word of mouth / private messaging** — unobservable; at best inferred from direct-traffic spikes (M1).
+- **Ad-blocked visitors** (S-ring) — ad blockers commonly block `us.i.posthog.com`, so every client-side PostHog signal (S1, S2–S4, S9, F7, F8, F10) is a lower bound. Fix if it matters: first-party reverse proxy. F6 is server-side and unaffected.
 
 ## M — Meta (observing our model of the world)
 
@@ -95,7 +96,7 @@ Recorded so silence here is never read as "no signal":
 
 ## Privacy rules for collected signals
 
-- Search signals (S2–S4) are **aggregate counters keyed by FSCSKEY**, never raw query strings, IPs, or per-user logs.
+- Search signals (S2–S4) are **anonymous events keyed by FSCSKEY** (cookieless, no person profiles), never raw query strings, IPs, or per-user logs.
 - Feedback (F10) is free text the user chose to send; stored without IP; PII scrubbed before it reaches any LLM.
 - Mystery-shopper and scout prompts never include user data — only synthetic parent questions and public sources.
 

@@ -1,6 +1,14 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { track } from "@/lib/analytics/browser";
+import {
+  buildFilterChangedEvents,
+  buildSearchPerformedEvent,
+  buildSearchResultsEvent,
+  outcomeFromHttpStatus,
+  type SearchOutcome,
+} from "@/lib/analytics/events";
 import { MAX_LIBRARIES_PER_REQUEST } from "@/lib/constants";
 import { dateRangeForPreset } from "@/lib/datePresets";
 import { filterEvents } from "@/lib/filterEvents";
@@ -8,6 +16,7 @@ import type { Library, LocationMatch, StorytimeEvent } from "@/lib/types";
 import type { ActiveFilters } from "./EventFilterBar";
 import { EventFilterBar } from "./EventFilterBar";
 import { EventList } from "./EventList";
+import { FeedbackBox } from "./FeedbackBox";
 import { LibraryResults } from "./LibraryResults";
 import { SearchForm } from "./SearchForm";
 
@@ -31,11 +40,24 @@ interface ApiEnvelope<T> {
   error: string | null;
 }
 
+/** API failure carrying the HTTP status (analytics tells 404 from 400). */
+class ApiRequestError extends Error {
+  constructor(
+    message: string,
+    readonly status: number,
+  ) {
+    super(message);
+  }
+}
+
 async function fetchJson<T>(url: string): Promise<T> {
   const response = await fetch(url);
   const body = (await response.json()) as ApiEnvelope<T>;
   if (!body.success || body.data === null) {
-    throw new Error(body.error ?? "Something went wrong. Please try again.");
+    throw new ApiRequestError(
+      body.error ?? "Something went wrong. Please try again.",
+      response.status,
+    );
   }
   return body.data;
 }
@@ -81,11 +103,19 @@ export function StorytimeFinder() {
   const [libraryIdsWithoutFeed, setLibraryIdsWithoutFeed] = useState<string[]>([]);
   const [filters, setFilters] = useState<ActiveFilters>(NO_FILTERS);
   const [radius, setRadius] = useState<number>(DEFAULT_RADIUS);
+  const [searchOutcome, setSearchOutcome] = useState<SearchOutcome | null>(null);
+  // Bumped per search so per-search UI (feedback boxes) remounts fresh.
+  const [searchId, setSearchId] = useState(0);
+  const [eventsLoadedFor, setEventsLoadedFor] = useState<LocationMatch | null>(null);
   const fetchSeq = useRef(0);
+  // S3/S4 are counted once per search, not again on radius re-fetches.
+  const reportedMatch = useRef<LocationMatch | null>(null);
 
   const handleSearch = useCallback(async (query: string) => {
     setIsLoading(true);
     setError(null);
+    setSearchOutcome(null);
+    setSearchId((id) => id + 1);
     try {
       const location = await fetchJson<LocationMatch>(
         `/api/location?q=${encodeURIComponent(query)}&v=${LOCATION_API_VERSION}`,
@@ -94,7 +124,14 @@ export function StorytimeFinder() {
       setEvents([]);
       setFilters(NO_FILTERS);
       setRadius(DEFAULT_RADIUS);
+      setSearchOutcome("ok");
+      track(buildSearchPerformedEvent({ query, outcome: "ok", homeLibrary: location.homeLibrary }));
     } catch (caught) {
+      const outcome = outcomeFromHttpStatus(
+        caught instanceof ApiRequestError ? caught.status : undefined,
+      );
+      setSearchOutcome(outcome);
+      track(buildSearchPerformedEvent({ query, outcome }));
       setMatch(null);
       setEvents([]);
       setLibraryIdsWithoutFeed([]);
@@ -131,6 +168,22 @@ export function StorytimeFinder() {
     if (!match || scopeLibraries.length === 0) return;
     const ids = scopeLibraries.map((library) => library.id);
     const seq = (fetchSeq.current += 1);
+    const reportOnce = (
+      calendar: { events: StorytimeEvent[]; libraryIdsWithoutFeed: string[] },
+      fetchFailed: boolean,
+    ) => {
+      if (reportedMatch.current === match) return;
+      reportedMatch.current = match;
+      track(
+        buildSearchResultsEvent({
+          homeLibrary: match.homeLibrary,
+          scopeLibraries,
+          ...calendar,
+          radiusMiles: radius,
+          fetchFailed,
+        }),
+      );
+    };
     // eslint-disable-next-line react-hooks/set-state-in-effect -- loading flag for a location/radius-driven refetch; cleared in finally()
     setIsLoadingEvents(true);
     fetchJson<{ events: StorytimeEvent[]; libraryIdsWithoutFeed: string[] }>(
@@ -140,16 +193,36 @@ export function StorytimeFinder() {
         if (seq !== fetchSeq.current) return;
         setEvents(calendar.events);
         setLibraryIdsWithoutFeed(calendar.libraryIdsWithoutFeed);
+        reportOnce(calendar, false);
       })
       .catch(() => {
         if (seq !== fetchSeq.current) return;
         setEvents([]);
         setLibraryIdsWithoutFeed([]);
+        reportOnce({ events: [], libraryIdsWithoutFeed: [] }, true);
       })
       .finally(() => {
-        if (seq === fetchSeq.current) setIsLoadingEvents(false);
+        if (seq !== fetchSeq.current) return;
+        setIsLoadingEvents(false);
+        setEventsLoadedFor(match);
       });
-  }, [match, scopeLibraries]);
+  }, [match, scopeLibraries, radius]);
+
+  const changeFilters = useCallback(
+    (next: ActiveFilters) => {
+      buildFilterChangedEvents(filters, next).forEach(track);
+      setFilters(next);
+    },
+    [filters],
+  );
+
+  const changeRadius = useCallback(
+    (miles: number) => {
+      buildFilterChangedEvents({ radius: String(radius) }, { radius: String(miles) }).forEach(track);
+      setRadius(miles);
+    },
+    [radius],
+  );
 
   const librariesById = useMemo(() => {
     const all: Library[] = match
@@ -171,6 +244,16 @@ export function StorytimeFinder() {
   }, [events, filters, scopeIds]);
 
   const missingFeedInScope = libraryIdsWithoutFeed.filter((id) => scopeIds.has(id));
+  const showNoLocationFeedback =
+    searchOutcome === "not-found" || searchOutcome === "ambiguous";
+  // Real absence (nothing in scope at all), not "filters too narrow" — the
+  // latter isn't coverage feedback and would remount the box on every filter.
+  const hasScopedEvents = events.some((event) => scopeIds.has(event.libraryId));
+  const showNoEventsFeedback =
+    eventsLoadedFor === match &&
+    !isLoadingEvents &&
+    !hasScopedEvents &&
+    missingFeedInScope.length === 0;
 
   return (
     <div className="space-y-6">
@@ -184,6 +267,12 @@ export function StorytimeFinder() {
           >
             {error}
           </p>
+        )}
+
+        {showNoLocationFeedback && (
+          <div className="mt-3">
+            <FeedbackBox key={searchId} context="no-location" />
+          </div>
         )}
 
         {isLoading && !match && (
@@ -208,10 +297,10 @@ export function StorytimeFinder() {
               nearbyLibraries={nearbyInScope}
               selectedLibraryId={filters.libraryId}
               onSelectLibrary={(id) =>
-                setFilters((current) => ({
-                  ...current,
-                  libraryId: current.libraryId === id ? "" : id,
-                }))
+                changeFilters({
+                  ...filters,
+                  libraryId: filters.libraryId === id ? "" : id,
+                })
               }
             />
           </aside>
@@ -227,12 +316,12 @@ export function StorytimeFinder() {
                       : `${visibleEvents.length} at ${scopeLibraries.length} ${scopeLibraries.length === 1 ? "library" : "libraries"}`}
                   </span>
                 </div>
-                <DistanceControl value={radius} onChange={setRadius} />
+                <DistanceControl value={radius} onChange={changeRadius} />
               </div>
               <EventFilterBar
                 libraries={scopeLibraries}
                 filters={filters}
-                onChange={setFilters}
+                onChange={changeFilters}
               />
             </div>
             {missingFeedInScope.length > 0 && (
@@ -244,7 +333,21 @@ export function StorytimeFinder() {
                 . Check their websites for events.
               </p>
             )}
+            {missingFeedInScope.length > 0 && (
+              <FeedbackBox
+                key={`no-feed-${searchId}`}
+                context="no-feed"
+                homeLibraryId={match.homeLibrary.id}
+              />
+            )}
             <EventList events={visibleEvents} librariesById={librariesById} />
+            {showNoEventsFeedback && (
+              <FeedbackBox
+                key={`no-events-${searchId}`}
+                context="no-events"
+                homeLibraryId={match.homeLibrary.id}
+              />
+            )}
           </section>
         </div>
       )}

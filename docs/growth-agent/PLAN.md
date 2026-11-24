@@ -118,8 +118,8 @@ reason for skipping is written here).
 |---|---|---|---|
 | 0a | Verify GSC (domain property) + Bing Webmaster; service-account API access | F1, F2–F5 | Account access; secrets in GH Actions |
 | 0b | Analytics beacon (vendor decision) with custom events (outbound click, filter use) | S1, S9, F7, F8 | Vendor choice; consent-flow review |
-| 0c | Aggregate server counters in `/api/locate` + events route (search, miss, zero-event) | S2, S3, S4 | — |
-| 0d | AI-bot UA counter (Next middleware, aggregate only) | F6 | — |
+| 0c | Client-side PostHog events after each search (search, miss, zero-event) — not server counters: CF caches the APIs | S2, S3, S4 | — |
+| 0d | AI-bot UA counter (`src/proxy.ts`, anonymous PostHog event) | F6 | — |
 | 0e | "Didn't find what you needed?" box on no-result / no-feed states | F10 | Copy + privacy note review |
 
 **Exit:** every Phase-0 signal reports a non-null value for 3 consecutive days.
@@ -199,7 +199,11 @@ reason for skipping is written here).
 | 2026-11-23 | Orchestration: **GitHub-native** (Issues/PRs as gates + scheduled Claude Code routines / Actions) vs **Paperclip** | **Pending Amool** | GitHub-native keeps state in repo (P2), no new service; Paperclip offers built-in budgets/governance and is familiar. Phases 0–1 are the same either way, so this can be decided before Phase 2. |
 | 2026-11-23 | Analytics vendor: **PostHog Cloud (US)**, cookieless, autocapture off, anonymous events only, server-side events for S2–S4 | **Decided (Amool)** | Usage-based (1M events/mo free, no card). The agent must read via API: Umami Hobby and Plausible below Business have no API, and CF Web Analytics has no custom events (S9). Server-side events keep search counters in the same store (no new datastore). Load after interactive; S7 watches the perf cost. |
 | 2026-11-23 | Privacy: cookieless analytics, aggregate counters, feedback stored without IP, PII scrubbed before LLM | **Approved (Amool)** | Plain-language privacy page update ships with Phase 0. |
+| 2026-11-24 | S2–S4 move **client-side** (PostHog events after each search) | **Approved (Amool)** | Cloudflare caches `/api/location` (24h) and `/api/events` (15m); server counters would only count cache misses. Supersedes "server-side events for S2–S4" above. |
+| 2026-11-24 | Phase 0 built: posthog-js 1.447.4 (prod-only, cookieless, autocapture/replay/flags off, lazy-loaded after `load`+idle), F6 in `src/proxy.ts`, F10 feedback box, privacy page | **Merged; deploy pending Amool** | See `phase0-impact.md`. Requires PostHog project setting "cookieless mode" ON or events are dropped. |
 | 2026-11-23 | GSC is a **Domain** property (`sc-domain:mylibrary-events.com`); sitemap shows Success; read-only service account + Bing API key in GH secrets | **Done (Amool)** | Unblocks F1–F5. AdSense API (S11) needs OAuth, not a service account; handle in Phase 1. |
+
+Phase 0 build notes: `docs/growth-agent/phase0-impact.md` (impact map, assumptions, verification).
 
 ## 6. Open questions (blocking where noted)
 

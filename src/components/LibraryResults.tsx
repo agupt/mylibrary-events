@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@/lib/analytics/browser";
+import { buildOutboundClickEvent, type LinkPlacement } from "@/lib/analytics/events";
 import type { Library, LibraryDistance } from "@/lib/types";
 
 interface LibraryResultsProps {
@@ -14,12 +16,19 @@ interface LibraryResultsProps {
   onSelectLibrary: (id: string) => void;
 }
 
-function WebsiteLink({ href }: { href: string }) {
+interface WebsiteLinkProps {
+  href: string;
+  libraryId: string;
+  placement: LinkPlacement;
+}
+
+function WebsiteLink({ href, libraryId, placement }: WebsiteLinkProps) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => track(buildOutboundClickEvent({ libraryId, placement }))}
       className="inline-flex items-center gap-1 text-sm font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
     >
       Website
@@ -76,7 +85,7 @@ export function LibraryResults({
         </button>
         {homeLibrary.websiteUrl && (
           <div className="px-5 pb-4">
-            <WebsiteLink href={homeLibrary.websiteUrl} />
+            <WebsiteLink href={homeLibrary.websiteUrl} libraryId={homeLibrary.id} placement="home" />
           </div>
         )}
       </div>
@@ -131,7 +140,7 @@ export function LibraryResults({
                   </button>
                   {library.websiteUrl && (
                     <div className="px-3.5 pb-2.5">
-                      <WebsiteLink href={library.websiteUrl} />
+                      <WebsiteLink href={library.websiteUrl} libraryId={library.id} placement="nearby" />
                     </div>
                   )}
                 </li>

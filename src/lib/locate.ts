@@ -2,15 +2,11 @@ import { MAX_NEARBY_LIBRARIES, MAX_RADIUS_MILES } from "./constants";
 import { getAllLibraries } from "./data/directory";
 import { lookupCity, lookupZip, type PlaceInfo } from "./data/zipLookup";
 import { haversineMiles } from "./geo";
+import { systemKeyOf } from "./libraryId";
 import type { Coordinates, Library, LocationResult } from "./types";
 
 const ZIP_PATTERN = /^\d{5}$/;
 const MAX_AMBIGUOUS_OPTIONS = 8;
-
-/** IMLS system key (FSCSKEY) — the part of an outlet id before the sequence. */
-function systemKeyOf(libraryId: string): string {
-  return libraryId.split("-")[0];
-}
 
 export interface LocateDeps {
   getLibraries: () => Library[];

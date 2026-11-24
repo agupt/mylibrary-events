@@ -21,6 +21,7 @@ export default defineConfig({
         "src/lib/events/index.ts",
         "src/lib/events/calendarFeeds.ts",
         "src/lib/apiResponse.ts",
+        "src/lib/analytics/browser.ts",
       ],
       thresholds: {
         lines: 80,

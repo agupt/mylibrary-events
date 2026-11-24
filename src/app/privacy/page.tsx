@@ -4,10 +4,10 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Privacy Policy — Library Storytime",
   description:
-    "How mylibrary-events.com handles searches, cookies, and advertising.",
+    "How mylibrary-events.com handles searches, analytics, feedback, cookies, and advertising.",
 };
 
-const EFFECTIVE_DATE = "July 14, 2026";
+const EFFECTIVE_DATE = "November 24, 2026";
 
 function Section({
   title,
@@ -45,8 +45,8 @@ export default function PrivacyPage() {
           <p>
             Library Storytime helps parents and caregivers find free
             storytimes and kids&rsquo; events at US public libraries. It is a
-            read-only search tool: there are no user accounts, sign-ups,
-            profiles, or messaging features.
+            search tool: there are no user accounts, sign-ups, profiles, or
+            messaging features.
           </p>
         </Section>
 
@@ -70,6 +70,43 @@ export default function PrivacyPage() {
             <strong>Caching.</strong> Responses are cached by Cloudflare and
             on our servers to keep the site fast. Caches store event and
             library data, not information about you.
+          </p>
+        </Section>
+
+        <Section title="Usage analytics">
+          <p>
+            We use PostHog to count how the site is used — pages viewed,
+            which site referred you, whether a search found your location,
+            which libraries came up without a connected calendar, filter use,
+            and clicks through to a library&rsquo;s website. This tells us
+            which libraries to add next and whether the site works.
+          </p>
+          <p>
+            Analytics run in <strong>cookieless mode</strong>: no cookies,
+            local storage, or other identifiers are stored in your browser,
+            and we don&rsquo;t build user profiles. The text you type into
+            the search box is not sent to analytics — only whether it was a
+            city or a zip code and which library system it matched. IP
+            addresses are discarded by PostHog before storage.
+          </p>
+          <p>
+            We also count visits from known AI search crawlers (for example
+            GPTBot or ClaudeBot) by their published user-agent name, to see
+            whether answer engines read this site. That count contains no
+            visitor information.
+          </p>
+        </Section>
+
+        <Section title="Feedback you send">
+          <p>
+            When a search doesn&rsquo;t find what you need, you can send a
+            short note. It is sent without your name or IP address, together
+            with the library system you searched near, and is used only to
+            decide what to add or fix. Before it leaves your browser, email
+            addresses, phone numbers, and long ID-like numbers are removed and
+            the note is shortened to 500 characters. That filter can&rsquo;t
+            catch everything (names or street addresses, for example), so
+            please don&rsquo;t include personal details.
           </p>
         </Section>
 
@@ -110,9 +147,9 @@ export default function PrivacyPage() {
           <p>
             The site is intended for parents, caregivers, and educators — not
             for children. We do not knowingly collect personal information
-            from children under 13, and the site has no features (accounts,
-            comments, forms) through which anyone could submit personal
-            information.
+            from children under 13. The site has no accounts or comments; the
+            only free-text field is the optional feedback note described
+            above, which is filtered for contact details before sending.
           </p>
         </Section>
 

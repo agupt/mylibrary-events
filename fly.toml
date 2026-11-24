@@ -17,6 +17,9 @@ primary_region = "sjc"
 [build]
   [build.args]
     NEXT_PUBLIC_ADSENSE_CLIENT = "ca-pub-9216109025053274"
+    # PostHog project token — public write-only ingestion key (ships in page
+    # source by design). See docs/growth-agent/phase0-impact.md.
+    NEXT_PUBLIC_POSTHOG_TOKEN = "phc_qGHi4MYAe2rqJjRtacKcdheeyXoRFpWPcVHYrQJtaTgQ"
 
 [env]
   ADSENSE_PUBLISHER_ID = "pub-9216109025053274"
