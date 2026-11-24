@@ -117,3 +117,7 @@ Pattern for future metros: open the events page in Chrome DevTools, filter netwo
 Origin: website links (UI) and searched domains (pipeline) were built days
 apart as two disconnected stores of the same fact — the app knew domains it
 never showed users. Divergence was a process failure, not a trust necessity.
+
+## Growth agent (proposed, not built — 2026-11-23)
+
+Always-on monitor/strategy loop for traffic, SEO/AEO, and scale: deterministic observer → strategist → planner → doer → verifier, with three Amool gates (strategy, plan, PR merge). Design, phase sequence, and decision log: `docs/growth-agent/PLAN.md`. Every observed signal (Self / Frontier / World / Meta rings, with IDs like `S3`, `F9`) is defined in `docs/growth-agent/SIGNALS.md` — add signals there, never ad hoc.
