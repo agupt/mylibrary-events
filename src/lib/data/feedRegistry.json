@@ -521,7 +521,7 @@
     "vendor": "sfpl",
     "status": "active",
     "url": "https://sfpl.org/events",
-    "note": "San Francisco Public Library — Drupal views/ajax endpoint (found by Amool 2026-07-16); token scraped per-load, library-hours AM/PM heuristic",
+    "note": "San Francisco Public Library — Drupal views/ajax endpoint (found by Amool 2026-07-16); token scraped per-load; times from the <time datetime> ISO range (markup changed 2026-11)",
     "source": "verified",
     "verifiedAt": "2026-07"
   },

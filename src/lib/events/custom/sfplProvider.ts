@@ -1,5 +1,5 @@
 import type { AgeGroup, Library, StorytimeEvent } from "../../types";
-import { namesOverlap } from "../nameMatch";
+import { namesOverlap, normalizeName } from "../nameMatch";
 import { classifyEventType } from "../classify";
 import type { DateRange, EventProvider } from "../eventProvider";
 import { createFeedCache } from "../feedCache";
@@ -17,10 +17,14 @@ import { createFeedCache } from "../feedCache";
  * required (a stripped request 500s), so we scrape a fresh one from the
  * /events page each load rather than hard-coding it.
  *
- * Times in the list carry no AM/PM ("12:15 - 1:15"), so we disambiguate with
- * a library-hours heuristic (9–11 = AM, 12–8 = PM) — safe because no public
- * library programs run between 9pm and 9am. Emits floating local wall-clock,
- * like every other adapter.
+ * Each teaser's date/time is a `<time datetime="START/END">` element whose
+ * attribute carries full ISO instants with the local offset
+ * ("2026-11-24T10:30:00-08:00/2026-11-24T11:00:00-08:00"). The visible text
+ * still omits AM/PM ("10:30 - 11:00"), so the attribute is the only reliable
+ * source. We drop the offset to emit floating local wall-clock, like every
+ * other adapter. (Until ~Nov 2026 this was a `<span class="date-display-range">`
+ * with text only, parsed with an hours heuristic; SFPL's markup change to
+ * `<time>` silently zeroed the adapter.)
  */
 
 const MAX_PAGES = 8; // 25/page — covers a 2-week window across all branches
@@ -29,11 +33,11 @@ const MAX_DESCRIPTION_LENGTH = 280;
 export interface SfplRawEvent {
   id: string;
   title: string;
-  /** Floating local date, "YYYY-MM-DD", from the event URL path. */
+  /** Floating local date, "YYYY-MM-DD", of the start. */
   date: string;
-  /** Raw clock strings from the display range, e.g. "12:15" / "1:15". */
-  startClock: string;
-  endClock: string;
+  /** Floating local wall-clock, "YYYY-MM-DDTHH:MM:SS"; null if absent. */
+  startTime: string | null;
+  endTime: string | null;
   audiences: string[];
   topics: string[];
   /** Location slug, e.g. "main-library" / "glen-park". */
@@ -61,6 +65,24 @@ function fieldLinks(card: string, fieldName: string): string[] {
   );
 }
 
+const FLOATING_ISO = /^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})(:\d{2})?/;
+
+/**
+ * "2026-11-24T10:30:00-08:00" → "2026-11-24T10:30:00": keeps the local
+ * wall-clock, drops the offset. Null for anything that isn't an ISO datetime.
+ */
+export function sfplFloatingIso(isoWithOffset: string): string | null {
+  const match = isoWithOffset.trim().match(FLOATING_ISO);
+  return match ? `${match[1]}T${match[2]}${match[3] ?? ":00"}` : null;
+}
+
+/** The `<time datetime="START/END">` range of a teaser card. */
+function timeRange(card: string): { start: string | null; end: string | null } {
+  const attr = card.match(/<time[^>]*\sdatetime="([^"]+)"/)?.[1] ?? "";
+  const [start = "", end = ""] = attr.split("/");
+  return { start: sfplFloatingIso(start), end: sfplFloatingIso(end) };
+}
+
 /** Extracts event teaser cards from one page of the events view HTML. */
 export function parseSfplEvents(html: string): SfplRawEvent[] {
   const cards = html.split("views-row").slice(1);
@@ -70,44 +92,23 @@ export function parseSfplEvents(html: string): SfplRawEvent[] {
       /about="\/events\/(\d{4})\/(\d{2})\/(\d{2})\/([^"]+)"/,
     );
     if (!path) continue;
-    const date = `${path[1]}-${path[2]}-${path[3]}`;
     const titleMatch = card.match(/event__title[\s\S]*?<span>([^<]+)<\/span>/);
     const title = decodeEntities(titleMatch?.[1] ?? "");
     if (!title) continue;
-    const range = card.match(
-      /date-display-range">[^,]+,[^,]+,\s*(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})/,
-    );
+    const { start, end } = timeRange(card);
     events.push({
       id: path[4],
       title,
-      date,
-      startClock: range?.[1] ?? "",
-      endClock: range?.[2] ?? "",
+      // Prefer the start instant's date; fall back to the URL path date.
+      date: start?.slice(0, 10) ?? `${path[1]}-${path[2]}-${path[3]}`,
+      startTime: start,
+      endTime: end,
       audiences: fieldLinks(card, "audience"),
       topics: fieldLinks(card, "topic"),
       locationSlug: card.match(/about="\/locations\/([^"]+)"/)?.[1] ?? "",
     });
   }
   return events;
-}
-
-/**
- * "12:15" → "12:15" (24h), applying the library-hours heuristic: hours 9–11
- * are AM, 12 and 1–8 are PM. Returns null for an unparseable clock.
- */
-function clockTo24h(clock: string): string | null {
-  const match = clock.match(/^(\d{1,2}):(\d{2})$/);
-  if (!match) return null;
-  const minute = match[2];
-  let hour = Number(match[1]);
-  if (hour >= 1 && hour <= 8) hour += 12; // afternoon/evening
-  // 9,10,11 stay AM; 12 stays PM (noon)
-  return `${String(hour).padStart(2, "0")}:${minute}`;
-}
-
-export function sfplFloatingIso(date: string, clock: string): string | null {
-  const time = clockTo24h(clock);
-  return time ? `${date}T${time}:00` : null;
 }
 
 /** SFPL audience labels → our age groups; null = no kid audience (drop it). */
@@ -130,11 +131,11 @@ function toStorytimeEvent(
   raw: SfplRawEvent,
   libraryId: string,
 ): StorytimeEvent | null {
-  const startTime = sfplFloatingIso(raw.date, raw.startClock);
+  const startTime = raw.startTime;
   if (!startTime) return null;
   const ageGroups = audiencesToAgeGroups(raw.audiences);
   if (ageGroups === null) return null; // adult/teen-only
-  const endTime = sfplFloatingIso(raw.date, raw.endClock) ?? startTime;
+  const endTime = raw.endTime ?? startTime;
   return {
     id: raw.id,
     libraryId,
@@ -152,9 +153,34 @@ export interface SfplProviderDeps {
   feeds: Record<string, string>;
   fetchText: (url: string) => Promise<string>;
   findLibraryById: (id: string) => Library | undefined;
+  /**
+   * Every IMLS outlet of a system, so a location slug resolves to its one
+   * true branch before we filter to the requested ones. Without it, a
+   * requested "Mission" would claim "mission-bay" events. Defaults to the
+   * requested outlets only.
+   */
+  outletsForSystem?: (systemKey: string) => Library[];
   cacheTtlMs?: number;
   now?: () => number;
   persistDir?: string;
+}
+
+/**
+ * Resolves a `/locations/<slug>` to one outlet: an exact normalized-name
+ * match wins ("parkside" → Parkside, not Park; "mission-bay" → Mission Bay,
+ * not Mission); otherwise the overlapping outlet whose name is closest in
+ * length ("main-library" → "San Francisco Main Library").
+ */
+export function resolveSfplBranch(slug: string, outlets: Library[]): Library | undefined {
+  const slugName = normalizeName(slug.replace(/-/g, " "));
+  if (!slugName) return undefined;
+  const exact = outlets.find((outlet) => normalizeName(outlet.name) === slugName);
+  if (exact) return exact;
+  const distance = (outlet: Library): number =>
+    Math.abs(normalizeName(outlet.name).length - slugName.length);
+  return outlets
+    .filter((outlet) => namesOverlap(slugName, outlet.name))
+    .sort((a, b) => distance(a) - distance(b) || a.id.localeCompare(b.id))[0];
 }
 
 function extractToken(eventsPageHtml: string): string | null {
@@ -236,6 +262,9 @@ export function createSfplProvider(deps: SfplProviderDeps): EventProvider {
 
           const dateParam = toDateParam(range.start);
           const mainOutlet = [...libraries].sort((a, b) => a.id.localeCompare(b.id))[0];
+          const requestedIds = new Set(libraries.map((library) => library.id));
+          const knownOutlets = deps.outletsForSystem?.(systemKey) ?? [];
+          const systemOutlets = knownOutlets.length > 0 ? knownOutlets : libraries;
           const raws: SfplRawEvent[] = [];
           for (let page = 0; page < MAX_PAGES; page += 1) {
             let pageRaws: SfplRawEvent[];
@@ -256,17 +285,20 @@ export function createSfplProvider(deps: SfplProviderDeps): EventProvider {
 
           return raws
             .filter((raw) => {
-              const start = Date.parse(raw.date);
+              // Floating local wall-clock, like the range bounds. (A bare
+              // "YYYY-MM-DD" would parse as UTC midnight and, west of UTC,
+              // fall before range.start — dropping all of today's events.)
+              const start = raw.startTime ? Date.parse(raw.startTime) : NaN;
               return start >= range.start.getTime() && start < range.end.getTime();
             })
             .map((raw) => {
-              const branch = libraries.find((library) =>
-                namesOverlap(raw.locationSlug.replace(/-/g, " "), library.name),
-              );
-              if (raw.locationSlug.length > 0 && !branch) {
-                return null; // a branch the user didn't select
+              if (raw.locationSlug.length === 0) {
+                return toStorytimeEvent(raw, mainOutlet.id);
               }
-              return toStorytimeEvent(raw, (branch ?? mainOutlet).id);
+              const branch = resolveSfplBranch(raw.locationSlug, systemOutlets);
+              // Unmapped (bookmobile/outreach) or a branch the user didn't select.
+              if (!branch || !requestedIds.has(branch.id)) return null;
+              return toStorytimeEvent(raw, branch.id);
             })
             .filter((event): event is StorytimeEvent => event !== null);
         }),

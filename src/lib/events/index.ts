@@ -82,18 +82,24 @@ function findLibraryById(id: string): Library | undefined {
   return librariesById.get(id);
 }
 
-let outletCountBySystem: Map<string, number> | null = null;
+let outletsBySystem: Map<string, Library[]> | null = null;
+
+/** Every IMLS outlet of a system (FSCSKEY), for branch-slug resolution. */
+function outletsForSystem(systemKey: string): Library[] {
+  if (outletsBySystem === null) {
+    const grouped = new Map<string, Library[]>();
+    for (const library of getAllLibraries()) {
+      const key = library.id.split("-")[0];
+      grouped.set(key, [...(grouped.get(key) ?? []), library]);
+    }
+    outletsBySystem = grouped;
+  }
+  return outletsBySystem.get(systemKey) ?? [];
+}
 
 /** How many IMLS outlets a system (FSCSKEY) has — 1 means no branch ambiguity. */
 function outletCountForSystem(systemKey: string): number {
-  if (outletCountBySystem === null) {
-    outletCountBySystem = new Map();
-    for (const library of getAllLibraries()) {
-      const key = library.id.split("-")[0];
-      outletCountBySystem.set(key, (outletCountBySystem.get(key) ?? 0) + 1);
-    }
-  }
-  return outletCountBySystem.get(systemKey) ?? 0;
+  return outletsForSystem(systemKey).length;
 }
 
 /**
@@ -171,6 +177,7 @@ function createCompositeProvider(): EventProvider {
         feeds: activeFeedsByVendor("sfpl"),
         fetchText,
         findLibraryById,
+        outletsForSystem,
         persistDir: PERSIST_DIR,
       }),
       systemKeys: new Set(Object.keys(activeFeedsByVendor("sfpl"))),
