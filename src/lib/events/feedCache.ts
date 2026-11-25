@@ -1,6 +1,12 @@
 import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import {
+  FEED_CACHE_EVICTION_INTERVAL_MS,
+  TMP_SUFFIX,
+  createEvictionScheduler,
+  evictFeedCacheDir,
+} from "./feedCacheEviction";
 
 export const DEFAULT_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
 
@@ -9,6 +15,48 @@ export const DEFAULT_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
  * them — bump this whenever any feed parser's output shape changes.
  */
 export const FEED_CACHE_VERSION = "v6-ics-utc";
+
+// One eviction scheduler per directory: every provider's cache shares the
+// same dir, so they must share one schedule rather than each sweeping it.
+const evictionByDir = new Map<string, () => void>();
+
+function scheduleEviction(dir: string): void {
+  if (!evictionByDir.has(dir)) {
+    evictionByDir.set(
+      dir,
+      createEvictionScheduler({
+        intervalMs: FEED_CACHE_EVICTION_INTERVAL_MS,
+        run: async () => {
+          const result = await evictFeedCacheDir(dir);
+          console.info(
+            `feed cache: eviction removed ${result.deleted}/${result.scanned} files (${Math.round(result.freedBytes / 1024)} KiB) from ${dir}`,
+          );
+        },
+      }),
+    );
+  }
+  evictionByDir.get(dir)?.();
+}
+
+/**
+ * Write-then-rename in the same directory: a reader sees either the old
+ * complete file or the new complete file, never a truncated one (a full
+ * disk used to leave 0-byte entries behind).
+ */
+function writeFileAtomic(file: string, contents: string): void {
+  const tmp = `${file}.${process.pid}.${Math.random().toString(36).slice(2)}${TMP_SUFFIX}`;
+  try {
+    writeFileSync(tmp, contents);
+    renameSync(tmp, file);
+  } catch (error: unknown) {
+    try {
+      rmSync(tmp, { force: true });
+    } catch {
+      // Best effort: an orphaned temp file is swept by eviction later.
+    }
+    throw error;
+  }
+}
 
 export interface FeedCacheOptions<T> {
   load: (url: string) => Promise<T>;
@@ -58,9 +106,13 @@ export function createFeedCache<T>(options: FeedCacheOptions<T>): (url: string) 
     if (!options.persistDir) return;
     try {
       mkdirSync(options.persistDir, { recursive: true });
-      writeFileSync(diskPath(url), JSON.stringify(value));
+      writeFileAtomic(diskPath(url), JSON.stringify(value));
     } catch (error: unknown) {
       console.warn(`feed cache: could not persist ${url}`, error);
+    } finally {
+      // Runs even when the write failed: a full disk is exactly when
+      // eviction is needed most.
+      scheduleEviction(options.persistDir);
     }
   }
 

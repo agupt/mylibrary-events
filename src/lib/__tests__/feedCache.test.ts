@@ -1,4 +1,4 @@
-import { mkdtempSync, rmSync } from "node:fs";
+import { mkdtempSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, test, vi } from "vitest";
@@ -57,5 +57,38 @@ describe("createFeedCache disk persistence", () => {
       persistDir: makeDir(),
     });
     await expect(cache("https://example.org/never-fetched")).rejects.toThrow("down");
+  });
+});
+
+describe("createFeedCache disk integrity", () => {
+  test("treats a 0-byte or corrupt disk entry as a miss and refetches", async () => {
+    const persistDir = makeDir();
+    const load = vi.fn(async () => ({ items: ["fresh"] }));
+    await createFeedCache({ load, persistDir })("https://example.org/feed");
+    const [entry] = readdirSync(persistDir);
+    writeFileSync(path.join(persistDir, entry), "");
+
+    const value = await createFeedCache({ load, persistDir })("https://example.org/feed");
+
+    expect(value).toEqual({ items: ["fresh"] });
+    expect(load).toHaveBeenCalledTimes(2);
+  });
+
+  test("writes atomically: no temp files are left behind after a write", async () => {
+    const persistDir = makeDir();
+    await createFeedCache({ load: async () => ({ ok: true }), persistDir })("https://example.org/a");
+    const files = readdirSync(persistDir);
+    expect(files).toHaveLength(1);
+    expect(files[0]).toMatch(/^[0-9a-f]{24}\.json$/);
+  });
+
+  test("a failed write leaves no partial file and does not throw", async () => {
+    const persistDir = makeDir();
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    // BigInt is not JSON-serializable, so the write fails before rename
+    const cache = createFeedCache({ load: async () => ({ n: BigInt(1) }), persistDir });
+    await expect(cache("https://example.org/b")).resolves.toEqual({ n: BigInt(1) });
+    expect(readdirSync(persistDir)).toEqual([]);
+    warn.mockRestore();
   });
 });
