@@ -1,0 +1,112 @@
+# Growth observer (docs/growth-agent/phase1-impact.md, WS-C): deterministic,
+# no LLM. Daily: collect every signal -> commit reports/metrics/<date>.json
+# -> evaluate signals.yml -> open/comment deduped `signal` issues. Mondays
+# also commit reports/growth/weekly-YYYY-Www.md and comment it on the pinned
+# "Weekly growth report" issue. Phase 1: observation only; no agent acts on
+# what it opens.
+#
+# Race-safety with data-refresh (same repo, pushes to main): disjoint paths
+# (this job only writes reports/metrics/** and reports/growth/**), a cron
+# >= 2 h after data-refresh's slots, and pull --rebase + retry on push.
+name: growth-observer
+
+on:
+  schedule:
+    - cron: "23 11 * * *" # daily 11:23 UTC (decision 6)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run: write to a temp dir, no commit, no GitHub writes"
+        type: boolean
+        default: false
+      no_issues:
+        description: "Commit the snapshot but do not read or write issues"
+        type: boolean
+        default: false
+      backfill_from:
+        description: "One-time F1 backfill from this GSC data date (YYYY-MM-DD), e.g. 2026-10-30"
+        type: string
+        default: ""
+      date:
+        description: "Run date override (YYYY-MM-DD, UTC); empty = today"
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: growth-observer
+  cancel-in-progress: false
+
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        # 22.x >= 22.18: built-in type stripping for src/lib/analytics/pageType.ts
+        with: { node-version: "22.x", cache: npm }
+      - run: npm ci
+
+      - name: Run observer
+        id: observe
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          POSTHOG_PERSONAL_API_KEY: ${{ secrets.POSTHOG_PERSONAL_API_KEY }}
+          POSTHOG_PROJECT_ID: ${{ vars.POSTHOG_PROJECT_ID }}
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+          BING_WEBMASTER_API_KEY: ${{ secrets.BING_WEBMASTER_API_KEY }}
+          CRUX_API_KEY: ${{ secrets.CRUX_API_KEY }}
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          FLY_ORG_SLUG: ${{ vars.FLY_ORG_SLUG }}
+          # Inputs reach the shell only through env (never ${{ }} in run:).
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+          INPUT_NO_ISSUES: ${{ inputs.no_issues }}
+          INPUT_BACKFILL_FROM: ${{ inputs.backfill_from }}
+          INPUT_DATE: ${{ inputs.date }}
+        run: |
+          args=()
+          if [ "$INPUT_DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          if [ "$INPUT_NO_ISSUES" = "true" ]; then args+=(--no-issues); fi
+          # Off main nothing is committed, so issues would cite missing files.
+          if [ "$GITHUB_REF" != "refs/heads/main" ] && [ "$INPUT_DRY_RUN" != "true" ]; then args+=(--no-issues); fi
+          if [ -n "$INPUT_BACKFILL_FROM" ]; then args+=(--backfill-from "$INPUT_BACKFILL_FROM"); fi
+          if [ -n "$INPUT_DATE" ]; then args+=(--date "$INPUT_DATE"); fi
+          set +e
+          node scripts/growth/collectMetrics.mjs "${args[@]}"
+          code=$?
+          set -e
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          # 1 = a source/issue error: the snapshot was written, commit it first
+          # and fail at the end. >= 2 = fatal: nothing valid to commit.
+          if [ "$code" -ge 2 ]; then exit "$code"; fi
+
+      - name: Commit snapshot
+        # main only: on another branch, rebasing onto main and pushing
+        # HEAD:main would publish that branch's commits to main.
+        if: inputs.dry_run != true && github.ref == 'refs/heads/main'
+        env:
+          INPUT_DATE: ${{ inputs.date }}
+        run: |
+          git config user.name "growth-observer bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add reports/metrics reports/growth 2>/dev/null || git add reports/metrics
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "chore: growth observer ${INPUT_DATE:-$(date -u +%F)}"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt * 15))
+          done
+          echo "push failed after 3 attempts" >&2
+          exit 1
+
+      - name: Fail on source errors
+        if: steps.observe.outputs.exit_code == '1'
+        run: |
+          echo "A source read 'error' or an issue step failed; the snapshot was committed. See the log above." >&2
+          exit 1

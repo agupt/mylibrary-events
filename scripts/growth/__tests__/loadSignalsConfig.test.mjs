@@ -12,11 +12,10 @@ const REPO_ROOT = path.join(import.meta.dirname, "../../..");
 const SIGNALS_MD = path.join(REPO_ROOT, "docs/growth-agent/SIGNALS.md");
 
 /**
- * Signals proposed in phase1-impact.md §1 whose SIGNALS.md rows are added by
- * WS-C (§1: "WS-C adds them in the same PR as the first code"). Once those
- * rows land this list can be emptied; the test never requires it.
+ * Signals with a signals.yml entry but no SIGNALS.md row yet. WS-C added the
+ * S12/S13 rows, so this is empty: every entry must be documented.
  */
-const PENDING_SIGNALS_MD_ROWS = ["S12", "S13"];
+const PENDING_SIGNALS_MD_ROWS = [];
 
 function signalsMdIds() {
   const text = readFileSync(SIGNALS_MD, "utf8");

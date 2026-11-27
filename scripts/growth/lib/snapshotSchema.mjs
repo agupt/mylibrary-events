@@ -409,6 +409,11 @@ export const snapshotSchema = z.strictObject({
   /** The run date (UTC), matching the file name. */
   date: isoDate,
   generatedAt: z.iso.datetime({ offset: true }),
+  /**
+   * Set only on files written by `collectMetrics --backfill-from`: they hold
+   * a history-only reading (F1) and never count as a clean collection day.
+   */
+  backfill: z.literal(true).optional(),
   ...signalSchemas,
 });
 

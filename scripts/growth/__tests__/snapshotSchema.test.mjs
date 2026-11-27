@@ -373,3 +373,10 @@ describe("empty readings on data statuses (contract for collectors)", () => {
     expect(snapshotSchema.safeParse(withSignal(id, block)).success).toBe(true);
   });
 });
+
+describe("backfill marker", () => {
+  test("accepts backfill: true and rejects any other value", () => {
+    expect(validateSnapshot({ ...loadFixture(), backfill: true }).success).toBe(true);
+    expect(validateSnapshot({ ...loadFixture(), backfill: false }).success).toBe(false);
+  });
+});

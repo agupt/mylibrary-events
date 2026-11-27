@@ -5,7 +5,7 @@ An always-on loop that monitors mylibrary-events.com, grows its reach
 goals. Metrics (or a human) trigger it; Amool approves strategy and plans;
 agents execute.
 
-- **Status:** Phase 0 live in production (2026-11-24); Phase 1+ proposal, not built. Nothing below exists yet unless marked.
+- **Status:** Phase 0 live in production (2026-11-24). Phase 1 observer built and merged (2026-11-27; `scripts/growth/`, `.github/workflows/growth-observer.yml`): local dry run done, live runs not started (see `phase1-impact.md` Verification). Phase 1b+ not built. Nothing below exists yet unless marked.
 - **Owner/approver:** Amool.
 - **Companion:** [SIGNALS.md](./SIGNALS.md) — every signal ID (`S3`, `F9`, `W4`, `M1`…) referenced here is defined there.
 - **Governed by:** AGENTS.md development rules — impact analysis first, assumptions surfaced, one source of truth per fact.
@@ -97,10 +97,11 @@ Rejections: wontfix (reason recorded in ledger.md so it isn't re-proposed)
 | `docs/growth-agent/ledger.md` | Every proposal: prediction, outcome, lesson; rejected ideas + why | Verifier, strategist |
 | `docs/growth-agent/known-facts.md` | What we've learned about the world; scouts dedupe against it | Verifier, scouts |
 | `docs/growth-agent/seasonality.md` | Known demand peaks + prep lead times (W10) | Phase 2 |
-| `scripts/growth/collectMetrics.mjs` | Observer collection | Phase 1 |
-| `scripts/growth/evaluateTriggers.mjs` | Pure trigger evaluation (unit-tested) | Phase 1 |
-| `reports/metrics/`, `reports/mystery-shopper/` | Committed daily/weekly snapshots | Observer, shopper |
-| `.github/workflows/growth-observer.yml` | Cron for observer/shopper/scouts | Phase 1+ |
+| `scripts/growth/collectMetrics.mjs` | Observer entrypoint (collect → snapshot → triggers → issues; `--dry-run`, `--no-issues`, `--backfill-from`) | Phase 1 (built) |
+| `scripts/growth/lib/evaluateTriggers.mjs` | Pure trigger evaluation (unit-tested) | Phase 1 (built) |
+| `scripts/growth/github.mjs` | The only module that talks to GitHub (`gh`) | Phase 1 (built) |
+| `reports/metrics/`, `reports/growth/`, `reports/mystery-shopper/` | Committed daily snapshots, weekly reports, shopper runs | Observer, shopper |
+| `.github/workflows/growth-observer.yml` | Daily observer cron (shopper/scouts later) | Phase 1 (built) |
 
 ---
 
@@ -209,6 +210,9 @@ query access (project ID unrecorded; personal API key is only a GitHub secret).
 | 2026-11-26 | `feed_cache` Fly volume (1 GB) was 100% full (ENOSPC): no eviction, date-keyed files. Fixed in fbf892c (Fly v37): eviction (7-day max age, 500 MB cap, swept ≤ every 6 h) + atomic writes | **Deployed** | Found during deploy verification. Disk 100% → 13%. |
 | 2026-11-26 | Follow-ups are fixed **only if PostHog data shows the need** (label `needs-data`): #1 SFPL ~7-day coverage (8-page cap), #2 event-type classifier mislabels (e.g. Xiangqi tournament → storytime), #3 SFPL parser hardening (review M3/M4/L1/L3) | **Parked** | Let real usage decide priority instead of guessing. |
 | 2026-11-26 | Step 0a verified (GitHub Actions run 45939997301): GSC service account `growth-observer@mylibrary-growth.iam.gserviceaccount.com` is `siteRestrictedUser` (read-only) on `sc-domain:mylibrary-events.com`; searchAnalytics 200 (2026-10-30..11-24: 26 daily rows, 3,116 clicks, 104,705 impressions); sitemap 8,766 submitted, 0 errors, last downloaded 2026-11-18. Bing site verified, query stats 200 with 0 rows | **Done** | F4 should sample the URL Inspection API: sitemap `indexed=0` is likely unpopulated by Google. F5 reads 0 until Bing has traffic — 0 is not a broken signal. |
+
+| 2026-11-26 | Phase 1 plan (`phase1-impact.md`) approved with all its recommendations: snapshots committed on `main` (1), aggregates OK in the public repo (2), no GSC query strings stored (3), weekly report as a file + a comment on a pinned rolling issue (4), no `/status` tab (5), cron 11:23 UTC (6), read-only Fly token for S8 (7), `signal-valid` / `false-positive` judgment labels (8), rebase-retry on data-refresh pushes (9) | **Approved (Amool)** | Decision 7 still needs the token itself; S8 reads `not-configured` until then. Decision 10 (Phase 0 exit rule) is tracked in `phase0-impact.md`. |
+| 2026-11-27 | Phase 1 observer built: collectors (A1, A2), triggers (B), instrumentation (D), orchestration + workflow (C) | **Merged**; live runs pending | C's dry run and what the first live dispatch needs: `phase1-impact.md` Verification. |
 
 Phase 0 build notes: `docs/growth-agent/phase0-impact.md` (impact map, assumptions, verification).
 

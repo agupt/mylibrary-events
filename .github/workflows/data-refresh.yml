@@ -32,7 +32,12 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add src/lib/data/generated/snapshots
           git diff --cached --quiet || git commit -m "chore: refresh NYPL snapshot"
-          git push
+          # Rebase-retry: growth-observer also pushes to main (disjoint paths).
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            sleep $((attempt * 15))
+          done
+          exit 1
 
   weekly-coverage:
     if: github.event.schedule == '43 7 * * 1' || github.event_name == 'workflow_dispatch'
@@ -55,4 +60,9 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add src/lib/data/generated reports
           git diff --cached --quiet || git commit -m "chore: weekly coverage refresh"
-          git push
+          # Rebase-retry: growth-observer also pushes to main (disjoint paths).
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            sleep $((attempt * 15))
+          done
+          exit 1

@@ -20,7 +20,8 @@
     "data:verify": "node scripts/verifyDiscoveredFeeds.mjs",
     "data:domains": "node scripts/findDomains.mjs",
     "data:platforms": "node scripts/detectPlatforms.mjs",
-    "data:communico": "node scripts/activateCommunicoFeeds.mjs"
+    "data:communico": "node scripts/activateCommunicoFeeds.mjs",
+    "growth:observe": "node scripts/growth/collectMetrics.mjs"
   },
   "dependencies": {
     "fast-xml-parser": "^5.10.0",
