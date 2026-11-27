@@ -11,8 +11,11 @@
 name: growth-observer
 
 on:
-  schedule:
-    - cron: "23 11 * * *" # daily 11:23 UTC (decision 6)
+  # The daily cron (decision 6) is OFF until the first dispatches have been
+  # inspected (phase1-impact.md §6 step 5: no_issues + backfill, then one
+  # run with issues, THEN the cron). To turn it on, uncomment:
+  # schedule:
+  #   - cron: "23 11 * * *" # daily 11:23 UTC
   workflow_dispatch:
     inputs:
       dry_run:

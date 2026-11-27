@@ -2,8 +2,9 @@
 
 Written 2026-11-26 (updated 2026-11-27 with the first PostHog readout and
 Amool's decisions of 2026-11-26) before any code, per the dev rules in `AGENTS.md` (impact first, assumptions stated,
-one source of truth per fact). Scope: PLAN §4 Phase 1. **Status: proposal —
-awaiting Amool's approval. Nothing below exists yet.**
+one source of truth per fact). Scope: PLAN §4 Phase 1. **Status: approved
+by Amool (all recommendations) and built (2026-11-27). Live runs not yet
+started; see "Verification" at the end.**
 
 Phase 1 has two halves:
 
@@ -514,3 +515,80 @@ goes to the owning WS as a message, or lands after integration.
 | R9 | WS-D's deploy slips or regresses the site (it's the only Phase 1 runtime change) | low–medium | small handlers, posthog-js stays lazy, Playwright smoke before deploy, S6/S7 checked the next Monday; until the deploy, S12 reads `not-configured`, never 0 |
 | R10 | Scope creep into fixing (thin pages, SFPL follow-ups) | medium | Phase 1 measures only (AdSense parked; S13 is a signal only); fixes route via `needs-data` issues with the evidence section |
 | R11 | Instrumentation leaks PII through an event property | low, high impact | enum/id-only builders, key-allowlist test, empty `$ip` from the proxy, reviewer pass |
+
+---
+
+## 8. Verification
+
+### WS-C build (2026-11-27)
+
+- `scripts/growth/collectMetrics.mjs` (entrypoint, `npm run growth:observe`),
+  `scripts/growth/github.mjs` (the only GitHub caller), `lib/{history,assemble,baselineStats,renderWeeklyReport}.mjs`,
+  `.github/workflows/growth-observer.yml`, data-refresh rebase-retry.
+- Choices where the spec left room:
+  - **Runtime:** Node 22.x with built-in type stripping (≥ 22.18) for
+    `pageType.ts`; the CLI refuses older Node. `tsx` is only used for the
+    S13 page manifest (as A2 built it).
+  - **Backfill:** `--backfill-from D` writes F1-only snapshots for run dates
+    D+3 … yesterday, marked `backfill: true` (new optional schema field) and
+    every other block `not-due`. They feed F1 history but never count as a
+    clean day. Dates that already have a file are skipped; a failed date is
+    not written, so a re-run retries it.
+  - **S5 demand set:** there is no `home_system` HogQL query, so "demand"
+    = systems in S4 (zero-event results) during the previous 7 days. The
+    weekly rotation still covers every active system.
+  - **S13** runs Mondays only; `indexedZeroEventShare` stays null because F4
+    stores counts, not per-URL results.
+  - **Safety:** if open `signal` issues cannot be read in a live run, no
+    issue is created (dedupe impossible). Commits and issue writes only
+    happen on `main` (a dispatch from another branch runs `--no-issues`
+    and commits nothing).
+- **Known open item (from B, not decided here):** a key that was firing and
+  is absent from later snapshots is never re-evaluated, so its issue gets no
+  "cleared" comment and stays open (`planNotFiring` → `none /
+  not-evaluated`). Behaviour is safe: no spam, no auto-close; Amool closes.
+
+### First observer run: local dry run (2026-11-27, no credentials)
+
+`node scripts/growth/collectMetrics.mjs --dry-run`, exit 0, ~6 min (S5
+probes dominate). No local `.env.local`, so every credentialed source read
+`not-configured`, as expected. GitHub was read only (no writes).
+
+| Signal | Status | Reading |
+|---|---|---|
+| S5 | ok | 126 probed of 854 active systems with an IMLS outlet: 117 feeds reachable, 7 unreachable, 2 `/analysis` HTTP 502; 19 reachable feeds with 0 events in 30 days |
+| S10 | ok | ZIP reach 32.18%, 927 systems serving (coverageStats 2026-11-23) |
+| S11 | not-applicable | — |
+| S13 | not-due | weekday (Mondays only) |
+| S1–S4, S9, S12, F6–F8, F10 | not-configured | no PostHog key locally |
+| F1–F4 | not-configured | no GSC service account locally |
+| F5 | not-configured | no Bing key locally |
+| S6, S7 | not-configured | no CrUX key locally (weekly anyway) |
+| S8 | not-configured | no Fly token (missing in GitHub too: decision 7) |
+
+Triggers: none fired; 22 not-configured, 4 insufficient-history (S5 needs
+prior probes), 2 disabled, 2 not-due, 1 not-applicable. Issue plan: 0
+actions (no open `signal` issues). Weekly report rendered (137 lines).
+Finding: needs-data issues #1–#3 have **no `Signals:` line**, so the report
+can't link them to evidence yet; Amool to add one per issue (e.g.
+`Signals: S4 CA0114`).
+
+Note: S5's `activeTotal` (854) counts active registry systems that have an
+IMLS outlet to probe; S10's 927 counts registry systems serving. Both are
+correct for their definition.
+
+### Next (in order, per §6 integration step 5)
+
+1. `workflow_dispatch` on `main` with `no_issues=true`,
+   `backfill_from=2026-10-30`; inspect the committed JSON (first real
+   PostHog/GSC/Bing readings; verify assumptions 2, 4, 6, 8).
+2. One dispatch with issues enabled.
+3. Turn the cron on: uncomment the `schedule:` block in
+   `growth-observer.yml` (shipped commented out so no scheduled run writes
+   issues before steps 1–2 are inspected).
+
+Secrets/variables the workflow reads (none created by WS-C):
+`POSTHOG_PERSONAL_API_KEY`, `GSC_SERVICE_ACCOUNT_JSON`,
+`BING_WEBMASTER_API_KEY`, `CRUX_API_KEY` (secrets, recorded as set);
+`POSTHOG_PROJECT_ID`, `GSC_SITE_URL` (variables, recorded as set);
+`FLY_API_TOKEN` + `FLY_ORG_SLUG` (**missing**: S8 reads `not-configured`).
