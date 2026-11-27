@@ -1,0 +1,376 @@
+# Growth observer trigger thresholds — the ONLY place thresholds live
+# (PLAN §7). Spec: docs/growth-agent/phase1-impact.md §3. Validated by
+# scripts/growth/lib/loadSignalsConfig.mjs; an invalid file fails the run
+# before any issue is touched.
+#
+# EVERY THRESHOLD BELOW IS A DRAFT (status: draft). They are guesses made
+# before the 14-day baseline and get revised against it (§6 exit criteria).
+#
+# Entry fields:
+#   id            signal ID (must exist in SIGNALS.md and SIGNAL_IDS)
+#   trigger       short slug; required when one signal has several triggers
+#   status        draft | baselined | disabled | not-applicable
+#   cadence       daily (default) | weekly: weekly signals evaluate the
+#                 latest reading from the last 7 days (not-due days skipped)
+#   metric        dotted snapshot path, or a list of paths that are summed
+#   denominator   optional path(s): the value becomes metric / denominator
+#                 (pooled over windows: sum(metric) / sum(denominator))
+#   per           evaluate per key: "$key" for a map, else the item field(s)
+#                 naming the key in an array of objects
+#   value         per-item field holding the value (arrays default: count)
+#   valueDenominator  per-item field to divide by (F3: ctr / expectedCtr)
+#   where         per-item filters, field -> comparator
+#   absentKey     zero | null (default): what a key missing from a day's
+#                 data means. zero for lists of "every key with >= 1"
+#   excludeKeys   keys never evaluated
+#   rule          kind + params + exactly one comparator (gt|gte|lt|lte|eq)
+#                   threshold        latest reading
+#                   rollingSum       sum over windowDays (requireFullWindow)
+#                   wowChange        last 7 d vs prior 7 d; aggregate
+#                                    mean|last, change pct|delta
+#                   vsTrailingMedian latest vs median of the last `window`
+#                                    prior observations; compare ratio|delta
+#                   consecutive      n readings in a row; over days|observations
+#                                    (a missing day breaks a days streak)
+#                   newKey           key absent for lookbackDays, now crosses
+#                                    the floor (value summed over windowDays)
+#   minVolume     guard: metric summed over windowDays ending offsetDays
+#                 before the reading must satisfy its comparator, else
+#                 insufficient-volume. perKey reads the same key from a map
+#                 (field: sub-field). offsetDays 7 guards a drop on the
+#                 BASELINE week, so a real collapse can still fire.
+#   minHistoryDays  days with data needed, else insufficient-history
+#   severity      info | warn
+version: 1
+phase1Exit: false
+signals:
+  # ---- Self ---------------------------------------------------------------
+  - id: S1
+    name: Traffic volume
+    status: draft
+    metric: S1.visitors
+    rule: { kind: wowChange, aggregate: mean, change: pct, lte: -25 }
+    minVolume: { metric: S1.pageviews, windowDays: 7, offsetDays: 7, gte: 200 }
+    minHistoryDays: 14
+    severity: info
+    note: "DRAFT: revise after the 14-day baseline. Visits = daily unique visitors (cookieless)."
+
+  - id: S2
+    name: Search usage
+    status: draft
+    metric: [S2.byOutcome.ambiguous, S2.byOutcome.not-found]
+    denominator: S2.searches
+    rule: { kind: rollingSum, windowDays: 7, gt: 0.15 }
+    minVolume: { metric: S2.searches, windowDays: 7, gte: 50 }
+    minHistoryDays: 7
+    severity: info
+    note: "DRAFT: (ambiguous + not-found) / searches over 7 d. Revise after the 14-day baseline."
+
+  - id: S3
+    name: Search miss
+    status: draft
+    metric: S3.missesBySystem
+    per: system
+    absentKey: zero
+    rule: { kind: rollingSum, windowDays: 14, gte: 20 }
+    minVolume: { metric: S2.searches, windowDays: 14, gte: 50 }
+    minHistoryDays: 1
+    severity: info
+    note: "DRAFT: /add-library candidate. Revise after the 14-day baseline."
+
+  - id: S4
+    name: Zero-event result
+    status: draft
+    metric: S4.zeroEventBySystem
+    per: system
+    absentKey: zero
+    rule: { kind: consecutive, n: 3, over: days, gte: 1 }
+    minHistoryDays: 3
+    severity: info
+    note: "DRAFT: same system zero-event on 3 consecutive days; a missing day breaks the streak."
+
+  - id: S5
+    trigger: count-drop
+    name: Feed health
+    status: draft
+    metric: S5.probes
+    per: system
+    value: eventCount30d
+    rule: { kind: vsTrailingMedian, window: 4, minPrior: 3, compare: ratio, lte: 0.3 }
+    severity: info
+    note: "DRAFT: eventCount30d <= 30% of that system's trailing probe median (probes, not calendar days)."
+
+  - id: S5
+    trigger: unreachable
+    name: Feed health
+    status: draft
+    metric: S5.probes
+    per: system
+    value: feedReachable
+    rule: { kind: consecutive, n: 2, over: observations, eq: false }
+    severity: warn
+    note: "DRAFT: feedReachable=false on 2 consecutive probes of the same system."
+
+  - id: S6
+    trigger: lcp
+    name: Field Core Web Vitals
+    status: draft
+    cadence: weekly
+    metric: S6.phone.lcpP75
+    rule: { kind: threshold, gt: 2500 }
+    severity: info
+    note: "DRAFT: Google's 'good' bound. Baseline LCP p75 890 ms."
+
+  - id: S6
+    trigger: inp
+    name: Field Core Web Vitals
+    status: draft
+    cadence: weekly
+    metric: S6.phone.inpP75
+    rule: { kind: threshold, gt: 200 }
+    severity: info
+    note: "DRAFT: Google's 'good' bound. INP reads insufficient-field-data today."
+
+  - id: S6
+    trigger: cls
+    name: Field Core Web Vitals
+    status: draft
+    cadence: weekly
+    metric: S6.phone.clsP75
+    rule: { kind: threshold, gt: 0.1 }
+    severity: info
+    note: "DRAFT: Google's 'good' bound."
+
+  - id: S7
+    trigger: performance
+    name: Lab performance
+    status: draft
+    cadence: weekly
+    metric: S7.runs
+    per: [url, strategy]
+    value: performance
+    rule: { kind: vsTrailingMedian, window: 1, minPrior: 1, compare: delta, lte: -10 }
+    severity: info
+    note: "DRAFT: score drop >= 10 vs last week's median-of-3 run."
+
+  - id: S7
+    trigger: seo
+    name: Lab performance
+    status: draft
+    cadence: weekly
+    metric: S7.runs
+    per: [url, strategy]
+    value: seo
+    rule: { kind: vsTrailingMedian, window: 1, minPrior: 1, compare: delta, lte: -10 }
+    severity: info
+    note: "DRAFT: score drop >= 10 vs last week."
+
+  - id: S7
+    trigger: accessibility
+    name: Lab performance
+    status: draft
+    cadence: weekly
+    metric: S7.runs
+    per: [url, strategy]
+    value: accessibility
+    rule: { kind: vsTrailingMedian, window: 1, minPrior: 1, compare: delta, lte: -10 }
+    severity: info
+    note: "DRAFT: score drop >= 10 vs last week."
+
+  - id: S7
+    trigger: best-practices
+    name: Lab performance
+    status: draft
+    cadence: weekly
+    metric: S7.runs
+    per: [url, strategy]
+    value: bestPractices
+    rule: { kind: vsTrailingMedian, window: 1, minPrior: 1, compare: delta, lte: -10 }
+    severity: info
+    note: "DRAFT: score drop >= 10 vs last week."
+
+  - id: S8
+    trigger: error-rate
+    name: Server health
+    status: draft
+    metric: S8.rate5xx
+    rule: { kind: threshold, gt: 0.01 }
+    minVolume: { metric: S8.requests, windowDays: 1, gte: 500 }
+    severity: warn
+    note: "DRAFT: reads not-configured until the read-only Fly token exists (decision 7)."
+
+  - id: S8
+    trigger: latency
+    name: Server health
+    status: draft
+    metric: S8.p95Seconds
+    rule: { kind: threshold, gt: 8 }
+    minVolume: { metric: S8.requests, windowDays: 1, gte: 500 }
+    severity: warn
+    note: "DRAFT: app-wide p95 (Fly has no per-route split)."
+
+  - id: S9
+    name: Engagement
+    status: draft
+    metric: S9.outboundClicks
+    denominator: S2.searches
+    rule: { kind: wowChange, aggregate: mean, change: pct, lte: -30 }
+    minVolume: { metric: S2.searches, windowDays: 7, offsetDays: 7, gte: 50 }
+    minHistoryDays: 14
+    severity: info
+    note: "DRAFT: outbound clicks per search, week over week."
+
+  - id: S10
+    trigger: zip-reach
+    name: Coverage reach
+    status: draft
+    metric: S10.zipReachPct
+    rule: { kind: wowChange, aggregate: last, change: delta, lt: -0.5 }
+    minHistoryDays: 8
+    severity: info
+    note: "DRAFT: ZIP reach drops > 0.5 pt vs a week ago (file changes Mondays)."
+
+  - id: S10
+    trigger: pipeline-branch
+    name: Coverage reach
+    status: draft
+    metric: S10.pipeline
+    per: $key
+    excludeKeys: [serving]
+    rule: { kind: wowChange, aggregate: last, change: pct, gt: 10 }
+    minVolume: { metric: S10.pipeline, perKey: true, windowDays: 1, offsetDays: 7, gte: 20 }
+    minHistoryDays: 8
+    severity: info
+    note: "DRAFT: a blocked branch grows > 10% wk/wk. serving growth is good news, so excluded; branches under 20 systems skipped."
+
+  - id: S11
+    name: Revenue
+    status: not-applicable
+    note: "AdSense was never approved (rejected for low value content). Parked."
+
+  - id: S12
+    name: Landing engagement
+    status: draft
+    metric: S12.engagedRateByPageType
+    per: $key
+    rule: { kind: wowChange, aggregate: mean, change: pct, lte: -30 }
+    minVolume: { metric: S1.byPageGroup, perKey: true, windowDays: 7, offsetDays: 7, gte: 200 }
+    minHistoryDays: 14
+    severity: info
+    note: "DRAFT: reads not-configured until WS-D deploys."
+
+  - id: S13
+    trigger: share
+    name: Thin-page share
+    status: draft
+    cadence: weekly
+    metric: S13.zeroEventShare
+    rule: { kind: threshold, gt: 0.25 }
+    minVolume: { metric: S13.unprobedPages, denominator: S13.pages, windowDays: 1, lte: 0.5 }
+    severity: info
+    note: "DRAFT: signal only (AdSense parked). First reading sets the baseline."
+
+  - id: S13
+    trigger: share-growth
+    name: Thin-page share
+    status: draft
+    cadence: weekly
+    metric: S13.zeroEventShare
+    rule: { kind: wowChange, aggregate: last, change: delta, gte: 0.05 }
+    minVolume: { metric: S13.unprobedPages, denominator: S13.pages, windowDays: 1, lte: 0.5 }
+    minHistoryDays: 8
+    severity: info
+    note: "DRAFT: +5 pts week over week."
+
+  # ---- Frontier -----------------------------------------------------------
+  - id: F1
+    name: Search performance
+    status: draft
+    metric: F1.byPageGroup
+    per: $key
+    value: clicks
+    rule: { kind: wowChange, aggregate: mean, change: pct, lte: -25 }
+    minVolume: { metric: F1.byPageGroup, perKey: true, field: clicks, windowDays: 7, offsetDays: 7, gte: 50 }
+    minHistoryDays: 14
+    severity: info
+    note: "DRAFT: GSC clicks per page group, week over week."
+
+  - id: F2
+    name: Striking-distance queries
+    status: draft
+    cadence: weekly
+    metric: F2.topPages
+    per: page
+    value: strikingImpressions
+    rule: { kind: newKey, lookbackDays: 28, gte: 100 }
+    minHistoryDays: 8
+    severity: info
+    note: "DRAFT: a page enters the striking-distance list with >= 100 impressions/wk."
+
+  - id: F3
+    name: CTR anomaly
+    status: draft
+    cadence: weekly
+    metric: F3.anomalies
+    per: page
+    value: ctr
+    valueDenominator: expectedCtr
+    where: { position: { lte: 5 }, impressions: { gte: 100 } }
+    rule: { kind: threshold, lt: 0.5 }
+    severity: info
+    note: "DRAFT: CTR < 50% of the site's own expected CTR at position <= 5."
+
+  - id: F4
+    name: Index coverage
+    status: draft
+    cadence: weekly
+    metric: F4.indexedShareEstimate.ci95.high
+    rule: { kind: threshold, lt: 0.7 }
+    minVolume: { metric: F4.sampled, windowDays: 7, gte: 300 }
+    severity: info
+    note: "DRAFT: upper 95% CI bound of the indexed share < 70%."
+
+  - id: F5
+    name: Bing performance
+    status: draft
+    cadence: weekly
+    metric: F5.clicks
+    rule: { kind: wowChange, aggregate: mean, change: pct, lte: -25 }
+    minVolume: { metric: F5.clicks, windowDays: 7, offsetDays: 7, gte: 50 }
+    minHistoryDays: 8
+    severity: info
+    note: "DRAFT: dormant while zero-rows (0 is normal for Bing today)."
+
+  - id: F6
+    name: AI crawler activity
+    status: draft
+    metric: F6.hitsByBot
+    per: $key
+    absentKey: zero
+    rule: { kind: rollingSum, windowDays: 14, requireFullWindow: true, lte: 0 }
+    minVolume: { metric: F6.hitsByBot, perKey: true, windowDays: 7, offsetDays: 14, gte: 100 }
+    minHistoryDays: 21
+    severity: info
+    note: "DRAFT: a bot with >= 100 hits/wk in the baseline reads 0 for 14 days."
+
+  - id: F7
+    name: AI referrals
+    status: disabled
+    note: "Trend only, no threshold (§3)."
+
+  - id: F8
+    name: Referrers & links
+    status: draft
+    metric: F8.topReferrers
+    per: domain
+    value: pageviews
+    excludeKeys: [$direct, $other]
+    rule: { kind: newKey, windowDays: 7, lookbackDays: 28, gte: 20 }
+    minHistoryDays: 14
+    severity: info
+    note: "DRAFT: a new referring domain with >= 20 pageviews/wk."
+
+  - id: F10
+    name: Direct user feedback
+    status: disabled
+    note: "No trigger: weekly count in the report, text read in PostHog."
