@@ -1,0 +1,58 @@
+{
+ "cache_key": "fixture",
+ "columns": [
+  "event",
+  "filter",
+  "n"
+ ],
+ "error": null,
+ "hasMore": false,
+ "hogql": "SELECT ...",
+ "is_cached": false,
+ "limit": 100,
+ "modifiers": {},
+ "offset": 0,
+ "query": "SELECT ...",
+ "results": [
+  [
+   "outbound_click",
+   null,
+   3
+  ],
+  [
+   "filter_changed",
+   "radius",
+   2
+  ],
+  [
+   "filter_changed",
+   "ageGroup",
+   1
+  ],
+  [
+   "filter_changed",
+   "has space",
+   1
+  ],
+  [
+   "filter_changed",
+   null,
+   1
+  ]
+ ],
+ "timezone": "UTC",
+ "types": [
+  [
+   "event",
+   "String"
+  ],
+  [
+   "filter",
+   "String"
+  ],
+  [
+   "n",
+   "String"
+  ]
+ ]
+}

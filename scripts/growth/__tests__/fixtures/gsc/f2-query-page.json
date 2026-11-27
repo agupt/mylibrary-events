@@ -1,0 +1,84 @@
+{
+ "rows": [
+  {
+   "keys": [
+    "storytime oakland",
+    "https://mylibrary-events.com/storytimes/ca/oakland"
+   ],
+   "clicks": 3,
+   "impressions": 120,
+   "ctr": 0.025,
+   "position": 9.5
+  },
+  {
+   "keys": [
+    "toddler storytime oakland",
+    "https://mylibrary-events.com/storytimes/ca/oakland"
+   ],
+   "clicks": 0,
+   "impressions": 40,
+   "ctr": 0.0,
+   "position": 18.0
+  },
+  {
+   "keys": [
+    "baby storytime near me",
+    "https://mylibrary-events.com/storytimes/ca/oakland"
+   ],
+   "clicks": 0,
+   "impressions": 9,
+   "ctr": 0.0,
+   "position": 12.0
+  },
+  {
+   "keys": [
+    "storytime oakland",
+    "https://mylibrary-events.com/library/ca/oakland/main-library"
+   ],
+   "clicks": 1,
+   "impressions": 60,
+   "ctr": 0.016666666666666666,
+   "position": 25.0
+  },
+  {
+   "keys": [
+    "berkeley library kids events",
+    "https://mylibrary-events.com/storytimes/ca/berkeley"
+   ],
+   "clicks": 4,
+   "impressions": 200,
+   "ctr": 0.02,
+   "position": 4.0
+  },
+  {
+   "keys": [
+    "library events new york",
+    "https://www.mylibrary-events.com/storytimes/ny/new-york"
+   ],
+   "clicks": 0,
+   "impressions": 30,
+   "ctr": 0.0,
+   "position": 31.0
+  },
+  {
+   "keys": [
+    "rockridge storytime",
+    "https://mylibrary-events.com/library/ca/oakland/rockridge?ref=a"
+   ],
+   "clicks": 0,
+   "impressions": 15,
+   "ctr": 0.0,
+   "position": 8.0
+  },
+  {
+   "keys": [
+    "offsite",
+    "https://example.com/storytimes/ca/oakland"
+   ],
+   "clicks": 0,
+   "impressions": 500,
+   "ctr": 0.0,
+   "position": 10.0
+  }
+ ]
+}

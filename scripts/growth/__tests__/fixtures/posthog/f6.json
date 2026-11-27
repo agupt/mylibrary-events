@@ -1,0 +1,53 @@
+{
+ "cache_key": "fixture",
+ "columns": [
+  "bot",
+  "hits",
+  "llms_txt_hits"
+ ],
+ "error": null,
+ "hasMore": false,
+ "hogql": "SELECT ...",
+ "is_cached": false,
+ "limit": 100,
+ "modifiers": {},
+ "offset": 0,
+ "query": "SELECT ...",
+ "results": [
+  [
+   "OAI-SearchBot",
+   2097,
+   3
+  ],
+  [
+   "Amazonbot",
+   618,
+   0
+  ],
+  [
+   "meta-externalagent",
+   415,
+   1
+  ],
+  [
+   null,
+   5,
+   0
+  ]
+ ],
+ "timezone": "UTC",
+ "types": [
+  [
+   "bot",
+   "String"
+  ],
+  [
+   "hits",
+   "String"
+  ],
+  [
+   "llms_txt_hits",
+   "String"
+  ]
+ ]
+}

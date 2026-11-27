@@ -1,0 +1,49 @@
+{
+ "rows": [
+  {
+   "keys": [
+    "https://mylibrary-events.com/a"
+   ],
+   "clicks": 50,
+   "impressions": 500,
+   "ctr": 0.1,
+   "position": 3.8
+  },
+  {
+   "keys": [
+    "https://mylibrary-events.com/b"
+   ],
+   "clicks": 50,
+   "impressions": 500,
+   "ctr": 0.1,
+   "position": 4.4
+  },
+  {
+   "keys": [
+    "https://mylibrary-events.com/c"
+   ],
+   "clicks": 30,
+   "impressions": 1000,
+   "ctr": 0.03,
+   "position": 2.1
+  },
+  {
+   "keys": [
+    "https://mylibrary-events.com/d"
+   ],
+   "clicks": 10,
+   "impressions": 1000,
+   "ctr": 0.01,
+   "position": 15.2
+  },
+  {
+   "keys": [
+    "https://mylibrary-events.com/e"
+   ],
+   "clicks": 0,
+   "impressions": 0,
+   "ctr": 0,
+   "position": 1.0
+  }
+ ]
+}

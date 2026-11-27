@@ -1,0 +1,49 @@
+{
+ "rows": [
+  {
+   "keys": [
+    "https://mylibrary-events.com/storytimes/ca/oakland"
+   ],
+   "clicks": 2,
+   "impressions": 300,
+   "ctr": 0.006666666666666667,
+   "position": 3.6
+  },
+  {
+   "keys": [
+    "https://mylibrary-events.com/storytimes/ca/berkeley"
+   ],
+   "clicks": 25,
+   "impressions": 250,
+   "ctr": 0.1,
+   "position": 4.2
+  },
+  {
+   "keys": [
+    "https://mylibrary-events.com/library/ca/oakland/main-library"
+   ],
+   "clicks": 0,
+   "impressions": 10,
+   "ctr": 0.0,
+   "position": 2.0
+  },
+  {
+   "keys": [
+    "https://mylibrary-events.com/storytimes/ny/new-york"
+   ],
+   "clicks": 1,
+   "impressions": 200,
+   "ctr": 0.005,
+   "position": 15.0
+  },
+  {
+   "keys": [
+    "https://mylibrary-events.com/storytimes/tx"
+   ],
+   "clicks": 0,
+   "impressions": 80,
+   "ctr": 0.0,
+   "position": 9.0
+  }
+ ]
+}

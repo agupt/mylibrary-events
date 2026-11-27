@@ -1,0 +1,74 @@
+{
+ "cache_key": "fixture",
+ "columns": [
+  "page_type",
+  "pathname",
+  "action",
+  "n"
+ ],
+ "error": null,
+ "hasMore": false,
+ "hogql": "SELECT ...",
+ "is_cached": false,
+ "limit": 100,
+ "modifiers": {},
+ "offset": 0,
+ "query": "SELECT ...",
+ "results": [
+  [
+   "city",
+   "/storytimes/ca/oakland",
+   "widget_loaded",
+   40
+  ],
+  [
+   "city",
+   "/storytimes/ca/oakland",
+   "outbound_click",
+   4
+  ],
+  [
+   null,
+   "/",
+   "search_performed",
+   7
+  ],
+  [
+   null,
+   "/",
+   "filter_changed",
+   6
+  ],
+  [
+   "library",
+   "/library/ca/oakland/main-library",
+   "nav_click",
+   3
+  ],
+  [
+   "library",
+   "/x",
+   "bad action",
+   1
+  ]
+ ],
+ "timezone": "UTC",
+ "types": [
+  [
+   "page_type",
+   "String"
+  ],
+  [
+   "pathname",
+   "String"
+  ],
+  [
+   "action",
+   "String"
+  ],
+  [
+   "n",
+   "String"
+  ]
+ ]
+}

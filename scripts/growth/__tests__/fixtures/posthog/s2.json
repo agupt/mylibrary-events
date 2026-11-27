@@ -1,0 +1,58 @@
+{
+ "cache_key": "fixture",
+ "columns": [
+  "query_kind",
+  "outcome",
+  "n"
+ ],
+ "error": null,
+ "hasMore": false,
+ "hogql": "SELECT ...",
+ "is_cached": false,
+ "limit": 100,
+ "modifiers": {},
+ "offset": 0,
+ "query": "SELECT ...",
+ "results": [
+  [
+   "zip",
+   "ok",
+   6
+  ],
+  [
+   "city",
+   "not-found",
+   1
+  ],
+  [
+   "city",
+   "ambiguous",
+   2
+  ],
+  [
+   null,
+   "ok",
+   1
+  ],
+  [
+   "zip",
+   "weird",
+   1
+  ]
+ ],
+ "timezone": "UTC",
+ "types": [
+  [
+   "query_kind",
+   "String"
+  ],
+  [
+   "outcome",
+   "String"
+  ],
+  [
+   "n",
+   "String"
+  ]
+ ]
+}

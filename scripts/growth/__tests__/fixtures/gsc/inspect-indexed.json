@@ -1,0 +1,17 @@
+{
+ "inspectionResult": {
+  "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:mylibrary-events.com&id=abc",
+  "indexStatusResult": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "lastCrawlTime": "2026-11-20T10:00:00Z",
+   "pageFetchState": "SUCCESSFUL",
+   "crawledAs": "MOBILE"
+  },
+  "mobileUsabilityResult": {
+   "verdict": "VERDICT_UNSPECIFIED"
+  }
+ }
+}

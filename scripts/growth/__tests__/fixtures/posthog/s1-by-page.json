@@ -1,0 +1,68 @@
+{
+ "cache_key": "fixture",
+ "columns": [
+  "page_type",
+  "pathname",
+  "n"
+ ],
+ "error": null,
+ "hasMore": false,
+ "hogql": "SELECT ...",
+ "is_cached": false,
+ "limit": 100,
+ "modifiers": {},
+ "offset": 0,
+ "query": "SELECT ...",
+ "results": [
+  [
+   null,
+   "/",
+   20
+  ],
+  [
+   null,
+   "/storytimes/ca/oakland",
+   50
+  ],
+  [
+   null,
+   "/library/ca/oakland/main-library",
+   40
+  ],
+  [
+   "city",
+   "/storytimes/ny/new-york",
+   30
+  ],
+  [
+   null,
+   "/storytimes/tx",
+   5
+  ],
+  [
+   null,
+   "/wp-login.php",
+   2
+  ],
+  [
+   "not-a-type",
+   "/privacy",
+   1
+  ]
+ ],
+ "timezone": "UTC",
+ "types": [
+  [
+   "page_type",
+   "String"
+  ],
+  [
+   "pathname",
+   "String"
+  ],
+  [
+   "n",
+   "String"
+  ]
+ ]
+}

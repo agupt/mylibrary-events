@@ -1,0 +1,32 @@
+{
+ "cache_key": "fixture",
+ "columns": [
+  "typed_pageviews",
+  "session_pageviews"
+ ],
+ "error": null,
+ "hasMore": false,
+ "hogql": "SELECT ...",
+ "is_cached": false,
+ "limit": 100,
+ "modifiers": {},
+ "offset": 0,
+ "query": "SELECT ...",
+ "results": [
+  [
+   0,
+   180
+  ]
+ ],
+ "timezone": "UTC",
+ "types": [
+  [
+   "typed_pageviews",
+   "String"
+  ],
+  [
+   "session_pageviews",
+   "String"
+  ]
+ ]
+}

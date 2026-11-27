@@ -1,0 +1,36 @@
+{
+ "cache_key": "fixture",
+ "columns": [
+  "context",
+  "n"
+ ],
+ "error": null,
+ "hasMore": false,
+ "hogql": "SELECT ...",
+ "is_cached": false,
+ "limit": 100,
+ "modifiers": {},
+ "offset": 0,
+ "query": "SELECT ...",
+ "results": [
+  [
+   "no-location",
+   1
+  ],
+  [
+   "no-events",
+   2
+  ]
+ ],
+ "timezone": "UTC",
+ "types": [
+  [
+   "context",
+   "String"
+  ],
+  [
+   "n",
+   "String"
+  ]
+ ]
+}

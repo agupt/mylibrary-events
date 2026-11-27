@@ -1,0 +1,22 @@
+{
+ "cache_key": "fixture",
+ "columns": [
+  "n"
+ ],
+ "error": null,
+ "hasMore": false,
+ "hogql": "SELECT ...",
+ "is_cached": false,
+ "limit": 100,
+ "modifiers": {},
+ "offset": 0,
+ "query": "SELECT ...",
+ "results": [],
+ "timezone": "UTC",
+ "types": [
+  [
+   "n",
+   "String"
+  ]
+ ]
+}

@@ -1,0 +1,143 @@
+{
+ "cache_key": "fixture",
+ "columns": [
+  "entry_domain",
+  "has_campaign",
+  "landing_type",
+  "landing_path",
+  "pageviews",
+  "engaged_actions",
+  "first_action"
+ ],
+ "error": null,
+ "hasMore": false,
+ "hogql": "SELECT ...",
+ "is_cached": false,
+ "limit": 100,
+ "modifiers": {},
+ "offset": 0,
+ "query": "SELECT ...",
+ "results": [
+  [
+   "www.google.com",
+   0,
+   "city",
+   "/storytimes/ca/oakland",
+   1,
+   0,
+   ""
+  ],
+  [
+   "www.google.com",
+   0,
+   "city",
+   "/storytimes/ca/oakland",
+   1,
+   1,
+   "outbound_click"
+  ],
+  [
+   "www.google.com",
+   0,
+   "library",
+   "/library/ca/oakland/main-library",
+   3,
+   0,
+   ""
+  ],
+  [
+   "$direct",
+   0,
+   "home",
+   "/",
+   1,
+   2,
+   "search_performed"
+  ],
+  [
+   "chatgpt.com",
+   0,
+   null,
+   "/storytimes/ny/new-york",
+   1,
+   0,
+   ""
+  ],
+  [
+   "www.reddit.com",
+   0,
+   "city",
+   "/storytimes/ca/oakland",
+   1,
+   1,
+   "nav_click"
+  ],
+  [
+   "www.google.com",
+   1,
+   "home",
+   "/",
+   1,
+   0,
+   ""
+  ],
+  [
+   "mylibrary-events.com",
+   0,
+   "state",
+   "/storytimes/ca",
+   1,
+   0,
+   ""
+  ],
+  [
+   "somelibrary.org",
+   0,
+   "library",
+   "/library/ca/oakland/main-library",
+   1,
+   1,
+   "event open!"
+  ],
+  [
+   null,
+   0,
+   "bogus",
+   "/privacy",
+   1,
+   0,
+   null
+  ]
+ ],
+ "timezone": "UTC",
+ "types": [
+  [
+   "entry_domain",
+   "String"
+  ],
+  [
+   "has_campaign",
+   "String"
+  ],
+  [
+   "landing_type",
+   "String"
+  ],
+  [
+   "landing_path",
+   "String"
+  ],
+  [
+   "pageviews",
+   "String"
+  ],
+  [
+   "engaged_actions",
+   "String"
+  ],
+  [
+   "first_action",
+   "String"
+  ]
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "cache_key": "fixture",
+ "columns": [
+  "domain",
+  "n"
+ ],
+ "error": null,
+ "hasMore": false,
+ "hogql": "SELECT ...",
+ "is_cached": false,
+ "limit": 100,
+ "modifiers": {},
+ "offset": 0,
+ "query": "SELECT ...",
+ "results": [
+  [
+   "www.google.com",
+   349
+  ],
+  [
+   "$direct",
+   234
+  ],
+  [
+   "www.bing.com",
+   5
+  ],
+  [
+   "chatgpt.com",
+   2
+  ],
+  [
+   "mylibrary-events.com",
+   1
+  ],
+  [
+   "www.mylibrary-events.com",
+   1
+  ],
+  [
+   null,
+   1
+  ],
+  [
+   "Bad Domain!",
+   1
+  ],
+  [
+   "www.perplexity.ai",
+   1
+  ],
+  [
+   "duckduckgo.com",
+   3
+  ]
+ ],
+ "timezone": "UTC",
+ "types": [
+  [
+   "domain",
+   "String"
+  ],
+  [
+   "n",
+   "String"
+  ]
+ ]
+}

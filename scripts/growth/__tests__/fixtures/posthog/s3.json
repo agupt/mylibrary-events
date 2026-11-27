@@ -1,0 +1,44 @@
+{
+ "cache_key": "fixture",
+ "columns": [
+  "system",
+  "n"
+ ],
+ "error": null,
+ "hasMore": false,
+ "hogql": "SELECT ...",
+ "is_cached": false,
+ "limit": 100,
+ "modifiers": {},
+ "offset": 0,
+ "query": "SELECT ...",
+ "results": [
+  [
+   "\"NY0778\"",
+   2
+  ],
+  [
+   "\"CA0114\"",
+   1
+  ],
+  [
+   "\"not-a-key\"",
+   5
+  ],
+  [
+   "IL0432",
+   1
+  ]
+ ],
+ "timezone": "UTC",
+ "types": [
+  [
+   "system",
+   "String"
+  ],
+  [
+   "n",
+   "String"
+  ]
+ ]
+}
