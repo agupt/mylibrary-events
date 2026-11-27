@@ -2,7 +2,12 @@
 
 Written 2026-11-24 before code, per the dev rules in `AGENTS.md`
 (impact first, assumptions stated, one source of truth per fact).
-Scope: PLAN §4 Phase 0 steps 0b–0e. Step 0a (GSC/Bing) is done by Amool.
+Scope: PLAN §4 Phase 0 steps 0b–0e. Step 0a (GSC/Bing) is done by Amool
+(API access verified 2026-11-26 — see PLAN §5).
+
+**Status (2026-11-26):** deployed to Fly.io 2026-11-24 (~12:40 PST, release
+v36) and verified live on mylibrary-events.com — see "Production
+verification" below.
 
 ## What ships
 
@@ -47,8 +52,8 @@ Pure logic lives in `src/lib/analytics/` (unit-tested, 80% gate); wiring
 
 1. **Analytics only in production with a token.** Dev/test send nothing.
 2. **Cookieless mode must be enabled in PostHog project settings** —
-   posthog-js docs: otherwise cookieless events are *dropped*. Not in the
-   list of settings already done. → Amool to verify before deploy.
+   posthog-js docs: otherwise cookieless events are *dropped*. **Done:**
+   Amool enabled it before the 2026-11-24 deploy.
 3. **No raw query text** leaves the browser for S2: only `zip|city`, outcome,
    and the matched home FSCSKEY + state. City strings are not sent.
 4. **HTTP status → outcome:** `/api/location` 404 = not-found, 400 =
@@ -102,12 +107,52 @@ Pure logic lives in `src/lib/analytics/` (unit-tested, 80% gate); wiring
 - posthog-js drops events from headless/automated browsers (UA filter,
   `navigator.webdriver`). Desired in production; test harnesses must mask it.
 
+## Production verification (2026-11-24, mylibrary-events.com)
+
+Deployed commit f8f1448 to Fly.io (release v36, ~12:40 PST) after cookieless
+mode was enabled in PostHog.
+
+- PostHog token is inlined in the production JS; PostHog returned 200 for
+  every batch.
+- Arriving: `$pageview`, `search_performed` (query_kind + outcome only,
+  never query text), `search_results`, `filter_changed`, and
+  `feedback_submitted` (an email and phone number in the message arrived as
+  `[email] [phone]`).
+- No first-party cookies, localStorage, or sessionStorage. The only cookie is
+  Cloudflare's `cf_clearance`.
+- F6 `ai_bot_hits`: three GPTBot-UA requests over 2 minutes returned 200 with
+  no send failures logged. **Arrival in PostHog not yet confirmed** — PostHog
+  can't be queried from the dev machine yet.
+
+**Exit criterion** (PLAN §4: every Phase-0 signal non-null for 3 consecutive
+days): earliest possible pass ~2026-11-27 midday PST. **Not yet checked.**
+Checking needs PostHog query access — the project ID is still unrecorded and
+the personal API key exists only as a GitHub secret.
+
 ## First signal caught
 
 S4 fired on its first real search (94110): **CA0114 San Francisco** — feed
 active and reachable (HTTP 200) but 0 events over 30 days per
-`/api/libraries/CA0114-002/analysis`. Likely SFPL scraper breakage (markup
-or `ajax_page_state` change). Not fixed here (out of Phase 0 scope).
+`/api/libraries/CA0114-002/analysis` — a real production outage.
+
+Root cause: SFPL switched its markup to `<time datetime="START/END">`.
+**Fixed and deployed 2026-11-26** (commits 4c6c2f3 + 9100b99, Fly v38). Live:
+115 events across 26 SF branches over a 14-day search. The parser now logs
+an error when cards parse without times, so silent markup drift is visible.
+
+Parked follow-ups (label `needs-data` — fix only if PostHog data shows the
+need): #1 SFPL covers only ~7 days (8-page cap), #3 SFPL parser hardening
+(review items M3/M4/L1/L3).
+
+## Post-deploy findings
+
+- **Feed-cache volume full (found during deploy verification).**
+  The 1 GB `feed_cache` Fly volume was 100% full (ENOSPC): no eviction, and
+  cache files are date-keyed so they accumulate. Fixed by fbf892c (Fly v37):
+  cleanup plus automatic eviction (7-day max age, 500 MB cap, swept at most
+  every 6 h) and atomic cache writes. Disk 100% → 13%.
+- **Event-type classifier mislabels** (e.g. a Xiangqi tournament typed as
+  storytime) — parked as #2, `needs-data`.
 
 ## Code review (code-reviewer agent, 2026-11-24)
 

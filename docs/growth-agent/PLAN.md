@@ -5,7 +5,7 @@ An always-on loop that monitors mylibrary-events.com, grows its reach
 goals. Metrics (or a human) trigger it; Amool approves strategy and plans;
 agents execute.
 
-- **Status:** proposal, not built. Nothing below exists yet unless marked.
+- **Status:** Phase 0 live in production (2026-11-24); Phase 1+ proposal, not built. Nothing below exists yet unless marked.
 - **Owner/approver:** Amool.
 - **Companion:** [SIGNALS.md](./SIGNALS.md) — every signal ID (`S3`, `F9`, `W4`, `M1`…) referenced here is defined there.
 - **Governed by:** AGENTS.md development rules — impact analysis first, assumptions surfaced, one source of truth per fact.
@@ -114,15 +114,17 @@ reason for skipping is written here).
 
 **Why first:** no data, no agent. Search Console / Bing history only builds up after connecting, so every day of delay is baseline lost.
 
-| Step | Deliverable | Signals unlocked | Needs from Amool |
-|---|---|---|---|
-| 0a | Verify GSC (domain property) + Bing Webmaster; service-account API access | F1, F2–F5 | Account access; secrets in GH Actions |
-| 0b | Analytics beacon (vendor decision) with custom events (outbound click, filter use) | S1, S9, F7, F8 | Vendor choice; consent-flow review |
-| 0c | Client-side PostHog events after each search (search, miss, zero-event) — not server counters: CF caches the APIs | S2, S3, S4 | — |
-| 0d | AI-bot UA counter (`src/proxy.ts`, anonymous PostHog event) | F6 | — |
-| 0e | "Didn't find what you needed?" box on no-result / no-feed states | F10 | Copy + privacy note review |
+| Step | Deliverable | Signals unlocked | Needs from Amool | Status |
+|---|---|---|---|---|
+| 0a | Verify GSC (domain property) + Bing Webmaster; service-account API access | F1, F2–F5 | Account access; secrets in GH Actions | **Verified 2026-11-26** (GSC + Bing APIs return 200) |
+| 0b | Analytics beacon (vendor decision) with custom events (outbound click, filter use) | S1, S9, F7, F8 | Vendor choice; consent-flow review | **Live 2026-11-24** |
+| 0c | Client-side PostHog events after each search (search, miss, zero-event) — not server counters: CF caches the APIs | S2, S3, S4 | — | **Live 2026-11-24** |
+| 0d | AI-bot UA counter (`src/proxy.ts`, anonymous PostHog event) | F6 | — | **Live 2026-11-24** (PostHog arrival unconfirmed) |
+| 0e | "Didn't find what you needed?" box on no-result / no-feed states | F10 | Copy + privacy note review | **Live 2026-11-24** |
 
 **Exit:** every Phase-0 signal reports a non-null value for 3 consecutive days.
+Earliest pass ~2026-11-27 midday PST; **not yet checked** — needs PostHog
+query access (project ID unrecorded; personal API key is only a GitHub secret).
 
 ### Phase 1 — Observer + baseline (read-only)
 
@@ -200,8 +202,13 @@ reason for skipping is written here).
 | 2026-11-23 | Analytics vendor: **PostHog Cloud (US)**, cookieless, autocapture off, anonymous events only, server-side events for S2–S4 | **Decided (Amool)** | Usage-based (1M events/mo free, no card). The agent must read via API: Umami Hobby and Plausible below Business have no API, and CF Web Analytics has no custom events (S9). Server-side events keep search counters in the same store (no new datastore). Load after interactive; S7 watches the perf cost. |
 | 2026-11-23 | Privacy: cookieless analytics, aggregate counters, feedback stored without IP, PII scrubbed before LLM | **Approved (Amool)** | Plain-language privacy page update ships with Phase 0. |
 | 2026-11-24 | S2–S4 move **client-side** (PostHog events after each search) | **Approved (Amool)** | Cloudflare caches `/api/location` (24h) and `/api/events` (15m); server counters would only count cache misses. Supersedes "server-side events for S2–S4" above. |
-| 2026-11-24 | Phase 0 built: posthog-js 1.447.4 (prod-only, cookieless, autocapture/replay/flags off, lazy-loaded after `load`+idle), F6 in `src/proxy.ts`, F10 feedback box, privacy page | **Merged; deploy pending Amool** | See `phase0-impact.md`. Requires PostHog project setting "cookieless mode" ON or events are dropped. |
+| 2026-11-24 | Phase 0 built: posthog-js 1.447.4 (prod-only, cookieless, autocapture/replay/flags off, lazy-loaded after `load`+idle), F6 in `src/proxy.ts`, F10 feedback box, privacy page | **Merged** (deployed 2026-11-24, see below) | See `phase0-impact.md`. Requires PostHog project setting "cookieless mode" ON or events are dropped. |
 | 2026-11-23 | GSC is a **Domain** property (`sc-domain:mylibrary-events.com`); sitemap shows Success; read-only service account + Bing API key in GH secrets | **Done (Amool)** | Unblocks F1–F5. AdSense API (S11) needs OAuth, not a service account; handle in Phase 1. |
+| 2026-11-24 | Phase 0 (f8f1448) **deployed** to Fly.io (release v36, ~12:40 PST) after Amool enabled PostHog cookieless mode | **Live** | Verified on mylibrary-events.com: PostHog 200 on every batch; `$pageview`, `search_performed`, `search_results`, `filter_changed`, `feedback_submitted` arriving (PII scrubbed); no first-party cookies/storage. F6 sends without errors; PostHog arrival unconfirmed. See `phase0-impact.md`. |
+| 2026-11-26 | SFPL (CA0114) outage caught by S4 (0 events in prod): SFPL moved to `<time datetime="START/END">` markup. Fixed in 4c6c2f3 + 9100b99 (Fly v38) | **Deployed** | First Phase-0 signal paid off. Live: 115 events / 26 SF branches / 14 days. Parser now logs an error when cards parse without times. |
+| 2026-11-26 | `feed_cache` Fly volume (1 GB) was 100% full (ENOSPC): no eviction, date-keyed files. Fixed in fbf892c (Fly v37): eviction (7-day max age, 500 MB cap, swept ≤ every 6 h) + atomic writes | **Deployed** | Found during deploy verification. Disk 100% → 13%. |
+| 2026-11-26 | Follow-ups are fixed **only if PostHog data shows the need** (label `needs-data`): #1 SFPL ~7-day coverage (8-page cap), #2 event-type classifier mislabels (e.g. Xiangqi tournament → storytime), #3 SFPL parser hardening (review M3/M4/L1/L3) | **Parked** | Let real usage decide priority instead of guessing. |
+| 2026-11-26 | Step 0a verified (GitHub Actions run 45939997301): GSC service account `growth-observer@mylibrary-growth.iam.gserviceaccount.com` is `siteRestrictedUser` (read-only) on `sc-domain:mylibrary-events.com`; searchAnalytics 200 (2026-10-30..11-24: 26 daily rows, 3,116 clicks, 104,705 impressions); sitemap 8,766 submitted, 0 errors, last downloaded 2026-11-18. Bing site verified, query stats 200 with 0 rows | **Done** | F4 should sample the URL Inspection API: sitemap `indexed=0` is likely unpopulated by Google. F5 reads 0 until Bing has traffic — 0 is not a broken signal. |
 
 Phase 0 build notes: `docs/growth-agent/phase0-impact.md` (impact map, assumptions, verification).
 
