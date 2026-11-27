@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-30",
+  "generatedAt": "2026-11-30T11:23:41.512Z",
+  "S1": {
+    "status": "ok",
+    "pageviews": 212,
+    "visitors": 171,
+    "byPageGroup": { "home": 40, "city": 101, "library": 64, "state": 7 }
+  },
+  "S2": {
+    "status": "insufficient-volume",
+    "searches": 3,
+    "byKind": { "zip": 2, "city": 1 },
+    "byOutcome": { "ok": 2, "ambiguous": 1, "not-found": 0, "error": 0 }
+  },
+  "S3": {
+    "status": "ok",
+    "missesBySystem": [{ "system": "NY0778", "count": 1 }]
+  },
+  "S4": {
+    "status": "zero-rows",
+    "zeroEventBySystem": []
+  },
+  "S5": {
+    "status": "ok",
+    "probed": 2,
+    "activeTotal": 927,
+    "probes": [
+      {
+        "system": "CA0114",
+        "outlet": "CA0114-002",
+        "feedReachable": true,
+        "httpStatus": 200,
+        "eventCount30d": 412
+      },
+      {
+        "system": "PA0385",
+        "outlet": "PA0385-002",
+        "feedReachable": false,
+        "httpStatus": 403,
+        "eventCount30d": null,
+        "error": "feed blocked"
+      }
+    ]
+  },
+  "S6": {
+    "status": "ok",
+    "phone": {
+      "status": "ok",
+      "lcpP75": 890,
+      "inpP75": null,
+      "clsP75": 0.01
+    },
+    "desktop": {
+      "status": "insufficient-field-data",
+      "lcpP75": null,
+      "inpP75": null,
+      "clsP75": null
+    },
+    "collectionPeriod": { "firstDate": "2026-10-31", "lastDate": "2026-11-27" }
+  },
+  "S7": {
+    "status": "ok",
+    "runs": [
+      {
+        "url": "https://mylibrary-events.com/",
+        "strategy": "mobile",
+        "performance": 98,
+        "seo": 100,
+        "accessibility": 96,
+        "bestPractices": 100,
+        "lcpMs": 1800,
+        "tbtMs": 10,
+        "cls": 0
+      }
+    ]
+  },
+  "S8": {
+    "status": "not-configured",
+    "requests": null,
+    "rate5xx": null,
+    "p95Seconds": null
+  },
+  "S9": {
+    "status": "insufficient-volume",
+    "outboundClicks": 0,
+    "filterChanges": { "age": 1 }
+  },
+  "S10": {
+    "status": "ok",
+    "coverageGeneratedAt": "2026-11-30T07:51:02.000Z",
+    "zipReachPct": 61.4,
+    "systemsActive": 927,
+    "pipeline": { "serving": 927, "never-probed": 4012 }
+  },
+  "S11": { "status": "not-applicable" },
+  "S12": { "status": "not-configured" },
+  "S13": {
+    "status": "ok",
+    "pages": 8766,
+    "zeroEventPages": 1203,
+    "zeroEventShare": 0.137,
+    "indexedZeroEventShare": null,
+    "unprobedPages": 412
+  },
+  "F1": {
+    "status": "ok",
+    "dataDate": "2026-11-27",
+    "clicks": 14,
+    "impressions": 2301,
+    "ctr": 0.0061,
+    "position": 18.4,
+    "byPageGroup": {
+      "city": { "clicks": 9, "impressions": 1500, "pagesWithImpressions": 310 }
+    }
+  },
+  "F2": {
+    "status": "ok",
+    "strikingQueryCount": 41,
+    "strikingImpressions": 912,
+    "topPages": [
+      {
+        "page": "https://mylibrary-events.com/storytimes/ca/oakland",
+        "strikingImpressions": 120,
+        "queryCount": 6
+      }
+    ]
+  },
+  "F3": {
+    "status": "ok",
+    "anomalies": [
+      {
+        "page": "https://mylibrary-events.com/storytimes/ca/oakland",
+        "position": 4.2,
+        "ctr": 0.01,
+        "expectedCtr": 0.06,
+        "impressions": 240
+      }
+    ]
+  },
+  "F4": {
+    "status": "ok",
+    "sampled": 100,
+    "indexedByType": { "city": 22, "library": 9 },
+    "coverageStates": { "Submitted and indexed": 31, "Discovered - currently not indexed": 69 },
+    "indexedShareEstimate": { "value": 0.31, "ci95": { "low": 0.27, "high": 0.35 } }
+  },
+  "F5": {
+    "status": "zero-rows",
+    "weekOf": null,
+    "clicks": 0,
+    "impressions": 0
+  },
+  "F6": {
+    "status": "ok",
+    "hitsByBot": { "OAI-SearchBot": 301, "Amazonbot": 88 },
+    "llmsTxtHits": 3
+  },
+  "F7": {
+    "status": "ok",
+    "visitsByEngine": {}
+  },
+  "F8": {
+    "status": "ok",
+    "topReferrers": [{ "domain": "www.google.com", "pageviews": 120 }]
+  },
+  "F10": {
+    "status": "zero-rows",
+    "submissions": 0,
+    "byContext": {}
+  }
+}

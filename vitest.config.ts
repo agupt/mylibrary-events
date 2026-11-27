@@ -8,11 +8,17 @@ export default defineConfig({
     },
   },
   test: {
-    include: ["src/**/*.test.ts"],
+    include: [
+      "src/**/*.test.ts",
+      // Growth observer (docs/growth-agent/phase1-impact.md §2). Must stay
+      // offline: data-refresh runs `npm test` weekly.
+      "scripts/growth/**/*.test.{ts,mjs}",
+    ],
     environment: "node",
     coverage: {
       provider: "v8",
-      include: ["src/lib/**/*.ts"],
+      // Growth observer: pure lib/ only (sources/ is network wiring).
+      include: ["src/lib/**/*.ts", "scripts/growth/lib/**/*.{ts,mjs}"],
       exclude: [
         "src/lib/**/*.test.ts",
         "src/lib/__tests__/fixtures/**",
