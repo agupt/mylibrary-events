@@ -21,6 +21,14 @@ export interface BotHitsCapture {
     paths: Record<string, number>;
     window_seconds: number;
     $process_person_profile: false;
+    /**
+     * Explicitly empty: PostHog ingestion only fills `$ip` from the request
+     * when the property is absent, and the request comes from our own
+     * server (the Fly egress IP), which is not a visitor's and not useful.
+     */
+    $ip: "";
+    /** Skip GeoIP enrichment; it would geolocate the Fly machine. */
+    $geoip_disable: true;
   };
 }
 
@@ -68,6 +76,8 @@ export function createBotHitAggregator({
         paths: Object.fromEntries(paths),
         window_seconds: windowMs / 1000,
         $process_person_profile: false,
+        $ip: "",
+        $geoip_disable: true,
       },
     }));
 

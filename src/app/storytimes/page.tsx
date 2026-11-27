@@ -68,6 +68,7 @@ export default function StorytimesIndexPage() {
             <li key={state.path}>
               <Link
                 href={state.path}
+                data-analytics-slot="state"
                 className="flex items-center justify-between gap-2 rounded-xl border border-slate-200/80 bg-white/70 px-4 py-3 text-sm backdrop-blur transition hover:border-violet-300 dark:border-slate-700 dark:bg-slate-800/70 dark:hover:border-violet-700"
               >
                 <span className="font-medium text-violet-700 dark:text-violet-300">

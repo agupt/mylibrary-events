@@ -9,6 +9,7 @@ export function SiteFooter(): ReactElement {
         <p>
           Library data:{" "}
           <a
+            data-analytics-slot="footer"
             href="https://www.imls.gov/research-evaluation/data-collection/public-libraries-survey"
             className="underline-offset-2 hover:underline"
           >
@@ -18,18 +19,21 @@ export function SiteFooter(): ReactElement {
         </p>
         <span className="flex items-center gap-4">
           <Link
+            data-analytics-slot="footer"
             href="/storytimes"
             className="font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
           >
             Browse by state
           </Link>
           <Link
+            data-analytics-slot="footer"
             href="/privacy"
             className="font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
           >
             Privacy
           </Link>
           <Link
+            data-analytics-slot="footer"
             href="/status"
             className="font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
           >

@@ -6,12 +6,15 @@
  */
 import { systemKeyOf } from "../libraryId";
 import type { Library, StorytimeEvent } from "../types";
+import type { PageActionEvent } from "./pageEvents";
+import type { PageType } from "./pageType";
 import { scrubFeedback } from "./scrub";
 
 export type QueryKind = "zip" | "city";
 export type SearchOutcome = "ok" | "ambiguous" | "not-found" | "error";
 export type FeedbackContext = "no-location" | "no-feed" | "no-events";
-export type LinkPlacement = "home" | "nearby";
+/** home/nearby: finder results; landing_library: a landing page's website link. */
+export type LinkPlacement = "home" | "nearby" | "landing_library";
 
 export interface SearchPerformedEvent {
   name: "search_performed";
@@ -50,6 +53,7 @@ export interface OutboundClickEvent {
     library_id: string;
     system: string;
     placement: LinkPlacement;
+    page_type?: PageType;
   };
 }
 
@@ -63,7 +67,8 @@ export type AnalyticsEvent =
   | SearchResultsEvent
   | FilterChangedEvent
   | OutboundClickEvent
-  | FeedbackEvent;
+  | FeedbackEvent
+  | PageActionEvent;
 
 const ZIP_PATTERN = /^\d{5}$/;
 
@@ -159,18 +164,21 @@ export function buildFilterChangedEvents<K extends string>(
 export function buildOutboundClickEvent({
   libraryId,
   placement,
+  pageType,
 }: {
   libraryId: string;
   placement: LinkPlacement;
+  pageType?: PageType;
 }): OutboundClickEvent {
+  const properties = {
+    link: "library_website" as const,
+    library_id: libraryId,
+    system: systemKeyOf(libraryId),
+    placement,
+  };
   return {
     name: "outbound_click",
-    properties: {
-      link: "library_website",
-      library_id: libraryId,
-      system: systemKeyOf(libraryId),
-      placement,
-    },
+    properties: pageType ? { ...properties, page_type: pageType } : properties,
   };
 }
 

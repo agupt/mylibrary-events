@@ -90,6 +90,7 @@ export default function StatusPage() {
         <p className="text-sm">
           <Link
             href="/"
+            data-analytics-slot="finder"
             className="text-indigo-600 hover:underline dark:text-indigo-400"
           >
             ← Library Storytime

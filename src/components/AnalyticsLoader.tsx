@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { initAnalytics } from "@/lib/analytics/browser";
+import { initAnalytics, installLinkTracking } from "@/lib/analytics/browser";
 
 const IDLE_TIMEOUT_MS = 3000;
 
@@ -17,10 +17,12 @@ function whenIdle(work: () => void): () => void {
 
 /**
  * Starts analytics after the page has loaded and the main thread is idle,
- * so it never competes with LCP or hydration. Renders nothing.
+ * so it never competes with LCP or hydration. Link clicks are listened for
+ * from mount (queued until PostHog loads). Renders nothing.
  */
 export function AnalyticsLoader() {
   useEffect(() => {
+    installLinkTracking();
     let cancelIdle: (() => void) | undefined;
     const start = () => {
       cancelIdle = whenIdle(() => void initAnalytics());

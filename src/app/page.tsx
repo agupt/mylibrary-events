@@ -31,6 +31,7 @@ export default function Home() {
           Prefer to browse?{" "}
           <Link
             href="/storytimes"
+            data-analytics-slot="state_list"
             className="font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
           >
             Explore library storytimes by state and city →

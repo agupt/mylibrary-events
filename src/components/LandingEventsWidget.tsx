@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { track } from "@/lib/analytics/browser";
+import { buildWidgetLoadedEvent } from "@/lib/analytics/pageEvents";
 import { MAX_LIBRARIES_PER_REQUEST } from "@/lib/constants";
 import { buildEventItemList } from "@/lib/seo/jsonLd";
 import type { Library, StorytimeEvent } from "@/lib/types";
@@ -55,6 +57,8 @@ export function LandingEventsWidget({
   useEffect(() => {
     if (ids.length === 0) return;
     let active = true;
+    const trackLoaded = (status: "ready" | "error", eventCount: number) =>
+      track(buildWidgetLoadedEvent({ pagePath, status, eventCount, libraryCount: ids.length }));
     // eslint-disable-next-line react-hooks/set-state-in-effect -- reset to the loading state for a prop-driven refetch; resolved in the fetch callbacks
     setStatus("loading");
     fetch(`/api/events?libraryIds=${ids.join(",")}`)
@@ -63,19 +67,23 @@ export function LandingEventsWidget({
         if (!active) return;
         if (!body.success || body.data === null) {
           setStatus("error");
+          trackLoaded("error", 0);
           return;
         }
+        trackLoaded("ready", body.data.events.length);
         setEvents(body.data.events);
         setFetchedAt(new Date());
         setStatus("ready");
       })
       .catch(() => {
-        if (active) setStatus("error");
+        if (!active) return;
+        setStatus("error");
+        trackLoaded("error", 0);
       });
     return () => {
       active = false;
     };
-  }, [ids]);
+  }, [ids, pagePath]);
 
   const eventJsonLd = useMemo(() => {
     if (events.length === 0) return null;

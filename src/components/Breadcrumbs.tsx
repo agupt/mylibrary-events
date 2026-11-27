@@ -23,6 +23,7 @@ export function Breadcrumbs({
               {item.path && !isLast ? (
                 <Link
                   href={item.path}
+                  data-analytics-slot="breadcrumb"
                   className="font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
                 >
                   {item.name}

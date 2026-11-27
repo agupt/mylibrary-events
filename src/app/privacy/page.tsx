@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "How mylibrary-events.com handles searches, analytics, feedback, cookies, and advertising.",
 };
 
-const EFFECTIVE_DATE = "November 24, 2026";
+const EFFECTIVE_DATE = "November 26, 2026";
 
 function Section({
   title,
@@ -82,6 +82,20 @@ export default function PrivacyPage() {
             which libraries to add next and whether the site works.
           </p>
           <p>
+            Each page view is labeled with the kind of page it is (home,
+            state, city, library, and so on) and, where it applies, the state,
+            the city, and the public library ID shown on that page. On those
+            pages we also count whether the events list loaded and how many
+            events it showed, and which of our links were clicked: the kind
+            of link (for example &ldquo;nearby city&rdquo; or
+            &ldquo;breadcrumb&rdquo;) and the kind of page it leads to, or,
+            for links to other sites, only that site&rsquo;s domain name.
+            These counts help us see which pages are useful and which
+            aren&rsquo;t. They contain nothing you type, and for a clicked
+            link we record only the kind of page or the other site&rsquo;s
+            domain, never the full link.
+          </p>
+          <p>
             Analytics run in <strong>cookieless mode</strong>: no cookies,
             local storage, or other identifiers are stored in your browser,
             and we don&rsquo;t build user profiles. The text you type into
@@ -93,7 +107,7 @@ export default function PrivacyPage() {
             We also count visits from known AI search crawlers (for example
             GPTBot or ClaudeBot) by their published user-agent name, to see
             whether answer engines read this site. That count contains no
-            visitor information.
+            visitor information, and we send it without an IP address.
           </p>
         </Section>
 
@@ -185,6 +199,7 @@ export default function PrivacyPage() {
 
         <Link
           href="/"
+          data-analytics-slot="finder"
           className="text-sm font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
         >
           ← Back to search

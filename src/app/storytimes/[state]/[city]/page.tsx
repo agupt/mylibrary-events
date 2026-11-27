@@ -134,6 +134,7 @@ export default async function CityPage({
                   <li key={entry.path}>
                     <Link
                       href={entry.path}
+                      data-analytics-slot="branch"
                       className="text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
                     >
                       {entry.library.name}
@@ -151,6 +152,7 @@ export default async function CityPage({
                     <li key={other.path}>
                       <Link
                         href={other.path}
+                        data-analytics-slot="nearby_city"
                         className="text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
                       >
                         Storytimes in {other.city}, {other.stateCode}
@@ -163,6 +165,7 @@ export default async function CityPage({
 
             <Link
               href={`/storytimes/${page.stateSlug}`}
+              data-analytics-slot="state"
               className="inline-block text-sm font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
             >
               ← All {stateName} cities

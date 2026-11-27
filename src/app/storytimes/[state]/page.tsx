@@ -112,6 +112,7 @@ export default async function StatePage({
             <li key={city.path}>
               <Link
                 href={city.path}
+                data-analytics-slot="city"
                 className="flex items-center justify-between gap-2 rounded-xl border border-slate-200/80 bg-white/70 px-4 py-3 text-sm backdrop-blur transition hover:border-violet-300 dark:border-slate-700 dark:bg-slate-800/70 dark:hover:border-violet-700"
               >
                 <span className="font-medium text-violet-700 dark:text-violet-300">
@@ -128,6 +129,7 @@ export default async function StatePage({
         <nav className="mt-8 text-sm">
           <Link
             href="/storytimes"
+            data-analytics-slot="state_list"
             className="text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
           >
             ← All states

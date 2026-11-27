@@ -28,6 +28,7 @@ function WebsiteLink({ href, libraryId, placement }: WebsiteLinkProps) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      data-analytics="manual"
       onClick={() => track(buildOutboundClickEvent({ libraryId, placement }))}
       className="inline-flex items-center gap-1 text-sm font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
     >

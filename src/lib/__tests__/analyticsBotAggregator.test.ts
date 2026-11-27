@@ -18,16 +18,25 @@ describe("createBotHitAggregator", () => {
         event: "ai_bot_hits",
         distinct_id: "bot:GPTBot",
         timestamp: at(0).toISOString(),
-        properties: { bot: "GPTBot", hits: 2, paths: { "/a": 2 }, window_seconds: 60, $process_person_profile: false },
+        properties: { bot: "GPTBot", hits: 2, paths: { "/a": 2 }, window_seconds: 60, $process_person_profile: false, $ip: "", $geoip_disable: true },
       },
       {
         api_key: "phc_t",
         event: "ai_bot_hits",
         distinct_id: "bot:ClaudeBot",
         timestamp: at(0).toISOString(),
-        properties: { bot: "ClaudeBot", hits: 1, paths: { "/llms.txt": 1 }, window_seconds: 60, $process_person_profile: false },
+        properties: { bot: "ClaudeBot", hits: 1, paths: { "/llms.txt": 1 }, window_seconds: 60, $process_person_profile: false, $ip: "", $geoip_disable: true },
       },
     ]);
+  });
+
+  test("captures carry an explicitly empty $ip so PostHog never attaches the server's IP", () => {
+    const agg = createBotHitAggregator({ token: "t", windowMs: 60_000, startedAt: at(0) });
+    agg.record("GPTBot", "https://x.com/a", at(1_000));
+    const [capture] = agg.record("GPTBot", "https://x.com/b", at(61_000));
+    const body = JSON.parse(JSON.stringify(capture)) as { properties: Record<string, unknown> };
+    expect(body.properties).toHaveProperty("$ip", "");
+    expect(body.properties.$geoip_disable).toBe(true);
   });
 
   test("the hit that closes a window starts the next one", () => {

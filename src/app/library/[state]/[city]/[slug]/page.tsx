@@ -105,7 +105,11 @@ export default async function LibraryPage({
       />
       <JsonLd data={buildFaqPage(faq)} />
 
-      <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-16 pt-8">
+      <main
+        className="mx-auto w-full max-w-5xl flex-1 px-4 pb-16 pt-8"
+        data-page-library={library.id}
+        data-page-path={page.path}
+      >
         <Breadcrumbs items={breadcrumbItems} />
 
         <header className="mb-6">
@@ -135,6 +139,8 @@ export default async function LibraryPage({
               {library.websiteUrl && (
                 <a
                   href={library.websiteUrl}
+                  data-analytics="outbound"
+                  data-library-id={library.id}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
@@ -155,6 +161,7 @@ export default async function LibraryPage({
                     <li key={sibling.path}>
                       <Link
                         href={sibling.path}
+                        data-analytics-slot="sibling"
                         className="text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
                       >
                         {sibling.library.name}
@@ -165,6 +172,7 @@ export default async function LibraryPage({
                 {cityPage && (
                   <Link
                     href={cityPage.path}
+                    data-analytics-slot="city"
                     className="mt-3 inline-block text-xs font-medium text-slate-500 underline-offset-2 hover:underline dark:text-slate-400"
                   >
                     All {library.city} storytimes →
@@ -180,6 +188,7 @@ export default async function LibraryPage({
             <nav className="text-sm text-slate-500 dark:text-slate-400">
               <Link
                 href={`/storytimes/${page.stateSlug}`}
+                data-analytics-slot="state"
                 className="text-violet-600 underline-offset-2 hover:underline dark:text-violet-400"
               >
                 ← Library storytimes across {stateName}
