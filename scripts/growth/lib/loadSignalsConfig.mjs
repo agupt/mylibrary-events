@@ -94,6 +94,8 @@ const rule = z.discriminatedUnion("kind", [
     window: z.number().int().min(1).max(MAX_WINDOW_DAYS),
     minPrior: z.number().int().min(1).max(MAX_WINDOW_DAYS),
     compare: z.enum(["ratio", "delta"]).default("ratio"),
+    /** Skip (insufficient-volume) when the median is below this: 2 → 0 is noise. */
+    minBaseline: z.number().nonnegative().optional(),
   }),
   ruleOf("consecutive", {
     n: z.number().int().min(2).max(MAX_WINDOW_DAYS),

@@ -29,7 +29,8 @@
 #                   wowChange        last 7 d vs prior 7 d; aggregate
 #                                    mean|last, change pct|delta
 #                   vsTrailingMedian latest vs median of the last `window`
-#                                    prior observations; compare ratio|delta
+#                                    prior observations; compare ratio|delta;
+#                                    minBaseline skips tiny medians
 #                   consecutive      n readings in a row; over days|observations
 #                                    (a missing day breaks a days streak)
 #                   newKey           key absent for lookbackDays, now crosses
@@ -96,9 +97,9 @@ signals:
     metric: S5.probes
     per: system
     value: eventCount30d
-    rule: { kind: vsTrailingMedian, window: 4, minPrior: 3, compare: ratio, lte: 0.3 }
+    rule: { kind: vsTrailingMedian, window: 4, minPrior: 3, compare: ratio, minBaseline: 10, lte: 0.3 }
     severity: info
-    note: "DRAFT: eventCount30d <= 30% of that system's trailing probe median (probes, not calendar days)."
+    note: "DRAFT: eventCount30d <= 30% of that system's trailing probe median (probes, not calendar days); medians under 10 events skipped as noise."
 
   - id: S5
     trigger: unreachable
@@ -151,7 +152,7 @@ signals:
     value: performance
     rule: { kind: vsTrailingMedian, window: 1, minPrior: 1, compare: delta, lte: -10 }
     severity: info
-    note: "DRAFT: score drop >= 10 vs last week's median-of-3 run."
+    note: "DRAFT: score drop >= 10 vs last week (each stored run is already the collector's median of 3, §1 S7)."
 
   - id: S7
     trigger: seo

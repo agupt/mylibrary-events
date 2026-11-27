@@ -21,6 +21,8 @@ import { ACTIVE_STATUSES, COMPARATOR_OPS } from "./loadSignalsConfig.mjs";
 
 const DAY_MS = 86_400_000;
 const WEEK_DAYS = 7;
+/** Daily wowChange needs this many readings in EACH week (gaps never fake a drop). */
+const MIN_DAILY_WINDOW_POINTS = 4;
 const ROUND_FACTOR = 1e6;
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -51,6 +53,13 @@ const STATUS_REASONS = Object.freeze({
 const REASON_PRIORITY = ["insufficient-history", "insufficient-volume", "not-collected"];
 
 // ---- dates ----------------------------------------------------------------
+
+/** A real calendar date (rejects 2026-13-01 and 2026-02-30). */
+function isIsoDate(value) {
+  if (typeof value !== "string" || !ISO_DATE.test(value)) return false;
+  const parsed = new Date(`${value}T00:00:00Z`);
+  return Number.isFinite(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
+}
 
 function shiftDate(iso, deltaDays) {
   return new Date(Date.parse(`${iso}T00:00:00Z`) + deltaDays * DAY_MS)
@@ -262,6 +271,8 @@ function aggregateWindow(rule, points) {
 function ruleWowChange(rule, read, ctx) {
   const recentPoints = pointsOn(read, dateRange(ctx.anchor, WEEK_DAYS));
   const priorPoints = pointsOn(read, dateRange(shiftDate(ctx.anchor, -WEEK_DAYS), WEEK_DAYS));
+  const minPoints = ctx.cadence === "weekly" ? 1 : MIN_DAILY_WINDOW_POINTS;
+  if (recentPoints.length < minPoints || priorPoints.length < minPoints) return skip("insufficient-history");
   const recent = aggregateWindow(rule, recentPoints);
   const prior = aggregateWindow(rule, priorPoints);
   if (!isNumber(recent) || !isNumber(prior)) return skip("insufficient-history");
@@ -279,6 +290,7 @@ function ruleVsTrailingMedian(rule, read, ctx) {
   if (priors.length < rule.minPrior) return skip("insufficient-history");
   const mid = median(priors.map((p) => valueOf(p.reading)));
   if (rule.compare === "ratio" && mid === 0) return skip("insufficient-volume");
+  if (rule.minBaseline !== undefined && mid < rule.minBaseline) return skip("insufficient-volume");
   const value = rule.compare === "ratio" ? valueOf(latest) / mid : valueOf(latest) - mid;
   return verdict(rule, value, [...priors, { date: ctx.anchor, reading: latest }]);
 }
@@ -293,10 +305,9 @@ function ruleConsecutive(rule, read, ctx) {
   if (ctx.historyDays < rule.n) return skip("insufficient-history");
   const dates = dateRange(ctx.anchor, rule.n);
   const points = pointsOn(read, dates);
-  if (points.length < dates.length) {
-    // A missing day breaks the streak: evaluated, not fired.
-    return { evaluated: true, fired: false, value: null, evidence: { dates: [], values: [] } };
-  }
+  // A missing day breaks the streak: never fired, and never "quiet" either
+  // (an unprovable streak must not clear an open issue).
+  if (points.length < dates.length) return skip("insufficient-history");
   return streakVerdict(rule, points);
 }
 
@@ -466,7 +477,8 @@ function evaluatePerKey(entry, ctx, ruleFn) {
   });
   const fired = results.filter((r) => r.evaluated && r.fired).map((r) => firedItem(entry, ctx, r, r.key));
   if (fired.length > 0) return { fired };
-  if (results.length === 0 || results.some((r) => r.evaluated)) return { quiet: true };
+  const quietKeys = results.filter((r) => r.evaluated).map((r) => r.key);
+  if (results.length === 0 || quietKeys.length > 0) return { quiet: { keys: quietKeys } };
   return { reason: dominantReason(results.map((r) => r.reason)) };
 }
 
@@ -481,6 +493,7 @@ function evaluateEntry(entry, byDate, datesDesc, today) {
     anchor: anchor.date,
     byDate,
     datesDesc,
+    cadence: entry.cadence,
     historyDays: historyDays(entry, datesDesc, byDate, anchor.date),
     hasData: (date) => hasDataStatus(byDate.get(date)?.[entryBlockId(entry)]),
   };
@@ -494,7 +507,7 @@ function evaluateEntry(entry, byDate, datesDesc, today) {
 
   const result = ruleFn(entry.rule, (date) => readGlobal(entry, byDate.get(date)), ctx);
   if (!result.evaluated) return { reason: result.reason };
-  return result.fired ? { fired: [firedItem(entry, ctx, result)] } : { quiet: true };
+  return result.fired ? { fired: [firedItem(entry, ctx, result)] } : { quiet: {} };
 }
 
 /**
@@ -506,15 +519,15 @@ function evaluateEntry(entry, byDate, datesDesc, today) {
  * @returns {{ date: string, fired: object[], notEvaluated: object[], quiet: object[] }}
  *   fired:        { signalId, trigger, name, key?, severity, status, rule, date, value, threshold, evidence: { dates, values } }
  *   notEvaluated: { signalId, trigger, reason }   (reason ∈ NOT_EVALUATED_REASONS)
- *   quiet:        { signalId, trigger }
+ *   quiet:        { signalId, trigger, keys? }  (keys: per-key entries' evaluated, non-firing keys)
  */
 export function evaluateTriggers(config, snapshots, today) {
-  if (typeof today !== "string" || !ISO_DATE.test(today)) {
+  if (!isIsoDate(today)) {
     throw new Error(`today must be a YYYY-MM-DD date, got ${JSON.stringify(today)}`);
   }
   const byDate = new Map(
     snapshots
-      .filter((s) => isPlainObject(s) && typeof s.date === "string" && ISO_DATE.test(s.date) && s.date <= today)
+      .filter((s) => isPlainObject(s) && isIsoDate(s.date) && s.date <= today)
       .map((s) => [s.date, s]),
   );
   const datesDesc = [...byDate.keys()].sort().reverse();
@@ -524,7 +537,7 @@ export function evaluateTriggers(config, snapshots, today) {
     const outcome = evaluateEntry(entry, byDate, datesDesc, today);
     const id = { signalId: entry.id, trigger: entry.trigger };
     if (outcome.fired) result.fired.push(...outcome.fired);
-    else if (outcome.quiet) result.quiet.push(id);
+    else if (outcome.quiet) result.quiet.push({ ...id, ...outcome.quiet });
     else result.notEvaluated.push({ ...id, reason: outcome.reason });
   }
   return result;

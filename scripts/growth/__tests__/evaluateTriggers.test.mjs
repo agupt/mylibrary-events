@@ -45,6 +45,8 @@ describe("result shape", () => {
 
   test("rejects a malformed today", () => {
     expect(() => evaluateTriggers(config(), [], "12/20/2026")).toThrow(/YYYY-MM-DD/);
+    expect(() => evaluateTriggers(config(), [], "2026-13-01")).toThrow(/YYYY-MM-DD/);
+    expect(() => evaluateTriggers(config(), [], "2026-02-30")).toThrow(/YYYY-MM-DD/);
   });
 
   test("ignores snapshots after today (no peeking at the future)", () => {
@@ -358,6 +360,17 @@ describe("wowChange", () => {
     expect(only(evaluateTriggers(s1, snaps, TODAY)).quiet).toEqual(["S1"]);
   });
 
+  test("a sparse recent week (< 4 daily readings) cannot fake a drop", () => {
+    const sparse = history(14, traffic(100, 10)).filter((s) => !["0", "1", "2", "3"].some((o) => s.date === ago(Number(o))));
+    expect(only(evaluateTriggers(s1, sparse, TODAY)).notEvaluated).toEqual([
+      { signalId: "S1", reason: "not-collected" }, // today itself is missing
+    ]);
+    const gappy = history(14, traffic(100, 10)).filter((s) => ![1, 2, 3, 4].some((o) => s.date === ago(o)));
+    expect(only(evaluateTriggers(s1, gappy, TODAY)).notEvaluated).toEqual([
+      { signalId: "S1", reason: "insufficient-history" },
+    ]);
+  });
+
   test("min-history guard: 13 days is insufficient-history", () => {
     expect(only(evaluateTriggers(s1, history(13, traffic(100, 10)), TODAY)).notEvaluated).toEqual([
       { signalId: "S1", reason: "insufficient-history" },
@@ -479,6 +492,22 @@ describe("vsTrailingMedian (S5 rotating probes)", () => {
     expect(only(evaluateTriggers(s5, snaps, TODAY)).quiet).toEqual(["S5"]);
   });
 
+  test("minBaseline: a tiny median (2 → 0 events) is noise, not a drop", () => {
+    const floored = config({
+      ...base,
+      id: "S5",
+      metric: "S5.probes",
+      per: "system",
+      value: "eventCount30d",
+      rule: { kind: "vsTrailingMedian", window: 4, minPrior: 3, compare: "ratio", minBaseline: 10, lte: 0.3 },
+    });
+    const snaps = history(4, (offset) => ({ S5: { status: "ok", probes: [probe("CA0114", offset === 0 ? 0 : 2)] } }));
+    expect(only(evaluateTriggers(s5, snaps, TODAY)).fired).toHaveLength(1); // unfloored would fire
+    expect(only(evaluateTriggers(floored, snaps, TODAY)).notEvaluated).toEqual([
+      { signalId: "S5", reason: "insufficient-volume" },
+    ]);
+  });
+
   test("a zero median cannot give a ratio", () => {
     const snaps = history(4, () => ({ S5: { status: "ok", probes: [probe("CA0114", 0)] } }));
     expect(only(evaluateTriggers(s5, snaps, TODAY)).notEvaluated).toEqual([
@@ -522,9 +551,21 @@ describe("consecutive", () => {
     ]);
   });
 
-  test("a missing day breaks the streak", () => {
+  test("a missing day breaks the streak: never fired, and unprovable rather than quiet", () => {
     const snaps = history(4, () => zero(["CA0114"])).filter((s) => s.date !== ago(1));
-    expect(only(evaluateTriggers(s4, snaps, TODAY))).toEqual({ fired: [], notEvaluated: [], quiet: ["S4"] });
+    // Not quiet: an unprovable streak must not post "cleared" on an open issue.
+    expect(only(evaluateTriggers(s4, snaps, TODAY))).toEqual({
+      fired: [],
+      notEvaluated: [{ signalId: "S4", reason: "insufficient-history" }],
+      quiet: [],
+    });
+  });
+
+  test("quiet lists the evaluated keys of a per-key trigger", () => {
+    const snaps = history(3, (offset) => zero(offset === 1 ? [] : ["CA0114"]));
+    expect(evaluateTriggers(s4, snaps, TODAY).quiet).toEqual([
+      { signalId: "S4", trigger: "default", keys: ["CA0114"] },
+    ]);
   });
 
   test("an error day breaks the streak", () => {

@@ -85,6 +85,7 @@ describe("needsDataEvidence", () => {
         fired: [expect.objectContaining({ key: "CA0114" })],
         value: 2,
         notEvaluated: [],
+        note: null,
       },
       {
         signalId: "S2",
@@ -94,6 +95,7 @@ describe("needsDataEvidence", () => {
         fired: [],
         value: null, // no per-home_system breakdown in the snapshot: unknown, not 0
         notEvaluated: ["insufficient-volume"],
+        note: "S2 has no per-home_system breakdown in the snapshot",
       },
       {
         signalId: "S3",
@@ -103,6 +105,7 @@ describe("needsDataEvidence", () => {
         fired: [],
         value: null,
         notEvaluated: [],
+        note: null,
       },
     ]);
     expect(second).toMatchObject({ issueNumber: 2, firing: false, links: [], errors: [] });
@@ -114,6 +117,15 @@ describe("needsDataEvidence", () => {
       { evaluation, config, snapshot },
     );
     expect(result.firing).toBe(true);
+  });
+
+  test("a filter on a field the signal isn't broken down by never matches by accident", () => {
+    const [result] = needsDataEvidence(
+      [{ number: 4, title: "t", body: "Signals: S4 home_system=NY0778" }],
+      { evaluation, config, snapshot },
+    );
+    expect(result.firing).toBe(false);
+    expect(result.links[0].note).toBe("S4 has no per-home_system breakdown in the snapshot");
   });
 
   test("works without a config or snapshot (values unknown)", () => {

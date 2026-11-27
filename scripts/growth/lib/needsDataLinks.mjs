@@ -61,11 +61,30 @@ export function parseSignalsLine(body) {
   return { links, errors };
 }
 
-function matchesLink(link, fired) {
+const toArray = (value) => (Array.isArray(value) ? value : [value]);
+
+/** The `per` fields of a signal's per-key entries (null: no config to check). */
+function perFieldsOf(config, signalId) {
+  if (config === undefined) return null;
+  return new Set(
+    config.signals.filter((e) => e.id === signalId && e.per !== undefined).map((e) => toArray(e.per).join("+")),
+  );
+}
+
+function matchesLink(link, fired, perFields) {
   if (fired.signalId !== link.signalId) return false;
   if (link.key !== null) return fired.key === link.key;
-  if (link.filter !== null) return fired.key === link.filter.value;
+  if (link.filter !== null) {
+    const isFieldKnown = perFields === null || perFields.has(link.filter.field);
+    return isFieldKnown && fired.key === link.filter.value;
+  }
   return true;
+}
+
+/** Why a filter link can never fire or show a number, so silence isn't read as "fine". */
+function linkNote(link, perFields) {
+  if (link.filter === null || perFields === null || perFields.has(link.filter.field)) return null;
+  return `${link.signalId} has no per-${link.filter.field} breakdown in the snapshot`;
 }
 
 /** Today's value for a keyed link, via the signal's per-key signals.yml entry. */
@@ -95,7 +114,8 @@ export function needsDataEvidence(issues, { evaluation, config, snapshot }) {
   return issues.map((issue) => {
     const { links, errors } = parseSignalsLine(issue.body);
     const enriched = links.map((link) => {
-      const fired = (evaluation.fired ?? []).filter((f) => matchesLink(link, f));
+      const perFields = perFieldsOf(config, link.signalId);
+      const fired = (evaluation.fired ?? []).filter((f) => matchesLink(link, f, perFields));
       const notEvaluated = (evaluation.notEvaluated ?? [])
         .filter((n) => n.signalId === link.signalId)
         .map((n) => n.reason);
@@ -105,6 +125,7 @@ export function needsDataEvidence(issues, { evaluation, config, snapshot }) {
         fired,
         value: linkValue(link, config, snapshot),
         notEvaluated: [...new Set(notEvaluated)],
+        note: linkNote(link, perFields),
       };
     });
     return {
