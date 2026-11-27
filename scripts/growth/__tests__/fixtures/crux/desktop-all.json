@@ -1,0 +1,14 @@
+{
+  "record": {
+    "key": { "formFactor": "DESKTOP", "origin": "https://mylibrary-events.com" },
+    "metrics": {
+      "cumulative_layout_shift": { "percentiles": { "p75": "0.03" } },
+      "interaction_to_next_paint": { "percentiles": { "p75": 64 } },
+      "largest_contentful_paint": { "percentiles": { "p75": 1210 } }
+    },
+    "collectionPeriod": {
+      "firstDate": { "year": 2026, "month": 10, "day": 29 },
+      "lastDate": { "year": 2026, "month": 11, "day": 25 }
+    }
+  }
+}

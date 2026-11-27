@@ -1,0 +1,37 @@
+{
+  "success": true,
+  "data": {
+    "library": {
+      "id": "CA0114-002",
+      "name": "San Francisco Main Library",
+      "system": "San Francisco Public Library",
+      "address": "100 Larkin St.",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94102",
+      "coordinates": {
+        "latitude": 37.7789758,
+        "longitude": -122.4166183
+      },
+      "websiteUrl": "https://sfpl.org"
+    },
+    "system": {
+      "key": "CA0114",
+      "name": "San Francisco Public Library",
+      "outlets": 28
+    },
+    "coverage": {
+      "status": "active",
+      "vendor": "sfpl",
+      "feedUrl": "https://sfpl.org/events",
+      "note": "San Francisco Public Library — Drupal views/ajax endpoint (found by Amool 2026-07-16); token scraped per-load; times from the <time datetime> ISO range (markup changed 2026-11)"
+    },
+    "probe": {
+      "rangeDays": 30,
+      "feedReachable": true,
+      "feedHttpStatus": 200,
+      "error": "Feed probe failed."
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "data": {
+    "library": {
+      "id": "NY0562-002",
+      "name": "Queens Public Library Central",
+      "system": "Queens Borough Public Library",
+      "address": "89-11 Merrick Boulevard",
+      "city": "Jamaica",
+      "state": "NY",
+      "zipCode": "11432",
+      "coordinates": {
+        "latitude": 40.7076593,
+        "longitude": -73.7950287
+      },
+      "websiteUrl": "https://queenslibrary.org"
+    },
+    "system": {
+      "key": "NY0562",
+      "name": "Queens Borough Public Library",
+      "outlets": 62
+    },
+    "coverage": {
+      "status": "none",
+      "vendor": null,
+      "feedUrl": null,
+      "note": null
+    },
+    "probe": null
+  },
+  "error": null
+}

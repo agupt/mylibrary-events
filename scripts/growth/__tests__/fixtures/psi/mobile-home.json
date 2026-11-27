@@ -1,0 +1,20 @@
+{
+  "id": "https://mylibrary-events.com/",
+  "lighthouseResult": {
+    "requestedUrl": "https://mylibrary-events.com/",
+    "finalUrl": "https://mylibrary-events.com/",
+    "lighthouseVersion": "12.8.2",
+    "categories": {
+      "performance": { "id": "performance", "score": 0.98 },
+      "accessibility": { "id": "accessibility", "score": 0.96 },
+      "best-practices": { "id": "best-practices", "score": 1 },
+      "seo": { "id": "seo", "score": 1 }
+    },
+    "audits": {
+      "largest-contentful-paint": { "id": "largest-contentful-paint", "numericValue": 1802.4, "displayValue": "1.8 s" },
+      "total-blocking-time": { "id": "total-blocking-time", "numericValue": 10, "displayValue": "10 ms" },
+      "cumulative-layout-shift": { "id": "cumulative-layout-shift", "numericValue": 0, "displayValue": "0" }
+    }
+  },
+  "analysisUTCTimestamp": "2026-11-26T05:12:44.123Z"
+}

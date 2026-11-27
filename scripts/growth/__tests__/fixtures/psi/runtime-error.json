@@ -1,0 +1,11 @@
+{
+  "id": "https://mylibrary-events.com/status",
+  "lighthouseResult": {
+    "requestedUrl": "https://mylibrary-events.com/status",
+    "runtimeError": { "code": "FAILED_DOCUMENT_REQUEST", "message": "Lighthouse was unable to reliably load the page you requested." },
+    "categories": {
+      "performance": { "id": "performance", "score": null }
+    },
+    "audits": {}
+  }
+}
