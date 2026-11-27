@@ -208,7 +208,7 @@ export function parseSignalsConfig(yamlText) {
   }
   const result = configSchema.safeParse(raw);
   if (!result.success) {
-    return { success: false, data: null, error: formatIssues(result.error) };
+    return { success: false, data: null, error: `signals.yml is invalid: ${formatIssues(result.error)}` };
   }
   return { success: true, data: result.data, error: null };
 }
