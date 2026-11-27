@@ -1,15 +1,22 @@
 # Phase 1 — Impact analysis & build plan (Observer + baseline)
 
-Written 2026-11-26 (updated 2026-11-27 with the first PostHog readout) before
-any code, per the dev rules in `AGENTS.md` (impact first, assumptions stated,
+Written 2026-11-26 (updated 2026-11-27 with the first PostHog readout and
+Amool's decisions of 2026-11-26) before any code, per the dev rules in `AGENTS.md` (impact first, assumptions stated,
 one source of truth per fact). Scope: PLAN §4 Phase 1. **Status: proposal —
 awaiting Amool's approval. Nothing below exists yet.**
 
-Phase 1 is **read-only**: a deterministic observer (no LLM, P1) collects every
-available signal once a day, commits a JSON snapshot, evaluates DRAFT
-thresholds, and opens deduped `signal` issues. **No agent acts on those
-issues in Phase 1.** Amool reads them to judge whether the triggers make
-sense.
+Phase 1 has two halves:
+
+- **The observer** (read-only). A deterministic job (no LLM, P1) collects
+  every available signal once a day, commits a JSON snapshot, evaluates
+  DRAFT thresholds, and opens deduped `signal` issues. **No agent acts on
+  those issues in Phase 1.** Amool reads them to judge whether the triggers
+  make sense.
+- **Full-site instrumentation** (WS-D, Amool 2026-11-26). Page-type
+  classification and action events on **every** page type (home, state,
+  city, library, privacy, status), entry-source breakdown, an engaged-visit
+  definition, and the `ai_bot_hits` `$ip` fix. **WS-D is the only Phase 1
+  deploy**, and Amool approves it.
 
 ## What the first PostHog readout changes (2026-11-27 04:40 UTC)
 
@@ -19,11 +26,11 @@ What it showed reshapes the plan:
 | Finding | Consequence for Phase 1 |
 |---|---|
 | 592 pageviews since 11-24 (349 www.google.com, 234 direct, 5 Bing, 3 DDG), but only 7 `search_performed`, 6 `filter_changed`, 1 `outbound_click`, 1 feedback. On 11-26/27: 283 pageviews, **0 searches**. Visitors land on the programmatic SEO pages and leave. | **Low counts are normal, not missing data.** The snapshot separates `0` (source OK, nothing happened) from `null` (not collected). Triggers get `minVolume` guards and report `insufficient-volume` instead of firing. Adds proposed **S12 landing engagement** (below). |
-| Landing pages (`/storytimes/<st>/<city>`, `/library/<st>/<city>/<slug>`) emit **only `$pageview`**. Their "Visit library website" link is a plain `<a>` with no tracker (only `LibraryResults` tracks outbound clicks), and `LandingEventsWidget` emits nothing. | Most S12 is **not measurable today**. The observer can read only what exists (decision 9). |
-| AdSense rejected for **"Low value content"** (thin content, not enough curation or user interest). The likely cause is the ~8,766 generated pages. | S11 stays N/A. Adds proposed **S13 thin-page share** and **F1 impressions per page type**. A thin-page audit and fix is a **separate workstream pending Amool**. Phase 1 measures, it doesn't fix (dependency D1). |
+| Landing pages (`/storytimes/<st>/<city>`, `/library/<st>/<city>/<slug>`) emit **only `$pageview`**. Their "Visit library website" link is a plain `<a>` with no tracker (only `LibraryResults` tracks outbound clicks), and `LandingEventsWidget` emits nothing. | Most S12 is **not measurable today**, which is why **WS-D instruments every page type** (§1a). S12 reads WS-D's events. |
+| AdSense rejected for **"Low value content"** (thin content, not enough curation or user interest). The likely cause is the ~8,766 generated pages. | S11 stays N/A. Adds proposed **S13 thin-page share** (a signal only) and **F1 impressions per page type**. AdSense re-review parked; revisit if Phase 1 data improves engagement. |
 | CrUX key works and the origin **has field data**: p75 LCP 890 ms, CLS 0.01, no INP (too few interactions). PSI mobile score 98 (LCP 1.8 s, TBT 10 ms, CLS 0). | S6/S7 are live from day one. INP reads `insufficient-field-data`, not an error. |
 | F6 has volume: 348 captures / 3,302 hits; OAI-SearchBot 2,097, Amazonbot 618, meta-externalagent 415, DuckAssistBot 131. F7 (AI referrals) is 0. | F6 thresholds come from the observed per-bot baseline, not a hand-picked list. F7 = 0 is a real reading. |
-| **Privacy bug:** `ai_bot_hits` events carry `$ip`: the Fly server's own egress IP (1 distinct value). Browser events have none. A fix is pending. | The observer **never selects `$ip`** (or any free text), whatever the fix does. This is enforced by a unit test (assumption 9). |
+| **Privacy bug:** `ai_bot_hits` events carry `$ip`: the Fly server's own egress IP (1 distinct value). Browser events have none. | **Fixed in WS-D:** `src/proxy.ts` sends an empty `$ip`. Independently, the observer **never selects `$ip`** (or any free text), enforced by a unit test (assumption 9). Events already ingested keep the server IP; it's not a visitor's IP. |
 | Phase 0 exit rule ("every signal non-null 3 consecutive days") is unrealistic at this volume. | **Pending Amool:** proposed replacement "every signal has arrived at least once and been verified". The observer's PostHog reader produces that check as its first output (WS-A1). |
 
 ---
@@ -41,7 +48,7 @@ report. Every source records a `status`, so a missing number always says
 
 | ID | Source | Collection method | Cadence | Output field(s) |
 |---|---|---|---|---|
-| S1 | PostHog `$pageview` | HogQL: `count()`, `uniq(distinct_id)` grouped by page group (from `properties.$pathname`: home, storytimes-index, state, city, library, status, privacy, other) for day D-1 UTC | daily | `S1.pageviews`, `S1.visitors` (cookieless daily hash, so per day only), `S1.byPageGroup{}` |
+| S1 | PostHog `$pageview` | HogQL: `count()`, `uniq(distinct_id)` grouped by `properties.page_type` (WS-D). For events before WS-D's deploy, the same classifier (`src/lib/analytics/pageType.ts`, run via `tsx`) is applied to `$pathname`. **One classifier for events and GSC URLs.** Day D-1 UTC | daily | `S1.pageviews`, `S1.visitors` (cookieless daily hash, so per day only), `S1.byPageGroup{}` |
 | S2 | PostHog `search_performed` | HogQL count by `query_kind`, `outcome` | daily | `S2.searches`, `S2.byKind{zip,city}`, `S2.byOutcome{ok,ambiguous,not-found,error}` |
 | S3 | PostHog `search_results.systems_without_feed` | HogQL `arrayJoin` over the array, count per FSCSKEY | daily | `S3.missesBySystem[{system,count}]` (every system with ≥1 miss, capped at 500) |
 | S4 | PostHog `search_results.zero_event_systems` | same as S3 | daily | `S4.zeroEventBySystem[{system,count}]` |
@@ -52,8 +59,8 @@ report. Every source records a `status`, so a missing number always says
 | S9 | PostHog `outbound_click`, `filter_changed` | HogQL counts; clicks/search computed in the evaluator | daily | `S9.outboundClicks`, `S9.filterChanges{filter: n}`. **Return-visitor rate is not measurable** under cookieless mode (the daily hash rotates; to verify), so it's recorded as a blind spot, not a 0 |
 | S10 | `src/lib/data/generated/coverageStats.json` (committed weekly by data-refresh) | Read the file. **Don't rerun the harness**: data-refresh owns that fact | daily read (changes Mondays) | `S10.coverageGeneratedAt`, `S10.zipReachPct`, `S10.systemsActive`, `S10.pipeline{stage: systems}` |
 | S11 | AdSense | **NOT APPLICABLE**: AdSense was never approved (rejected for "Low value content"). Dropped from Phase 1. SIGNALS.md row is updated to `not-applicable` in WS-C | — | `S11.status = "not-applicable"` |
-| **S12 (proposed)** | PostHog `$pageview` (+ future landing events) | Measurable now: landing pageviews by page type, and the share of landing sessions with a later `$pageview` on `/` or a `search_performed` (needs `$session_id` under cookieless; to verify). **Not measurable until instrumented:** landing outbound clicks, widget event clicks, scroll depth (`capture_pageleave` is off) | daily | `S12.landingPageviews{city,library,state}`, `S12.landingToFinderRate` (or `null` + `not-configured` for the uninstrumented parts) |
-| **S13 (proposed)** | S5 probe results joined to the page manifest | `npx tsx` script imports `getActiveLibraryPages()`/`getActiveCityPages()` from `src/lib/seo/pages.ts` (**the eligibility gate stays its own source of truth**; no re-implementation). Each page maps to its system → latest S5 `eventCount30d`. Weighted by sitemap URL and by F4-sampled indexed URLs | weekly (Mon) | `S13.pages`, `S13.zeroEventPages`, `S13.zeroEventShare`, `S13.indexedZeroEventShare`, `S13.unprobedPages` |
+| **S12 (proposed)** | **WS-D events** (§1a): `$pageview.page_type`, `page_action`, `outbound_click`, entry-source properties | HogQL per visit (`$session_id`; assumption 8): entry source → landing `page_type` → first action. Engaged-visit rate per page type (definition in §1a). Before WS-D's deploy, every field reads `not-configured`; afterwards they're measurable | daily; funnel in the weekly report | `S12.visitsByEntry{source:{pageType:n}}`, `S12.actionsByPageType{pageType:{action:n}}`, `S12.engagedRateByPageType{}`, `S12.funnel[{source,pageType,action,visits}]` (top 50 rows) |
+| **S13 (proposed)** | S5 probe results joined to the page manifest | `npx tsx` script imports `getActiveLibraryPages()`/`getActiveCityPages()` from `src/lib/seo/pages.ts` (**the eligibility gate stays its own source of truth**; no re-implementation). Each page maps to its system → latest S5 `eventCount30d`. Weighted by sitemap URL and by F4-sampled indexed URLs | weekly (Mon) | `S13.pages`, `S13.zeroEventPages`, `S13.zeroEventShare`, `S13.indexedZeroEventShare`, `S13.unprobedPages`. AdSense re-review parked; revisit if Phase 1 data improves engagement |
 
 S12 and S13 need SIGNALS.md rows before code (PLAN §7: "don't add a signal
 without a SIGNALS.md row"). WS-C adds them in the same PR as the first code.
@@ -61,8 +68,37 @@ Note: library/city pages exist only for systems whose registry status is
 `active` (`pages.ts` gate), so "no feed" pages should be ~0 by construction.
 The thin-content risk is **active-but-empty** systems, plus the fact that
 the widget fetches events client-side, so the server-rendered HTML Google
-sees carries no events. (That's a hypothesis for the thin-page workstream,
-not something Phase 1 fixes.)
+sees carries no events. That's recorded as a hypothesis only; Phase 1 doesn't
+plan a fix.
+
+### 1a. Full-site instrumentation (WS-D: the only Phase 1 deploy)
+
+WS-D reuses the Phase 0 pattern:
+
+- **Pure builders** in `src/lib/analytics/`, with thin wiring in components.
+- **Cookieless and prod-only**, with posthog-js lazy-loaded as today.
+- **No free text:** every property is an enum, a boolean, a count, or an id
+  derived from our own URL or IMLS data.
+- **A deny-list privacy test:** every builder's output keys must be on an
+  allowlist, and no value may come from user input or carry `$ip`, a query,
+  a message or a full URL.
+
+| Piece | What | Properties (enums/ids only) |
+|---|---|---|
+| Page-type classification | Every `$pageview` carries the page type, via the pure `classifyPath(pathname)` in `src/lib/analytics/pageType.ts` (also used by the observer for GSC URLs and pre-deploy events: one source of truth) | `page_type` ∈ `home, storytimes-index, state, city, library, privacy, status, other`; `page_state` (2-letter); `page_city` (our URL slug); `page_library` (IMLS outlet id, library pages only) |
+| Landing widget | `LandingEventsWidget` load outcome and event-list interactions (inventory the widget's controls first; instrument the ones that exist) | `page_action` {`action`: `widget_loaded` / `event_open` / `widget_more` …, `page_type`, `outcome`: ready/empty/error, `event_count`} |
+| Outbound links | "Visit library website" on library pages, and any event/outbound link on landing pages | extend `outbound_click` with placement `landing_library` / `landing_event` (+ `library_id`, `page_type`) |
+| Internal navigation | sibling branches, nearby cities, breadcrumbs, state links, finder links | `page_action` {`action`: `nav_click`, `page_type`, `target_page_type`, `slot`: sibling/nearby_city/breadcrumb/state/finder} |
+| FAQ expands | only if `FaqSection` exposes a toggle cheaply (e.g. a `<details>` toggle) | `page_action` {`action`: `faq_expand`, `page_type`, `index`} |
+| Entry source | posthog-js records `$referring_domain` and campaign (`utm_*`) properties on pageviews (to verify on a real event). WS-D adds no code unless verification shows a gap | referring **domain** only; `utm_source/medium/campaign` as sent |
+| Engaged visit | Defined, not emitted. A visit (`$session_id`) is engaged if it has ≥ 1 of: `search_performed`, `outbound_click`, a `page_action` other than `widget_loaded`, or ≥ 2 pageviews. No time-on-page (`capture_pageleave` stays off) | computed by the observer (A1); the definition text lives in the SIGNALS.md S12 row |
+| `$ip` fix | `src/proxy.ts` sends `$ip: ""` on `ai_bot_hits` | unit test: the capture body's `$ip` is empty |
+
+The privacy page's analytics section is updated for page-type and click
+events (copy reviewed by Amool). The deploy follows the Phase 0 path (build
+arg token, `fly deploy`) **after Amool approves**, and gets a production
+verification section like Phase 0's. S12 collection days count from the
+deploy date.
 
 ### Frontier ring
 
@@ -117,7 +153,7 @@ landing-page traffic (S1, S12, F1) is where the volume is.
      with `git pull --rebase` + up to 3 retries with backoff, plus a
      workflow `concurrency: growth-observer` group.
   4. Add the same 3-line rebase-retry to data-refresh's two push steps
-     (decision 10).
+     (decision 9).
   Pushes made with `GITHUB_TOKEN` don't trigger other workflows, and deploys
   are manual (`fly deploy`), so commits don't cause deploys.
 - **Workflows.** New `.github/workflows/growth-observer.yml`: daily
@@ -186,15 +222,22 @@ landing-page traffic (S1, S12, F1) is where the volume is.
     (assumption 10).
   - Publishing aggregate traffic in a public repo is a business-visibility
     choice for Amool (decision 2).
-- **App runtime / UI / API routes / proxy.** **Unchanged.** Phase 1 has no
-  deploy. The only production load is the S5 probe traffic on `/analysis`.
-- **Dependencies on other work.**
-  - **D1:** thin-page audit and fix (pending Amool): it consumes S13 and F1
-    by page type and F4. Phase 1 only measures.
-  - **D2:** landing-page instrumentation (decision 9) is a deploy, so it sits
-    outside read-only Phase 1. Until it lands, S12 is partial.
-  - **D3:** the Phase 0 `$ip` fix on `ai_bot_hits` (pending). The observer is
-    safe either way.
+- **App runtime / UI / proxy (WS-D only).** Changes are limited to WS-D.
+  - New pure modules `src/lib/analytics/pageType.ts` and builders in
+    `events.ts`. Click/action handlers go in the landing pages,
+    `LandingEventsWidget`, `FaqSection` and the internal link slots, with no
+    visual change.
+  - `browser.ts` attaches `page_type` to pageviews.
+  - `src/proxy.ts` sends an empty `$ip`.
+  - The privacy page copy is updated.
+  - Performance: the handlers are tiny and posthog-js stays lazy-loaded.
+    S7 (PSI) checks this the following Monday.
+  - PostHog volume: more events per visit (~1–3), still far under the
+    1M/month free tier at ~200 pageviews/day.
+  - API routes are unchanged. Beyond WS-D, the only production load is the
+    S5 probe traffic on `/analysis`.
+- **Deploy:** exactly one in Phase 1 (WS-D), approved by Amool. The observer
+  workstreams ship no runtime code.
 
 ---
 
@@ -262,7 +305,7 @@ snapshot history that the orchestrator loads.
 | S8 | 5xx rate > 1% or app p95 > 8 s (daily) | ≥ 500 requests/day | needs Fly token |
 | S9 | outbound clicks / search `wowChange` ≤ −30% | ≥ 50 searches/wk | `insufficient-volume` |
 | S10 | ZIP reach drops > 0.5 pt, or any pipeline branch grows > 10% wk/wk | — | weekly |
-| S12 | landing→finder rate `wowChange` ≤ −30% | ≥ 200 landing pageviews/wk | partial until D2 |
+| S12 | engaged-visit rate per page type `wowChange` ≤ −30% | ≥ 200 pageviews/wk on that page type | `not-configured` until WS-D deploys |
 | S13 | `zeroEventShare` > 25%, or +5 pts wk/wk | ≥ 50% of pages probed | number unknown; first reading sets baseline |
 | F1 | clicks `wowChange` ≤ −25% per page group | ≥ 50 clicks/wk in group | evaluates day 1 (backfill) |
 | F2 | `newKey`: a page enters the striking-distance list with ≥ 100 impressions/wk | — | weekly |
@@ -381,39 +424,43 @@ snapshot history that the orchestrator loads.
 8. **False-positive accounting:** recommend labels **`signal-valid` /
    `false-positive`** that you apply when closing a `signal` issue. The FP
    rate is computed from them.
-9. **Landing-page instrumentation (S12):** recommend a **small separate
-   Phase-0-style deploy**, run alongside but outside read-only Phase 1. It
-   adds `outbound_click` (placement `landing`) on the landing "Visit library
-   website" link and a `landing_engaged` event (widget loaded, event count,
-   finder link clicked). It's the only way to see why 280 landings/day
-   produce 0 searches.
-10. **data-refresh push retry:** recommend **adding `git pull --rebase` +
-    retry** to data-refresh's two push steps (3 lines each), so observer
-    commits can never fail the bot's run.
-11. **Phase 0 exit rule (pending, from the coordinator):** recommend
-    **accepting "every Phase 0 signal arrived at least once and verified"**,
-    with the observer's first run as the check. "Non-null 3 days" can't pass
-    at 0–3 searches/day.
-12. **Thin-page workstream (D1):** recommend **deciding after the first
-    S13 + F4 readings** (first Monday run), so the fix is sized by data, per
-    the `needs-data` rule.
+9. **data-refresh push retry:** recommend **adding `git pull --rebase` +
+   retry** to data-refresh's two push steps (3 lines each), so observer
+   commits can never fail the bot's run.
+10. **Phase 0 exit rule (pending):** recommend **accepting "every Phase 0
+    signal arrived at least once and verified"**, with the observer's first
+    run as the check. "Non-null 3 days" can't pass at 0–3 searches/day.
+
+Decided by Amool (2026-11-26), no longer open:
+
+- **Full-site instrumentation is core Phase 1** (WS-D, §1a). It's the only
+  Phase 1 deploy, and Amool approves it.
+- **AdSense is parked.** There's no thin-page workstream: S13 is a signal
+  only, and no separate issues are opened.
 
 ---
 
-## 6. Build plan: 4 parallel workstreams (subagents, one worktree each)
+## 6. Build plan: 5 parallel workstreams (subagents, one worktree each)
 
-Interfaces are fixed **in this doc** (the snapshot fields in §1, `signals.yml`
-in §3, the function signatures below), so workstreams start in parallel
-against fixtures. **B0 lands first** (small), because everyone needs the test
-wiring.
+Interfaces are fixed **in this doc**:
+
+- the snapshot fields in §1;
+- the WS-D event schema in §1a;
+- `signals.yml` in §3;
+- the function signatures below.
+
+So workstreams start in parallel against fixtures. **B0 lands first**
+(small), because the observer workstreams need the test wiring. WS-D works
+inside `src/` with the existing test config and doesn't wait for B0.
 
 | WS | Owns (exclusive) | Tests (offline, TDD) | Depends on |
 |---|---|---|---|
 | **B0: scaffolding** (≈1 h, merge first) | `vitest.config.ts` (include + coverage for `scripts/growth/**`), `package.json`/lock (`js-yaml`, `tsx` devDeps via `npm install`), `scripts/growth/lib/snapshotSchema.mjs` (zod schema of §1, incl. the status enum) | schema accepts a full fixture and rejects missing `status` | — |
-| **A1: external analytics** | `scripts/growth/sources/{posthog,posthogQueries,gsc,gscAuth,bing}.mjs`, `scripts/growth/lib/{pageGroups,aiReferrers,parsePosthog,parseGsc,parseBing,f2f3}.mjs`, fixtures `scripts/growth/__tests__/fixtures/{posthog,gsc,bing}/` | parsers vs recorded responses; page-group mapping; F2/F3 derivation drops query strings; **`$ip`/`message`/`SELECT *` deny-list test**; JWT assertion built with `node:crypto` (no Google SDK); F4 stratified sampler is deterministic per date | B0 |
+| **A1: external analytics** | `scripts/growth/sources/{posthog,posthogQueries,gsc,gscAuth,bing}.mjs`, `scripts/growth/lib/{aiReferrers,parsePosthog,parseGsc,parseBing,f2f3,engagement}.mjs` (S12 funnel + engaged-visit queries over WS-D's schema), fixtures `scripts/growth/__tests__/fixtures/{posthog,gsc,bing}/` | parsers vs recorded responses; page types via WS-D's `classifyPath` (imported, not re-implemented); S12 funnel/engaged-visit from fixture rows; F2/F3 derivation drops query strings; **`$ip`/`message`/`SELECT *` deny-list test**; JWT assertion built with `node:crypto` (no Google SDK); F4 stratified sampler is deterministic per date | B0; WS-D's `pageType.ts` (lands in D's first PR, before the deploy) |
 | **A2: self signals** | `scripts/growth/sources/{coverage,feedHealth,crux,psi,fly,pageManifest}.mjs` (`pageManifest` is `.ts`, run by `tsx`), `scripts/growth/lib/{probeSelection,parseCrux,parsePsi,parseFly,thinPages}.mjs`, fixtures `…/fixtures/{crux,psi,fly,analysis}/` | probe rotation covers all active systems in 7 days and re-queues failures; CrUX 404 / missing INP → `insufficient-field-data`; PSI median-of-3; Fly PromQL result parsing; S13 join incl. unprobed pages counted as unknown, not 0 | B0 |
 | **B: triggers** | `docs/growth-agent/signals.yml`, `scripts/growth/lib/{loadSignalsConfig,evaluateTriggers,planIssueActions,needsDataLinks}.mjs` | every rule kind; `null` vs `0`; min-volume/min-history; consecutive across gaps; every signal ID in `signals.yml` exists in SIGNALS.md; dedupe: create / comment-on-change / 7-day heartbeat / cleared / re-fire after close; `Signals:` line parsing | B0 |
-| **C: orchestration & delivery** | `scripts/growth/collectMetrics.mjs` (CLI: `--date`, `--dry-run`, `--no-issues`, `--backfill-from`), `scripts/growth/lib/{history,renderWeeklyReport,baselineStats}.mjs`, `scripts/growth/github.mjs` (thin `gh` wiring), `.github/workflows/growth-observer.yml`, data-refresh retry (if decision 10), docs: SIGNALS.md (S11 N/A, S8 note, S12/S13 rows), PLAN.md status/§5, this file's Verification section | orchestrator with stub sources: one source throwing → snapshot still written with `status:error`, exit code 1; history loader skips malformed files with a warning; report renders `notEvaluated` reasons and the clean-day streak | B0; wires A1/A2/B at integration |
+| **C: orchestration & delivery** | `scripts/growth/collectMetrics.mjs` (CLI: `--date`, `--dry-run`, `--no-issues`, `--backfill-from`), `scripts/growth/lib/{history,renderWeeklyReport,baselineStats}.mjs`, `scripts/growth/github.mjs` (thin `gh` wiring), `.github/workflows/growth-observer.yml`, data-refresh retry (if decision 9), docs: SIGNALS.md (S11 N/A, S8 note, S12/S13 rows), PLAN.md status/§5, this file's Verification section | orchestrator with stub sources: one source throwing → snapshot still written with `status:error`, exit code 1; history loader skips malformed files with a warning; report renders `notEvaluated` reasons, the clean-day streak, and the **S12 funnel (traffic source → page type → action)** | B0; wires A1/A2/B at integration |
+| **D: instrumentation (the deploy)** | `src/lib/analytics/{pageType,events}.ts` (+ tests in `src/lib/__tests__/`), `src/lib/analytics/browser.ts`, `src/proxy.ts`, `src/components/{LandingEventsWidget,FaqSection}.tsx`, the landing pages under `src/app/{storytimes,library}/**`, link slots on the home/status/privacy pages as needed, the privacy page copy, a Production verification section in this file | `classifyPath` for every route + `other`; each builder's output against a key allowlist (**deny-list privacy test**: no `$ip`, query, message or URL values); proxy capture body has an empty `$ip`; Playwright smoke with PostHog intercepted (as in Phase 0, masking `navigator.webdriver`) showing a `page_type` on pageviews and one event per click | none (starts immediately); **deploy gated on Amool's approval** |
 
 **Shared rule:** no workstream edits another's files. A cross-cutting need
 goes to the owning WS as a message, or lands after integration.
@@ -424,21 +471,29 @@ goes to the owning WS as a message, or lands after integration.
 2. **A1's PostHog reader first** (it unblocks the Phase 0 exit check): a
    one-off `node scripts/growth/sources/posthog.mjs --phase0-check` prints
    per-signal first-seen dates, and the result goes into `phase0-impact.md`.
-3. A1, A2 and B merge in any order (disjoint files, fixture-tested).
-4. **C** merges last and wires the real sources. Then:
+3. **WS-D:**
+   1. The first PR ships `pageType.ts` (pure, no runtime effect) so A1 can
+      import it.
+   2. The full PR goes through `code-reviewer` and a local production-build
+      smoke.
+   3. **Amool approves the deploy**, then `fly deploy`.
+   4. Production verification, recorded here.
+   S12 days count from that date.
+4. A1, A2 and B merge in any order (disjoint files, fixture-tested).
+5. **C** merges last and wires the real sources. Then:
    1. a local `--dry-run` with `.env.local`;
    2. `workflow_dispatch` with `no_issues=true` and `backfill_from=2026-10-30`
       (F1 history), then inspect the JSON;
    3. one dispatch with issues enabled;
    4. the cron goes on.
-5. `code-reviewer` on each WS PR (security focus on A1: tokens and PII);
+6. `code-reviewer` on each WS PR (security focus on A1 for tokens and PII, and on D for PII in events);
    0 CRITICAL/HIGH before merge.
 
 ### Exit criteria (PLAN §4) and how each is measured
 
 | Criterion | Measurement |
 |---|---|
-| **14 days of clean collection** | 14 consecutive daily snapshots where every source's `status` is in the expected set (`ok`, `zero-rows`, `insufficient-field-data`, `insufficient-volume`, `not-due`, `not-applicable`, plus `not-configured` only for sources Amool chose not to configure) and none is `error`. The weekly report prints the "clean-day streak N/14", computed by `baselineStats.mjs` from the files. Earliest: ~14 days after the cron is enabled. |
+| **14 days of clean collection** | 14 consecutive daily snapshots where every source's `status` is in the expected set (`ok`, `zero-rows`, `insufficient-field-data`, `insufficient-volume`, `not-due`, `not-applicable`, plus `not-configured` only for sources Amool chose not to configure) and none is `error`. The weekly report prints the "clean-day streak N/14", computed by `baselineStats.mjs` from the files. Earliest: ~14 days after the cron is enabled. For S12, the 14 days count from WS-D's deploy. |
 | **Thresholds revised against the baseline** | A PR moving each `signals.yml` entry from `status: draft` to `baselined` (or `disabled`, with a reason). Each entry's `note` cites the 14-day p50/p95 that the weekly report prints per metric. A test fails the PR while any entry is still `draft` once the file sets `phase1Exit: true`. |
 | **False-positive rate acceptable to Amool** | FP rate = `false-positive` / (`false-positive` + `signal-valid`) over `signal` issues closed during the window, printed in the weekly report. Amool states the bar. Suggested: ≤ 1 in 4, with ≥ 4 judged issues. Fewer than 4 judged issues = "not enough evidence", not a pass. |
 
@@ -448,7 +503,7 @@ goes to the owning WS as a message, or lands after integration.
 
 | # | Risk | Likelihood | Mitigation |
 |---|---|---|---|
-| R1 | Observer commits make data-refresh's bare `git push` fail | medium | disjoint paths, time separation, rebase-retry in both workflows (decision 10) |
+| R1 | Observer commits make data-refresh's bare `git push` fail | medium | disjoint paths, time separation, rebase-retry in both workflows (decision 9) |
 | R2 | PII in a public repo (`$ip`, feedback text, query strings) | low with controls, high impact | explicit HogQL columns + deny-list test; no query strings stored; reviewer pass on A1 |
 | R3 | S5 probe traffic gets a vendor WAF to block the production IP (BiblioCommons history) | medium | demand-weighted + weekly rotation instead of all 927 daily; concurrency 2; jitter; a source-level circuit breaker after 5 consecutive 403s |
 | R4 | Low volume makes most triggers meaningless during the baseline | certain | `minVolume` guards with explicit `insufficient-volume`; the volume is in S1/S12/F1, which is where the evaluation focuses |
@@ -456,5 +511,6 @@ goes to the owning WS as a message, or lands after integration.
 | R6 | Alert fatigue: daily issue noise makes Amool ignore issues | medium | one issue per signal ID, comments only on change or a 7-day heartbeat, no auto-reopen |
 | R7 | Undocumented API behavior (CrUX 404, URL Inspection shape, PSI/Fly/Bing quotas) | medium | marked "to verify"; raw-ish storage until verified; `error` status keeps failures visible |
 | R8 | Ad blockers undercount PostHog signals (known Phase 0 gap) | certain | every client-side count is a lower bound and labelled so; F6/F1 are unaffected |
-| R9 | The landing-page engagement gap persists (decision 9 declined) | medium | S12 reads `not-configured` for those parts, so the gap stays visible, never silent |
-| R10 | Scope creep into fixing (thin pages, SFPL follow-ups) | medium | Phase 1 measures only; fixes route via D1 or `needs-data` issues with the evidence section |
+| R9 | WS-D's deploy slips or regresses the site (it's the only Phase 1 runtime change) | low–medium | small handlers, posthog-js stays lazy, Playwright smoke before deploy, S6/S7 checked the next Monday; until the deploy, S12 reads `not-configured`, never 0 |
+| R10 | Scope creep into fixing (thin pages, SFPL follow-ups) | medium | Phase 1 measures only (AdSense parked; S13 is a signal only); fixes route via `needs-data` issues with the evidence section |
+| R11 | Instrumentation leaks PII through an event property | low, high impact | enum/id-only builders, key-allowlist test, empty `$ip` from the proxy, reviewer pass |
