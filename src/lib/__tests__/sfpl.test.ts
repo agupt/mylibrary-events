@@ -79,6 +79,14 @@ describe("sfpl parsing helpers", () => {
     expect(sfplFloatingIso("")).toBeNull();
   });
 
+  test("instants in another offset are converted to San Francisco wall-clock", () => {
+    // 18:30 UTC = 10:30 PST in November; 17:30 UTC = 10:30 PDT in July.
+    expect(sfplFloatingIso("2026-11-24T18:30:00Z")).toBe("2026-11-24T10:30:00");
+    expect(sfplFloatingIso("2026-07-17T17:30:00+00:00")).toBe("2026-07-17T10:30:00");
+    // Crossing midnight moves the date too.
+    expect(sfplFloatingIso("2026-11-25T03:00:00Z")).toBe("2026-11-24T19:00:00");
+  });
+
   test("a card without a <time> range gets null times, not a guessed one", () => {
     const noTime = PAGE_HTML.split("views-row")[1].replace(/<time[^>]*>[^<]*<\/time>/, "");
     const [raw] = parseSfplEvents(`views-row${noTime}`);
@@ -114,6 +122,31 @@ describe("createSfplProvider", () => {
     expect(events[0].ageGroups).toEqual(["baby", "toddler", "preschool"]);
     // token page + page 0 (cards) + page 1 (empty → stop)
     expect(fetchText).toHaveBeenCalledWith("https://sfpl.org/events");
+  });
+
+  test("logs an error when cards parse but none carry a time (markup drift)", async () => {
+    const noTimes = AJAX_JSON.replace(/<time[^>]*>[^<]*<\/time>/g, "");
+    expect(noTimes).not.toEqual(AJAX_JSON);
+    const fetchText = vi.fn(async (url: string) => {
+      if (url.includes("/views/ajax")) {
+        return url.includes("page=0") ? noTimes : EMPTY_JSON;
+      }
+      return EVENTS_PAGE;
+    });
+    const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+    const provider = createSfplProvider({
+      feeds: { CA0114: "https://sfpl.org/events" },
+      fetchText,
+      findLibraryById: (id) => (id === GLEN_PARK.id ? GLEN_PARK : undefined),
+    });
+
+    const events = await provider.getEvents([GLEN_PARK.id], RANGE);
+
+    expect(events).toEqual([]);
+    expect(errorSpy).toHaveBeenCalledWith(
+      expect.stringMatching(/SFPL: \d+ event cards parsed but none had a <time datetime>/),
+    );
+    errorSpy.mockRestore();
   });
 });
 

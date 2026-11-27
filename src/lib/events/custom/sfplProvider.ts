@@ -65,15 +65,43 @@ function fieldLinks(card: string, fieldName: string): string[] {
   );
 }
 
-const FLOATING_ISO = /^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})(:\d{2})?/;
+const SFPL_TIME_ZONE = "America/Los_Angeles";
+const FLOATING_ISO = /^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})(:\d{2})?(Z|[+-]\d{2}:?\d{2})?$/;
+/** Offsets that already are San Francisco wall-clock (PST / PDT). */
+const LOCAL_OFFSETS = new Set(["-08:00", "-0800", "-07:00", "-0700"]);
+
+const sfWallClock = new Intl.DateTimeFormat("en-CA", {
+  timeZone: SFPL_TIME_ZONE,
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hourCycle: "h23",
+});
+
+/** An absolute instant → "YYYY-MM-DDTHH:MM:SS" in San Francisco time. */
+function toSfWallClock(instant: Date): string {
+  const part = (type: Intl.DateTimeFormatPartTypes): string =>
+    sfWallClock.formatToParts(instant).find((p) => p.type === type)?.value ?? "00";
+  return `${part("year")}-${part("month")}-${part("day")}T${part("hour")}:${part("minute")}:${part("second")}`;
+}
 
 /**
- * "2026-11-24T10:30:00-08:00" → "2026-11-24T10:30:00": keeps the local
- * wall-clock, drops the offset. Null for anything that isn't an ISO datetime.
+ * "2026-11-24T10:30:00-08:00" → "2026-11-24T10:30:00": San Francisco
+ * wall-clock, offset dropped. A local (PST/PDT) or missing offset is kept
+ * as written; any other offset (e.g. "Z") is converted, so a switch to UTC
+ * timestamps can't silently shift every event. Null for non-ISO input.
  */
 export function sfplFloatingIso(isoWithOffset: string): string | null {
-  const match = isoWithOffset.trim().match(FLOATING_ISO);
-  return match ? `${match[1]}T${match[2]}${match[3] ?? ":00"}` : null;
+  const trimmed = isoWithOffset.trim();
+  const match = trimmed.match(FLOATING_ISO);
+  if (!match) return null;
+  const [, date, hourMinute, seconds = ":00", offset] = match;
+  if (!offset || LOCAL_OFFSETS.has(offset)) return `${date}T${hourMinute}${seconds}`;
+  const instant = new Date(trimmed);
+  return Number.isFinite(instant.getTime()) ? toSfWallClock(instant) : null;
 }
 
 /** The `<time datetime="START/END">` range of a teaser card. */
@@ -279,8 +307,16 @@ export function createSfplProvider(deps: SfplProviderDeps): EventProvider {
             if (pageRaws.length === 0) break;
             raws.push(...pageRaws);
             // Rows are date-ascending; stop once past the window.
-            const lastDate = Date.parse(pageRaws[pageRaws.length - 1].date);
-            if (Number.isFinite(lastDate) && lastDate > range.end.getTime()) break;
+            const last = pageRaws[pageRaws.length - 1];
+            const lastStart = Date.parse(last.startTime ?? `${last.date}T00:00:00`);
+            if (Number.isFinite(lastStart) && lastStart > range.end.getTime()) break;
+          }
+          if (raws.length > 0 && raws.every((raw) => raw.startTime === null)) {
+            // The 2026-11 outage looked exactly like this: feed 200, cards
+            // parsed, zero usable times. Make the next markup change loud.
+            console.error(
+              `SFPL: ${raws.length} event cards parsed but none had a <time datetime>; markup likely changed`,
+            );
           }
 
           return raws
