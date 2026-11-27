@@ -162,7 +162,7 @@ describe("createEventsCalendarProvider", () => {
   });
 
   test("splits kidColors out of the registry URL and sends a from/to window", async () => {
-    const fetchText = vi.fn(async () => RESPONSE);
+    const fetchText = vi.fn<(url: string) => Promise<string>>(async () => RESPONSE);
     const provider = createEventsCalendarProvider({
       feeds: { CA0148: FEED_URL },
       fetchText,
@@ -172,7 +172,7 @@ describe("createEventsCalendarProvider", () => {
     await provider.getEvents([VISALIA.id], RANGE);
 
     expect(fetchText).toHaveBeenCalledTimes(1);
-    const url = fetchText.mock.calls[0][0] as string;
+    const url = fetchText.mock.calls[0][0];
     expect(url).not.toContain("kidColors");
     expect(url).toContain(`from=${RANGE.start.getTime()}`);
     expect(url).toContain(`to=${RANGE.end.getTime()}`);
