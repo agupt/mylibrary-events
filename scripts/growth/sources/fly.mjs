@@ -31,6 +31,7 @@ async function instantQuery({ org, query, token, fetch, now }) {
       {
         headers: { authorization: authorizationHeader(token), accept: "application/json" },
         signal: AbortSignal.timeout(TIMEOUT_MS),
+        redirect: "error", // never forward the token to another host
       },
     );
     if (response.status !== 200) {

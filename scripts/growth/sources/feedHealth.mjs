@@ -24,6 +24,7 @@ import {
   initialBreakerState,
   isBlockedStatus,
   mainOutletOf,
+  SKIPPED_ERROR,
   nextBreakerState,
   selectProbes,
 } from "../lib/probeSelection.mjs";
@@ -137,6 +138,9 @@ export function parseAnalysisResponse({ system, outlet, httpStatus, body }) {
 
 /** Fetches and parses one probe. Never throws. */
 export async function probeOne({ system, outlet }, { baseUrl, date, fetch, timeoutMs }) {
+  if (!OUTLET_ID.test(outlet) || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+    return { probe: failedProbe(system, outlet, "invalid outlet id or date"), apiStatus: null };
+  }
   const url = `${baseUrl}/api/libraries/${outlet}/analysis?observer=${date}`;
   try {
     const response = await fetch(url, {
@@ -182,14 +186,18 @@ export async function probeSystems(
       next += 1;
       const target = selected[index];
       if (breaker.open) {
-        results[index] = failedProbe(target.system, target.outlet, "skipped: circuit breaker open");
+        results[index] = failedProbe(target.system, target.outlet, SKIPPED_ERROR);
         continue;
       }
       const { probe, apiStatus } = await probeOne(target, { baseUrl, date, fetch, timeoutMs });
       results[index] = probe;
-      breaker = nextBreakerState(breaker, {
-        blocked: isBlockedStatus(apiStatus) || isBlockedStatus(probe.httpStatus),
-      });
+      // Re-queued failures are expected to fail again; they don't trip the
+      // breaker on their own (only fresh rotation/demand probes do).
+      if (target.reason !== "failure") {
+        breaker = nextBreakerState(breaker, {
+          blocked: isBlockedStatus(apiStatus) || isBlockedStatus(probe.httpStatus),
+        });
+      }
       if (next < selected.length) await sleep(pauseMs());
     }
   };
@@ -239,7 +247,15 @@ const execFileAsync = promisify(execFileCallback);
 export async function loadPageManifest({ cwd = process.cwd(), execFile = execFileAsync } = {}) {
   const tsx = path.join(cwd, "node_modules/.bin/tsx");
   const script = path.join(cwd, "scripts/growth/sources/pageManifest.ts");
-  const { stdout } = await execFile(tsx, [script], { cwd, maxBuffer: MANIFEST_MAX_BUFFER });
+  let stdout;
+  try {
+    ({ stdout } = await execFile(tsx, [script], { cwd, maxBuffer: MANIFEST_MAX_BUFFER }));
+  } catch (error) {
+    // The raw message carries absolute runner paths + stderr: log it to the
+    // job output only, never into the (public) snapshot.
+    console.error("pageManifest.ts failed:", error);
+    throw new Error("page manifest generation failed");
+  }
   return validateManifest(JSON.parse(stdout));
 }
 

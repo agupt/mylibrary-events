@@ -27,6 +27,7 @@ async function queryFormFactor({ origin, formFactor, apiKey, fetch }) {
       headers: { "content-type": "application/json", "x-goog-api-key": apiKey },
       body: JSON.stringify({ origin, formFactor, metrics: Object.values(CRUX_METRICS) }),
       signal: AbortSignal.timeout(TIMEOUT_MS),
+      redirect: "error", // never forward the key header to another host
     });
     const body = response.status === 200 ? await response.json() : null;
     return parseCruxResponse(response.status, body);
@@ -47,11 +48,15 @@ export async function collectS6({
   const apiKey = env.CRUX_API_KEY;
   if (!apiKey) return { ...NOT_CONFIGURED_S6 };
 
-  const [phone, desktop] = await Promise.all(
-    ["PHONE", "DESKTOP"].map((formFactor) =>
-      queryFormFactor({ origin, formFactor, apiKey, fetch }),
-    ),
-  );
-  const block = buildS6Block(phone, desktop);
-  return block.status === "error" ? { ...block, error: sanitizeError(block.error) } : block;
+  try {
+    const [phone, desktop] = await Promise.all(
+      ["PHONE", "DESKTOP"].map((formFactor) =>
+        queryFormFactor({ origin, formFactor, apiKey, fetch }),
+      ),
+    );
+    const block = buildS6Block(phone, desktop);
+    return block.status === "error" ? { ...block, error: sanitizeError(block.error) } : block;
+  } catch (error) {
+    return { status: "error", error: sanitizeError(error) };
+  }
 }

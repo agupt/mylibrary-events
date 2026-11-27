@@ -40,6 +40,7 @@ async function runOnce({ url, strategy, apiKey, fetch }) {
     const response = await fetch(requestUrl(url, strategy), {
       headers: { "x-goog-api-key": apiKey },
       signal: AbortSignal.timeout(TIMEOUT_MS),
+      redirect: "error", // never forward the key header to another host
     });
     if (response.status !== 200) {
       return { ok: false, error: `PSI HTTP ${response.status}` };
@@ -79,16 +80,20 @@ export async function collectS7({
   const apiKey = env.CRUX_API_KEY;
   if (!apiKey) return { ...NOT_CONFIGURED_S7 };
 
-  const combos = urls.flatMap((url) => STRATEGIES.map((strategy) => ({ url, strategy })));
-  const tasks = combos.flatMap((combo) =>
-    Array.from({ length: runs }, () => () => runOnce({ ...combo, apiKey, fetch })),
-  );
-  const results = await runPool(tasks, concurrency);
+  try {
+    const combos = urls.flatMap((url) => STRATEGIES.map((strategy) => ({ url, strategy })));
+    const tasks = combos.flatMap((combo) =>
+      Array.from({ length: runs }, () => () => runOnce({ ...combo, apiKey, fetch })),
+    );
+    const results = await runPool(tasks, concurrency);
 
-  const entries = combos.map((combo, i) =>
-    medianRun(combo.url, combo.strategy, results.slice(i * runs, (i + 1) * runs)),
-  );
-  const firstError = results.find((r) => !r.ok)?.error;
-  const block = buildS7Block(entries, firstError);
-  return block.status === "error" ? { ...block, error: sanitizeError(block.error) } : block;
+    const entries = combos.map((combo, i) =>
+      medianRun(combo.url, combo.strategy, results.slice(i * runs, (i + 1) * runs)),
+    );
+    const firstError = results.find((r) => !r.ok)?.error;
+    const block = buildS7Block(entries, firstError);
+    return block.status === "error" ? { ...block, error: sanitizeError(block.error) } : block;
+  } catch (error) {
+    return { status: "error", error: sanitizeError(error) };
+  }
 }

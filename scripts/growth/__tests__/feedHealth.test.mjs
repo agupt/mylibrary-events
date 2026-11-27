@@ -139,6 +139,34 @@ describe("probeSystems", () => {
     expect(probes).toHaveLength(9);
   });
 
+  test("re-queued failures don't trip the breaker on their own", async () => {
+    const requeued = Array.from({ length: 6 }, (_, i) => ({
+      system: `CA000${i}`,
+      outlet: `CA000${i}-002`,
+      reason: "failure",
+    }));
+    const fetch = vi.fn(async () => response(200, fixture("feed-blocked.json")));
+    const { breakerOpen } = await probeSystems(requeued, {
+      date: "2026-11-27",
+      fetch,
+      concurrency: 1,
+      ...fast,
+    });
+    expect(breakerOpen).toBe(false);
+    expect(fetch).toHaveBeenCalledTimes(6);
+  });
+
+  test("an invalid outlet id or date is never put into a URL", async () => {
+    const fetch = vi.fn();
+    const { probes } = await probeSystems([{ system: "CA0001", outlet: "../../admin" }], {
+      date: "2026-11-27",
+      fetch,
+      ...fast,
+    });
+    expect(fetch).not.toHaveBeenCalled();
+    expect(probes[0].error).toBe("invalid outlet id or date");
+  });
+
   test("a thrown fetch or non-JSON body becomes a failed row, never a throw", async () => {
     const fetch = vi
       .fn()
@@ -213,6 +241,20 @@ describe("S13 manifest + collectS13", () => {
     expect(bin).toBe("/repo/node_modules/.bin/tsx");
     expect(args).toEqual(["/repo/scripts/growth/sources/pageManifest.ts"]);
     expect(opts.cwd).toBe("/repo");
+  });
+
+  test("a tsx failure surfaces as a static message (no runner paths in the snapshot)", async () => {
+    const execFile = vi.fn(async () => {
+      throw new Error("Command failed: /home/runner/work/x/node_modules/.bin/tsx /home/runner/…");
+    });
+    const spy = vi.spyOn(console, "error").mockImplementation(() => {});
+    const block = await collectS13({
+      date: "2026-11-27",
+      snapshots: [],
+      loadManifest: (opts) => loadPageManifest({ ...opts, execFile }),
+    });
+    spy.mockRestore();
+    expect(block).toEqual({ status: "error", error: "page manifest generation failed" });
   });
 
   test("joins the manifest with probe history", async () => {

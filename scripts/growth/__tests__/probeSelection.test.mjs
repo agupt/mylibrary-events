@@ -2,6 +2,7 @@ import { describe, expect, test } from "vitest";
 import {
   BREAKER_THRESHOLD,
   ROTATION_DAYS,
+  SKIPPED_ERROR,
   bucketForDate,
   failedSystemsFrom,
   initialBreakerState,
@@ -79,12 +80,15 @@ describe("extras: failures re-queued, demand weighted", () => {
     .map((s) => s.system)
     .filter((s) => rotationBucket(s) !== bucket);
 
-  test("yesterday's failures are re-probed today, first", () => {
+  test("yesterday's failures are re-probed today, after the rotation", () => {
     const failed = offBucket.slice(0, 3);
     const probes = selectProbes({ activeSystems: active, date, failedSystems: failed });
-    expect(probes.slice(0, 3).map((p) => p.system)).toEqual(failed);
-    expect(probes.slice(0, 3).every((p) => p.reason === "failure")).toBe(true);
-    expect(probes[0].outlet).toBe(`${failed[0]}-002`);
+    const extras = probes.slice(-3);
+    expect(extras.map((p) => p.system)).toEqual(failed);
+    expect(extras.every((p) => p.reason === "failure")).toBe(true);
+    expect(extras[0].outlet).toBe(`${failed[0]}-002`);
+    // The rotation comes first so a breaker trip can only skip extras.
+    expect(probes.slice(0, -3).every((p) => p.reason === "rotation")).toBe(true);
   });
 
   test("searched systems are probed daily, even off their rotation day", () => {
@@ -135,15 +139,20 @@ describe("extras: failures re-queued, demand weighted", () => {
 });
 
 describe("failedSystemsFrom", () => {
-  test("re-queues unreachable, unknown and errored probes; tolerates missing blocks", () => {
+  test("re-queues transient failures only; tolerates missing blocks", () => {
     const previous = {
       status: "ok",
       probes: [
         { system: "CA0114", feedReachable: true, eventCount30d: 12 },
-        { system: "PA0385", feedReachable: false, error: "feed unreachable" },
+        { system: "PA0385", feedReachable: false, httpStatus: null, error: "feed unreachable" },
         { system: "NY0004", feedReachable: null, error: "analysis HTTP 500" },
         { system: "TX0120", feedReachable: true, error: "feed probe failed" },
         { system: "PA0385", feedReachable: false },
+        // A WAF block waits for its rotation day (retrying daily provokes it).
+        { system: "NY0778", feedReachable: false, httpStatus: 403, error: "feed unreachable (HTTP 403)" },
+        { system: "NY0562", feedReachable: false, httpStatus: 429, error: "feed unreachable (HTTP 429)" },
+        // Never probed: also waits for the rotation, so it can't fill the cap.
+        { system: "CA0063", feedReachable: null, httpStatus: null, error: SKIPPED_ERROR },
       ],
     };
     expect(failedSystemsFrom(previous)).toEqual(["PA0385", "NY0004", "TX0120"]);
