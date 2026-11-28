@@ -63,11 +63,11 @@ export const sharedFeedCacheBudget: MemoryBudget = createMemoryBudget(
   FEED_CACHE_MEMORY_BUDGET_BYTES,
 );
 
-/** Approximate retained size of a cached value: its JSON length (0 if not serializable). */
-export function estimateSizeBytes(value: unknown): number {
+/** JSON text of a cached value (its disk form and budget size), or null if not serializable. */
+export function serialize(value: unknown): string | null {
   try {
-    return JSON.stringify(value)?.length ?? 0;
+    return JSON.stringify(value) ?? null;
   } catch {
-    return 0;
+    return null;
   }
 }

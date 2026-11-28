@@ -3,7 +3,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, test, vi } from "vitest";
 import { createFeedCache } from "../events/feedCache";
-import { createMemoryBudget, estimateSizeBytes } from "../events/feedCacheMemory";
+import { createMemoryBudget, serialize } from "../events/feedCacheMemory";
 
 const dirs: string[] = [];
 const makeDir = () => {
@@ -16,7 +16,7 @@ afterEach(() => {
 });
 
 const payload = (url: string) => ({ url, items: "x".repeat(1000) });
-const PAYLOAD_BYTES = estimateSizeBytes(payload("https://example.org/feed/0"));
+const PAYLOAD_BYTES = serialize(payload("https://example.org/feed/0"))?.length ?? 0;
 
 describe("createMemoryBudget", () => {
   test("evicts least-recently-used keys once over budget", () => {
@@ -113,6 +113,18 @@ describe("createFeedCache memory bound", () => {
     const stale = await get("https://example.org/feed/0");
     expect(stale.version).toBe(1); // served immediately, not awaited on load
     await vi.waitFor(() => expect(load).toHaveBeenCalledTimes(7));
+  });
+
+  test("caches a JSON round-tripped copy, not the loader's object", async () => {
+    const loaded = { items: ["a"] };
+    const get = createFeedCache({ load: async () => loaded, memoryBudget: createMemoryBudget(1e6) });
+
+    const first = await get("https://example.org/x");
+    const second = await get("https://example.org/x");
+
+    expect(first).toEqual(loaded);
+    expect(first).not.toBe(loaded); // raw-response substrings are not retained
+    expect(second).toBe(first);
   });
 
   test("concurrent first fetches still share one in-flight load", async () => {

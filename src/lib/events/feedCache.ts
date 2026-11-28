@@ -7,7 +7,7 @@ import {
   createEvictionScheduler,
   evictFeedCacheDir,
 } from "./feedCacheEviction";
-import { estimateSizeBytes, sharedFeedCacheBudget, type MemoryBudget } from "./feedCacheMemory";
+import { serialize, sharedFeedCacheBudget, type MemoryBudget } from "./feedCacheMemory";
 
 export const DEFAULT_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
 
@@ -128,17 +128,13 @@ export function createFeedCache<T>(options: FeedCacheOptions<T>): (url: string) 
     }
   }
 
-  /** Persists `value` and returns its serialized size (estimated when not persisted). */
-  function writeDisk(url: string, value: T): number {
-    if (!options.persistDir) return estimateSizeBytes(value);
+  function writeDisk(url: string, json: string): void {
+    if (!options.persistDir) return;
     try {
-      const json = JSON.stringify(value);
       mkdirSync(options.persistDir, { recursive: true });
       writeFileAtomic(diskPath(url), json);
-      return json.length;
     } catch (error: unknown) {
       console.warn(`feed cache: could not persist ${url}`, error);
-      return estimateSizeBytes(value);
     } finally {
       // Runs even when the write failed: a full disk is exactly when
       // eviction is needed most.
@@ -166,9 +162,14 @@ export function createFeedCache<T>(options: FeedCacheOptions<T>): (url: string) 
     const value = options
       .load(url)
       .then((loaded) => {
-        const sizeBytes = writeDisk(url, loaded);
-        remember(url, now(), Promise.resolve(loaded), sizeBytes);
-        return loaded;
+        const json = serialize(loaded);
+        if (json !== null) writeDisk(url, json);
+        // Keep a JSON round-tripped copy, not `loaded` itself: parsers return
+        // substrings of the raw response (V8 sliced strings), which pin the
+        // whole response text — ~3x the parsed size per cached feed.
+        const stored = json !== null ? (JSON.parse(json) as T) : loaded;
+        remember(url, now(), Promise.resolve(stored), json?.length ?? 0);
+        return stored;
       })
       .finally(() => refreshing.delete(url));
     return value;
