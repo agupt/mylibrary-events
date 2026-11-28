@@ -7,6 +7,7 @@ import {
   createEvictionScheduler,
   evictFeedCacheDir,
 } from "./feedCacheEviction";
+import { estimateSizeBytes, sharedFeedCacheBudget, type MemoryBudget } from "./feedCacheMemory";
 
 export const DEFAULT_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
 
@@ -71,18 +72,42 @@ export interface FeedCacheOptions<T> {
    *    is served regardless of age (stale beats empty for event listings)
    */
   persistDir?: string;
+  /**
+   * Shared LRU byte budget for settled in-memory entries. Defaults to the
+   * process-wide budget so all provider caches together stay bounded.
+   */
+  memoryBudget?: MemoryBudget;
 }
+
+interface CacheEntry<T> {
+  fetchedAt: number;
+  value: Promise<T>;
+  /** True once `value` has resolved; only settled entries are budgeted/evictable. */
+  settled: boolean;
+  sizeBytes: number;
+}
+
+interface DiskHit<T> {
+  value: T;
+  sizeBytes: number;
+}
+
+// Distinguishes caches in the shared budget (two providers may cache one URL).
+let nextCacheId = 0;
 
 /**
  * Promise-level TTL cache for feed fetches. Caching the in-flight promise
  * (not the resolved value) means concurrent requests for the same feed
  * share one fetch instead of stampeding. Failures are evicted so the next
- * call retries.
+ * call retries. Settled entries count against a shared LRU memory budget;
+ * an evicted entry falls back to the disk copy (fresh or stale).
  */
 export function createFeedCache<T>(options: FeedCacheOptions<T>): (url: string) => Promise<T> {
   const ttlMs = options.ttlMs ?? DEFAULT_FEED_CACHE_TTL_MS;
   const now = options.now ?? Date.now;
-  const cache = new Map<string, { fetchedAt: number; value: Promise<T> }>();
+  const budget = options.memoryBudget ?? sharedFeedCacheBudget;
+  const budgetPrefix = `${nextCacheId++}:`;
+  const cache = new Map<string, CacheEntry<T>>();
 
   const diskPath = (url: string) =>
     path.join(
@@ -90,30 +115,48 @@ export function createFeedCache<T>(options: FeedCacheOptions<T>): (url: string) 
       `${createHash("sha256").update(`${FEED_CACHE_VERSION}:${url}`).digest("hex").slice(0, 24)}.json`,
     );
 
-  function readDisk(url: string, maxAgeMs: number | null): T | null {
+  function readDisk(url: string, maxAgeMs: number | null): DiskHit<T> | null {
     if (!options.persistDir) return null;
     try {
       const file = diskPath(url);
       if (!existsSync(file)) return null;
       if (maxAgeMs !== null && now() - statSync(file).mtimeMs > maxAgeMs) return null;
-      return JSON.parse(readFileSync(file, "utf8")) as T;
+      const text = readFileSync(file, "utf8");
+      return { value: JSON.parse(text) as T, sizeBytes: text.length };
     } catch {
       return null;
     }
   }
 
-  function writeDisk(url: string, value: T): void {
-    if (!options.persistDir) return;
+  /** Persists `value` and returns its serialized size (estimated when not persisted). */
+  function writeDisk(url: string, value: T): number {
+    if (!options.persistDir) return estimateSizeBytes(value);
     try {
+      const json = JSON.stringify(value);
       mkdirSync(options.persistDir, { recursive: true });
-      writeFileAtomic(diskPath(url), JSON.stringify(value));
+      writeFileAtomic(diskPath(url), json);
+      return json.length;
     } catch (error: unknown) {
       console.warn(`feed cache: could not persist ${url}`, error);
+      return estimateSizeBytes(value);
     } finally {
       // Runs even when the write failed: a full disk is exactly when
       // eviction is needed most.
       scheduleEviction(options.persistDir);
     }
+  }
+
+  /** Stores a settled value and charges it to the shared memory budget. */
+  function touch(url: string, sizeBytes: number): void {
+    budget.touch(budgetPrefix + url, sizeBytes, () => {
+      // Never drop an in-flight promise: that would re-open the stampede.
+      if (cache.get(url)?.settled) cache.delete(url);
+    });
+  }
+
+  function remember(url: string, fetchedAt: number, value: Promise<T>, sizeBytes: number): void {
+    cache.set(url, { fetchedAt, value, settled: true, sizeBytes });
+    touch(url, sizeBytes);
   }
 
   const refreshing = new Set<string>();
@@ -123,25 +166,62 @@ export function createFeedCache<T>(options: FeedCacheOptions<T>): (url: string) 
     const value = options
       .load(url)
       .then((loaded) => {
-        writeDisk(url, loaded);
-        cache.set(url, { fetchedAt: now(), value: Promise.resolve(loaded) });
+        const sizeBytes = writeDisk(url, loaded);
+        remember(url, now(), Promise.resolve(loaded), sizeBytes);
         return loaded;
       })
       .finally(() => refreshing.delete(url));
     return value;
   }
 
+  function serveStale(url: string, cached: CacheEntry<T> | undefined): Promise<T> | null {
+    const staleDisk = cached ? null : readDisk(url, null);
+    if (!cached && !staleDisk) return null;
+    if (!refreshing.has(url)) {
+      startRefresh(url).catch((error: unknown) => {
+        console.warn(`feed cache: background refresh of ${url} failed`, error);
+      });
+    }
+    // Don't bump fetchedAt to now — a completed refresh overwrites this
+    // entry; until then, keep serving stale without re-triggering.
+    const staleAt = now() - ttlMs + 60_000;
+    if (cached) {
+      if (cached.settled) remember(url, staleAt, cached.value, cached.sizeBytes);
+      else cache.set(url, { ...cached, fetchedAt: staleAt });
+      return cached.value;
+    }
+    const value = Promise.resolve((staleDisk as DiskHit<T>).value);
+    remember(url, staleAt, value, (staleDisk as DiskHit<T>).sizeBytes);
+    return value;
+  }
+
+  function firstFetch(url: string): Promise<T> {
+    const value = startRefresh(url).catch((error: unknown) => {
+      const recovered = readDisk(url, null);
+      if (recovered !== null) {
+        console.warn(`feed cache: serving stale copy of ${url} after fetch failure`, error);
+        remember(url, now(), Promise.resolve(recovered.value), recovered.sizeBytes);
+        return recovered.value;
+      }
+      cache.delete(url);
+      throw error;
+    });
+    cache.set(url, { fetchedAt: now(), value, settled: false, sizeBytes: 0 });
+    return value;
+  }
+
   return (url: string) => {
     const cached = cache.get(url);
     if (cached && now() - cached.fetchedAt < ttlMs) {
+      if (cached.settled) touch(url, cached.sizeBytes);
       return cached.value;
     }
 
-    // Cold start: a fresh disk copy substitutes for a fetch entirely
+    // Cold start (or evicted from memory): a fresh disk copy substitutes for a fetch
     const fromDisk = readDisk(url, ttlMs);
     if (fromDisk !== null) {
-      const value = Promise.resolve(fromDisk);
-      cache.set(url, { fetchedAt: now(), value });
+      const value = Promise.resolve(fromDisk.value);
+      remember(url, now(), value, fromDisk.sizeBytes);
       return value;
     }
 
@@ -149,32 +229,6 @@ export function createFeedCache<T>(options: FeedCacheOptions<T>): (url: string) 
     // (Dallas's LibraryCalendar). If ANY previous copy exists — expired
     // memory or any-age disk — serve it immediately and refresh in the
     // background; a user request never waits on a slow vendor.
-    const stale = cached?.value ?? null;
-    const staleDisk = stale === null ? readDisk(url, null) : null;
-    if (stale !== null || staleDisk !== null) {
-      if (!refreshing.has(url)) {
-        startRefresh(url).catch((error: unknown) => {
-          console.warn(`feed cache: background refresh of ${url} failed`, error);
-        });
-      }
-      const value = stale ?? Promise.resolve(staleDisk as T);
-      // Don't bump fetchedAt to now — a completed refresh overwrites this
-      // entry; until then, keep serving stale without re-triggering.
-      cache.set(url, { fetchedAt: now() - ttlMs + 60_000, value });
-      return value;
-    }
-
-    // First-ever fetch: nothing to serve, must block
-    const value = startRefresh(url).catch((error: unknown) => {
-      const recovered = readDisk(url, null);
-      if (recovered !== null) {
-        console.warn(`feed cache: serving stale copy of ${url} after fetch failure`, error);
-        return recovered;
-      }
-      cache.delete(url);
-      throw error;
-    });
-    cache.set(url, { fetchedAt: now(), value });
-    return value;
+    return serveStale(url, cached) ?? firstFetch(url);
   };
 }
